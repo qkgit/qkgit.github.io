@@ -4,6 +4,7 @@
     <title>Hello World</title>
     <url>/2020/04/29/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<a id="more"></a>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
@@ -22,6 +23,10 @@
     <title>记录第一次搭建博客</title>
     <url>/2020/04/30/%E8%AE%B0%E5%BD%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  每个人心中都有一个属于自己的博客，因为疫情在家无聊就想着来做一个自己的博客，于是在网上遍寻教程，经过n次失败，终于搭建成功！<br>  我用来搭建的工具是Hexo，是一个基于node.js的静态博客框架，生产静态网页托管在GitHub上(学生嘛  家境贫寒 )。</p>
+<a id="more"></a>
+
+
+
 <h2 id="windows平台步骤"><a href="#windows平台步骤" class="headerlink" title="windows平台步骤"></a>windows平台步骤</h2><ol>
 <li><strong>你需要一台可以上网的电脑</strong></li>
 <li><strong>安装Git</strong> </li>
