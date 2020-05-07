@@ -20,7 +20,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>记录第一次搭建博客</title>
+    <title>基于Hexo和Github搭建博客</title>
     <url>/2020/04/30/%E8%AE%B0%E5%BD%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  每个人心中都有一个属于自己的博客，因为疫情在家无聊就想着来做一个自己的博客，于是在网上遍寻教程，经过n次失败，终于搭建成功！<br>  我用来搭建的工具是Hexo，是一个基于node.js的静态博客框架，生产静态网页托管在GitHub上(学生嘛  家境贫寒 )。</p>
 <a id="more"></a>
@@ -50,5 +50,13 @@
 <h2 id="上传到GitHub"><a href="#上传到GitHub" class="headerlink" title="上传到GitHub"></a>上传到GitHub</h2><p>先安装一波：<kbd>cnpm install hexo-deployer-git --save</kbd>（这样才能将你写好的文章部署到github服务器上并让别人浏览到）<br>执行命令(建议每次都按照如下步骤部署)：<br><kbd>hexo clean<br>         hexo generate<br>         hexo deploy                 </kbd><br>         注意deploy的过程中要输入你的username及email 。按他给的格式执行后，再次执行上次命令。<br>         在浏览器中输入<kbd><a href="http://yourgithubname.github.io" target="_blank" rel="noopener">http://yourgithubname.github.io</a></kbd>就可以看到你的个人博客了。</p>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p> 以上是我折腾了两天才尝试出来的，如果有错请大佬提醒。主题我还在继续研究，等我弄好了再来发表安装主题的教程。</p>
 ]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>npm</tag>
+        <tag>hexo</tag>
+        <tag>github</tag>
+      </tags>
   </entry>
 </search>
