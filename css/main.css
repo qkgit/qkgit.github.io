@@ -343,7 +343,7 @@ td {
 .btn {
   background: var(--btn-default-bg);
   border: 2px solid var(--btn-default-border-color);
-  border-radius: 2px;
+  border-radius: 16px;
   color: var(--btn-default-color);
   display: inline-block;
   font-size: 0.875em;
@@ -636,22 +636,22 @@ pre .javascript .function {
   padding: 0 2px;
 }
 .post-body .label.default {
-  background: #f0f0f0;
+  background: #fff;
 }
 .post-body .label.primary {
-  background: #efe6f7;
+  background: #fefdfe;
 }
 .post-body .label.info {
-  background: #e5f2f8;
+  background: #fbfdfe;
 }
 .post-body .label.success {
-  background: #e7f4e9;
+  background: #fafdfb;
 }
 .post-body .label.warning {
-  background: #fcf6e1;
+  background: #fefcf6;
 }
 .post-body .label.danger {
-  background: #fae8eb;
+  background: #fffdfd;
 }
 .post-body .tabs {
   margin-bottom: 20px;
@@ -769,8 +769,8 @@ pre .javascript .function {
   margin-bottom: 20px;
   padding: 1em;
   position: relative;
-  border: 1px solid #eee;
-  border-left-width: 5px;
+  background: #f5f5f5;
+  border: 1px solid transparent;
 }
 .post-body .note h2,
 .post-body .note h3,
@@ -801,64 +801,94 @@ pre .javascript .function {
   margin-bottom: 0;
 }
 .post-body .note.default {
-  border-left-color: #777;
+  background: #fff;
+  border-color: #e1e1e1;
+  color: #666;
 }
-.post-body .note.default h2,
-.post-body .note.default h3,
-.post-body .note.default h4,
-.post-body .note.default h5,
-.post-body .note.default h6 {
-  color: #777;
+.post-body .note.default a:not(.btn),
+.post-body .note.default span.exturl:not(.btn) {
+  border-bottom: 1px solid #666;
+  color: #666;
+}
+.post-body .note.default a:not(.btn):hover,
+.post-body .note.default span.exturl:not(.btn):hover {
+  border-bottom: 1px solid #454545;
+  color: #454545;
 }
 .post-body .note.primary {
-  border-left-color: #6f42c1;
-}
-.post-body .note.primary h2,
-.post-body .note.primary h3,
-.post-body .note.primary h4,
-.post-body .note.primary h5,
-.post-body .note.primary h6 {
+  background: #fdf8ff;
+  border-color: #e1c2ff;
   color: #6f42c1;
 }
-.post-body .note.info {
-  border-left-color: #428bca;
+.post-body .note.primary a:not(.btn),
+.post-body .note.primary span.exturl:not(.btn) {
+  border-bottom: 1px solid #6f42c1;
+  color: #6f42c1;
 }
-.post-body .note.info h2,
-.post-body .note.info h3,
-.post-body .note.info h4,
-.post-body .note.info h5,
-.post-body .note.info h6 {
-  color: #428bca;
+.post-body .note.primary a:not(.btn):hover,
+.post-body .note.primary span.exturl:not(.btn):hover {
+  border-bottom: 1px solid #453298;
+  color: #453298;
+}
+.post-body .note.info {
+  background: #fdfeff;
+  border-color: #b3e5ef;
+  color: #31708f;
+}
+.post-body .note.info a:not(.btn),
+.post-body .note.info span.exturl:not(.btn) {
+  border-bottom: 1px solid #31708f;
+  color: #31708f;
+}
+.post-body .note.info a:not(.btn):hover,
+.post-body .note.info span.exturl:not(.btn):hover {
+  border-bottom: 1px solid #215761;
+  color: #215761;
 }
 .post-body .note.success {
-  border-left-color: #5cb85c;
+  background: #f9fcf7;
+  border-color: #d0e6be;
+  color: #3c763d;
 }
-.post-body .note.success h2,
-.post-body .note.success h3,
-.post-body .note.success h4,
-.post-body .note.success h5,
-.post-body .note.success h6 {
-  color: #5cb85c;
+.post-body .note.success a:not(.btn),
+.post-body .note.success span.exturl:not(.btn) {
+  border-bottom: 1px solid #3c763d;
+  color: #3c763d;
+}
+.post-body .note.success a:not(.btn):hover,
+.post-body .note.success span.exturl:not(.btn):hover {
+  border-bottom: 1px solid #32562c;
+  color: #32562c;
 }
 .post-body .note.warning {
-  border-left-color: #f0ad4e;
+  background: #fffdfb;
+  border-color: #fae4cd;
+  color: #8a6d3b;
 }
-.post-body .note.warning h2,
-.post-body .note.warning h3,
-.post-body .note.warning h4,
-.post-body .note.warning h5,
-.post-body .note.warning h6 {
-  color: #f0ad4e;
+.post-body .note.warning a:not(.btn),
+.post-body .note.warning span.exturl:not(.btn) {
+  border-bottom: 1px solid #8a6d3b;
+  color: #8a6d3b;
+}
+.post-body .note.warning a:not(.btn):hover,
+.post-body .note.warning span.exturl:not(.btn):hover {
+  border-bottom: 1px solid #714f30;
+  color: #714f30;
 }
 .post-body .note.danger {
-  border-left-color: #d9534f;
+  background: #fcf7f7;
+  border-color: #ebcdd2;
+  color: #a94442;
 }
-.post-body .note.danger h2,
-.post-body .note.danger h3,
-.post-body .note.danger h4,
-.post-body .note.danger h5,
-.post-body .note.danger h6 {
-  color: #d9534f;
+.post-body .note.danger a:not(.btn),
+.post-body .note.danger span.exturl:not(.btn) {
+  border-bottom: 1px solid #a94442;
+  color: #a94442;
+}
+.post-body .note.danger a:not(.btn):hover,
+.post-body .note.danger span.exturl:not(.btn):hover {
+  border-bottom: 1px solid #84333f;
+  color: #84333f;
 }
 .pagination .prev,
 .pagination .next,
@@ -1215,7 +1245,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #e9a1ff;
+  background: #637fff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
