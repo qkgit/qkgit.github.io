@@ -505,7 +505,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : false,
+      notify     : true,
       appId      : 'N2cbVqYWHSNSJHt9wnhDAhUM-gzGzoHsz',
       appKey     : 'LSEYd4SR4l5cVSEyf43cmPYV',
       placeholder: "留言是种美德，写点什么...",
@@ -515,7 +515,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       visitor    : false,
       lang       : 'zh-cn' || 'zh-cn',
       path       : location.pathname,
-      recordIP   : false,
+      recordIP   : true,
       serverURLs : ''
     });
   }, window.Valine);
