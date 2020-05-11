@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2020/04/29/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<a id="more"></a>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>markdown使用手册_基础篇</title>
-    <url>/2020/05/11/markdown%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</url>
+    <url>/2020/05/11/markdown%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C_%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
     <content><![CDATA[<hr>
+<blockquote>
+<p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。<br>markdown基本语法</p>
+</blockquote>
 <blockquote>
 <p>不说废话 直接来干货 反正也是我自己看</p>
 </blockquote>
-<h1 id="markdown基本语法"><a href="#markdown基本语法" class="headerlink" title="markdown基本语法"></a>markdown基本语法</h1><hr>
-<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><a href="#tab-1">样式</a></li><li class="tab"><a href="#tab-2">代码</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-1"><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5></div><div class="tab-pane" id="tab-2"><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br></pre></td></tr></table></figure></div></div></div>
+<a id="more"></a>
+<h2 id=""><a href="#" class="headerlink" title="===="></a>====</h2><h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><a href="#tab-1">样式</a></li><li class="tab"><a href="#tab-2">代码</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-1"><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5></div><div class="tab-pane" id="tab-2"><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br></pre></td></tr></table></figure></div></div></div>
 
 
 
@@ -77,7 +99,7 @@
 
 <h1 id="插入媒体与超链接"><a href="#插入媒体与超链接" class="headerlink" title="插入媒体与超链接"></a>插入媒体与超链接</h1><p>代码：</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">插入图片：</span><br><span class="line">![<span class="string">图片alt</span>](<span class="link">图片地址 "可选标题"</span>)</span><br><span class="line"></span><br><span class="line">插入视频等其他媒体：</span><br><span class="line">可以直接使用HTML的标签，也可以在现在主流媒体网站的分享选项中，找到插入的代码。CtrlC即可！</span><br><span class="line"></span><br><span class="line">超链接 和 邮箱地址：：</span><br><span class="line">[<span class="string">超链接名</span>](<span class="link">超链接Url "可选标题"</span>)</span><br><span class="line">或者</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">邮箱地址</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">注意：可选标题都可以不写，这是鼠标移上去显示的名称。</span><br><span class="line">Markdown语法不支持链接在新的标签页中打开，不过有些网站做了特殊处理，是可以的。有的平台可能就不行了，如果想要在新页面中打开的话可以用html语言的a标签代替。</span><br></pre></td></tr></table></figure>
-<p>效果：<br>图片：<br><img src="https://www.baidu.com/img/bd_logo1.png" alt="图片alt" title="百度"><br>超链接：<br><a href="https://www.baidu.com" target="_blank" rel="noopener" title="百度">百度</a><br>邮箱：<br><a href="mailto:&#x31;&#x35;&#56;&#52;&#x35;&#52;&#x36;&#55;&#54;&#x30;&#x40;&#113;&#x71;&#46;&#x63;&#111;&#x6d;">&#x31;&#x35;&#56;&#52;&#x35;&#52;&#x36;&#55;&#54;&#x30;&#x40;&#113;&#x71;&#46;&#x63;&#111;&#x6d;</a></p>
+<p>效果：<br>图片：<br><img src="https://www.baidu.com/img/bd_logo1.png" alt="图片alt" title="百度"><br>超链接：<br><a href="https://www.baidu.com" target="_blank" rel="noopener" title="百度">百度</a><br>邮箱：<br><a href="mailto:&#x31;&#53;&#56;&#x34;&#53;&#52;&#x36;&#55;&#54;&#x30;&#x40;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;">&#x31;&#53;&#56;&#x34;&#53;&#52;&#x36;&#55;&#54;&#x30;&#x40;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;</a></p>
 <h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><p>样式：</p>
 <table>
 <thead>
@@ -118,25 +140,6 @@
         <tag>hexo</tag>
         <tag>markdown</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/04/29/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>基于Hexo和Github搭建博客</title>
