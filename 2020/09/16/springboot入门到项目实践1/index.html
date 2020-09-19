@@ -22,18 +22,26 @@
     var CONFIG = {"hostname":"https","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="第一章Spring Boot入门">
+  <meta name="description" content="Spring Boot入门环境要求">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springboot入门到项目实践1">
 <meta property="og:url" content="http://https//qkgit.github.io/2020/09/16/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B51/index.html">
 <meta property="og:site_name" content="河北热心市民齐先生">
-<meta property="og:description" content="第一章Spring Boot入门">
+<meta property="og:description" content="Spring Boot入门环境要求">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/R8CXuSw%5ELYMD.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/G6aE4BbSG7D7.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/4!qwhzJzP0N@.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/vO9GaAxoAFGz.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/hzMzsOHXh4Wt.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/UMNmNhJs7Yz7.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/A1Y0bvwEGg54.png">
 <meta property="article:published_time" content="2020-09-16T07:21:50.453Z">
-<meta property="article:modified_time" content="2020-09-16T08:00:04.041Z">
+<meta property="article:modified_time" content="2020-09-19T07:51:28.692Z">
 <meta property="article:author" content="大王叫我来巡山">
 <meta property="article:tag" content="spring boot">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/R8CXuSw%5ELYMD.png">
 
 <link rel="canonical" href="http://https//qkgit.github.io/2020/09/16/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B51/">
 
@@ -219,10 +227,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-09-16 15:21:50 / 修改时间：16:00:04" itemprop="dateCreated datePublished" datetime="2020-09-16T15:21:50+08:00">2020-09-16</time>
+              <time title="创建时间：2020-09-16 15:21:50" itemprop="dateCreated datePublished" datetime="2020-09-16T15:21:50+08:00">2020-09-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-19 15:51:28" itemprop="dateModified" datetime="2020-09-19T15:51:28+08:00">2020-09-19</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -260,14 +274,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>15字</span>
+              <span>2.9k字</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -279,8 +293,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <hr>
-<h2 id="第一章Spring-Boot入门"><a href="#第一章Spring-Boot入门" class="headerlink" title="第一章Spring Boot入门"></a>第一章Spring Boot入门</h2>
+        <h2 id="Spring-Boot入门"><a href="#Spring-Boot入门" class="headerlink" title="Spring Boot入门"></a>Spring Boot入门</h2><h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><a id="more"></a>
+<ul>
+<li>jdk1.8</li>
+<li>Maven3.x</li>
+<li>IntelliJ IDEA</li>
+<li>Spring Boot</li>
+</ul>
+<h3 id="修改maven配置文件"><a href="#修改maven配置文件" class="headerlink" title="修改maven配置文件"></a>修改maven配置文件</h3><ul>
+<li>在maven目录conf文件夹下settings.xml配置文件添加如下内容<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--开始处更改下载依赖的存放路径， 以下目录需要已经创建--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>D:\javasource\maven-repository<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--在 mirrors 标签下 添加阿里云maven私服库--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 在 profiles 标签下指定jdk版本 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>jdk-1.8<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">jdk</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">jdk</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.compilerVersion</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.compilerVersion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="IntelliJ-IDEA设置"><a href="#IntelliJ-IDEA设置" class="headerlink" title="IntelliJ IDEA设置"></a>IntelliJ IDEA设置</h3></li>
+<li>添加maven环境<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/R8CXuSw^LYMD.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/R8CXuSw%5ELYMD.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/R8CXuSw^LYMD.png"></a></li>
+</ul>
+<h3 id="快速构建Spring-Boot项目"><a href="#快速构建Spring-Boot项目" class="headerlink" title="快速构建Spring Boot项目"></a>快速构建Spring Boot项目</h3><ul>
+<li>需求：浏览器发送/hello请求，服务器接收请求并处理，响应Hello World 字符串</li>
+<li>分析：构建Spring Boot项目，事实上建立的就是一个Maven项目<h4 id="创建Mven工程"><a href="#创建Mven工程" class="headerlink" title="创建Mven工程"></a>创建Mven工程</h4></li>
+<li>在IDEA上新建一个空的jar类型的maven工程<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/G6aE4BbSG7D7.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/G6aE4BbSG7D7.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/G6aE4BbSG7D7.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/4!qwhzJzP0N@.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/4!qwhzJzP0N@.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/4!qwhzJzP0N@.png"></a><h4 id="修改pom-xml文件"><a href="#修改pom-xml文件" class="headerlink" title="修改pom.xml文件"></a>修改pom.xml文件</h4></li>
+<li>在pom.xml中添加spring boot相关的父级依赖，<code>spring-boot-starter-parent</code>是一个特殊的starter，它提供了项目相关的默认依赖，使用它之后，常用的包依赖可以省去<code>version</code>标签</li>
+<li>在<code>dependencies</code>添加构建web项目相关的依赖<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>等待下载结束，会发现工程自动添加了很多jar包，这些jar包正是开发时需要导入的jar包<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/vO9GaAxoAFGz.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/vO9GaAxoAFGz.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/vO9GaAxoAFGz.png"></a></li>
+</ul>
+<h4 id="创建控制器Controller"><a href="#创建控制器Controller" class="headerlink" title="创建控制器Controller"></a>创建控制器Controller</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bdu.controller;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"helloWorld..."</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="创建一个引导类"><a href="#创建一个引导类" class="headerlink" title="创建一个引导类"></a>创建一个引导类</h4><ul>
+<li>主要作用是作为启动spring boot项目的入口<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bdu;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloMailAppliation</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        SpringApplication.run(HelloMailAppliation<span class="class">.<span class="keyword">class</span>,<span class="title">args</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h4></li>
+<li>运行引导类后，会出现如下一个标识<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/hzMzsOHXh4Wt.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/hzMzsOHXh4Wt.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/hzMzsOHXh4Wt.png"></a></li>
+<li>在浏览器地址输入 <code>localhost:8080/hello</code>即可看到运行结果<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/UMNmNhJs7Yz7.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/UMNmNhJs7Yz7.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/UMNmNhJs7Yz7.png"></a><h3 id="简化部署"><a href="#简化部署" class="headerlink" title="简化部署"></a>简化部署</h3></li>
+<li>在pom.xml添加如下插件后，将这个工程打成jar包后，可直接通过<code>java -jar</code>的命令运行<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--可以将当前项目打包成一个jar包进行运行--&gt;</span><br><span class="line">   &lt;build&gt;</span><br><span class="line">       &lt;plugins&gt;</span><br><span class="line">           &lt;plugin&gt;</span><br><span class="line">               &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">               &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br><span class="line">       &lt;/plugins&gt;</span><br><span class="line">   &lt;/build&gt;</span><br></pre></td></tr></table></figure></li>
+<li>如下操作进行打成jar包，从控制台可发现打成jar包所在目录<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/A1Y0bvwEGg54.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/A1Y0bvwEGg54.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/A1Y0bvwEGg54.png"></a></li>
+</ul>
+
     </div>
 
     
@@ -409,7 +451,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章Spring-Boot入门"><span class="nav-number">1.</span> <span class="nav-text">第一章Spring Boot入门</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot入门"><span class="nav-number">1.</span> <span class="nav-text">Spring Boot入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境要求"><span class="nav-number">1.1.</span> <span class="nav-text">环境要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改maven配置文件"><span class="nav-number">1.2.</span> <span class="nav-text">修改maven配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IntelliJ-IDEA设置"><span class="nav-number">1.3.</span> <span class="nav-text">IntelliJ IDEA设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速构建Spring-Boot项目"><span class="nav-number">1.4.</span> <span class="nav-text">快速构建Spring Boot项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建Mven工程"><span class="nav-number">1.4.1.</span> <span class="nav-text">创建Mven工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改pom-xml文件"><span class="nav-number">1.4.2.</span> <span class="nav-text">修改pom.xml文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建控制器Controller"><span class="nav-number">1.4.3.</span> <span class="nav-text">创建控制器Controller</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个引导类"><span class="nav-number">1.4.4.</span> <span class="nav-text">创建一个引导类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行效果"><span class="nav-number">1.4.5.</span> <span class="nav-text">运行效果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简化部署"><span class="nav-number">1.5.</span> <span class="nav-text">简化部署</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -502,13 +544,13 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
      
-    <span title="站点总字数">5k字</span>
+    <span title="站点总字数">8k字</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4 分钟</span>
+    <span title="站点阅读时长">7 分钟</span>
 </div>
 
 <!--
