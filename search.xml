@@ -1,214 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>springboot入门到项目实践2</title>
-    <url>/2020/09/19/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B52/</url>
-    <content><![CDATA[<h2 id="Sprng-Boot项目底层原理"><a href="#Sprng-Boot项目底层原理" class="headerlink" title="Sprng Boot项目底层原理"></a>Sprng Boot项目底层原理</h2><h3 id="pom-xml文件"><a href="#pom-xml文件" class="headerlink" title="pom.xml文件"></a>pom.xml文件</h3><a id="more"></a>
-
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!--当前hello项目的 父级依赖--&gt;</span><br><span class="line">&lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.06.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/parent&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>spring-boot-starter-parent</code>是当前项目的父级依赖<ol>
-<li><code>spring-boot-starter</code>:Spring Boot场景启动器，Spring Boot将所有的功能场景抽取出来，做成一个个starter（启动器），只需项目里引入相关场景的starter，就会将它所有依赖导入进来。要用什么功能就导入什么场景的启动器。（各种启动器可参见官方文档starter）</li>
-<li><code>spring-boot-starter-parent</code>:它父依赖<code>spring-boot-dependencies</code>,参见下面：<figure class="highlight"><table><tr><td class="code"><pre><span class="line"> &lt;!--spring-boot-starter-parent 的 父级依赖--&gt;</span><br><span class="line"> &lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.6.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;relativePath&gt;../../spring-boot-dependencies&lt;/relativePath&gt;</span><br><span class="line">&lt;/parent&gt;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li><code>spring-boot-dependencies</code>是管理了Spring Boot项目中的所有依赖版本<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/2tXn1rQ0!r1w.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/2tXn1rQ0!r1w.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/2tXn1rQ0!r1w.png"></a></li>
-<li>以后我们导入依赖默认不需要写版本号，也就是可以省去<code>version</code>标签。（当前没有在dependencies中管理的依赖自然需要声明版本号）</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>spring-boot-starter-web  <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>依赖导入了Web项目运行所需要的组件；如Tomcat/SpringMVC等</li>
-</ol>
-</li>
-</ul>
-<h3 id="引导类"><a href="#引导类" class="headerlink" title="引导类"></a>引导类</h3> <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mengxuegu;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">  *  @SpringBootApplication 用于标识一个引导类,说明当前是Spring Boot项目</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloMailAppliation</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">         SpringApplication.run(HelloMailAppliation<span class="class">.<span class="keyword">class</span>,<span class="title">args</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>通常有一个名为*Application的入口类，里面定义一个main方法，使用<code>SpringApplication.run(HelloMailAppliation.class, args);</code>来启动SpringBoot应用项目</p>
-</li>
-<li><p>@SpringBootApplication注解说明：</p>
-<ul>
-<li>标注在某个类上，说明这个类是spring boot的引导类，spring boot就应该运行这个类的main方法来启动SpringBoot应用；</li>
-<li>@SpringBootApplication是以下三个注解的总和：<ol>
-<li><code>@SpringBootConfiguration</code>:用于定义一个Spring Boot的配置类（配置类等同配置文件）<ul>
-<li>引用了@Configuration注解，是Spring底层的一个注解，用于定义Spring的配置类。</li>
-<li>配置类也是容器中的一个组件 @Component</li>
-</ul>
-</li>
-<li><code>EnableAutoConfiguration</code>:<ul>
-<li>告诉Spring Boot开启自动配置功能，这样Spring Boot会自动根据你导入的依赖jar包来自动配置项目。</li>
-<li>@AutoConfigurationPackage–》@Import({Registrar.class})<ul>
-<li>会将引导类(@SpringBootApplication标注的类)所在的包及下面所有子包里面的所有组件扫描到Spring容器;</li>
-</ul>
-</li>
-<li>@Import({AutoConfigurationImportSelector,class})<ul>
-<li>将所有需要导入的组件以全类名的方式返回;这些组件就会被添加到容器中</li>
-<li>会给容器导入非常多的自动配置类(xxxxAutoConfiguration),就是导入并配置好当前项目中所需的组件，省去我们手动编写配置去注入组件。</li>
-</ul>
-</li>
-<li>Spring Boot在启动的时候从(spring-boot-autoconfigure-2.0.6.RELEASE.jar)类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值，将这些值作为自动配置类导入到容器中，自动配置类就生效，帮我们进行自动配置工作； 以前我们需要自己配置的文件，自动配置类都帮我们完成了；</li>
-</ul>
-</li>
-<li><code>@ComponentScan</code>:该注解标识的类会被Spring自动扫描并且装入bean容器。</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="使用Spring初始化器创建Spring-Boot项目"><a href="#使用Spring初始化器创建Spring-Boot项目" class="headerlink" title="使用Spring初始化器创建Spring Boot项目"></a>使用Spring初始化器创建Spring Boot项目</h2><ul>
-<li><p>注：初始化向导需要联网创建Spring Boot项目<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/AG!vhJr4lkR*.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/AG!vhJr4lkR*.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/AG!vhJr4lkR*.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/ifwDvvi7gYn8.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/ifwDvvi7gYn8.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/ifwDvvi7gYn8.png"></a></p>
-</li>
-<li><p>引入功能模块<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/DbBbA2DRw*9i.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/DbBbA2DRw*9i.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/DbBbA2DRw*9i.png"></a></p>
-</li>
-<li><p>默认生成的Spring Boot项目：<br>  <a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/7FrynvD3FXSf.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/7FrynvD3FXSf.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/7FrynvD3FXSf.png"></a></p>
-<ul>
-<li>删除不需要的文件与目录，<code>spring-boot-starter-test</code>是Spring Boot单元测试模块</li>
-</ul>
-</li>
-<li><p>引导类已经生成了，我们只需要实现业务即可<br>  <a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zj7TyXMvIX^6.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Zj7TyXMvIX%5E6.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zj7TyXMvIX^6.png"></a></p>
-</li>
-<li><p><code>resources</code>文件夹中目录结构</p>
-<ul>
-<li><code>static</code>:保存所有静态资源文件，js css images</li>
-<li><code>templates</code>:保存所有的模板页面（Spring Boot默认jar包使用嵌入式的Tomcat，默认不支持JSP页面），可以使用模块引擎（freemarker、thymeleaf）</li>
-<li><code>application.properties</code>:Spring Boot应用的配置文件，可以修改一些默认配置如修改默认端口<code>server.prot=8081</code></li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>spring-boot</category>
-      </categories>
-      <tags>
-        <tag>spring boot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>markdown使用手册_基础篇</title>
-    <url>/2020/05/11/markdown%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C_%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。</p>
-</blockquote>
-<blockquote>
-<p>不说废话 直接来干货 反正也是我自己看</p>
-</blockquote>
-<a id="more"></a>
-
-
-<hr>
-<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><a href="#tab-1">样式</a></li><li class="tab"><a href="#tab-2">代码</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-1"><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5></div><div class="tab-pane" id="tab-2"><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br></pre></td></tr></table></figure></div></div></div>
-
-
-
-<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>样式:</p>
-<blockquote>
-<p>一级引用</p>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>二级引用</p>
-</blockquote>
-</blockquote>
-<p>嵌套引用</p>
-<blockquote>
-<p>1    </p>
-<blockquote>
-<p>2</p>
-<blockquote>
-<p>3</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>代码:</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">&gt; 一级引用</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;</span> 二级引用</span><br><span class="line"></span><br><span class="line">嵌套引用</span><br><span class="line">&gt;<span class="number">1</span>    </span><br><span class="line"><span class="meta">&gt;&gt;</span><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt;<span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="字体与分割线"><a href="#字体与分割线" class="headerlink" title="字体与分割线"></a>字体与分割线</h1><p>样式：<br>分割线：</p>
-<hr>
-<h2 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a><strong>粗体</strong></h2><h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a><em>斜体</em></h2><h2 id="斜体加粗"><a href="#斜体加粗" class="headerlink" title="斜体加粗"></a><strong><em>斜体加粗</em></strong></h2><h2 id="键盘体"><a href="#键盘体" class="headerlink" title="键盘体"></a><kbd>键盘体</kbd></h2><h2 id="加框文字-这是不加框的文字"><a href="#加框文字-这是不加框的文字" class="headerlink" title="加框文字 这是不加框的文字"></a><code>加框文字</code> 这是不加框的文字</h2><h2 id="行内代码println-a-println-a"><a href="#行内代码println-a-println-a" class="headerlink" title="行内代码println(a); println(a);"></a>行内代码<code>println(a);</code> println(a);</h2><h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a><del>删除线</del></h2><h2 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a><ins>下划线</ins></h2><p>代码：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**粗体**</span> 或者 <span class="strong">__粗体__</span></span><br><span class="line"></span><br><span class="line"><span class="emphasis">*斜体*</span> 或者 <span class="emphasis">_斜体_</span></span><br><span class="line"></span><br><span class="line"><span class="strong">***斜体加粗**</span>* 或者  <span class="strong">___斜体加粗__</span>_</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>键盘体<span class="xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span> (html标签)</span><br><span class="line"></span><br><span class="line"><span class="code">`加框文字`</span></span><br><span class="line"></span><br><span class="line"><span class="code">``行内代码`</span>`</span><br><span class="line"></span><br><span class="line">~~删除线~~</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">ins</span>&gt;</span></span>下划线<span class="xml"><span class="tag">&lt;/<span class="name">ins</span>&gt;</span></span> (html标签)</span><br><span class="line"></span><br><span class="line">分割线：使用三个或者三个以上的(-)或者(*)</span><br><span class="line">例如：  ---   或者  <span class="emphasis">***</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p>无序列表样式：</p>
-<ul>
-<li>列表内容A</li>
-</ul>
-<ul>
-<li>列表内容B</li>
-</ul>
-<ul>
-<li>列表内容C</li>
-</ul>
-<p>有序列表样式：</p>
-<ol>
-<li>列表内容1</li>
-<li>列表内容2</li>
-<li>列表内容3</li>
-</ol>
-<p>列表嵌套：只要在上一级和下一级之间敲三个空格即可<br>（同类型和不同类型的列表都可以嵌套）<br>例如：</p>
-<ul>
-<li>一级列表A<ol>
-<li>二级列表1</li>
-<li>二级列表2</li>
-<li>二级列表3</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li>一级列表B<ol>
-<li>二级列表1</li>
-<li>二级列表2</li>
-<li>二级列表3</li>
-</ol>
-</li>
-</ul>
-<p>代码：</p>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">无序列表用+ - * 任何一种都可以</span><br><span class="line">- 列表内容A</span><br><span class="line">+ 列表内容B</span><br><span class="line">* 列表内容C</span><br><span class="line"></span><br><span class="line">有序列表用 数字+.的形式</span><br><span class="line"><span class="number">1.</span> 列表内容<span class="number">1</span></span><br><span class="line"><span class="number">2.</span> 列表内容<span class="number">2</span></span><br><span class="line"><span class="number">3.</span> 列表内容<span class="number">3</span></span><br><span class="line"></span><br><span class="line">列表嵌套：只要在上一级和下一级之间敲三个空格即可</span><br><span class="line">（同类型和不同类型的列表都可以嵌套）</span><br><span class="line">例如：</span><br><span class="line">* 一级列表A</span><br><span class="line">   <span class="number">1.</span> 二级列表<span class="number">1</span></span><br><span class="line">   <span class="number">2.</span> 二级列表<span class="number">2</span></span><br><span class="line">   <span class="number">3.</span> 二级列表<span class="number">3</span></span><br><span class="line">- 一级列表B</span><br><span class="line">   <span class="number">1.</span> 二级列表<span class="number">1</span></span><br><span class="line">   <span class="number">2.</span> 二级列表<span class="number">2</span></span><br><span class="line">   <span class="number">3.</span> 二级列表<span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="插入媒体与超链接"><a href="#插入媒体与超链接" class="headerlink" title="插入媒体与超链接"></a>插入媒体与超链接</h1><p>代码：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">插入图片：</span><br><span class="line">![<span class="string">图片描述</span>](<span class="link">图片地址 "可选标题"</span>)</span><br><span class="line"></span><br><span class="line">插入视频等其他媒体：</span><br><span class="line">可以直接使用HTML的标签，也可以在现在主流媒体网站的分享选项中，找到插入的代码。CtrlC即可！</span><br><span class="line"></span><br><span class="line">超链接 和 邮箱地址：：</span><br><span class="line">[<span class="string">超链接名</span>](<span class="link">超链接Url "可选标题"</span>)</span><br><span class="line">或者</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">邮箱地址</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">注意：可选标题都可以不写，这是鼠标移上去显示的名称。</span><br><span class="line">Markdown语法不支持链接在新的标签页中打开，不过有些网站做了特殊处理，是可以的。有的平台可能就不行了，如果想要在新页面中打开的话可以用html语言的a标签代替。</span><br></pre></td></tr></table></figure>
-<p>效果：<br>图片：<br><img src="https://www.baidu.com/img/bd_logo1.png" alt="图片描述" title="百度"><br>超链接：<br><a href="https://www.baidu.com" target="_blank" rel="noopener" title="百度">百度</a><br>邮箱：<br><a href="mailto:&#49;&#53;&#56;&#x34;&#x35;&#x34;&#54;&#55;&#54;&#48;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#109;">&#49;&#53;&#56;&#x34;&#x35;&#x34;&#54;&#55;&#54;&#48;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#109;</a></p>
-<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><p>样式：</p>
-<table>
-<thead>
-<tr>
-<th align="left">表头A</th>
-<th align="center">表头B</th>
-<th align="right">表头C</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">内容居左</td>
-<td align="center">内容居中</td>
-<td align="right">内容居右</td>
-</tr>
-<tr>
-<td align="left">内容居左</td>
-<td align="center">内容居中</td>
-<td align="right">内容居右</td>
-</tr>
-</tbody></table>
-<p>代码:</p>
-<figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">|<span class="string">表头A</span>|<span class="string">表头B</span>|<span class="string">表头C</span>|</span><br><span class="line">|<span class="string">:--</span>|<span class="string">:--:</span>|<span class="string">--:</span>|</span><br><span class="line">|<span class="string">内容居左</span>|<span class="string">内容居中</span>|<span class="string">内容居右</span>|</span><br><span class="line">|<span class="string">内容居左</span>|<span class="string">内容居中</span>|<span class="string">内容居右</span>|</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容。</span><br><span class="line">- 有一个就行，为了对齐，有时候可以多加几个，不过有可能有些编辑器会出问题。</span><br><span class="line">文字默认居左</span><br><span class="line">-两边加：表示文字居中</span><br><span class="line">-右边加：表示文字居右</span><br><span class="line">注：原生的语法两边都要用 |<span class="string"> 包起来。也可以省略。</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><p>样式：</p>
-<figure class="highlight java"><figcaption><span>这是代码</span><a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       System.out.println(<span class="string">"Hello World"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>代码：</p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">&#123;```&#125;[指定一种语言（也可以不指定）] [title] [url] [link <span class="built_in">text</span>]</span><br><span class="line">（常见的支持：HTML、C、C#、CSS、Delphi、Java、JavaScript、JSON、Php、Python、Shell、SQL、XML、Matlab、GO等等还有很多）</span><br><span class="line">例如：</span><br><span class="line">&#123;```&#125;Java 这是代码 https:<span class="comment">//www.baidu.com 百度</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">String</span>[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       System.out.<span class="built_in">println</span>(<span class="string">"Hello World"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">&#123;```&#125;</span><br><span class="line">使用时去掉大括号</span><br><span class="line"></span><br><span class="line">或者代码区块使用 <span class="number">4</span> 个空格或者一个制表符（Tab 键）</span><br></pre></td></tr></table></figure>
-
-<h1 id="其他补充"><a href="#其他补充" class="headerlink" title="其他补充"></a>其他补充</h1><p>MarkDown 还有<del>脚注（[^ 要注明的文本]）</del>（没试出来不知道是不是写的有啥问题），</p>
-<p>使用反斜杠、感叹号、花括号进行  <strong><u><span class="label danger">转义</span></u></strong> 等等，</p>
-<p>这些之外，他还全面支持 <strong><u><span class="label danger">HTML标签</span></u></strong>，有些时候也可以使用 HTML 标签来编写文档。</p>
-<p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 $$ 包裹 TeX 或 LaTeX 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 Mathjax <strong><u><span class="label danger">对数学公式进行渲染</span></u></strong> </p>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>springboot入门到项目实践1</title>
     <url>/2020/09/16/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B51/</url>
     <content><![CDATA[<h2 id="Spring-Boot入门"><a href="#Spring-Boot入门" class="headerlink" title="Spring Boot入门"></a>Spring Boot入门</h2><h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><a id="more"></a>
@@ -328,8 +120,28 @@
 <li><p>2.<code>@PropertySource</code>:加载指定的配置文件；value属性是数组类型，用于指定文件位置</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@PropertySource</span>(value = &#123;<span class="string">"classpath:emp.properties"</span>&#125;)</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"emp"</span>)</span><br><span class="line"><span class="meta">@Validated</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Emp</span> </span>&#123;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 类似于 Spring 中的 xml 配制文件中的数据注入方式：</span></span><br><span class="line"><span class="comment">* &lt;bean class="Emp"&gt;</span></span><br><span class="line"><span class="comment">* &lt;property name="name" value="普通数据类型/ #&#123;SpEL&#125;Spring表达式/ $&#123;key&#125;从配制文件取值"&gt;</span></span><br><span class="line"><span class="comment">* &lt;/property&gt;</span></span><br><span class="line"><span class="comment">* &lt;/bean&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">// @Value("$&#123;emp.last-name&#125;")</span></span><br><span class="line"><span class="comment">//@Email</span></span><br><span class="line"><span class="keyword">private</span> String lastName;</span><br><span class="line"><span class="comment">// @Value("#&#123;10*2&#125;")</span></span><br><span class="line"><span class="keyword">private</span> Integer age;</span><br><span class="line"><span class="comment">// @Value("8000")</span></span><br><span class="line"><span class="keyword">private</span> Double salary;</span><br><span class="line"><span class="keyword">private</span> Boolean boss;</span><br><span class="line"><span class="keyword">private</span> Date birthday;</span><br><span class="line"><span class="keyword">private</span> Map map;</span><br><span class="line"><span class="keyword">private</span> List list;</span><br><span class="line"><span class="comment">//特长</span></span><br><span class="line"><span class="keyword">private</span> Forte forte;</span><br></pre></td></tr></table></figure>
 
-
-
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="ImportResource使用xml配置"><a href="#ImportResource使用xml配置" class="headerlink" title="@ImportResource使用xml配置"></a><code>@ImportResource</code>使用xml配置</h4><ul>
+<li>SpringBoot提倡零配置，即无xml配置，但是在实际开发中可能有一些特殊要求必须使用xml配置；这时我们可以通过Spring提供的<code>@ImportResource</code>来加载xml配置文件。<br /></li>
+<li><code>@ImportResource</code>:加载Spring的xml配置文件内容加载到容器使用<ul>
+<li>创建业务类：<code>com.bdu.springbooot.service.EmpService</code><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EmpService</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"add()......."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>创建resources/spring01.xml文件，添加一下内容<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"empService"</span> <span class="attr">class</span>=<span class="string">"com.bdu.springboot.service.EmpService"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>将Spring的配置文件加载到容器中，使用<code>@ImportRescource</code>标注在一个配置类上，下面是主配置类<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ImportResource</span>(locations = &#123;<span class="string">"classpath:spring01.xml"</span>&#125;)</span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringBoot01HelloInitApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(SpringBoot01HelloInitApplication<span class="class">.<span class="keyword">class</span>, <span class="title">args</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>单元测试<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SpringBoot01HelloInitApplicationTests</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    ApplicationContext context;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testXml</span><span class="params">()</span></span>&#123;</span><br><span class="line">        EmpService empService = (EmpService) context.getBean(<span class="string">"empService"</span>);</span><br><span class="line">        System.out.println(empService);</span><br><span class="line">        empService.add();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    Emp emp;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(emp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>结果<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/oXQMKe7!MWce.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/oXQMKe7!MWce.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/oXQMKe7!MWce.png"></a></li>
+</ul>
+</li>
+</ul>
+<h4 id="自定义配置类向容器注入组件"><a href="#自定义配置类向容器注入组件" class="headerlink" title="自定义配置类向容器注入组件"></a>自定义配置类向容器注入组件</h4><ul>
+<li>Spring Boot推荐使用注解的方式向容器中注入组件，操作如下：<ul>
+<li>创建配置类<code>springboot.config.EmpConfig</code></li>
+<li>使用<code>@Configuration</code>配置类，来表示对应Spring配置文件</li>
+<li>使用<code>@Bean</code>向容器中注入组件对象</li>
+<li>把上面<code>@importResource</code>注解注释掉测试<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@author</span> Qi</span></span><br><span class="line"><span class="comment">* <span class="doctag">@data</span> 2020/9/25 23:16</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Configuration</span> 他是spring里的注解，用于标识当前类是一个配置类，来表示对应spring配置文件</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EmpConfig</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 1.返回值就是注入容器的组件对象</span></span><br><span class="line"><span class="comment">    * 2.方法名就是这个组件的id值</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@Bean</span> 标识的方法用于向容器中注入组件</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> EmpService <span class="title">empService2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"EmpService组件注入成功"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> EmpService();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>再次测试<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SpringBoot01HelloInitApplicationTests</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    ApplicationContext context;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testXml</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//        EmpService empService = (EmpService) context.getBean("empService");</span></span><br><span class="line"><span class="comment">//        System.out.println(empService);</span></span><br><span class="line"><span class="comment">//        empService.add();</span></span><br><span class="line">        EmpService empService2 = (EmpService) context.getBean(<span class="string">"empService2"</span>);</span><br><span class="line">     System.out.println(<span class="string">"empService2"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -349,62 +161,127 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/04/29/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>基于Hexo和Github搭建博客</title>
-    <url>/2020/04/30/%E8%AE%B0%E5%BD%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  每个人心中都有一个属于自己的博客，因为疫情在家无聊就想着来做一个自己的博客，于是在网上遍寻教程，经过n次失败，终于搭建成功！<br>  我用来搭建的工具是Hexo，是一个基于node.js的静态博客框架，生产静态网页托管在GitHub上(学生嘛  家境贫寒 )。</p>
+    <title>markdown使用手册_基础篇</title>
+    <url>/2020/05/11/markdown%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C_%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。</p>
+</blockquote>
+<blockquote>
+<p>不说废话 直接来干货 反正也是我自己看</p>
+</blockquote>
 <a id="more"></a>
 
 
+<hr>
+<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><a href="#tab-1">样式</a></li><li class="tab"><a href="#tab-2">代码</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-1"><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5></div><div class="tab-pane" id="tab-2"><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br></pre></td></tr></table></figure></div></div></div>
 
-<h2 id="windows平台步骤"><a href="#windows平台步骤" class="headerlink" title="windows平台步骤"></a>windows平台步骤</h2><ol>
-<li><strong>你需要一台可以上网的电脑</strong></li>
-<li><strong>安装Git</strong> </li>
-<li><strong>安装Node.Js</strong> </li>
-<li><strong>安装Hexo</strong> </li>
-<li><strong>注册GitHub账号，并创建项目</strong></li>
-<li><strong>生成SSH并添加到GitHub</strong></li>
-<li><strong>上传到GitHub</strong></li>
-</ol>
-<h2 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1.安装Git"></a>1.安装Git</h2><p>到Git官网下载，网站地址：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
-<p>安装步骤：双击下载好的exe文件，一路next就好了<br>如果想知道具体步骤请<a href="https://www.cnblogs.com/xueweisuoyong/p/11914045.html" target="_blank" rel="noopener">移步</a></p>
-<p>安装好后，打开gitbash，查看版本：    命令<kbd>git version</kbd><br>             <img src="https://img-blog.csdnimg.cn/20200429181755676.png#pic_center" alt="在这里插入图片描述"><br>如果返回了版本号，那就说明git安装成功了。</p>
-<h2 id="2-安装Node-Js"><a href="#2-安装Node-Js" class="headerlink" title="2.安装Node.Js"></a>2.安装Node.Js</h2><p>到Node.Js官网下载，网址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a><br>安装步骤与git一致，打开gitbash，查看版本：    命令<kbd>node -v</kbd><br><img src="https://img-blog.csdnimg.cn/20200429183634197.png#pic_center" alt="在这里插入图片描述"><br><strong>与git不同的是安装完后要配置一下</strong><br>NodeJS和NPM安装好了以后并不能直接使用，默认情况下，NPM安装的模块并不会安装到NodeJS的程序目录，比如我们安装的时候设置的D盘，“D:\Program Files\nodejs”，而我们使用npm安装一个cluster模块他会出现在C盘默认的路径下面，所以，如果我们不修改npm的模块安装目录，那么它默认情况下都会安装到这里，随着你测试开发各种不同的项目，安装的模块越来越多，这个文件夹的体积就会越来越大，直到占满你的C盘。所以我们要修改npm的配置。</p>
+
+
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>样式:</p>
+<blockquote>
+<p>一级引用</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>二级引用</p>
+</blockquote>
+</blockquote>
+<p>嵌套引用</p>
+<blockquote>
+<p>1    </p>
+<blockquote>
+<p>2</p>
+<blockquote>
+<p>3</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>代码:</p>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">&gt; 一级引用</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;</span> 二级引用</span><br><span class="line"></span><br><span class="line">嵌套引用</span><br><span class="line">&gt;<span class="number">1</span>    </span><br><span class="line"><span class="meta">&gt;&gt;</span><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt;<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="字体与分割线"><a href="#字体与分割线" class="headerlink" title="字体与分割线"></a>字体与分割线</h1><p>样式：<br>分割线：</p>
+<hr>
+<h2 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a><strong>粗体</strong></h2><h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a><em>斜体</em></h2><h2 id="斜体加粗"><a href="#斜体加粗" class="headerlink" title="斜体加粗"></a><strong><em>斜体加粗</em></strong></h2><h2 id="键盘体"><a href="#键盘体" class="headerlink" title="键盘体"></a><kbd>键盘体</kbd></h2><h2 id="加框文字-这是不加框的文字"><a href="#加框文字-这是不加框的文字" class="headerlink" title="加框文字 这是不加框的文字"></a><code>加框文字</code> 这是不加框的文字</h2><h2 id="行内代码println-a-println-a"><a href="#行内代码println-a-println-a" class="headerlink" title="行内代码println(a); println(a);"></a>行内代码<code>println(a);</code> println(a);</h2><h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a><del>删除线</del></h2><h2 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a><ins>下划线</ins></h2><p>代码：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**粗体**</span> 或者 <span class="strong">__粗体__</span></span><br><span class="line"></span><br><span class="line"><span class="emphasis">*斜体*</span> 或者 <span class="emphasis">_斜体_</span></span><br><span class="line"></span><br><span class="line"><span class="strong">***斜体加粗**</span>* 或者  <span class="strong">___斜体加粗__</span>_</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>键盘体<span class="xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span> (html标签)</span><br><span class="line"></span><br><span class="line"><span class="code">`加框文字`</span></span><br><span class="line"></span><br><span class="line"><span class="code">``行内代码`</span>`</span><br><span class="line"></span><br><span class="line">~~删除线~~</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">ins</span>&gt;</span></span>下划线<span class="xml"><span class="tag">&lt;/<span class="name">ins</span>&gt;</span></span> (html标签)</span><br><span class="line"></span><br><span class="line">分割线：使用三个或者三个以上的(-)或者(*)</span><br><span class="line">例如：  ---   或者  <span class="emphasis">***</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p>无序列表样式：</p>
+<ul>
+<li>列表内容A</li>
+</ul>
+<ul>
+<li>列表内容B</li>
+</ul>
+<ul>
+<li>列表内容C</li>
+</ul>
+<p>有序列表样式：</p>
 <ol>
-<li>在nodejs文件夹下，创建两个为文件夹： <strong>node_global   和 node_cecal</strong></li>
-<li>使用下面命令将npm的全局模块目录和缓存目录配置到我们刚才创建的那两个目录<br><strong>npm config set prefix “node_global文件的路径”<br>npm config set cache “node_cache的文件路径”</strong><br>例如：npm config set prefix “D:\Program Files\nodejs\node_global”</li>
-<li>高级系统设置——环境变量<br>新增系统变量：<br>变量名填：NODE_PATH<br>变量值填：（文件路径）<br><img src="https://img-blog.csdnimg.cn/20200429184305532.png#pic_center" alt="在这里插入图片描述"><br>还需要在Path变量名中修改nodejs文件默认路径<br><img src="https://img-blog.csdnimg.cn/20200429184634355.png#pic_center" alt="在这里插入图片描述"><br>修改完成后测试：<br>输入命令：node 回车——再输入 require(‘cluster’)<br><img src="https://img-blog.csdnimg.cn/20200429184809318.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>出现以上内容说明配置完成<h2 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h2>首先安装国内淘宝镜像源<kbd>npm install -g cnpm --registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></kbd><br>等待安装完成后就可以用<em>cnpm</em>来安装hexo博客了<br>命令：<kbd>cnpm install -g hexo-cli</kbd><br>安装完成后用<kbd>hexo -v</kbd>来验证一下<br><img src="https://img-blog.csdnimg.cn/20200429190627868.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后创建一个你用来存放博客的文件夹，cd到该目录下,初始化命令<kbd>hexo init</kbd>初始化完成后会在该文件夹下看到以下文件：<br><img src="https://img-blog.csdnimg.cn/20200429191123488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>这就安装完成了  输入<kbd>hexo s</kbd>就可以实现本地访问了  <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><h2 id="4-注册GitHub账户-并创建项目"><a href="#4-注册GitHub账户-并创建项目" class="headerlink" title="4.注册GitHub账户 并创建项目"></a>4.注册GitHub账户 并创建项目</h2>创建一个GitHub账号，创建一个repo，名称为<kbd>yourname.github.io</kbd>,其中yourname是你的github名称，如下：<br><img src="https://img-blog.csdnimg.cn/20200429191447405.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200429192035385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+<li>列表内容1</li>
+<li>列表内容2</li>
+<li>列表内容3</li>
 </ol>
-<h2 id="5-生成SSH并添加到GitHub"><a href="#5-生成SSH并添加到GitHub" class="headerlink" title="5.生成SSH并添加到GitHub"></a>5.生成SSH并添加到GitHub</h2><p>回到gitbash中.在gitbash中输入：<kbd>ssh-keygen -t rsa -C "你注册GitHub的邮箱”</kbd>，生产SSH，然后在C盘用户目录下找到 <strong>.ssh</strong>文件夹 ，用记事本打开<strong>id_rsa.pub</strong>将上面获取的ssh放到github中：<img src="https://img-blog.csdnimg.cn/20200429192947175.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>添加一个 <strong>New SSH key</strong> ，title随便取，key就填刚刚那一段。<br>在gitbash中验证是否添加成功：<kbd>ssh -T <a href="mailto:git@github.com">git@github.com</a></kbd></p>
-<p>用编辑器打开你的blog项目，修改 <strong>_config.yml</strong> 文件的一些配置(冒号之后都是有一个半角空格的)<br><kbd>deploy:<br>  type: git<br>  repo: <a href="mailto:git@github.com">git@github.com</a>:yourname/yourname.github.io.git(这个地方填你新建GitHub项目的ssh地址)<br>  branch: master</kbd><br>回到gitbash中，进入你的blog目录，分别执行以下命令：<br><kbd>hexo clean<br>hexo generate<br>hexo serverr</kbd></p>
-<h2 id="6-上传到GitHub"><a href="#6-上传到GitHub" class="headerlink" title="6.上传到GitHub"></a>6.上传到GitHub</h2><p>先安装一波：<kbd>cnpm install hexo-deployer-git --save</kbd>（这样才能将你写好的文章部署到github服务器上并让别人浏览到）<br>执行命令(建议每次都按照如下步骤部署)：<br><kbd>hexo clean<br>         hexo generate<br>         hexo deploy                 </kbd><br>         注意deploy的过程中要输入你的username及email 。按他给的格式执行后，再次执行上次命令。<br>         在浏览器中输入<kbd><a href="http://yourgithubname.github.io" target="_blank" rel="noopener">http://yourgithubname.github.io</a></kbd>就可以看到你的个人博客了。</p>
-<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p> 以上是我折腾了两天才尝试出来的，如果有错请大佬提醒。主题我还在继续研究，等我弄好了再来发表安装主题的教程。</p>
+<p>列表嵌套：只要在上一级和下一级之间敲三个空格即可<br>（同类型和不同类型的列表都可以嵌套）<br>例如：</p>
+<ul>
+<li>一级列表A<ol>
+<li>二级列表1</li>
+<li>二级列表2</li>
+<li>二级列表3</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>一级列表B<ol>
+<li>二级列表1</li>
+<li>二级列表2</li>
+<li>二级列表3</li>
+</ol>
+</li>
+</ul>
+<p>代码：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">无序列表用+ - * 任何一种都可以</span><br><span class="line">- 列表内容A</span><br><span class="line">+ 列表内容B</span><br><span class="line">* 列表内容C</span><br><span class="line"></span><br><span class="line">有序列表用 数字+.的形式</span><br><span class="line"><span class="number">1.</span> 列表内容<span class="number">1</span></span><br><span class="line"><span class="number">2.</span> 列表内容<span class="number">2</span></span><br><span class="line"><span class="number">3.</span> 列表内容<span class="number">3</span></span><br><span class="line"></span><br><span class="line">列表嵌套：只要在上一级和下一级之间敲三个空格即可</span><br><span class="line">（同类型和不同类型的列表都可以嵌套）</span><br><span class="line">例如：</span><br><span class="line">* 一级列表A</span><br><span class="line">   <span class="number">1.</span> 二级列表<span class="number">1</span></span><br><span class="line">   <span class="number">2.</span> 二级列表<span class="number">2</span></span><br><span class="line">   <span class="number">3.</span> 二级列表<span class="number">3</span></span><br><span class="line">- 一级列表B</span><br><span class="line">   <span class="number">1.</span> 二级列表<span class="number">1</span></span><br><span class="line">   <span class="number">2.</span> 二级列表<span class="number">2</span></span><br><span class="line">   <span class="number">3.</span> 二级列表<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="插入媒体与超链接"><a href="#插入媒体与超链接" class="headerlink" title="插入媒体与超链接"></a>插入媒体与超链接</h1><p>代码：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">插入图片：</span><br><span class="line">![<span class="string">图片描述</span>](<span class="link">图片地址 "可选标题"</span>)</span><br><span class="line"></span><br><span class="line">插入视频等其他媒体：</span><br><span class="line">可以直接使用HTML的标签，也可以在现在主流媒体网站的分享选项中，找到插入的代码。CtrlC即可！</span><br><span class="line"></span><br><span class="line">超链接 和 邮箱地址：：</span><br><span class="line">[<span class="string">超链接名</span>](<span class="link">超链接Url "可选标题"</span>)</span><br><span class="line">或者</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">邮箱地址</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">注意：可选标题都可以不写，这是鼠标移上去显示的名称。</span><br><span class="line">Markdown语法不支持链接在新的标签页中打开，不过有些网站做了特殊处理，是可以的。有的平台可能就不行了，如果想要在新页面中打开的话可以用html语言的a标签代替。</span><br></pre></td></tr></table></figure>
+<p>效果：<br>图片：<br><img src="https://www.baidu.com/img/bd_logo1.png" alt="图片描述" title="百度"><br>超链接：<br><a href="https://www.baidu.com" target="_blank" rel="noopener" title="百度">百度</a><br>邮箱：<br><a href="mailto:&#49;&#53;&#56;&#52;&#53;&#52;&#54;&#55;&#54;&#x30;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#109;">&#49;&#53;&#56;&#52;&#53;&#52;&#54;&#55;&#54;&#x30;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#109;</a></p>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><p>样式：</p>
+<table>
+<thead>
+<tr>
+<th align="left">表头A</th>
+<th align="center">表头B</th>
+<th align="right">表头C</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">内容居左</td>
+<td align="center">内容居中</td>
+<td align="right">内容居右</td>
+</tr>
+<tr>
+<td align="left">内容居左</td>
+<td align="center">内容居中</td>
+<td align="right">内容居右</td>
+</tr>
+</tbody></table>
+<p>代码:</p>
+<figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">|<span class="string">表头A</span>|<span class="string">表头B</span>|<span class="string">表头C</span>|</span><br><span class="line">|<span class="string">:--</span>|<span class="string">:--:</span>|<span class="string">--:</span>|</span><br><span class="line">|<span class="string">内容居左</span>|<span class="string">内容居中</span>|<span class="string">内容居右</span>|</span><br><span class="line">|<span class="string">内容居左</span>|<span class="string">内容居中</span>|<span class="string">内容居右</span>|</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容。</span><br><span class="line">- 有一个就行，为了对齐，有时候可以多加几个，不过有可能有些编辑器会出问题。</span><br><span class="line">文字默认居左</span><br><span class="line">-两边加：表示文字居中</span><br><span class="line">-右边加：表示文字居右</span><br><span class="line">注：原生的语法两边都要用 |<span class="string"> 包起来。也可以省略。</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><p>样式：</p>
+<figure class="highlight java"><figcaption><span>这是代码</span><a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       System.out.println(<span class="string">"Hello World"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码：</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">&#123;```&#125;[指定一种语言（也可以不指定）] [title] [url] [link <span class="built_in">text</span>]</span><br><span class="line">（常见的支持：HTML、C、C#、CSS、Delphi、Java、JavaScript、JSON、Php、Python、Shell、SQL、XML、Matlab、GO等等还有很多）</span><br><span class="line">例如：</span><br><span class="line">&#123;```&#125;Java 这是代码 https:<span class="comment">//www.baidu.com 百度</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">String</span>[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       System.out.<span class="built_in">println</span>(<span class="string">"Hello World"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">&#123;```&#125;</span><br><span class="line">使用时去掉大括号</span><br><span class="line"></span><br><span class="line">或者代码区块使用 <span class="number">4</span> 个空格或者一个制表符（Tab 键）</span><br></pre></td></tr></table></figure>
+
+<h1 id="其他补充"><a href="#其他补充" class="headerlink" title="其他补充"></a>其他补充</h1><p>MarkDown 还有<del>脚注（[^ 要注明的文本]）</del>（没试出来不知道是不是写的有啥问题），</p>
+<p>使用反斜杠、感叹号、花括号进行  <strong><u><span class="label danger">转义</span></u></strong> 等等，</p>
+<p>这些之外，他还全面支持 <strong><u><span class="label danger">HTML标签</span></u></strong>，有些时候也可以使用 HTML 标签来编写文档。</p>
+<p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 $$ 包裹 TeX 或 LaTeX 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 Mathjax <strong><u><span class="label danger">对数学公式进行渲染</span></u></strong> </p>
 ]]></content>
       <categories>
         <category>博客搭建</category>
       </categories>
       <tags>
         <tag>hexo</tag>
-        <tag>npm</tag>
-        <tag>github</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -484,6 +361,149 @@
       </categories>
       <tags>
         <tag>spring boot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>springboot入门到项目实践2</title>
+    <url>/2020/09/19/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B52/</url>
+    <content><![CDATA[<h2 id="Sprng-Boot项目底层原理"><a href="#Sprng-Boot项目底层原理" class="headerlink" title="Sprng Boot项目底层原理"></a>Sprng Boot项目底层原理</h2><h3 id="pom-xml文件"><a href="#pom-xml文件" class="headerlink" title="pom.xml文件"></a>pom.xml文件</h3><a id="more"></a>
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!--当前hello项目的 父级依赖--&gt;</span><br><span class="line">&lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.06.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/parent&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>spring-boot-starter-parent</code>是当前项目的父级依赖<ol>
+<li><code>spring-boot-starter</code>:Spring Boot场景启动器，Spring Boot将所有的功能场景抽取出来，做成一个个starter（启动器），只需项目里引入相关场景的starter，就会将它所有依赖导入进来。要用什么功能就导入什么场景的启动器。（各种启动器可参见官方文档starter）</li>
+<li><code>spring-boot-starter-parent</code>:它父依赖<code>spring-boot-dependencies</code>,参见下面：<figure class="highlight"><table><tr><td class="code"><pre><span class="line"> &lt;!--spring-boot-starter-parent 的 父级依赖--&gt;</span><br><span class="line"> &lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.6.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;relativePath&gt;../../spring-boot-dependencies&lt;/relativePath&gt;</span><br><span class="line">&lt;/parent&gt;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><code>spring-boot-dependencies</code>是管理了Spring Boot项目中的所有依赖版本<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/2tXn1rQ0!r1w.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/2tXn1rQ0!r1w.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/2tXn1rQ0!r1w.png"></a></li>
+<li>以后我们导入依赖默认不需要写版本号，也就是可以省去<code>version</code>标签。（当前没有在dependencies中管理的依赖自然需要声明版本号）</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>spring-boot-starter-web  <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>依赖导入了Web项目运行所需要的组件；如Tomcat/SpringMVC等</li>
+</ol>
+</li>
+</ul>
+<h3 id="引导类"><a href="#引导类" class="headerlink" title="引导类"></a>引导类</h3> <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mengxuegu;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">  *  @SpringBootApplication 用于标识一个引导类,说明当前是Spring Boot项目</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloMailAppliation</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">         SpringApplication.run(HelloMailAppliation<span class="class">.<span class="keyword">class</span>,<span class="title">args</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>通常有一个名为*Application的入口类，里面定义一个main方法，使用<code>SpringApplication.run(HelloMailAppliation.class, args);</code>来启动SpringBoot应用项目</p>
+</li>
+<li><p>@SpringBootApplication注解说明：</p>
+<ul>
+<li>标注在某个类上，说明这个类是spring boot的引导类，spring boot就应该运行这个类的main方法来启动SpringBoot应用；</li>
+<li>@SpringBootApplication是以下三个注解的总和：<ol>
+<li><code>@SpringBootConfiguration</code>:用于定义一个Spring Boot的配置类（配置类等同配置文件）<ul>
+<li>引用了@Configuration注解，是Spring底层的一个注解，用于定义Spring的配置类。</li>
+<li>配置类也是容器中的一个组件 @Component</li>
+</ul>
+</li>
+<li><code>EnableAutoConfiguration</code>:<ul>
+<li>告诉Spring Boot开启自动配置功能，这样Spring Boot会自动根据你导入的依赖jar包来自动配置项目。</li>
+<li>@AutoConfigurationPackage–》@Import({Registrar.class})<ul>
+<li>会将引导类(@SpringBootApplication标注的类)所在的包及下面所有子包里面的所有组件扫描到Spring容器;</li>
+</ul>
+</li>
+<li>@Import({AutoConfigurationImportSelector,class})<ul>
+<li>将所有需要导入的组件以全类名的方式返回;这些组件就会被添加到容器中</li>
+<li>会给容器导入非常多的自动配置类(xxxxAutoConfiguration),就是导入并配置好当前项目中所需的组件，省去我们手动编写配置去注入组件。</li>
+</ul>
+</li>
+<li>Spring Boot在启动的时候从(spring-boot-autoconfigure-2.0.6.RELEASE.jar)类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值，将这些值作为自动配置类导入到容器中，自动配置类就生效，帮我们进行自动配置工作； 以前我们需要自己配置的文件，自动配置类都帮我们完成了；</li>
+</ul>
+</li>
+<li><code>@ComponentScan</code>:该注解标识的类会被Spring自动扫描并且装入bean容器。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="使用Spring初始化器创建Spring-Boot项目"><a href="#使用Spring初始化器创建Spring-Boot项目" class="headerlink" title="使用Spring初始化器创建Spring Boot项目"></a>使用Spring初始化器创建Spring Boot项目</h2><ul>
+<li><p>注：初始化向导需要联网创建Spring Boot项目<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/AG!vhJr4lkR*.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/AG!vhJr4lkR*.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/AG!vhJr4lkR*.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/ifwDvvi7gYn8.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/ifwDvvi7gYn8.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/ifwDvvi7gYn8.png"></a></p>
+</li>
+<li><p>引入功能模块<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/DbBbA2DRw*9i.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/DbBbA2DRw*9i.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/DbBbA2DRw*9i.png"></a></p>
+</li>
+<li><p>默认生成的Spring Boot项目：<br>  <a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/7FrynvD3FXSf.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/7FrynvD3FXSf.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/7FrynvD3FXSf.png"></a></p>
+<ul>
+<li>删除不需要的文件与目录，<code>spring-boot-starter-test</code>是Spring Boot单元测试模块</li>
+</ul>
+</li>
+<li><p>引导类已经生成了，我们只需要实现业务即可<br>  <a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zj7TyXMvIX^6.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Zj7TyXMvIX%5E6.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zj7TyXMvIX^6.png"></a></p>
+</li>
+<li><p><code>resources</code>文件夹中目录结构</p>
+<ul>
+<li><code>static</code>:保存所有静态资源文件，js css images</li>
+<li><code>templates</code>:保存所有的模板页面（Spring Boot默认jar包使用嵌入式的Tomcat，默认不支持JSP页面），可以使用模块引擎（freemarker、thymeleaf）</li>
+<li><code>application.properties</code>:Spring Boot应用的配置文件，可以修改一些默认配置如修改默认端口<code>server.prot=8081</code></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>spring-boot</category>
+      </categories>
+      <tags>
+        <tag>spring boot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/04/29/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<a id="more"></a>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>基于Hexo和Github搭建博客</title>
+    <url>/2020/04/30/%E8%AE%B0%E5%BD%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  每个人心中都有一个属于自己的博客，因为疫情在家无聊就想着来做一个自己的博客，于是在网上遍寻教程，经过n次失败，终于搭建成功！<br>  我用来搭建的工具是Hexo，是一个基于node.js的静态博客框架，生产静态网页托管在GitHub上(学生嘛  家境贫寒 )。</p>
+<a id="more"></a>
+
+
+
+<h2 id="windows平台步骤"><a href="#windows平台步骤" class="headerlink" title="windows平台步骤"></a>windows平台步骤</h2><ol>
+<li><strong>你需要一台可以上网的电脑</strong></li>
+<li><strong>安装Git</strong> </li>
+<li><strong>安装Node.Js</strong> </li>
+<li><strong>安装Hexo</strong> </li>
+<li><strong>注册GitHub账号，并创建项目</strong></li>
+<li><strong>生成SSH并添加到GitHub</strong></li>
+<li><strong>上传到GitHub</strong></li>
+</ol>
+<h2 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1.安装Git"></a>1.安装Git</h2><p>到Git官网下载，网站地址：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
+<p>安装步骤：双击下载好的exe文件，一路next就好了<br>如果想知道具体步骤请<a href="https://www.cnblogs.com/xueweisuoyong/p/11914045.html" target="_blank" rel="noopener">移步</a></p>
+<p>安装好后，打开gitbash，查看版本：    命令<kbd>git version</kbd><br>             <img src="https://img-blog.csdnimg.cn/20200429181755676.png#pic_center" alt="在这里插入图片描述"><br>如果返回了版本号，那就说明git安装成功了。</p>
+<h2 id="2-安装Node-Js"><a href="#2-安装Node-Js" class="headerlink" title="2.安装Node.Js"></a>2.安装Node.Js</h2><p>到Node.Js官网下载，网址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a><br>安装步骤与git一致，打开gitbash，查看版本：    命令<kbd>node -v</kbd><br><img src="https://img-blog.csdnimg.cn/20200429183634197.png#pic_center" alt="在这里插入图片描述"><br><strong>与git不同的是安装完后要配置一下</strong><br>NodeJS和NPM安装好了以后并不能直接使用，默认情况下，NPM安装的模块并不会安装到NodeJS的程序目录，比如我们安装的时候设置的D盘，“D:\Program Files\nodejs”，而我们使用npm安装一个cluster模块他会出现在C盘默认的路径下面，所以，如果我们不修改npm的模块安装目录，那么它默认情况下都会安装到这里，随着你测试开发各种不同的项目，安装的模块越来越多，这个文件夹的体积就会越来越大，直到占满你的C盘。所以我们要修改npm的配置。</p>
+<ol>
+<li>在nodejs文件夹下，创建两个为文件夹： <strong>node_global   和 node_cecal</strong></li>
+<li>使用下面命令将npm的全局模块目录和缓存目录配置到我们刚才创建的那两个目录<br><strong>npm config set prefix “node_global文件的路径”<br>npm config set cache “node_cache的文件路径”</strong><br>例如：npm config set prefix “D:\Program Files\nodejs\node_global”</li>
+<li>高级系统设置——环境变量<br>新增系统变量：<br>变量名填：NODE_PATH<br>变量值填：（文件路径）<br><img src="https://img-blog.csdnimg.cn/20200429184305532.png#pic_center" alt="在这里插入图片描述"><br>还需要在Path变量名中修改nodejs文件默认路径<br><img src="https://img-blog.csdnimg.cn/20200429184634355.png#pic_center" alt="在这里插入图片描述"><br>修改完成后测试：<br>输入命令：node 回车——再输入 require(‘cluster’)<br><img src="https://img-blog.csdnimg.cn/20200429184809318.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>出现以上内容说明配置完成<h2 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h2>首先安装国内淘宝镜像源<kbd>npm install -g cnpm --registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></kbd><br>等待安装完成后就可以用<em>cnpm</em>来安装hexo博客了<br>命令：<kbd>cnpm install -g hexo-cli</kbd><br>安装完成后用<kbd>hexo -v</kbd>来验证一下<br><img src="https://img-blog.csdnimg.cn/20200429190627868.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后创建一个你用来存放博客的文件夹，cd到该目录下,初始化命令<kbd>hexo init</kbd>初始化完成后会在该文件夹下看到以下文件：<br><img src="https://img-blog.csdnimg.cn/20200429191123488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>这就安装完成了  输入<kbd>hexo s</kbd>就可以实现本地访问了  <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><h2 id="4-注册GitHub账户-并创建项目"><a href="#4-注册GitHub账户-并创建项目" class="headerlink" title="4.注册GitHub账户 并创建项目"></a>4.注册GitHub账户 并创建项目</h2>创建一个GitHub账号，创建一个repo，名称为<kbd>yourname.github.io</kbd>,其中yourname是你的github名称，如下：<br><img src="https://img-blog.csdnimg.cn/20200429191447405.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200429192035385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+</ol>
+<h2 id="5-生成SSH并添加到GitHub"><a href="#5-生成SSH并添加到GitHub" class="headerlink" title="5.生成SSH并添加到GitHub"></a>5.生成SSH并添加到GitHub</h2><p>回到gitbash中.在gitbash中输入：<kbd>ssh-keygen -t rsa -C "你注册GitHub的邮箱”</kbd>，生产SSH，然后在C盘用户目录下找到 <strong>.ssh</strong>文件夹 ，用记事本打开<strong>id_rsa.pub</strong>将上面获取的ssh放到github中：<img src="https://img-blog.csdnimg.cn/20200429192947175.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>添加一个 <strong>New SSH key</strong> ，title随便取，key就填刚刚那一段。<br>在gitbash中验证是否添加成功：<kbd>ssh -T <a href="mailto:git@github.com">git@github.com</a></kbd></p>
+<p>用编辑器打开你的blog项目，修改 <strong>_config.yml</strong> 文件的一些配置(冒号之后都是有一个半角空格的)<br><kbd>deploy:<br>  type: git<br>  repo: <a href="mailto:git@github.com">git@github.com</a>:yourname/yourname.github.io.git(这个地方填你新建GitHub项目的ssh地址)<br>  branch: master</kbd><br>回到gitbash中，进入你的blog目录，分别执行以下命令：<br><kbd>hexo clean<br>hexo generate<br>hexo serverr</kbd></p>
+<h2 id="6-上传到GitHub"><a href="#6-上传到GitHub" class="headerlink" title="6.上传到GitHub"></a>6.上传到GitHub</h2><p>先安装一波：<kbd>cnpm install hexo-deployer-git --save</kbd>（这样才能将你写好的文章部署到github服务器上并让别人浏览到）<br>执行命令(建议每次都按照如下步骤部署)：<br><kbd>hexo clean<br>         hexo generate<br>         hexo deploy                 </kbd><br>         注意deploy的过程中要输入你的username及email 。按他给的格式执行后，再次执行上次命令。<br>         在浏览器中输入<kbd><a href="http://yourgithubname.github.io" target="_blank" rel="noopener">http://yourgithubname.github.io</a></kbd>就可以看到你的个人博客了。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p> 以上是我折腾了两天才尝试出来的，如果有错请大佬提醒。主题我还在继续研究，等我弄好了再来发表安装主题的教程。</p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>npm</tag>
+        <tag>github</tag>
       </tags>
   </entry>
 </search>
