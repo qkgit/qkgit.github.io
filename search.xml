@@ -1,6 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>markdown使用手册_基础篇</title>
+    <url>/2020/05/11/markdown%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C_%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
+    <content><![CDATA[<blockquote>
+<p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。</p>
+</blockquote>
+<blockquote>
+<p>不说废话 直接来干货 反正也是我自己看</p>
+</blockquote>
+<a id="more"></a>
+
+
+<hr>
+<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><a href="#tab-1">样式</a></li><li class="tab"><a href="#tab-2">代码</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-1"><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5></div><div class="tab-pane" id="tab-2"><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br></pre></td></tr></table></figure></div></div></div>
+
+
+
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>样式:</p>
+<blockquote>
+<p>一级引用</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>二级引用</p>
+</blockquote>
+</blockquote>
+<p>嵌套引用</p>
+<blockquote>
+<p>1    </p>
+<blockquote>
+<p>2</p>
+<blockquote>
+<p>3</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>代码:</p>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">&gt; 一级引用</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;</span> 二级引用</span><br><span class="line"></span><br><span class="line">嵌套引用</span><br><span class="line">&gt;<span class="number">1</span>    </span><br><span class="line"><span class="meta">&gt;&gt;</span><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt;<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="字体与分割线"><a href="#字体与分割线" class="headerlink" title="字体与分割线"></a>字体与分割线</h1><p>样式：<br>分割线：</p>
+<hr>
+<h2 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a><strong>粗体</strong></h2><h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a><em>斜体</em></h2><h2 id="斜体加粗"><a href="#斜体加粗" class="headerlink" title="斜体加粗"></a><strong><em>斜体加粗</em></strong></h2><h2 id="键盘体"><a href="#键盘体" class="headerlink" title="键盘体"></a><kbd>键盘体</kbd></h2><h2 id="加框文字-这是不加框的文字"><a href="#加框文字-这是不加框的文字" class="headerlink" title="加框文字 这是不加框的文字"></a><code>加框文字</code> 这是不加框的文字</h2><h2 id="行内代码println-a-println-a"><a href="#行内代码println-a-println-a" class="headerlink" title="行内代码println(a); println(a);"></a>行内代码<code>println(a);</code> println(a);</h2><h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a><del>删除线</del></h2><h2 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a><ins>下划线</ins></h2><p>代码：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**粗体**</span> 或者 <span class="strong">__粗体__</span></span><br><span class="line"></span><br><span class="line"><span class="emphasis">*斜体*</span> 或者 <span class="emphasis">_斜体_</span></span><br><span class="line"></span><br><span class="line"><span class="strong">***斜体加粗**</span>* 或者  <span class="strong">___斜体加粗__</span>_</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>键盘体<span class="xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span> (html标签)</span><br><span class="line"></span><br><span class="line"><span class="code">`加框文字`</span></span><br><span class="line"></span><br><span class="line"><span class="code">``行内代码`</span>`</span><br><span class="line"></span><br><span class="line">~~删除线~~</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">ins</span>&gt;</span></span>下划线<span class="xml"><span class="tag">&lt;/<span class="name">ins</span>&gt;</span></span> (html标签)</span><br><span class="line"></span><br><span class="line">分割线：使用三个或者三个以上的(-)或者(*)</span><br><span class="line">例如：  ---   或者  <span class="emphasis">***</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p>无序列表样式：</p>
+<ul>
+<li>列表内容A</li>
+</ul>
+<ul>
+<li>列表内容B</li>
+</ul>
+<ul>
+<li>列表内容C</li>
+</ul>
+<p>有序列表样式：</p>
+<ol>
+<li>列表内容1</li>
+<li>列表内容2</li>
+<li>列表内容3</li>
+</ol>
+<p>列表嵌套：只要在上一级和下一级之间敲三个空格即可<br>（同类型和不同类型的列表都可以嵌套）<br>例如：</p>
+<ul>
+<li>一级列表A<ol>
+<li>二级列表1</li>
+<li>二级列表2</li>
+<li>二级列表3</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>一级列表B<ol>
+<li>二级列表1</li>
+<li>二级列表2</li>
+<li>二级列表3</li>
+</ol>
+</li>
+</ul>
+<p>代码：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">无序列表用+ - * 任何一种都可以</span><br><span class="line">- 列表内容A</span><br><span class="line">+ 列表内容B</span><br><span class="line">* 列表内容C</span><br><span class="line"></span><br><span class="line">有序列表用 数字+.的形式</span><br><span class="line"><span class="number">1.</span> 列表内容<span class="number">1</span></span><br><span class="line"><span class="number">2.</span> 列表内容<span class="number">2</span></span><br><span class="line"><span class="number">3.</span> 列表内容<span class="number">3</span></span><br><span class="line"></span><br><span class="line">列表嵌套：只要在上一级和下一级之间敲三个空格即可</span><br><span class="line">（同类型和不同类型的列表都可以嵌套）</span><br><span class="line">例如：</span><br><span class="line">* 一级列表A</span><br><span class="line">   <span class="number">1.</span> 二级列表<span class="number">1</span></span><br><span class="line">   <span class="number">2.</span> 二级列表<span class="number">2</span></span><br><span class="line">   <span class="number">3.</span> 二级列表<span class="number">3</span></span><br><span class="line">- 一级列表B</span><br><span class="line">   <span class="number">1.</span> 二级列表<span class="number">1</span></span><br><span class="line">   <span class="number">2.</span> 二级列表<span class="number">2</span></span><br><span class="line">   <span class="number">3.</span> 二级列表<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="插入媒体与超链接"><a href="#插入媒体与超链接" class="headerlink" title="插入媒体与超链接"></a>插入媒体与超链接</h1><p>代码：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">插入图片：</span><br><span class="line">![<span class="string">图片描述</span>](<span class="link">图片地址 "可选标题"</span>)</span><br><span class="line"></span><br><span class="line">插入视频等其他媒体：</span><br><span class="line">可以直接使用HTML的标签，也可以在现在主流媒体网站的分享选项中，找到插入的代码。CtrlC即可！</span><br><span class="line"></span><br><span class="line">超链接 和 邮箱地址：：</span><br><span class="line">[<span class="string">超链接名</span>](<span class="link">超链接Url "可选标题"</span>)</span><br><span class="line">或者</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">邮箱地址</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">注意：可选标题都可以不写，这是鼠标移上去显示的名称。</span><br><span class="line">Markdown语法不支持链接在新的标签页中打开，不过有些网站做了特殊处理，是可以的。有的平台可能就不行了，如果想要在新页面中打开的话可以用html语言的a标签代替。</span><br></pre></td></tr></table></figure>
+<p>效果：<br>图片：<br><img src="https://www.baidu.com/img/bd_logo1.png" alt="图片描述" title="百度"><br>超链接：<br><a href="https://www.baidu.com" target="_blank" rel="noopener" title="百度">百度</a><br>邮箱：<br><a href="mailto:&#x31;&#x35;&#x38;&#x34;&#53;&#x34;&#54;&#55;&#x36;&#x30;&#x40;&#113;&#x71;&#46;&#x63;&#111;&#109;">&#x31;&#x35;&#x38;&#x34;&#53;&#x34;&#54;&#55;&#x36;&#x30;&#x40;&#113;&#x71;&#46;&#x63;&#111;&#109;</a></p>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><p>样式：</p>
+<table>
+<thead>
+<tr>
+<th align="left">表头A</th>
+<th align="center">表头B</th>
+<th align="right">表头C</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">内容居左</td>
+<td align="center">内容居中</td>
+<td align="right">内容居右</td>
+</tr>
+<tr>
+<td align="left">内容居左</td>
+<td align="center">内容居中</td>
+<td align="right">内容居右</td>
+</tr>
+</tbody></table>
+<p>代码:</p>
+<figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">|<span class="string">表头A</span>|<span class="string">表头B</span>|<span class="string">表头C</span>|</span><br><span class="line">|<span class="string">:--</span>|<span class="string">:--:</span>|<span class="string">--:</span>|</span><br><span class="line">|<span class="string">内容居左</span>|<span class="string">内容居中</span>|<span class="string">内容居右</span>|</span><br><span class="line">|<span class="string">内容居左</span>|<span class="string">内容居中</span>|<span class="string">内容居右</span>|</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容。</span><br><span class="line">- 有一个就行，为了对齐，有时候可以多加几个，不过有可能有些编辑器会出问题。</span><br><span class="line">文字默认居左</span><br><span class="line">-两边加：表示文字居中</span><br><span class="line">-右边加：表示文字居右</span><br><span class="line">注：原生的语法两边都要用 |<span class="string"> 包起来。也可以省略。</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><p>样式：</p>
+<figure class="highlight java"><figcaption><span>这是代码</span><a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       System.out.println(<span class="string">"Hello World"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码：</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">&#123;```&#125;[指定一种语言（也可以不指定）] [title] [url] [link <span class="built_in">text</span>]</span><br><span class="line">（常见的支持：HTML、C、C#、CSS、Delphi、Java、JavaScript、JSON、Php、Python、Shell、SQL、XML、Matlab、GO等等还有很多）</span><br><span class="line">例如：</span><br><span class="line">&#123;```&#125;Java 这是代码 https:<span class="comment">//www.baidu.com 百度</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">String</span>[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       System.out.<span class="built_in">println</span>(<span class="string">"Hello World"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">&#123;```&#125;</span><br><span class="line">使用时去掉大括号</span><br><span class="line"></span><br><span class="line">或者代码区块使用 <span class="number">4</span> 个空格或者一个制表符（Tab 键）</span><br></pre></td></tr></table></figure>
+
+<h1 id="其他补充"><a href="#其他补充" class="headerlink" title="其他补充"></a>其他补充</h1><p>MarkDown 还有<del>脚注（[^ 要注明的文本]）</del>（没试出来不知道是不是写的有啥问题），</p>
+<p>使用反斜杠、感叹号、花括号进行  <strong><u><span class="label danger">转义</span></u></strong> 等等，</p>
+<p>这些之外，他还全面支持 <strong><u><span class="label danger">HTML标签</span></u></strong>，有些时候也可以使用 HTML 标签来编写文档。</p>
+<p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 $$ 包裹 TeX 或 LaTeX 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 Mathjax <strong><u><span class="label danger">对数学公式进行渲染</span></u></strong> </p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring Boot的Web开发(2)</title>
     <url>/2020/10/02/Spring%20Boot%E7%9A%84Web%E5%BC%80%E5%8F%91(2)/</url>
     <content><![CDATA[<h3 id="Thymeleaf模板引擎"><a href="#Thymeleaf模板引擎" class="headerlink" title="Thymeleaf模板引擎"></a>Thymeleaf模板引擎</h3><blockquote>
@@ -27,17 +151,17 @@
 </li>
 </ul>
 </li>
-<li><p>导入Thymemeaf的名称空间</p>
-<p>在html页面加上以下名称空间，使用Thymemeaf时就有语法提示。</p>
+<li><p>导入Thymeleaf的名称空间</p>
+<p>在html页面加上以下名称空间，使用Thymeleaf时就有语法提示。</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>演示Thymemeaf语法</p>
+<li><p>演示Thymeleaf语法</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>  <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>模板文件<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>成功！<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!--th:text 会将获取到的数据写到标签体中--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">th:text</span>=<span class="string">"$&#123;name&#125;"</span>&gt;</span>这里显示默认值 <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<h4 id="Thymemeaf语法"><a href="#Thymemeaf语法" class="headerlink" title="Thymemeaf语法"></a>Thymemeaf语法</h4><h5 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性"></a>常用属性</h5><ul>
-<li><p>参考Thymemeaf官方文档 <code>10 Attribute Precedence</code></p>
+<h4 id="Thymeleaf语法"><a href="#Thymeleaf语法" class="headerlink" title="Thymeleaf语法"></a>Thymeleaf语法</h4><h5 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性"></a>常用属性</h5><ul>
+<li><p>参考Thymeleaf官方文档 <code>10 Attribute Precedence</code></p>
 <table>
 <thead>
 <tr>
@@ -93,7 +217,7 @@
 </tr>
 </tbody></table>
 <h5 id="标准表达式语法"><a href="#标准表达式语法" class="headerlink" title="标准表达式语法"></a>标准表达式语法</h5><ul>
-<li><p>参考Thymemeaf官方文档<code>4 Standard Expression Syntax</code></p>
+<li><p>参考Thymeleaf官方文档<code>4 Standard Expression Syntax</code></p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">一、Simple expressions（表达式语法）</span><br><span class="line">1. Variable Expressions(变量表达式): $&#123;...&#125; （参考： 4.2 Variables）</span><br><span class="line">	1)、获取变量值；使用OGNL表达式；</span><br><span class="line">	2）、获取对象的属性, 调用方法</span><br><span class="line">	3）、使用内置的基本对象：</span><br><span class="line">		#ctx : the context object.(当前上下文对象)</span><br><span class="line">		#vars: the context variables.(当前上下文里的变量)</span><br><span class="line">		#locale : the context locale. (当前上下文里的区域信息)</span><br><span class="line">		下面是Web环境下的隐式对象</span><br><span class="line">		#request : (only in Web Contexts) the HttpServletRequest object.</span><br><span class="line">		#response : (only in Web Contexts) the HttpServletResponse object.</span><br><span class="line">		#session : (only in Web Contexts) the HttpSession object.</span><br><span class="line">		#servletContext : (only in Web Contexts) the ServletContext object.</span><br><span class="line">		示例: $&#123;session.foo&#125; (用法参考: 18 Appendix A: Expression Basic Objects)</span><br><span class="line">		4）、使用内置的工具对象：(用法参考: 19 Appendix B: Expression Utility Objects)</span><br><span class="line">		#execInfo : information about the template being processed.</span><br><span class="line">		#messages : methods for obtaining externalized messages inside variables expressions, in the same way as they would be obtained using #&#123;…&#125; syntax.</span><br><span class="line">		#uris : methods for escaping parts of URLs/URIs</span><br><span class="line">		#conversions : methods for executing the configured conversion service (if any).</span><br><span class="line">		#dates : methods for java.util.Date objects: formatting, component extraction, etc.</span><br><span class="line">		#calendars : analogous to #dates , but for java.util.Calendar objects.</span><br><span class="line">		#numbers : methods for formatting numeric objects.</span><br><span class="line">		#strings : methods for String objects: contains, startsWith, prepending/appending, etc.</span><br><span class="line">		#objects : methods for objects in general.</span><br><span class="line">		#bools : methods for boolean evaluation.</span><br><span class="line">		#arrays : methods for arrays.</span><br><span class="line">		#lists : methods for lists.</span><br><span class="line">		#sets : methods for sets.</span><br><span class="line">		#maps : methods for maps.</span><br><span class="line">		#aggregates : methods for creating aggregates on arrays or collections.</span><br><span class="line">		#ids : methods for dealing with id attributes that might be repeated (for example, as a result of an</span><br><span class="line">iteration).</span><br><span class="line">2. Selection Variable Expressions(选择表达式): *&#123;...&#125;（参考：4.3 Expressions on selections）</span><br><span class="line">	1）、和$&#123;&#125;在功能上是一样， 额外新增：配合 th:object 使用</span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">th:object</span>=<span class="string">"$&#123;session.user&#125;"</span>&gt;</span></span><br><span class="line">		   省得每次写$&#123;session.user.firstName&#125;, 直接取出对象，然后写对象名即可</span><br><span class="line">		   <span class="tag">&lt;<span class="name">p</span>&gt;</span>Name: <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"*&#123;firstName&#125;"</span>&gt;</span>Sebastian<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		   <span class="tag">&lt;<span class="name">p</span>&gt;</span>Email: <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">"*&#123;email&#125;"</span>&gt;</span>Saturn<span class="tag">&lt;/<span class="name">span</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">3. Message Expressions（获取国际化内容）: #&#123;...&#125; （参考：4.1 Messages）</span><br><span class="line">4. Link URL Expressions（定义URL）: @&#123;...&#125; （参考：4.4 Link URLs）</span><br><span class="line">5. Fragment Expressions（片段引用表达式）: ~&#123;...&#125; （参考：4.5 Fragments）</span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">th:insert</span>=<span class="string">"~&#123;commons :: main&#125;"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">二、Literals（字面量） （参考： 4.6 Literals）</span><br><span class="line">	1. Text literals: 'one text' , 'Another one!' ,…</span><br><span class="line">	2. Number literals: 0 , 34 , 3.0 , 12.3 ,…</span><br><span class="line">	3. Boolean literals: true , false</span><br><span class="line">	4. Null literal: null</span><br><span class="line">	5. Literal tokens: one , sometext , main ,…</span><br><span class="line">三、Text operations（文本操作） （参考： 4.7 Appending texts）</span><br><span class="line">	1. String concatenation: +</span><br><span class="line">	2. Literal substitutions: |The name is $&#123;name&#125;|</span><br><span class="line">四、Arithmetic operations（数学运算） （参考： 4.9 Arithmetic operations）</span><br><span class="line">	1. Binary operators: + , - , * , / , %</span><br><span class="line">	2. Minus sign (unary operator): -</span><br><span class="line">五、Boolean operations（布尔运算）</span><br><span class="line">	1. Binary operators: and , or</span><br><span class="line">	2. Boolean negation (unary operator): ! , not</span><br><span class="line">五、Comparisons and equality（比较运算） （参考： 4.10 Comparators and Equality）</span><br><span class="line">	1. Comparators: &gt; , <span class="tag">&lt; , &gt;</span>= , <span class="tag">&lt;<span class="name">=</span> ( <span class="attr">gt</span> , <span class="attr">lt</span> , <span class="attr">ge</span> , <span class="attr">le</span> )</span></span><br><span class="line"><span class="tag">	<span class="attr">2.</span> <span class="attr">Equality</span> <span class="attr">operators:</span> == <span class="string">,</span> != <span class="string">(</span> <span class="attr">eq</span> , <span class="attr">ne</span> )</span></span><br><span class="line"><span class="tag">六、<span class="attr">Conditional</span> <span class="attr">operators</span>(条件表达式;三元运算符) （参考： <span class="attr">4.11</span> <span class="attr">Conditional</span> <span class="attr">expressions</span>）</span></span><br><span class="line"><span class="tag">	<span class="attr">1.</span> <span class="attr">If-then:</span> (<span class="attr">if</span>) ? (<span class="attr">then</span>)</span></span><br><span class="line"><span class="tag">	<span class="attr">2.</span> <span class="attr">If-then-else:</span> (<span class="attr">if</span>) ? (<span class="attr">then</span>) <span class="attr">:</span> (<span class="attr">else</span>)</span></span><br><span class="line"><span class="tag">	<span class="attr">3.</span> <span class="attr">Default:</span> (<span class="attr">value</span>) ?<span class="attr">:</span> (<span class="attr">defaultvalue</span>)</span></span><br><span class="line"><span class="tag">七、<span class="attr">Special</span> <span class="attr">tokens</span>（特殊操作） (参考： <span class="attr">4.13</span> <span class="attr">The</span> <span class="attr">No-Operation</span> <span class="attr">token</span>)</span></span><br><span class="line"><span class="tag">	<span class="attr">1.</span> <span class="attr">No-Operation:</span> <span class="attr">_</span></span></span><br></pre></td></tr></table></figure>
 
 </li>
@@ -308,138 +432,69 @@
       </tags>
   </entry>
   <entry>
-    <title>Spring Boot的Web开发(1)</title>
-    <url>/2020/09/29/SpringBoot%E7%9A%84Web%E5%BC%80%E5%8F%91(1)/</url>
-    <content><![CDATA[<ul>
-<li><p>Web开发是项目实战中至关重要的一部分，Web开发的核心内容主要包括嵌入的Servlet容器和SpringMVC</p>
-</li>
-<li><p>Web开发官方文档：        <a href="https://docs.spring.io/spring-boot/docs/2.0.6.RELEASE/reference/htmlsingle/#boot-features-spring-mvc" target="_blank" rel="noopener">官方文档</a></p>
-<a id="more"></a>
-
-</li>
-</ul>
-<h3 id="Web开发支持"><a href="#Web开发支持" class="headerlink" title="Web开发支持"></a>Web开发支持</h3><ul>
-<li><p>Spring  Boot为Web开发提供了<code>spring-boot-starter-web</code>启动器作为基本支持，为我们提供了嵌入的Tomcat以及Spring MVC的依赖支持。（参考：pom.xml）</p>
-</li>
-<li><p>也提供了很多不同场景的自动配置类，让我们只需要在配置文件中指定少量的配置即可启动项目。自动配置类存储在<code>spring-boot-autoconfigure.jar</code>的<code>org.springframework.book.autoconfigure</code>包下。</p>
-<p><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/uev0U%5E9L*xjr.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/uev0U^9L*xjr.png"></p>
-</li>
-<li><p>自动配置场景SpringBoot帮我们配置了什么？是否修改？能修改哪些配置？是否可以拓展？…</p>
-</li>
-<li><p>自动配置类举例：</p>
+    <title>springboot入门到项目实践5</title>
+    <url>/2020/09/26/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B55/</url>
+    <content><![CDATA[<h3 id="Profile多环境支持"><a href="#Profile多环境支持" class="headerlink" title="Profile多环境支持"></a>Profile多环境支持</h3><h4 id="Profile介绍"><a href="#Profile介绍" class="headerlink" title="Profile介绍"></a>Profile介绍</h4><ul>
+<li>Profile是Spring用来针对不同的环境要求，提供不同的配置支持，全局Profile配置使用的文件名可以是<code>application-{profile}.properties</code>/<code>application-{profile}.yml</code><a id="more"></a>
 <ul>
-<li><p>文件名可以看出</p>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">xxxxAutoConfiguration :</span>向容器中添加自动配置组件</span><br><span class="line"><span class="string">xxxxProperties :</span>使用自动配置类 来封装配置文件内容</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>SpringMVC配置 ：WebMvcAutoConfiguration和webMvcProperties</p>
-<p><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/I@Qhvzupc1lS.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/I@Qhvzupc1lS.png"></p>
-</li>
-<li><p>内嵌Servlet容器 ：ServletWebServerFactoryAutoConfiguration和ServerProperties</p>
-<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/4VXlrnJ4mMTb.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/4VXlrnJ4mMTb.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/4VXlrnJ4mMTb.png"></a></p>
-</li>
-<li><p>上传文件的属性 ：MultipartAutoConfiguration和MultiparProperties</p>
-<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/F2jpq1Q0Dwav.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/F2jpq1Q0Dwav.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/F2jpq1Q0Dwav.png"></a></p>
-</li>
-<li><p>JDBC : DataSourceAutoConfiguration 和DataSourceProperties</p>
-<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/0^!cJq4aF1JM.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/0%5E!cJq4aF1JM.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/0^!cJq4aF1JM.png"></a></p>
-</li>
-<li><p>等待……</p>
-</li>
+<li>如：application-dev.properties/application.properties</li>
 </ul>
-<h3 id="静态资源的映射规则"><a href="#静态资源的映射规则" class="headerlink" title="静态资源的映射规则"></a>静态资源的映射规则</h3><ul>
-<li>对静态资源的映射规则，可通过分析WebMvcAutoConfiguration自动配置类得到</li>
+</li>
+<li>演示案例：我们的项目环境分为开发（dev）和生产（prod）环境，开发环境下端口为8082，生产环境下端口号为8888.<h4 id="properties文件演示案例"><a href="#properties文件演示案例" class="headerlink" title="properties文件演示案例"></a>properties文件演示案例</h4></li>
+<li>创建两个文件<code>application-dev.properties</code>与<code>application-prod.properties</code><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/nDd@T7ffdDKQ.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/nDd@T7ffdDKQ.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/nDd@T7ffdDKQ.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/bqDg2t51CoM1.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/bqDg2t51CoM1.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/bqDg2t51CoM1.png"></a></li>
+<li>激活指定profile<ul>
+<li>在主配置文件<code>application.properties</code>中指定<code>spring.profiles.active=dev</code><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zren2xFY08IB.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Zren2xFY08IB.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zren2xFY08IB.png"></a></li>
+<li>未指定哪个profile文件时，默认使用<code>application.properties</code>中的配置<h4 id="yml文件演示案例"><a href="#yml文件演示案例" class="headerlink" title="yml文件演示案例"></a>yml文件演示案例</h4></li>
 </ul>
-<h4 id="webjars资源映射"><a href="#webjars资源映射" class="headerlink" title="webjars资源映射"></a>webjars资源映射</h4><ul>
-<li><p>在 WebMvcAuotConfiguration.addResourceHandlers() 分析webjars 资源映射</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (!<span class="keyword">this</span>.resourceProperties.isAddMappings()) &#123;</span><br><span class="line">               logger.debug(<span class="string">"Default resource handling disabled"</span>);</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               Duration cachePeriod = <span class="keyword">this</span>.resourceProperties.getCache().getPeriod();</span><br><span class="line">               CacheControl cacheControl = <span class="keyword">this</span>.resourceProperties.getCache().getCachecontrol().toHttpCacheControl();</span><br><span class="line">               <span class="keyword">if</span> (!registry.hasMappingForPattern(<span class="string">"/webjars/**"</span>)) &#123;</span><br><span class="line">         </span><br><span class="line"><span class="comment">//收到 /webjars/**请求后 ，会去classpath:/META-INF/resources/webjars/ 查找资源文件</span></span><br><span class="line">                  <span class="keyword">this</span>.customizeResourceHandlerRegistration(registry.addResourceHandler(<span class="keyword">new</span> String[]&#123;<span class="string">"/webjars/**"</span>&#125;).addResourceLocations(<span class="keyword">new</span> String[]&#123;<span class="string">"classpath:/META-INF/resources/webjars/"</span>&#125;).setCachePeriod(<span class="keyword">this</span>.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">               &#125;</span><br><span class="line">    </span><br><span class="line">               String staticPathPattern = <span class="keyword">this</span>.mvcProperties.getStaticPathPattern();</span><br><span class="line">               <span class="keyword">if</span> (!registry.hasMappingForPattern(staticPathPattern)) &#123;</span><br><span class="line">                   <span class="keyword">this</span>.customizeResourceHandlerRegistration(registry.addResourceHandler(<span class="keyword">new</span> String[]&#123;staticPathPattern&#125;).addResourceLocations(WebMvcAutoConfiguration.getResourceLocations(<span class="keyword">this</span>.resourceProperties.getStaticLocations())).setCachePeriod(<span class="keyword">this</span>.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">               &#125;</span><br><span class="line">    </span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-
-<p>1.所有<code>/webjars/**</code>请求，都会去<code>classpath:/META-INF/resources/webjars/</code>目录找对应资源文件</p>
-<p>2.webjars ：以jar包的方式引入静态资源</p>
-<p>​         webjars官网 ：<a href="https://www.webjars.org/" target="_blank" rel="noopener">https://www.webjars.org/</a></p>
-<p>3.在官网打开资源文件的依赖配置信息，然后粘贴到pom.xml中</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--引入 jquery webjars--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.webjars<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jquery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>4.访问localhost:8080/web.jars/jquery/3.5.5/jquery.js会在下面路径中查找</p>
-<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/GnEhl62x!5lu.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/GnEhl62x!5lu.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/GnEhl62x!5lu.png"></a></p>
 </li>
+<li>在<code>application.yml</code>中配置<ul>
+<li>yml支持多文档块方式<code>---</code><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">8081</span> <span class="comment"># 默认端口号</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span></span><br><span class="line"><span class="attr">active:</span> <span class="string">prod</span> <span class="comment">#激活哪个profile , 当前激活的是 dev 开发环境</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">8082</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span> <span class="string">dev</span> <span class="comment">#指定属于哪个环境, dev 环境时使用</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">8888</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span> <span class="string">prod</span> <span class="comment">#指定属于哪个环境, prod 环境时使用</span></span><br></pre></td></tr></table></figure>
+<h4 id="多种方式激活指定profile"><a href="#多种方式激活指定profile" class="headerlink" title="多种方式激活指定profile"></a>多种方式激活指定profile</h4></li>
 </ul>
-<h4 id="其他静态资源映射"><a href="#其他静态资源映射" class="headerlink" title="其他静态资源映射"></a>其他静态资源映射</h4><ul>
-<li><p>在WebMvcAutoConfiguration.addResourceHandlers()分析 访问其他资源映射</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.resourceProperties.isAddMappings()) &#123;</span><br><span class="line">                logger.debug(<span class="string">"Default resource handling disabled"</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                Duration cachePeriod = <span class="keyword">this</span>.resourceProperties.getCache().getPeriod();</span><br><span class="line">                CacheControl cacheControl = <span class="keyword">this</span>.resourceProperties.getCache().getCachecontrol().toHttpCacheControl();</span><br><span class="line">                <span class="keyword">if</span> (!registry.hasMappingForPattern(<span class="string">"/webjars/**"</span>)) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.customizeResourceHandlerRegistration(registry.addResourceHandler(<span class="keyword">new</span> String[]&#123;<span class="string">"/webjars/**"</span>&#125;).addResourceLocations(<span class="keyword">new</span> String[]&#123;<span class="string">"classpath:/META-INF/resources/webjars/"</span>&#125;).setCachePeriod(<span class="keyword">this</span>.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">                &#125;</span><br><span class="line">				<span class="comment">//接收 /**</span></span><br><span class="line">                String staticPathPattern = <span class="keyword">this</span>.mvcProperties.getStaticPathPattern();</span><br><span class="line">                <span class="keyword">if</span> (!registry.hasMappingForPattern(staticPathPattern)) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.customizeResourceHandlerRegistration(registry.addResourceHandler(<span class="keyword">new</span> String[]&#123;staticPathPattern&#125;).addResourceLocations(WebMvcAutoConfiguration.getResourceLocations(<span class="keyword">this</span>.resourceProperties.getStaticLocations())).setCachePeriod(<span class="keyword">this</span>.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>staticPathPattern处理其他访问的静态路径，从WebMVCProperties构造器中获取到/**</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">WebMvcProperties</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.localeResolver = WebMvcProperties.LocaleResolver.ACCEPT_HEADER;</span><br><span class="line">       <span class="keyword">this</span>.format = <span class="keyword">new</span> WebMvcProperties.Format();</span><br><span class="line">       <span class="keyword">this</span>.dispatchTraceRequest = <span class="keyword">false</span>;</span><br><span class="line">       <span class="keyword">this</span>.dispatchOptionsRequest = <span class="keyword">true</span>;</span><br><span class="line">       <span class="keyword">this</span>.ignoreDefaultModelOnRedirect = <span class="keyword">true</span>;</span><br><span class="line">       <span class="keyword">this</span>.publishRequestHandledEvents = <span class="keyword">true</span>;</span><br><span class="line">       <span class="keyword">this</span>.throwExceptionIfNoHandlerFound = <span class="keyword">false</span>;</span><br><span class="line">       <span class="keyword">this</span>.logResolvedException = <span class="keyword">false</span>;</span><br><span class="line">    <span class="comment">// 接收 /**请求</span></span><br><span class="line">       <span class="keyword">this</span>.staticPathPattern = <span class="string">"/**"</span>;</span><br><span class="line">       <span class="keyword">this</span>.async = <span class="keyword">new</span> WebMvcProperties.Async();</span><br><span class="line">       <span class="keyword">this</span>.servlet = <span class="keyword">new</span> WebMvcProperties.Servlet();</span><br><span class="line">       <span class="keyword">this</span>.view = <span class="keyword">new</span> WebMvcProperties.View();</span><br><span class="line">       <span class="keyword">this</span>.contentnegotiation = <span class="keyword">new</span> WebMvcProperties.Contentnegotiation();</span><br><span class="line">       <span class="keyword">this</span>.pathmatch = <span class="keyword">new</span> WebMvcProperties.Pathmatch();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ResourceProperties根据请求查找资源文件，从以下四个路径中查找（静态资源目录）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>(</span><br><span class="line">    prefix = <span class="string">"spring.resources"</span>,</span><br><span class="line">    ignoreUnknownFields = <span class="keyword">false</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResourceProperties</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String[] CLASSPATH_RESOURCE_LOCATIONS = <span class="keyword">new</span> String[]&#123;<span class="string">"classpath:/META-INF/resources/"</span>, <span class="string">"classpath:/resources/"</span>, <span class="string">"classpath:/static/"</span>, <span class="string">"classpath:/public/"</span>&#125;;</span><br><span class="line">    <span class="keyword">private</span> String[] staticLocations;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> addMappings;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ResourceProperties.Chain chain;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ResourceProperties.Cache cache;</span><br></pre></td></tr></table></figure>
+<li>方式1：在主配置文件中指定<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#application.properties</span></span><br><span class="line"><span class="string">spring.profiles.active=dev</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#application.yml</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span></span><br><span class="line"><span class="attr">active:</span> <span class="string">prod</span></span><br></pre></td></tr></table></figure></li>
+<li>方式2：命令行参数指定<ul>
+<li>可以直接在测试的时候，配置传入命令行参数<code>--spring.profiles.active=dev</code><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/YD0ih1duI7Jn.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/YD0ih1duI7Jn.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/YD0ih1duI7Jn.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/CDxjwFpAHpwh.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/CDxjwFpAHpwh.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/CDxjwFpAHpwh.png"></a></li>
+<li>打jar包运行<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">java -jar spring-boot<span class="number">-02</span>-config<span class="number">-0.0</span><span class="number">.1</span>-SNAPSHOT.jar --spring.profiles.active=dev</span><br></pre></td></tr></table></figure></li>
+<li>虚拟机参数指定<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">-Dspring.profiles.active</span>=dev</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="string">"classpath:/META-INF/resources/"</span>,</span><br><span class="line"><span class="string">"classpath:/resources/"</span>, </span><br><span class="line"><span class="string">"classpath:/static/"</span>, </span><br><span class="line"><span class="string">"classpath:/public/"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>总结</p>
-<ul>
-<li><p>当接收到<code>/**</code>请求访问资源时，会被映射到下面4个类路径下的静态资源目录中查找</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">classpath:</span>/META-INF<span class="meta-keyword">/resources/</span></span><br><span class="line"><span class="symbol">classpath:</span><span class="meta-keyword">/resources/</span></span><br><span class="line"><span class="symbol">classpath:</span><span class="meta-keyword">/static/</span></span><br><span class="line"><span class="symbol">classpath:</span><span class="meta-keyword">/public/</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>访问localhost:8080/style.css会在上面四个路径中查找文件</p>
+
 </li>
 </ul>
 </li>
 </ul>
-<h4 id="欢迎页映射"><a href="#欢迎页映射" class="headerlink" title="欢迎页映射"></a>欢迎页映射</h4><ul>
-<li><p>在 WebMvcAuotConfiguration.welcomePageHandlerMapping() 分析 欢迎页映射</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> WelcomePageHandlerMapping <span class="title">welcomePageHandlerMapping</span><span class="params">(ApplicationContext applicationContext, FormattingConversionService mvcConversionService, ResourceUrlProvider mvcResourceUrlProvider)</span> </span>&#123;</span><br><span class="line">            WelcomePageHandlerMapping welcomePageHandlerMapping = <span class="keyword">new</span> WelcomePageHandlerMapping(<span class="keyword">new</span> TemplateAvailabilityProviders(applicationContext), applicationContext, </span><br><span class="line"> <span class="comment">//=====查找欢迎页  =====</span></span><br><span class="line">                                                                                                <span class="keyword">this</span>.getWelcomePage(), <span class="keyword">this</span>.mvcProperties.getStaticPathPattern());</span><br><span class="line">           ....</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="配置文件加载位置"><a href="#配置文件加载位置" class="headerlink" title="配置文件加载位置"></a>配置文件加载位置</h3><ul>
+<li><p>SpringBoot启动时，会扫描以下位置的<code>application.properties</code>和<code>application.yml</code>文件作为Spring Boot的默认配置文件：</p>
+<table>
+<thead>
+<tr>
+<th align="center">配置文件位置</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>file:./config</code></td>
+<td align="center">当前项目的config目录下（最高级别）</td>
+</tr>
+<tr>
+<td align="center"><code>file:./</code></td>
+<td align="center">当前项目的根目录下</td>
+</tr>
+<tr>
+<td align="center"><code>classpath:/config</code></td>
+<td align="center">类路径的config目录下</td>
+</tr>
+<tr>
+<td align="center"><code>classpath:/</code></td>
+<td align="center">类路径的跟目录下（最低级别）</td>
+</tr>
+</tbody></table>
 </li>
-<li><p>getWelcomePage() 方法获取 欢迎页面 可存储路径</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Optional&lt;Resource&gt; <span class="title">getWelcomePage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            String[] locations =</span><br><span class="line">                <span class="comment">//2.上面说的4个静态资源路径加上"/"路径</span></span><br><span class="line">                WebMvcAutoConfiguration.getResourceLocations(</span><br><span class="line">                <span class="comment">//1.获取上面说的4个静态资源路径</span></span><br><span class="line">                <span class="keyword">this</span>.resourceProperties.getStaticLocations());</span><br><span class="line">    		<span class="comment">//在上面路径下查找index.html页面</span></span><br><span class="line">            <span class="keyword">return</span> Arrays.stream(locations).map(<span class="keyword">this</span>::getIndexHtml).</span><br><span class="line">                filter(<span class="keyword">this</span>::isReadable).findFirst();</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//上面获取的路径中查找index.html页面</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> Resource <span class="title">getIndexHtml</span><span class="params">(String location)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.resourceLoader.getResource(location + <span class="string">"index.html"</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>分析后，会从4个静态资源目录+根路径<code>/</code>中 查找index.html页面</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">classpath:/META-INF/resources/</span><br><span class="line">classpath:/resources/</span><br><span class="line">classpath:/<span class="keyword">static</span>/</span><br><span class="line">classpath:/<span class="keyword">public</span>/</span><br><span class="line">/: 当前项目根路径下</span><br></pre></td></tr></table></figure>
+<li><p>以上按照优先级从低到高的顺序，将所有位置的配置文件全部加载，高优先级的配置内容会覆盖低优先级的配置内容</p>
 </li>
-<li><p>会在静态资源目录下与根路径查找（按该顺序）index.html页面；收到”/**”请求映射</p>
+<li><p>注意：如果使用IDEA创建的项目是Module（如果是Project则忽略），当项目的根目录不是你这个项目所有目录（是Project所在目录），这样使用file：存放配置文件时会找不到配置<br>解决方式：更改工作路径直接为Module所有目录<code>$MODULE_DIR$</code><br>通过System.getProperty(“user.dir”)获取的时module的路径<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/dCrEfe66d91e.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/dCrEfe66d91e.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/dCrEfe66d91e.png"></a></p>
 </li>
-<li><p>访问localhost:8080/会在上面5个目录中查找index.html页面（因为/页属于/**）</p>
-</li>
-</ul>
-<h4 id="图标映射"><a href="#图标映射" class="headerlink" title="图标映射"></a>图标映射</h4><ul>
-<li><p>Spring Boot 会在静态资源目录下 与 根路径(按该顺序) 查找 faicon.ico 页面； 如果存在这样的文件，Spring Boot 会自动将其设置为应用图标。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">classpath:/META-INF/resources/</span><br><span class="line">classpath:/resources/</span><br><span class="line">classpath:/<span class="keyword">static</span>/</span><br><span class="line">classpath:/<span class="keyword">public</span>/</span><br><span class="line">/: 当前项目根路径下</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</li>
-</ul>
+<li><p>配置文件能写什么？怎么写？<br>  <a href="https://docs.spring.io/spring-boot/docs/2.0.6.RELEASE/reference/htmlsingle/#common-application-properties" target="_blank" rel="noopener" title="百度">配置文件能配置的属性参照</a></p>
 </li>
 </ul>
 ]]></content>
@@ -448,149 +503,6 @@
       </categories>
       <tags>
         <tag>spring boot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/04/29/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>markdown使用手册_基础篇</title>
-    <url>/2020/05/11/markdown%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C_%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
-    <content><![CDATA[<blockquote>
-<p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。</p>
-</blockquote>
-<blockquote>
-<p>不说废话 直接来干货 反正也是我自己看</p>
-</blockquote>
-<a id="more"></a>
-
-
-<hr>
-<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><div class="tabs" id="tab"><ul class="nav-tabs"><li class="tab active"><a href="#tab-1">样式</a></li><li class="tab"><a href="#tab-2">代码</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-1"><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5></div><div class="tab-pane" id="tab-2"><figure class="highlight clean"><table><tr><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br></pre></td></tr></table></figure></div></div></div>
-
-
-
-<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>样式:</p>
-<blockquote>
-<p>一级引用</p>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>二级引用</p>
-</blockquote>
-</blockquote>
-<p>嵌套引用</p>
-<blockquote>
-<p>1    </p>
-<blockquote>
-<p>2</p>
-<blockquote>
-<p>3</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>代码:</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line">&gt; 一级引用</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;</span> 二级引用</span><br><span class="line"></span><br><span class="line">嵌套引用</span><br><span class="line">&gt;<span class="number">1</span>    </span><br><span class="line"><span class="meta">&gt;&gt;</span><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt;<span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="字体与分割线"><a href="#字体与分割线" class="headerlink" title="字体与分割线"></a>字体与分割线</h1><p>样式：<br>分割线：</p>
-<hr>
-<h2 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a><strong>粗体</strong></h2><h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a><em>斜体</em></h2><h2 id="斜体加粗"><a href="#斜体加粗" class="headerlink" title="斜体加粗"></a><strong><em>斜体加粗</em></strong></h2><h2 id="键盘体"><a href="#键盘体" class="headerlink" title="键盘体"></a><kbd>键盘体</kbd></h2><h2 id="加框文字-这是不加框的文字"><a href="#加框文字-这是不加框的文字" class="headerlink" title="加框文字 这是不加框的文字"></a><code>加框文字</code> 这是不加框的文字</h2><h2 id="行内代码println-a-println-a"><a href="#行内代码println-a-println-a" class="headerlink" title="行内代码println(a); println(a);"></a>行内代码<code>println(a);</code> println(a);</h2><h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a><del>删除线</del></h2><h2 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a><ins>下划线</ins></h2><p>代码：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**粗体**</span> 或者 <span class="strong">__粗体__</span></span><br><span class="line"></span><br><span class="line"><span class="emphasis">*斜体*</span> 或者 <span class="emphasis">_斜体_</span></span><br><span class="line"></span><br><span class="line"><span class="strong">***斜体加粗**</span>* 或者  <span class="strong">___斜体加粗__</span>_</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>键盘体<span class="xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span> (html标签)</span><br><span class="line"></span><br><span class="line"><span class="code">`加框文字`</span></span><br><span class="line"></span><br><span class="line"><span class="code">``行内代码`</span>`</span><br><span class="line"></span><br><span class="line">~~删除线~~</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">ins</span>&gt;</span></span>下划线<span class="xml"><span class="tag">&lt;/<span class="name">ins</span>&gt;</span></span> (html标签)</span><br><span class="line"></span><br><span class="line">分割线：使用三个或者三个以上的(-)或者(*)</span><br><span class="line">例如：  ---   或者  <span class="emphasis">***</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p>无序列表样式：</p>
-<ul>
-<li>列表内容A</li>
-</ul>
-<ul>
-<li>列表内容B</li>
-</ul>
-<ul>
-<li>列表内容C</li>
-</ul>
-<p>有序列表样式：</p>
-<ol>
-<li>列表内容1</li>
-<li>列表内容2</li>
-<li>列表内容3</li>
-</ol>
-<p>列表嵌套：只要在上一级和下一级之间敲三个空格即可<br>（同类型和不同类型的列表都可以嵌套）<br>例如：</p>
-<ul>
-<li>一级列表A<ol>
-<li>二级列表1</li>
-<li>二级列表2</li>
-<li>二级列表3</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li>一级列表B<ol>
-<li>二级列表1</li>
-<li>二级列表2</li>
-<li>二级列表3</li>
-</ol>
-</li>
-</ul>
-<p>代码：</p>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">无序列表用+ - * 任何一种都可以</span><br><span class="line">- 列表内容A</span><br><span class="line">+ 列表内容B</span><br><span class="line">* 列表内容C</span><br><span class="line"></span><br><span class="line">有序列表用 数字+.的形式</span><br><span class="line"><span class="number">1.</span> 列表内容<span class="number">1</span></span><br><span class="line"><span class="number">2.</span> 列表内容<span class="number">2</span></span><br><span class="line"><span class="number">3.</span> 列表内容<span class="number">3</span></span><br><span class="line"></span><br><span class="line">列表嵌套：只要在上一级和下一级之间敲三个空格即可</span><br><span class="line">（同类型和不同类型的列表都可以嵌套）</span><br><span class="line">例如：</span><br><span class="line">* 一级列表A</span><br><span class="line">   <span class="number">1.</span> 二级列表<span class="number">1</span></span><br><span class="line">   <span class="number">2.</span> 二级列表<span class="number">2</span></span><br><span class="line">   <span class="number">3.</span> 二级列表<span class="number">3</span></span><br><span class="line">- 一级列表B</span><br><span class="line">   <span class="number">1.</span> 二级列表<span class="number">1</span></span><br><span class="line">   <span class="number">2.</span> 二级列表<span class="number">2</span></span><br><span class="line">   <span class="number">3.</span> 二级列表<span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="插入媒体与超链接"><a href="#插入媒体与超链接" class="headerlink" title="插入媒体与超链接"></a>插入媒体与超链接</h1><p>代码：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">插入图片：</span><br><span class="line">![<span class="string">图片描述</span>](<span class="link">图片地址 "可选标题"</span>)</span><br><span class="line"></span><br><span class="line">插入视频等其他媒体：</span><br><span class="line">可以直接使用HTML的标签，也可以在现在主流媒体网站的分享选项中，找到插入的代码。CtrlC即可！</span><br><span class="line"></span><br><span class="line">超链接 和 邮箱地址：：</span><br><span class="line">[<span class="string">超链接名</span>](<span class="link">超链接Url "可选标题"</span>)</span><br><span class="line">或者</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">邮箱地址</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">注意：可选标题都可以不写，这是鼠标移上去显示的名称。</span><br><span class="line">Markdown语法不支持链接在新的标签页中打开，不过有些网站做了特殊处理，是可以的。有的平台可能就不行了，如果想要在新页面中打开的话可以用html语言的a标签代替。</span><br></pre></td></tr></table></figure>
-<p>效果：<br>图片：<br><img src="https://www.baidu.com/img/bd_logo1.png" alt="图片描述" title="百度"><br>超链接：<br><a href="https://www.baidu.com" target="_blank" rel="noopener" title="百度">百度</a><br>邮箱：<br><a href="mailto:&#x31;&#53;&#x38;&#x34;&#x35;&#52;&#54;&#x37;&#x36;&#48;&#64;&#x71;&#113;&#46;&#x63;&#111;&#109;">&#x31;&#53;&#x38;&#x34;&#x35;&#52;&#54;&#x37;&#x36;&#48;&#64;&#x71;&#113;&#46;&#x63;&#111;&#109;</a></p>
-<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><p>样式：</p>
-<table>
-<thead>
-<tr>
-<th align="left">表头A</th>
-<th align="center">表头B</th>
-<th align="right">表头C</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">内容居左</td>
-<td align="center">内容居中</td>
-<td align="right">内容居右</td>
-</tr>
-<tr>
-<td align="left">内容居左</td>
-<td align="center">内容居中</td>
-<td align="right">内容居右</td>
-</tr>
-</tbody></table>
-<p>代码:</p>
-<figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">|<span class="string">表头A</span>|<span class="string">表头B</span>|<span class="string">表头C</span>|</span><br><span class="line">|<span class="string">:--</span>|<span class="string">:--:</span>|<span class="string">--:</span>|</span><br><span class="line">|<span class="string">内容居左</span>|<span class="string">内容居中</span>|<span class="string">内容居右</span>|</span><br><span class="line">|<span class="string">内容居左</span>|<span class="string">内容居中</span>|<span class="string">内容居右</span>|</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容。</span><br><span class="line">- 有一个就行，为了对齐，有时候可以多加几个，不过有可能有些编辑器会出问题。</span><br><span class="line">文字默认居左</span><br><span class="line">-两边加：表示文字居中</span><br><span class="line">-右边加：表示文字居右</span><br><span class="line">注：原生的语法两边都要用 |<span class="string"> 包起来。也可以省略。</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><p>样式：</p>
-<figure class="highlight java"><figcaption><span>这是代码</span><a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       System.out.println(<span class="string">"Hello World"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>代码：</p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">&#123;```&#125;[指定一种语言（也可以不指定）] [title] [url] [link <span class="built_in">text</span>]</span><br><span class="line">（常见的支持：HTML、C、C#、CSS、Delphi、Java、JavaScript、JSON、Php、Python、Shell、SQL、XML、Matlab、GO等等还有很多）</span><br><span class="line">例如：</span><br><span class="line">&#123;```&#125;Java 这是代码 https:<span class="comment">//www.baidu.com 百度</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">String</span>[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       System.out.<span class="built_in">println</span>(<span class="string">"Hello World"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">&#123;```&#125;</span><br><span class="line">使用时去掉大括号</span><br><span class="line"></span><br><span class="line">或者代码区块使用 <span class="number">4</span> 个空格或者一个制表符（Tab 键）</span><br></pre></td></tr></table></figure>
-
-<h1 id="其他补充"><a href="#其他补充" class="headerlink" title="其他补充"></a>其他补充</h1><p>MarkDown 还有<del>脚注（[^ 要注明的文本]）</del>（没试出来不知道是不是写的有啥问题），</p>
-<p>使用反斜杠、感叹号、花括号进行  <strong><u><span class="label danger">转义</span></u></strong> 等等，</p>
-<p>这些之外，他还全面支持 <strong><u><span class="label danger">HTML标签</span></u></strong>，有些时候也可以使用 HTML 标签来编写文档。</p>
-<p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 $$ 包裹 TeX 或 LaTeX 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 Mathjax <strong><u><span class="label danger">对数学公式进行渲染</span></u></strong> </p>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -758,75 +670,333 @@
       </tags>
   </entry>
   <entry>
-    <title>springboot入门到项目实践3</title>
-    <url>/2020/09/20/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B53/</url>
-    <content><![CDATA[<h2 id="Spring-Boot核心配置"><a href="#Spring-Boot核心配置" class="headerlink" title="Spring Boot核心配置"></a>Spring Boot核心配置</h2><h3 id="Spring-Boot的配置文件"><a href="#Spring-Boot的配置文件" class="headerlink" title="Spring Boot的配置文件"></a>Spring Boot的配置文件</h3><a id="more"></a>
+    <title>Spring Boot的Web开发(1)</title>
+    <url>/2020/09/29/SpringBoot%E7%9A%84Web%E5%BC%80%E5%8F%91(1)/</url>
+    <content><![CDATA[<ul>
+<li><p>Web开发是项目实战中至关重要的一部分，Web开发的核心内容主要包括嵌入的Servlet容器和SpringMVC</p>
+</li>
+<li><p>Web开发官方文档：        <a href="https://docs.spring.io/spring-boot/docs/2.0.6.RELEASE/reference/htmlsingle/#boot-features-spring-mvc" target="_blank" rel="noopener">官方文档</a></p>
+<a id="more"></a>
+
+</li>
+</ul>
+<h3 id="Web开发支持"><a href="#Web开发支持" class="headerlink" title="Web开发支持"></a>Web开发支持</h3><ul>
+<li><p>Spring  Boot为Web开发提供了<code>spring-boot-starter-web</code>启动器作为基本支持，为我们提供了嵌入的Tomcat以及Spring MVC的依赖支持。（参考：pom.xml）</p>
+</li>
+<li><p>也提供了很多不同场景的自动配置类，让我们只需要在配置文件中指定少量的配置即可启动项目。自动配置类存储在<code>spring-boot-autoconfigure.jar</code>的<code>org.springframework.book.autoconfigure</code>包下。</p>
+<p><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/uev0U%5E9L*xjr.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/uev0U^9L*xjr.png"></p>
+</li>
+<li><p>自动配置场景SpringBoot帮我们配置了什么？是否修改？能修改哪些配置？是否可以拓展？…</p>
+</li>
+<li><p>自动配置类举例：</p>
 <ul>
-<li>Spring Boot使用一个全局配置文件，放置在<code>src/main/resources</code>目录或类路径的<code>/config</code>下<ul>
-<li><code>application.properties</code></li>
-<li><code>application.yml</code></li>
+<li><p>文件名可以看出</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">xxxxAutoConfiguration :</span>向容器中添加自动配置组件</span><br><span class="line"><span class="string">xxxxProperties :</span>使用自动配置类 来封装配置文件内容</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SpringMVC配置 ：WebMvcAutoConfiguration和webMvcProperties</p>
+<p><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/I@Qhvzupc1lS.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/I@Qhvzupc1lS.png"></p>
+</li>
+<li><p>内嵌Servlet容器 ：ServletWebServerFactoryAutoConfiguration和ServerProperties</p>
+<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/4VXlrnJ4mMTb.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/4VXlrnJ4mMTb.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/4VXlrnJ4mMTb.png"></a></p>
+</li>
+<li><p>上传文件的属性 ：MultipartAutoConfiguration和MultiparProperties</p>
+<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/F2jpq1Q0Dwav.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/F2jpq1Q0Dwav.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/F2jpq1Q0Dwav.png"></a></p>
+</li>
+<li><p>JDBC : DataSourceAutoConfiguration 和DataSourceProperties</p>
+<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/0^!cJq4aF1JM.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/0%5E!cJq4aF1JM.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/0^!cJq4aF1JM.png"></a></p>
+</li>
+<li><p>等待……</p>
+</li>
+</ul>
+<h3 id="静态资源的映射规则"><a href="#静态资源的映射规则" class="headerlink" title="静态资源的映射规则"></a>静态资源的映射规则</h3><ul>
+<li>对静态资源的映射规则，可通过分析WebMvcAutoConfiguration自动配置类得到</li>
+</ul>
+<h4 id="webjars资源映射"><a href="#webjars资源映射" class="headerlink" title="webjars资源映射"></a>webjars资源映射</h4><ul>
+<li><p>在 WebMvcAuotConfiguration.addResourceHandlers() 分析webjars 资源映射</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (!<span class="keyword">this</span>.resourceProperties.isAddMappings()) &#123;</span><br><span class="line">               logger.debug(<span class="string">"Default resource handling disabled"</span>);</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">               Duration cachePeriod = <span class="keyword">this</span>.resourceProperties.getCache().getPeriod();</span><br><span class="line">               CacheControl cacheControl = <span class="keyword">this</span>.resourceProperties.getCache().getCachecontrol().toHttpCacheControl();</span><br><span class="line">               <span class="keyword">if</span> (!registry.hasMappingForPattern(<span class="string">"/webjars/**"</span>)) &#123;</span><br><span class="line">         </span><br><span class="line"><span class="comment">//收到 /webjars/**请求后 ，会去classpath:/META-INF/resources/webjars/ 查找资源文件</span></span><br><span class="line">                  <span class="keyword">this</span>.customizeResourceHandlerRegistration(registry.addResourceHandler(<span class="keyword">new</span> String[]&#123;<span class="string">"/webjars/**"</span>&#125;).addResourceLocations(<span class="keyword">new</span> String[]&#123;<span class="string">"classpath:/META-INF/resources/webjars/"</span>&#125;).setCachePeriod(<span class="keyword">this</span>.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">               &#125;</span><br><span class="line">    </span><br><span class="line">               String staticPathPattern = <span class="keyword">this</span>.mvcProperties.getStaticPathPattern();</span><br><span class="line">               <span class="keyword">if</span> (!registry.hasMappingForPattern(staticPathPattern)) &#123;</span><br><span class="line">                   <span class="keyword">this</span>.customizeResourceHandlerRegistration(registry.addResourceHandler(<span class="keyword">new</span> String[]&#123;staticPathPattern&#125;).addResourceLocations(WebMvcAutoConfiguration.getResourceLocations(<span class="keyword">this</span>.resourceProperties.getStaticLocations())).setCachePeriod(<span class="keyword">this</span>.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">               &#125;</span><br><span class="line">    </span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.所有<code>/webjars/**</code>请求，都会去<code>classpath:/META-INF/resources/webjars/</code>目录找对应资源文件</p>
+<p>2.webjars ：以jar包的方式引入静态资源</p>
+<p>​         webjars官网 ：<a href="https://www.webjars.org/" target="_blank" rel="noopener">https://www.webjars.org/</a></p>
+<p>3.在官网打开资源文件的依赖配置信息，然后粘贴到pom.xml中</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--引入 jquery webjars--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.webjars<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jquery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>4.访问localhost:8080/web.jars/jquery/3.5.5/jquery.js会在下面路径中查找</p>
+<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/GnEhl62x!5lu.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/GnEhl62x!5lu.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/GnEhl62x!5lu.png"></a></p>
+</li>
+</ul>
+<h4 id="其他静态资源映射"><a href="#其他静态资源映射" class="headerlink" title="其他静态资源映射"></a>其他静态资源映射</h4><ul>
+<li><p>在WebMvcAutoConfiguration.addResourceHandlers()分析 访问其他资源映射</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.resourceProperties.isAddMappings()) &#123;</span><br><span class="line">                logger.debug(<span class="string">"Default resource handling disabled"</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                Duration cachePeriod = <span class="keyword">this</span>.resourceProperties.getCache().getPeriod();</span><br><span class="line">                CacheControl cacheControl = <span class="keyword">this</span>.resourceProperties.getCache().getCachecontrol().toHttpCacheControl();</span><br><span class="line">                <span class="keyword">if</span> (!registry.hasMappingForPattern(<span class="string">"/webjars/**"</span>)) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.customizeResourceHandlerRegistration(registry.addResourceHandler(<span class="keyword">new</span> String[]&#123;<span class="string">"/webjars/**"</span>&#125;).addResourceLocations(<span class="keyword">new</span> String[]&#123;<span class="string">"classpath:/META-INF/resources/webjars/"</span>&#125;).setCachePeriod(<span class="keyword">this</span>.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">                &#125;</span><br><span class="line">				<span class="comment">//接收 /**</span></span><br><span class="line">                String staticPathPattern = <span class="keyword">this</span>.mvcProperties.getStaticPathPattern();</span><br><span class="line">                <span class="keyword">if</span> (!registry.hasMappingForPattern(staticPathPattern)) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.customizeResourceHandlerRegistration(registry.addResourceHandler(<span class="keyword">new</span> String[]&#123;staticPathPattern&#125;).addResourceLocations(WebMvcAutoConfiguration.getResourceLocations(<span class="keyword">this</span>.resourceProperties.getStaticLocations())).setCachePeriod(<span class="keyword">this</span>.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>staticPathPattern处理其他访问的静态路径，从WebMVCProperties构造器中获取到/**</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">WebMvcProperties</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.localeResolver = WebMvcProperties.LocaleResolver.ACCEPT_HEADER;</span><br><span class="line">       <span class="keyword">this</span>.format = <span class="keyword">new</span> WebMvcProperties.Format();</span><br><span class="line">       <span class="keyword">this</span>.dispatchTraceRequest = <span class="keyword">false</span>;</span><br><span class="line">       <span class="keyword">this</span>.dispatchOptionsRequest = <span class="keyword">true</span>;</span><br><span class="line">       <span class="keyword">this</span>.ignoreDefaultModelOnRedirect = <span class="keyword">true</span>;</span><br><span class="line">       <span class="keyword">this</span>.publishRequestHandledEvents = <span class="keyword">true</span>;</span><br><span class="line">       <span class="keyword">this</span>.throwExceptionIfNoHandlerFound = <span class="keyword">false</span>;</span><br><span class="line">       <span class="keyword">this</span>.logResolvedException = <span class="keyword">false</span>;</span><br><span class="line">    <span class="comment">// 接收 /**请求</span></span><br><span class="line">       <span class="keyword">this</span>.staticPathPattern = <span class="string">"/**"</span>;</span><br><span class="line">       <span class="keyword">this</span>.async = <span class="keyword">new</span> WebMvcProperties.Async();</span><br><span class="line">       <span class="keyword">this</span>.servlet = <span class="keyword">new</span> WebMvcProperties.Servlet();</span><br><span class="line">       <span class="keyword">this</span>.view = <span class="keyword">new</span> WebMvcProperties.View();</span><br><span class="line">       <span class="keyword">this</span>.contentnegotiation = <span class="keyword">new</span> WebMvcProperties.Contentnegotiation();</span><br><span class="line">       <span class="keyword">this</span>.pathmatch = <span class="keyword">new</span> WebMvcProperties.Pathmatch();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ResourceProperties根据请求查找资源文件，从以下四个路径中查找（静态资源目录）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties</span>(</span><br><span class="line">    prefix = <span class="string">"spring.resources"</span>,</span><br><span class="line">    ignoreUnknownFields = <span class="keyword">false</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResourceProperties</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String[] CLASSPATH_RESOURCE_LOCATIONS = <span class="keyword">new</span> String[]&#123;<span class="string">"classpath:/META-INF/resources/"</span>, <span class="string">"classpath:/resources/"</span>, <span class="string">"classpath:/static/"</span>, <span class="string">"classpath:/public/"</span>&#125;;</span><br><span class="line">    <span class="keyword">private</span> String[] staticLocations;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> addMappings;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ResourceProperties.Chain chain;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ResourceProperties.Cache cache;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="string">"classpath:/META-INF/resources/"</span>,</span><br><span class="line"><span class="string">"classpath:/resources/"</span>, </span><br><span class="line"><span class="string">"classpath:/static/"</span>, </span><br><span class="line"><span class="string">"classpath:/public/"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>总结</p>
+<ul>
+<li><p>当接收到<code>/**</code>请求访问资源时，会被映射到下面4个类路径下的静态资源目录中查找</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">classpath:</span>/META-INF<span class="meta-keyword">/resources/</span></span><br><span class="line"><span class="symbol">classpath:</span><span class="meta-keyword">/resources/</span></span><br><span class="line"><span class="symbol">classpath:</span><span class="meta-keyword">/static/</span></span><br><span class="line"><span class="symbol">classpath:</span><span class="meta-keyword">/public/</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问localhost:8080/style.css会在上面四个路径中查找文件</p>
+</li>
 </ul>
 </li>
-<li>配置文件的作用：修改Spring Boot自动配置的默认值</li>
-<li>yml是YAML(YAML Ain’t Markup Language)不是一个标记语言<ul>
-<li>标记语言：以前的配置文件大多都使用的是xxxx.xml文件</li>
-<li>YAML：以数据为中心，配置数据的时候具有面向对象的特征；比json、xml等更适合做配置文件<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="comment">//标记语言</span></span><br><span class="line"><span class="params">&lt;server&gt;</span></span><br><span class="line">    <span class="params">&lt;port&gt;</span><span class="number">8081</span><span class="params">&lt;/port&gt;</span></span><br><span class="line"><span class="params">&lt;/server&gt;</span></span><br><span class="line"><span class="comment">//YAML</span></span><br><span class="line">server</span><br><span class="line"><span class="symbol">    port:</span> <span class="number">8081</span></span><br></pre></td></tr></table></figure>
+</ul>
+<h4 id="欢迎页映射"><a href="#欢迎页映射" class="headerlink" title="欢迎页映射"></a>欢迎页映射</h4><ul>
+<li><p>在 WebMvcAuotConfiguration.welcomePageHandlerMapping() 分析 欢迎页映射</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> WelcomePageHandlerMapping <span class="title">welcomePageHandlerMapping</span><span class="params">(ApplicationContext applicationContext, FormattingConversionService mvcConversionService, ResourceUrlProvider mvcResourceUrlProvider)</span> </span>&#123;</span><br><span class="line">            WelcomePageHandlerMapping welcomePageHandlerMapping = <span class="keyword">new</span> WelcomePageHandlerMapping(<span class="keyword">new</span> TemplateAvailabilityProviders(applicationContext), applicationContext, </span><br><span class="line"> <span class="comment">//=====查找欢迎页  =====</span></span><br><span class="line">                                                                                                <span class="keyword">this</span>.getWelcomePage(), <span class="keyword">this</span>.mvcProperties.getStaticPathPattern());</span><br><span class="line">           ....</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>getWelcomePage() 方法获取 欢迎页面 可存储路径</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Optional&lt;Resource&gt; <span class="title">getWelcomePage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            String[] locations =</span><br><span class="line">                <span class="comment">//2.上面说的4个静态资源路径加上"/"路径</span></span><br><span class="line">                WebMvcAutoConfiguration.getResourceLocations(</span><br><span class="line">                <span class="comment">//1.获取上面说的4个静态资源路径</span></span><br><span class="line">                <span class="keyword">this</span>.resourceProperties.getStaticLocations());</span><br><span class="line">    		<span class="comment">//在上面路径下查找index.html页面</span></span><br><span class="line">            <span class="keyword">return</span> Arrays.stream(locations).map(<span class="keyword">this</span>::getIndexHtml).</span><br><span class="line">                filter(<span class="keyword">this</span>::isReadable).findFirst();</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//上面获取的路径中查找index.html页面</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> Resource <span class="title">getIndexHtml</span><span class="params">(String location)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.resourceLoader.getResource(location + <span class="string">"index.html"</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>分析后，会从4个静态资源目录+根路径<code>/</code>中 查找index.html页面</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">classpath:/META-INF/resources/</span><br><span class="line">classpath:/resources/</span><br><span class="line">classpath:/<span class="keyword">static</span>/</span><br><span class="line">classpath:/<span class="keyword">public</span>/</span><br><span class="line">/: 当前项目根路径下</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>会在静态资源目录下与根路径查找（按该顺序）index.html页面；收到”/**”请求映射</p>
+</li>
+<li><p>访问localhost:8080/会在上面5个目录中查找index.html页面（因为/页属于/**）</p>
+</li>
+</ul>
+<h4 id="图标映射"><a href="#图标映射" class="headerlink" title="图标映射"></a>图标映射</h4><ul>
+<li><p>Spring Boot 会在静态资源目录下 与 根路径(按该顺序) 查找 faicon.ico 页面； 如果存在这样的文件，Spring Boot 会自动将其设置为应用图标。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">classpath:/META-INF/resources/</span><br><span class="line">classpath:/resources/</span><br><span class="line">classpath:/<span class="keyword">static</span>/</span><br><span class="line">classpath:/<span class="keyword">public</span>/</span><br><span class="line">/: 当前项目根路径下</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="YAML语法格式"><a href="#YAML语法格式" class="headerlink" title="YAML语法格式"></a>YAML语法格式</h3><h4 id="YAML基本语法"><a href="#YAML基本语法" class="headerlink" title="YAML基本语法"></a>YAML基本语法</h4><ul>
-<li><code>key: value</code>表示一对键值对（冒号后面必须要有空格）</li>
-<li>使用空格缩进表示层级关系</li>
-<li>左侧缩进的空格数目不重要，只要同一层级元素左侧对齐即可</li>
-<li>key与value大小写敏感<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: <span class="number">8081</span></span><br><span class="line">  contextPath: /info</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>spring-boot</category>
+      </categories>
+      <tags>
+        <tag>spring boot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/04/29/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<a id="more"></a>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<h4 id="YMAL常用写法"><a href="#YMAL常用写法" class="headerlink" title="YMAL常用写法"></a>YMAL常用写法</h4><ul>
-<li><p>字面量：数值，字符串，布尔，日期</p>
-<ul>
-<li>字符串默认不用加上引号；<ul>
-<li>使用双引号不会转义特殊字符，特殊字符最终会转成本来想表示含义输出<br><code>name: &quot;AA \n BBB&quot;</code>输出：<code>AA换行BBB</code></li>
-<li>使用单引号会转义特殊字符，特殊字符当作一个普通字符串输出<br><code>name: &#39;AA \n BBB&#39;</code>输出<code>AA \n BBB</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>对象&amp;Map</p>
-<ul>
-<li><code>key: value</code> value存储对象，每个值换一行写，注意左对齐<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">emp:</span></span><br><span class="line">  <span class="attr">lastName:</span> <span class="string">A</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">18</span></span><br><span class="line">  <span class="attr">salary:</span> <span class="number">10000</span></span><br><span class="line"></span><br><span class="line"><span class="string">//行内写法</span></span><br><span class="line"><span class="attr">emp:</span> <span class="string">&#123;lastName:</span> <span class="string">A,age:</span> <span class="number">18</span><span class="string">,salary:</span> <span class="number">10000</span><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>数组（List、Set）</p>
-<ul>
-<li>用<code>-值</code>表示数组中的一个元素<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">fortes:</span></span><br><span class="line">  <span class="string">-java</span></span><br><span class="line">  <span class="string">-python</span></span><br><span class="line">  <span class="string">-hadoop</span></span><br><span class="line"></span><br><span class="line"><span class="string">//行内写法</span></span><br><span class="line"><span class="attr">fortes:</span> <span class="string">[java,python,hadoop]</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>springboot入门到项目实践2</title>
+    <url>/2020/09/19/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B52/</url>
+    <content><![CDATA[<h2 id="Sprng-Boot项目底层原理"><a href="#Sprng-Boot项目底层原理" class="headerlink" title="Sprng Boot项目底层原理"></a>Sprng Boot项目底层原理</h2><h3 id="pom-xml文件"><a href="#pom-xml文件" class="headerlink" title="pom.xml文件"></a>pom.xml文件</h3><a id="more"></a>
+
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!--当前hello项目的 父级依赖--&gt;</span><br><span class="line">&lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.06.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/parent&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>spring-boot-starter-parent</code>是当前项目的父级依赖<ol>
+<li><code>spring-boot-starter</code>:Spring Boot场景启动器，Spring Boot将所有的功能场景抽取出来，做成一个个starter（启动器），只需项目里引入相关场景的starter，就会将它所有依赖导入进来。要用什么功能就导入什么场景的启动器。（各种启动器可参见官方文档starter）</li>
+<li><code>spring-boot-starter-parent</code>:它父依赖<code>spring-boot-dependencies</code>,参见下面：<figure class="highlight"><table><tr><td class="code"><pre><span class="line"> &lt;!--spring-boot-starter-parent 的 父级依赖--&gt;</span><br><span class="line"> &lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.6.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;relativePath&gt;../../spring-boot-dependencies&lt;/relativePath&gt;</span><br><span class="line">&lt;/parent&gt;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><code>spring-boot-dependencies</code>是管理了Spring Boot项目中的所有依赖版本<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/2tXn1rQ0!r1w.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/2tXn1rQ0!r1w.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/2tXn1rQ0!r1w.png"></a></li>
+<li>以后我们导入依赖默认不需要写版本号，也就是可以省去<code>version</code>标签。（当前没有在dependencies中管理的依赖自然需要声明版本号）</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>spring-boot-starter-web  <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>依赖导入了Web项目运行所需要的组件；如Tomcat/SpringMVC等</li>
+</ol>
+</li>
+</ul>
+<h3 id="引导类"><a href="#引导类" class="headerlink" title="引导类"></a>引导类</h3> <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mengxuegu;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">  *  @SpringBootApplication 用于标识一个引导类,说明当前是Spring Boot项目</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloMailAppliation</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">         SpringApplication.run(HelloMailAppliation<span class="class">.<span class="keyword">class</span>,<span class="title">args</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>通常有一个名为*Application的入口类，里面定义一个main方法，使用<code>SpringApplication.run(HelloMailAppliation.class, args);</code>来启动SpringBoot应用项目</p>
+</li>
+<li><p>@SpringBootApplication注解说明：</p>
+<ul>
+<li>标注在某个类上，说明这个类是spring boot的引导类，spring boot就应该运行这个类的main方法来启动SpringBoot应用；</li>
+<li>@SpringBootApplication是以下三个注解的总和：<ol>
+<li><code>@SpringBootConfiguration</code>:用于定义一个Spring Boot的配置类（配置类等同配置文件）<ul>
+<li>引用了@Configuration注解，是Spring底层的一个注解，用于定义Spring的配置类。</li>
+<li>配置类也是容器中的一个组件 @Component</li>
+</ul>
+</li>
+<li><code>EnableAutoConfiguration</code>:<ul>
+<li>告诉Spring Boot开启自动配置功能，这样Spring Boot会自动根据你导入的依赖jar包来自动配置项目。</li>
+<li>@AutoConfigurationPackage–》@Import({Registrar.class})<ul>
+<li>会将引导类(@SpringBootApplication标注的类)所在的包及下面所有子包里面的所有组件扫描到Spring容器;</li>
+</ul>
+</li>
+<li>@Import({AutoConfigurationImportSelector,class})<ul>
+<li>将所有需要导入的组件以全类名的方式返回;这些组件就会被添加到容器中</li>
+<li>会给容器导入非常多的自动配置类(xxxxAutoConfiguration),就是导入并配置好当前项目中所需的组件，省去我们手动编写配置去注入组件。</li>
+</ul>
+</li>
+<li>Spring Boot在启动的时候从(spring-boot-autoconfigure-2.0.6.RELEASE.jar)类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值，将这些值作为自动配置类导入到容器中，自动配置类就生效，帮我们进行自动配置工作； 以前我们需要自己配置的文件，自动配置类都帮我们完成了；</li>
+</ul>
+</li>
+<li><code>@ComponentScan</code>:该注解标识的类会被Spring自动扫描并且装入bean容器。</li>
+</ol>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="yaml配置文件注入值"><a href="#yaml配置文件注入值" class="headerlink" title="yaml配置文件注入值"></a>yaml配置文件注入值</h3><ul>
-<li><p>编写JavaBean</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1、@ConfigurationProperties 告诉SpringBoot将配置文件中对应属性的值，映射到这个组件类中,进行一一绑定</span></span><br><span class="line"><span class="comment">// prefix = "emp"：配置文件中的前缀名，哪个前缀与下面的所有属性进行一一映射</span></span><br><span class="line"><span class="comment">//2、@Component 必须将当前组件作为SpringBoot中的一个组件，才能使用容器提供的</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix=<span class="string">"emp"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Emp</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String lastName;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> Double salary;</span><br><span class="line">    <span class="keyword">private</span> Boolean boss;</span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Map map;</span><br><span class="line">    <span class="keyword">private</span> List list;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Forte forte;</span><br><span class="line"></span><br><span class="line">    getter/setter/toString</span><br><span class="line"><span class="comment">//--------------------------------------------</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Forte</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer time;</span><br></pre></td></tr></table></figure></li>
-<li><p>如果出现提示处理器没有发现：<br>  <a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/TJPkm5OK2rek.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/TJPkm5OK2rek.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/TJPkm5OK2rek.png"></a><br>  在pom.xml导入配置文件处理器，然后重新运行测试类</p>
-  <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">        &lt;!--导入配置文件处理器，在编写配置文件时就会提示--&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;</span><br><span class="line">        &lt;optional&gt;true&lt;/optional&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="使用Spring初始化器创建Spring-Boot项目"><a href="#使用Spring初始化器创建Spring-Boot项目" class="headerlink" title="使用Spring初始化器创建Spring Boot项目"></a>使用Spring初始化器创建Spring Boot项目</h2><ul>
+<li><p>注：初始化向导需要联网创建Spring Boot项目<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/AG!vhJr4lkR*.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/AG!vhJr4lkR*.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/AG!vhJr4lkR*.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/ifwDvvi7gYn8.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/ifwDvvi7gYn8.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/ifwDvvi7gYn8.png"></a></p>
 </li>
-<li><p>编写<code>application.yml</code>配置文件</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">emp:</span></span><br><span class="line">  <span class="attr">lastName:</span> <span class="string">zhangsan</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">28</span></span><br><span class="line">  <span class="attr">salary:</span> <span class="number">20000</span></span><br><span class="line">  <span class="attr">boss:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">birthday:</span> <span class="number">1991</span><span class="string">/10/10</span></span><br><span class="line">  <span class="attr">map:</span></span><br><span class="line">    <span class="attr">key1:</span> <span class="string">value1</span></span><br><span class="line">    <span class="attr">key2:</span> <span class="string">value2</span></span><br><span class="line">  <span class="attr">list:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">one</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">two</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">three</span></span><br><span class="line">  <span class="attr">forte:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">java</span></span><br><span class="line">    <span class="attr">time:</span> <span class="number">8</span></span><br></pre></td></tr></table></figure>
+<li><p>引入功能模块<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/DbBbA2DRw*9i.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/DbBbA2DRw*9i.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/DbBbA2DRw*9i.png"></a></p>
 </li>
-<li><p>使用spring boot单元测试类进行测试</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SpringBoot01HelloInitApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    Emp emp;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(emp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>控制台会输出设置好的emp的值<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/XGkmvXeXz3Ax.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/XGkmvXeXz3Ax.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/XGkmvXeXz3Ax.png"></a></p>
+<li><p>默认生成的Spring Boot项目：<br>  <a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/7FrynvD3FXSf.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/7FrynvD3FXSf.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/7FrynvD3FXSf.png"></a></p>
+<ul>
+<li>删除不需要的文件与目录，<code>spring-boot-starter-test</code>是Spring Boot单元测试模块</li>
+</ul>
+</li>
+<li><p>引导类已经生成了，我们只需要实现业务即可<br>  <a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zj7TyXMvIX^6.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Zj7TyXMvIX%5E6.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zj7TyXMvIX^6.png"></a></p>
+</li>
+<li><p><code>resources</code>文件夹中目录结构</p>
+<ul>
+<li><code>static</code>:保存所有静态资源文件，js css images</li>
+<li><code>templates</code>:保存所有的模板页面（Spring Boot默认jar包使用嵌入式的Tomcat，默认不支持JSP页面），可以使用模块引擎（freemarker、thymeleaf）</li>
+<li><code>application.properties</code>:Spring Boot应用的配置文件，可以修改一些默认配置如修改默认端口<code>server.prot=8081</code></li>
+</ul>
 </li>
 </ul>
-<h3 id="properties-配置文件注入值"><a href="#properties-配置文件注入值" class="headerlink" title="properties 配置文件注入值"></a>properties 配置文件注入值</h3><ul>
-<li>将<code>application.yml</code>配置文件中的内容注释掉</li>
-<li>编写<code>application.properties</code>配置文件<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#emp配置的值</span></span><br><span class="line"><span class="string">emp.last-name=李四</span></span><br><span class="line"><span class="string">emp.age=30</span></span><br><span class="line"><span class="string">emp.birthday=1989/9/12</span></span><br><span class="line"><span class="string">emp.boss=false</span></span><br><span class="line"><span class="string">emp.salary=230000</span></span><br><span class="line"><span class="string">emp.map.key1=value1</span></span><br><span class="line"><span class="string">emp.map.key2=value2</span></span><br><span class="line"><span class="string">emp.list=one,two,three</span></span><br><span class="line"><span class="string">emp.forte.name=python</span></span><br><span class="line"><span class="string">emp.forte.time=3</span></span><br></pre></td></tr></table></figure>
-<a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/6fSsD^z61Ou1.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/6fSsD%5Ez61Ou1.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/6fSsD^z61Ou1.png"></a></li>
-<li>运行后，发现控制台出现中午乱码 进行如下设置重新输入中文值就不会出现乱码<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/2n6cKMLyA7U7.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/2n6cKMLyA7U7.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/2n6cKMLyA7U7.png"></a></li>
+]]></content>
+      <categories>
+        <category>spring-boot</category>
+      </categories>
+      <tags>
+        <tag>spring boot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于Hexo和Github搭建博客</title>
+    <url>/2020/04/30/%E8%AE%B0%E5%BD%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  每个人心中都有一个属于自己的博客，因为疫情在家无聊就想着来做一个自己的博客，于是在网上遍寻教程，经过n次失败，终于搭建成功！<br>  我用来搭建的工具是Hexo，是一个基于node.js的静态博客框架，生产静态网页托管在GitHub上(学生嘛  家境贫寒 )。</p>
+<a id="more"></a>
+
+
+
+<h2 id="windows平台步骤"><a href="#windows平台步骤" class="headerlink" title="windows平台步骤"></a>windows平台步骤</h2><ol>
+<li><strong>你需要一台可以上网的电脑</strong></li>
+<li><strong>安装Git</strong> </li>
+<li><strong>安装Node.Js</strong> </li>
+<li><strong>安装Hexo</strong> </li>
+<li><strong>注册GitHub账号，并创建项目</strong></li>
+<li><strong>生成SSH并添加到GitHub</strong></li>
+<li><strong>上传到GitHub</strong></li>
+</ol>
+<h2 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1.安装Git"></a>1.安装Git</h2><p>到Git官网下载，网站地址：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
+<p>安装步骤：双击下载好的exe文件，一路next就好了<br>如果想知道具体步骤请<a href="https://www.cnblogs.com/xueweisuoyong/p/11914045.html" target="_blank" rel="noopener">移步</a></p>
+<p>安装好后，打开gitbash，查看版本：    命令<kbd>git version</kbd><br>             <img src="https://img-blog.csdnimg.cn/20200429181755676.png#pic_center" alt="在这里插入图片描述"><br>如果返回了版本号，那就说明git安装成功了。</p>
+<h2 id="2-安装Node-Js"><a href="#2-安装Node-Js" class="headerlink" title="2.安装Node.Js"></a>2.安装Node.Js</h2><p>到Node.Js官网下载，网址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a><br>安装步骤与git一致，打开gitbash，查看版本：    命令<kbd>node -v</kbd><br><img src="https://img-blog.csdnimg.cn/20200429183634197.png#pic_center" alt="在这里插入图片描述"><br><strong>与git不同的是安装完后要配置一下</strong><br>NodeJS和NPM安装好了以后并不能直接使用，默认情况下，NPM安装的模块并不会安装到NodeJS的程序目录，比如我们安装的时候设置的D盘，“D:\Program Files\nodejs”，而我们使用npm安装一个cluster模块他会出现在C盘默认的路径下面，所以，如果我们不修改npm的模块安装目录，那么它默认情况下都会安装到这里，随着你测试开发各种不同的项目，安装的模块越来越多，这个文件夹的体积就会越来越大，直到占满你的C盘。所以我们要修改npm的配置。</p>
+<ol>
+<li>在nodejs文件夹下，创建两个为文件夹： <strong>node_global   和 node_cecal</strong></li>
+<li>使用下面命令将npm的全局模块目录和缓存目录配置到我们刚才创建的那两个目录<br><strong>npm config set prefix “node_global文件的路径”<br>npm config set cache “node_cache的文件路径”</strong><br>例如：npm config set prefix “D:\Program Files\nodejs\node_global”</li>
+<li>高级系统设置——环境变量<br>新增系统变量：<br>变量名填：NODE_PATH<br>变量值填：（文件路径）<br><img src="https://img-blog.csdnimg.cn/20200429184305532.png#pic_center" alt="在这里插入图片描述"><br>还需要在Path变量名中修改nodejs文件默认路径<br><img src="https://img-blog.csdnimg.cn/20200429184634355.png#pic_center" alt="在这里插入图片描述"><br>修改完成后测试：<br>输入命令：node 回车——再输入 require(‘cluster’)<br><img src="https://img-blog.csdnimg.cn/20200429184809318.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>出现以上内容说明配置完成<h2 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h2>首先安装国内淘宝镜像源<kbd>npm install -g cnpm --registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></kbd><br>等待安装完成后就可以用<em>cnpm</em>来安装hexo博客了<br>命令：<kbd>cnpm install -g hexo-cli</kbd><br>安装完成后用<kbd>hexo -v</kbd>来验证一下<br><img src="https://img-blog.csdnimg.cn/20200429190627868.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后创建一个你用来存放博客的文件夹，cd到该目录下,初始化命令<kbd>hexo init</kbd>初始化完成后会在该文件夹下看到以下文件：<br><img src="https://img-blog.csdnimg.cn/20200429191123488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>这就安装完成了  输入<kbd>hexo s</kbd>就可以实现本地访问了  <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><h2 id="4-注册GitHub账户-并创建项目"><a href="#4-注册GitHub账户-并创建项目" class="headerlink" title="4.注册GitHub账户 并创建项目"></a>4.注册GitHub账户 并创建项目</h2>创建一个GitHub账号，创建一个repo，名称为<kbd>yourname.github.io</kbd>,其中yourname是你的github名称，如下：<br><img src="https://img-blog.csdnimg.cn/20200429191447405.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200429192035385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+</ol>
+<h2 id="5-生成SSH并添加到GitHub"><a href="#5-生成SSH并添加到GitHub" class="headerlink" title="5.生成SSH并添加到GitHub"></a>5.生成SSH并添加到GitHub</h2><p>回到gitbash中.在gitbash中输入：<kbd>ssh-keygen -t rsa -C "你注册GitHub的邮箱”</kbd>，生产SSH，然后在C盘用户目录下找到 <strong>.ssh</strong>文件夹 ，用记事本打开<strong>id_rsa.pub</strong>将上面获取的ssh放到github中：<img src="https://img-blog.csdnimg.cn/20200429192947175.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>添加一个 <strong>New SSH key</strong> ，title随便取，key就填刚刚那一段。<br>在gitbash中验证是否添加成功：<kbd>ssh -T <a href="mailto:git@github.com">git@github.com</a></kbd></p>
+<p>用编辑器打开你的blog项目，修改 <strong>_config.yml</strong> 文件的一些配置(冒号之后都是有一个半角空格的)<br><kbd>deploy:<br>  type: git<br>  repo: <a href="mailto:git@github.com">git@github.com</a>:yourname/yourname.github.io.git(这个地方填你新建GitHub项目的ssh地址)<br>  branch: master</kbd><br>回到gitbash中，进入你的blog目录，分别执行以下命令：<br><kbd>hexo clean<br>hexo generate<br>hexo serverr</kbd></p>
+<h2 id="6-上传到GitHub"><a href="#6-上传到GitHub" class="headerlink" title="6.上传到GitHub"></a>6.上传到GitHub</h2><p>先安装一波：<kbd>cnpm install hexo-deployer-git --save</kbd>（这样才能将你写好的文章部署到github服务器上并让别人浏览到）<br>执行命令(建议每次都按照如下步骤部署)：<br><kbd>hexo clean<br>         hexo generate<br>         hexo deploy                 </kbd><br>         注意deploy的过程中要输入你的username及email 。按他给的格式执行后，再次执行上次命令。<br>         在浏览器中输入<kbd><a href="http://yourgithubname.github.io" target="_blank" rel="noopener">http://yourgithubname.github.io</a></kbd>就可以看到你的个人博客了。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p> 以上是我折腾了两天才尝试出来的，如果有错请大佬提醒。主题我还在继续研究，等我弄好了再来发表安装主题的教程。</p>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>npm</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>项目实战_账单管理系统(一)</title>
+    <url>/2020/10/08/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><h4 id="创建并引入项目资源文件"><a href="#创建并引入项目资源文件" class="headerlink" title="创建并引入项目资源文件"></a>创建并引入项目资源文件</h4>]]></content>
+      <categories>
+        <category>spring-boot</category>
+      </categories>
+      <tags>
+        <tag>spring boot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>springboot入门到项目实践1</title>
+    <url>/2020/09/16/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B51/</url>
+    <content><![CDATA[<h2 id="Spring-Boot入门"><a href="#Spring-Boot入门" class="headerlink" title="Spring Boot入门"></a>Spring Boot入门</h2><h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><a id="more"></a>
+<ul>
+<li>jdk1.8</li>
+<li>Maven3.x</li>
+<li>IntelliJ IDEA</li>
+<li>Spring Boot</li>
+</ul>
+<h3 id="修改maven配置文件"><a href="#修改maven配置文件" class="headerlink" title="修改maven配置文件"></a>修改maven配置文件</h3><ul>
+<li>在maven目录conf文件夹下settings.xml配置文件添加如下内容<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--开始处更改下载依赖的存放路径， 以下目录需要已经创建--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>D:\javasource\maven-repository<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--在 mirrors 标签下 添加阿里云maven私服库--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 在 profiles 标签下指定jdk版本 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>jdk-1.8<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">jdk</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">jdk</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.compilerVersion</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.compilerVersion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="IntelliJ-IDEA设置"><a href="#IntelliJ-IDEA设置" class="headerlink" title="IntelliJ IDEA设置"></a>IntelliJ IDEA设置</h3></li>
+<li>添加maven环境<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/R8CXuSw^LYMD.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/R8CXuSw%5ELYMD.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/R8CXuSw^LYMD.png"></a></li>
+</ul>
+<h3 id="快速构建Spring-Boot项目"><a href="#快速构建Spring-Boot项目" class="headerlink" title="快速构建Spring Boot项目"></a>快速构建Spring Boot项目</h3><ul>
+<li>需求：浏览器发送/hello请求，服务器接收请求并处理，响应Hello World 字符串</li>
+<li>分析：构建Spring Boot项目，事实上建立的就是一个Maven项目<h4 id="创建Mven工程"><a href="#创建Mven工程" class="headerlink" title="创建Mven工程"></a>创建Mven工程</h4></li>
+<li>在IDEA上新建一个空的jar类型的maven工程<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/G6aE4BbSG7D7.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/G6aE4BbSG7D7.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/G6aE4BbSG7D7.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/4!qwhzJzP0N@.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/4!qwhzJzP0N@.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/4!qwhzJzP0N@.png"></a><h4 id="修改pom-xml文件"><a href="#修改pom-xml文件" class="headerlink" title="修改pom.xml文件"></a>修改pom.xml文件</h4></li>
+<li>在pom.xml中添加spring boot相关的父级依赖，<code>spring-boot-starter-parent</code>是一个特殊的starter，它提供了项目相关的默认依赖，使用它之后，常用的包依赖可以省去<code>version</code>标签</li>
+<li>在<code>dependencies</code>添加构建web项目相关的依赖<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>等待下载结束，会发现工程自动添加了很多jar包，这些jar包正是开发时需要导入的jar包<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/vO9GaAxoAFGz.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/vO9GaAxoAFGz.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/vO9GaAxoAFGz.png"></a></li>
+</ul>
+<h4 id="创建控制器Controller"><a href="#创建控制器Controller" class="headerlink" title="创建控制器Controller"></a>创建控制器Controller</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bdu.controller;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"helloWorld..."</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="创建一个引导类"><a href="#创建一个引导类" class="headerlink" title="创建一个引导类"></a>创建一个引导类</h4><ul>
+<li>主要作用是作为启动spring boot项目的入口<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bdu;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloMailAppliation</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        SpringApplication.run(HelloMailAppliation<span class="class">.<span class="keyword">class</span>,<span class="title">args</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h4></li>
+<li>运行引导类后，会出现如下一个标识<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/hzMzsOHXh4Wt.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/hzMzsOHXh4Wt.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/hzMzsOHXh4Wt.png"></a></li>
+<li>在浏览器地址输入 <code>localhost:8080/hello</code>即可看到运行结果<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/UMNmNhJs7Yz7.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/UMNmNhJs7Yz7.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/UMNmNhJs7Yz7.png"></a><h3 id="简化部署"><a href="#简化部署" class="headerlink" title="简化部署"></a>简化部署</h3></li>
+<li>在pom.xml添加如下插件后，将这个工程打成jar包后，可直接通过<code>java -jar</code>的命令运行<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!--可以将当前项目打包成一个jar包进行运行--&gt;</span><br><span class="line">   &lt;build&gt;</span><br><span class="line">       &lt;plugins&gt;</span><br><span class="line">           &lt;plugin&gt;</span><br><span class="line">               &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">               &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br><span class="line">       &lt;/plugins&gt;</span><br><span class="line">   &lt;/build&gt;</span><br></pre></td></tr></table></figure></li>
+<li>如下操作进行打成jar包，从控制台可发现打成jar包所在目录<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/A1Y0bvwEGg54.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/A1Y0bvwEGg54.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/A1Y0bvwEGg54.png"></a></li>
 </ul>
 ]]></content>
       <categories>
@@ -957,80 +1127,75 @@
       </tags>
   </entry>
   <entry>
-    <title>springboot入门到项目实践2</title>
-    <url>/2020/09/19/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B52/</url>
-    <content><![CDATA[<h2 id="Sprng-Boot项目底层原理"><a href="#Sprng-Boot项目底层原理" class="headerlink" title="Sprng Boot项目底层原理"></a>Sprng Boot项目底层原理</h2><h3 id="pom-xml文件"><a href="#pom-xml文件" class="headerlink" title="pom.xml文件"></a>pom.xml文件</h3><a id="more"></a>
+    <title>springboot入门到项目实践3</title>
+    <url>/2020/09/20/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B53/</url>
+    <content><![CDATA[<h2 id="Spring-Boot核心配置"><a href="#Spring-Boot核心配置" class="headerlink" title="Spring Boot核心配置"></a>Spring Boot核心配置</h2><h3 id="Spring-Boot的配置文件"><a href="#Spring-Boot的配置文件" class="headerlink" title="Spring Boot的配置文件"></a>Spring Boot的配置文件</h3><a id="more"></a>
+<ul>
+<li>Spring Boot使用一个全局配置文件，放置在<code>src/main/resources</code>目录或类路径的<code>/config</code>下<ul>
+<li><code>application.properties</code></li>
+<li><code>application.yml</code></li>
+</ul>
+</li>
+<li>配置文件的作用：修改Spring Boot自动配置的默认值</li>
+<li>yml是YAML(YAML Ain’t Markup Language)不是一个标记语言<ul>
+<li>标记语言：以前的配置文件大多都使用的是xxxx.xml文件</li>
+<li>YAML：以数据为中心，配置数据的时候具有面向对象的特征；比json、xml等更适合做配置文件<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="comment">//标记语言</span></span><br><span class="line"><span class="params">&lt;server&gt;</span></span><br><span class="line">    <span class="params">&lt;port&gt;</span><span class="number">8081</span><span class="params">&lt;/port&gt;</span></span><br><span class="line"><span class="params">&lt;/server&gt;</span></span><br><span class="line"><span class="comment">//YAML</span></span><br><span class="line">server</span><br><span class="line"><span class="symbol">    port:</span> <span class="number">8081</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!--当前hello项目的 父级依赖--&gt;</span><br><span class="line">&lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.06.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/parent&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="YAML语法格式"><a href="#YAML语法格式" class="headerlink" title="YAML语法格式"></a>YAML语法格式</h3><h4 id="YAML基本语法"><a href="#YAML基本语法" class="headerlink" title="YAML基本语法"></a>YAML基本语法</h4><ul>
+<li><code>key: value</code>表示一对键值对（冒号后面必须要有空格）</li>
+<li>使用空格缩进表示层级关系</li>
+<li>左侧缩进的空格数目不重要，只要同一层级元素左侧对齐即可</li>
+<li>key与value大小写敏感<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: <span class="number">8081</span></span><br><span class="line">  contextPath: /info</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="YMAL常用写法"><a href="#YMAL常用写法" class="headerlink" title="YMAL常用写法"></a>YMAL常用写法</h4><ul>
+<li><p>字面量：数值，字符串，布尔，日期</p>
 <ul>
-<li><code>spring-boot-starter-parent</code>是当前项目的父级依赖<ol>
-<li><code>spring-boot-starter</code>:Spring Boot场景启动器，Spring Boot将所有的功能场景抽取出来，做成一个个starter（启动器），只需项目里引入相关场景的starter，就会将它所有依赖导入进来。要用什么功能就导入什么场景的启动器。（各种启动器可参见官方文档starter）</li>
-<li><code>spring-boot-starter-parent</code>:它父依赖<code>spring-boot-dependencies</code>,参见下面：<figure class="highlight"><table><tr><td class="code"><pre><span class="line"> &lt;!--spring-boot-starter-parent 的 父级依赖--&gt;</span><br><span class="line"> &lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.6.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;relativePath&gt;../../spring-boot-dependencies&lt;/relativePath&gt;</span><br><span class="line">&lt;/parent&gt;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li><code>spring-boot-dependencies</code>是管理了Spring Boot项目中的所有依赖版本<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/2tXn1rQ0!r1w.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/2tXn1rQ0!r1w.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/2tXn1rQ0!r1w.png"></a></li>
-<li>以后我们导入依赖默认不需要写版本号，也就是可以省去<code>version</code>标签。（当前没有在dependencies中管理的依赖自然需要声明版本号）</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>spring-boot-starter-web  <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>依赖导入了Web项目运行所需要的组件；如Tomcat/SpringMVC等</li>
-</ol>
+<li>字符串默认不用加上引号；<ul>
+<li>使用双引号不会转义特殊字符，特殊字符最终会转成本来想表示含义输出<br><code>name: &quot;AA \n BBB&quot;</code>输出：<code>AA换行BBB</code></li>
+<li>使用单引号会转义特殊字符，特殊字符当作一个普通字符串输出<br><code>name: &#39;AA \n BBB&#39;</code>输出<code>AA \n BBB</code></li>
+</ul>
 </li>
 </ul>
-<h3 id="引导类"><a href="#引导类" class="headerlink" title="引导类"></a>引导类</h3> <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mengxuegu;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">  *  @SpringBootApplication 用于标识一个引导类,说明当前是Spring Boot项目</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloMailAppliation</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">         SpringApplication.run(HelloMailAppliation<span class="class">.<span class="keyword">class</span>,<span class="title">args</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象&amp;Map</p>
 <ul>
-<li><p>通常有一个名为*Application的入口类，里面定义一个main方法，使用<code>SpringApplication.run(HelloMailAppliation.class, args);</code>来启动SpringBoot应用项目</p>
+<li><code>key: value</code> value存储对象，每个值换一行写，注意左对齐<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">emp:</span></span><br><span class="line">  <span class="attr">lastName:</span> <span class="string">A</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">18</span></span><br><span class="line">  <span class="attr">salary:</span> <span class="number">10000</span></span><br><span class="line"></span><br><span class="line"><span class="string">//行内写法</span></span><br><span class="line"><span class="attr">emp:</span> <span class="string">&#123;lastName:</span> <span class="string">A,age:</span> <span class="number">18</span><span class="string">,salary:</span> <span class="number">10000</span><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>@SpringBootApplication注解说明：</p>
+</ul>
+</li>
+<li><p>数组（List、Set）</p>
 <ul>
-<li>标注在某个类上，说明这个类是spring boot的引导类，spring boot就应该运行这个类的main方法来启动SpringBoot应用；</li>
-<li>@SpringBootApplication是以下三个注解的总和：<ol>
-<li><code>@SpringBootConfiguration</code>:用于定义一个Spring Boot的配置类（配置类等同配置文件）<ul>
-<li>引用了@Configuration注解，是Spring底层的一个注解，用于定义Spring的配置类。</li>
-<li>配置类也是容器中的一个组件 @Component</li>
-</ul>
-</li>
-<li><code>EnableAutoConfiguration</code>:<ul>
-<li>告诉Spring Boot开启自动配置功能，这样Spring Boot会自动根据你导入的依赖jar包来自动配置项目。</li>
-<li>@AutoConfigurationPackage–》@Import({Registrar.class})<ul>
-<li>会将引导类(@SpringBootApplication标注的类)所在的包及下面所有子包里面的所有组件扫描到Spring容器;</li>
-</ul>
-</li>
-<li>@Import({AutoConfigurationImportSelector,class})<ul>
-<li>将所有需要导入的组件以全类名的方式返回;这些组件就会被添加到容器中</li>
-<li>会给容器导入非常多的自动配置类(xxxxAutoConfiguration),就是导入并配置好当前项目中所需的组件，省去我们手动编写配置去注入组件。</li>
-</ul>
-</li>
-<li>Spring Boot在启动的时候从(spring-boot-autoconfigure-2.0.6.RELEASE.jar)类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值，将这些值作为自动配置类导入到容器中，自动配置类就生效，帮我们进行自动配置工作； 以前我们需要自己配置的文件，自动配置类都帮我们完成了；</li>
-</ul>
-</li>
-<li><code>@ComponentScan</code>:该注解标识的类会被Spring自动扫描并且装入bean容器。</li>
-</ol>
+<li>用<code>-值</code>表示数组中的一个元素<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">fortes:</span></span><br><span class="line">  <span class="string">-java</span></span><br><span class="line">  <span class="string">-python</span></span><br><span class="line">  <span class="string">-hadoop</span></span><br><span class="line"></span><br><span class="line"><span class="string">//行内写法</span></span><br><span class="line"><span class="attr">fortes:</span> <span class="string">[java,python,hadoop]</span></span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="使用Spring初始化器创建Spring-Boot项目"><a href="#使用Spring初始化器创建Spring-Boot项目" class="headerlink" title="使用Spring初始化器创建Spring Boot项目"></a>使用Spring初始化器创建Spring Boot项目</h2><ul>
-<li><p>注：初始化向导需要联网创建Spring Boot项目<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/AG!vhJr4lkR*.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/AG!vhJr4lkR*.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/AG!vhJr4lkR*.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/ifwDvvi7gYn8.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/ifwDvvi7gYn8.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/ifwDvvi7gYn8.png"></a></p>
+<h3 id="yaml配置文件注入值"><a href="#yaml配置文件注入值" class="headerlink" title="yaml配置文件注入值"></a>yaml配置文件注入值</h3><ul>
+<li><p>编写JavaBean</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1、@ConfigurationProperties 告诉SpringBoot将配置文件中对应属性的值，映射到这个组件类中,进行一一绑定</span></span><br><span class="line"><span class="comment">// prefix = "emp"：配置文件中的前缀名，哪个前缀与下面的所有属性进行一一映射</span></span><br><span class="line"><span class="comment">//2、@Component 必须将当前组件作为SpringBoot中的一个组件，才能使用容器提供的</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix=<span class="string">"emp"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Emp</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String lastName;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> Double salary;</span><br><span class="line">    <span class="keyword">private</span> Boolean boss;</span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Map map;</span><br><span class="line">    <span class="keyword">private</span> List list;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Forte forte;</span><br><span class="line"></span><br><span class="line">    getter/setter/toString</span><br><span class="line"><span class="comment">//--------------------------------------------</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Forte</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer time;</span><br></pre></td></tr></table></figure></li>
+<li><p>如果出现提示处理器没有发现：<br>  <a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/TJPkm5OK2rek.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/TJPkm5OK2rek.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/TJPkm5OK2rek.png"></a><br>  在pom.xml导入配置文件处理器，然后重新运行测试类</p>
+  <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">        &lt;!--导入配置文件处理器，在编写配置文件时就会提示--&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;</span><br><span class="line">        &lt;optional&gt;true&lt;/optional&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>引入功能模块<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/DbBbA2DRw*9i.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/DbBbA2DRw*9i.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/DbBbA2DRw*9i.png"></a></p>
+<li><p>编写<code>application.yml</code>配置文件</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">emp:</span></span><br><span class="line">  <span class="attr">lastName:</span> <span class="string">zhangsan</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">28</span></span><br><span class="line">  <span class="attr">salary:</span> <span class="number">20000</span></span><br><span class="line">  <span class="attr">boss:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">birthday:</span> <span class="number">1991</span><span class="string">/10/10</span></span><br><span class="line">  <span class="attr">map:</span></span><br><span class="line">    <span class="attr">key1:</span> <span class="string">value1</span></span><br><span class="line">    <span class="attr">key2:</span> <span class="string">value2</span></span><br><span class="line">  <span class="attr">list:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">one</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">two</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">three</span></span><br><span class="line">  <span class="attr">forte:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">java</span></span><br><span class="line">    <span class="attr">time:</span> <span class="number">8</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>默认生成的Spring Boot项目：<br>  <a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/7FrynvD3FXSf.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/7FrynvD3FXSf.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/7FrynvD3FXSf.png"></a></p>
-<ul>
-<li>删除不需要的文件与目录，<code>spring-boot-starter-test</code>是Spring Boot单元测试模块</li>
+<li><p>使用spring boot单元测试类进行测试</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SpringBoot01HelloInitApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    Emp emp;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(emp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>控制台会输出设置好的emp的值<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/XGkmvXeXz3Ax.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/XGkmvXeXz3Ax.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/XGkmvXeXz3Ax.png"></a></p>
+</li>
 </ul>
-</li>
-<li><p>引导类已经生成了，我们只需要实现业务即可<br>  <a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zj7TyXMvIX^6.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Zj7TyXMvIX%5E6.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zj7TyXMvIX^6.png"></a></p>
-</li>
-<li><p><code>resources</code>文件夹中目录结构</p>
-<ul>
-<li><code>static</code>:保存所有静态资源文件，js css images</li>
-<li><code>templates</code>:保存所有的模板页面（Spring Boot默认jar包使用嵌入式的Tomcat，默认不支持JSP页面），可以使用模块引擎（freemarker、thymeleaf）</li>
-<li><code>application.properties</code>:Spring Boot应用的配置文件，可以修改一些默认配置如修改默认端口<code>server.prot=8081</code></li>
-</ul>
-</li>
+<h3 id="properties-配置文件注入值"><a href="#properties-配置文件注入值" class="headerlink" title="properties 配置文件注入值"></a>properties 配置文件注入值</h3><ul>
+<li>将<code>application.yml</code>配置文件中的内容注释掉</li>
+<li>编写<code>application.properties</code>配置文件<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#emp配置的值</span></span><br><span class="line"><span class="string">emp.last-name=李四</span></span><br><span class="line"><span class="string">emp.age=30</span></span><br><span class="line"><span class="string">emp.birthday=1989/9/12</span></span><br><span class="line"><span class="string">emp.boss=false</span></span><br><span class="line"><span class="string">emp.salary=230000</span></span><br><span class="line"><span class="string">emp.map.key1=value1</span></span><br><span class="line"><span class="string">emp.map.key2=value2</span></span><br><span class="line"><span class="string">emp.list=one,two,three</span></span><br><span class="line"><span class="string">emp.forte.name=python</span></span><br><span class="line"><span class="string">emp.forte.time=3</span></span><br></pre></td></tr></table></figure>
+<a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/6fSsD^z61Ou1.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/6fSsD%5Ez61Ou1.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/6fSsD^z61Ou1.png"></a></li>
+<li>运行后，发现控制台出现中午乱码 进行如下设置重新输入中文值就不会出现乱码<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/2n6cKMLyA7U7.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/2n6cKMLyA7U7.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/2n6cKMLyA7U7.png"></a></li>
 </ul>
 ]]></content>
       <categories>
@@ -1038,160 +1203,6 @@
       </categories>
       <tags>
         <tag>spring boot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>springboot入门到项目实践1</title>
-    <url>/2020/09/16/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B51/</url>
-    <content><![CDATA[<h2 id="Spring-Boot入门"><a href="#Spring-Boot入门" class="headerlink" title="Spring Boot入门"></a>Spring Boot入门</h2><h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><a id="more"></a>
-<ul>
-<li>jdk1.8</li>
-<li>Maven3.x</li>
-<li>IntelliJ IDEA</li>
-<li>Spring Boot</li>
-</ul>
-<h3 id="修改maven配置文件"><a href="#修改maven配置文件" class="headerlink" title="修改maven配置文件"></a>修改maven配置文件</h3><ul>
-<li>在maven目录conf文件夹下settings.xml配置文件添加如下内容<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--开始处更改下载依赖的存放路径， 以下目录需要已经创建--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>D:\javasource\maven-repository<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--在 mirrors 标签下 添加阿里云maven私服库--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 在 profiles 标签下指定jdk版本 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>jdk-1.8<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">jdk</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">jdk</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.compilerVersion</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.compilerVersion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="IntelliJ-IDEA设置"><a href="#IntelliJ-IDEA设置" class="headerlink" title="IntelliJ IDEA设置"></a>IntelliJ IDEA设置</h3></li>
-<li>添加maven环境<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/R8CXuSw^LYMD.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/R8CXuSw%5ELYMD.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/R8CXuSw^LYMD.png"></a></li>
-</ul>
-<h3 id="快速构建Spring-Boot项目"><a href="#快速构建Spring-Boot项目" class="headerlink" title="快速构建Spring Boot项目"></a>快速构建Spring Boot项目</h3><ul>
-<li>需求：浏览器发送/hello请求，服务器接收请求并处理，响应Hello World 字符串</li>
-<li>分析：构建Spring Boot项目，事实上建立的就是一个Maven项目<h4 id="创建Mven工程"><a href="#创建Mven工程" class="headerlink" title="创建Mven工程"></a>创建Mven工程</h4></li>
-<li>在IDEA上新建一个空的jar类型的maven工程<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/G6aE4BbSG7D7.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/G6aE4BbSG7D7.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/G6aE4BbSG7D7.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/4!qwhzJzP0N@.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/4!qwhzJzP0N@.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/4!qwhzJzP0N@.png"></a><h4 id="修改pom-xml文件"><a href="#修改pom-xml文件" class="headerlink" title="修改pom.xml文件"></a>修改pom.xml文件</h4></li>
-<li>在pom.xml中添加spring boot相关的父级依赖，<code>spring-boot-starter-parent</code>是一个特殊的starter，它提供了项目相关的默认依赖，使用它之后，常用的包依赖可以省去<code>version</code>标签</li>
-<li>在<code>dependencies</code>添加构建web项目相关的依赖<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>等待下载结束，会发现工程自动添加了很多jar包，这些jar包正是开发时需要导入的jar包<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/vO9GaAxoAFGz.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/vO9GaAxoAFGz.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/vO9GaAxoAFGz.png"></a></li>
-</ul>
-<h4 id="创建控制器Controller"><a href="#创建控制器Controller" class="headerlink" title="创建控制器Controller"></a>创建控制器Controller</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bdu.controller;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"helloWorld..."</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="创建一个引导类"><a href="#创建一个引导类" class="headerlink" title="创建一个引导类"></a>创建一个引导类</h4><ul>
-<li>主要作用是作为启动spring boot项目的入口<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bdu;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloMailAppliation</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        SpringApplication.run(HelloMailAppliation<span class="class">.<span class="keyword">class</span>,<span class="title">args</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h4></li>
-<li>运行引导类后，会出现如下一个标识<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/hzMzsOHXh4Wt.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/hzMzsOHXh4Wt.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/hzMzsOHXh4Wt.png"></a></li>
-<li>在浏览器地址输入 <code>localhost:8080/hello</code>即可看到运行结果<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/UMNmNhJs7Yz7.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/UMNmNhJs7Yz7.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/UMNmNhJs7Yz7.png"></a><h3 id="简化部署"><a href="#简化部署" class="headerlink" title="简化部署"></a>简化部署</h3></li>
-<li>在pom.xml添加如下插件后，将这个工程打成jar包后，可直接通过<code>java -jar</code>的命令运行<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!--可以将当前项目打包成一个jar包进行运行--&gt;</span><br><span class="line">   &lt;build&gt;</span><br><span class="line">       &lt;plugins&gt;</span><br><span class="line">           &lt;plugin&gt;</span><br><span class="line">               &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">               &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br><span class="line">       &lt;/plugins&gt;</span><br><span class="line">   &lt;/build&gt;</span><br></pre></td></tr></table></figure></li>
-<li>如下操作进行打成jar包，从控制台可发现打成jar包所在目录<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/A1Y0bvwEGg54.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/A1Y0bvwEGg54.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/A1Y0bvwEGg54.png"></a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>spring-boot</category>
-      </categories>
-      <tags>
-        <tag>spring boot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>springboot入门到项目实践5</title>
-    <url>/2020/09/26/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B55/</url>
-    <content><![CDATA[<h3 id="Profile多环境支持"><a href="#Profile多环境支持" class="headerlink" title="Profile多环境支持"></a>Profile多环境支持</h3><h4 id="Profile介绍"><a href="#Profile介绍" class="headerlink" title="Profile介绍"></a>Profile介绍</h4><ul>
-<li>Profile是Spring用来针对不同的环境要求，提供不同的配置支持，全局Profile配置使用的文件名可以是<code>application-{profile}.properties</code>/<code>application-{profile}.yml</code><a id="more"></a>
-<ul>
-<li>如：application-dev.properties/application.properties</li>
-</ul>
-</li>
-<li>演示案例：我们的项目环境分为开发（dev）和生产（prod）环境，开发环境下端口为8082，生产环境下端口号为8888.<h4 id="properties文件演示案例"><a href="#properties文件演示案例" class="headerlink" title="properties文件演示案例"></a>properties文件演示案例</h4></li>
-<li>创建两个文件<code>application-dev.properties</code>与<code>application-prod.properties</code><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/nDd@T7ffdDKQ.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/nDd@T7ffdDKQ.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/nDd@T7ffdDKQ.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/bqDg2t51CoM1.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/bqDg2t51CoM1.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/bqDg2t51CoM1.png"></a></li>
-<li>激活指定profile<ul>
-<li>在主配置文件<code>application.properties</code>中指定<code>spring.profiles.active=dev</code><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zren2xFY08IB.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Zren2xFY08IB.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zren2xFY08IB.png"></a></li>
-<li>未指定哪个profile文件时，默认使用<code>application.properties</code>中的配置<h4 id="yml文件演示案例"><a href="#yml文件演示案例" class="headerlink" title="yml文件演示案例"></a>yml文件演示案例</h4></li>
-</ul>
-</li>
-<li>在<code>application.yml</code>中配置<ul>
-<li>yml支持多文档块方式<code>---</code><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">8081</span> <span class="comment"># 默认端口号</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span></span><br><span class="line"><span class="attr">active:</span> <span class="string">prod</span> <span class="comment">#激活哪个profile , 当前激活的是 dev 开发环境</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">8082</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span> <span class="string">dev</span> <span class="comment">#指定属于哪个环境, dev 环境时使用</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">8888</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span> <span class="string">prod</span> <span class="comment">#指定属于哪个环境, prod 环境时使用</span></span><br></pre></td></tr></table></figure>
-<h4 id="多种方式激活指定profile"><a href="#多种方式激活指定profile" class="headerlink" title="多种方式激活指定profile"></a>多种方式激活指定profile</h4></li>
-</ul>
-</li>
-<li>方式1：在主配置文件中指定<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#application.properties</span></span><br><span class="line"><span class="string">spring.profiles.active=dev</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#application.yml</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span></span><br><span class="line"><span class="attr">active:</span> <span class="string">prod</span></span><br></pre></td></tr></table></figure></li>
-<li>方式2：命令行参数指定<ul>
-<li>可以直接在测试的时候，配置传入命令行参数<code>--spring.profiles.active=dev</code><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/YD0ih1duI7Jn.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/YD0ih1duI7Jn.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/YD0ih1duI7Jn.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/CDxjwFpAHpwh.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/CDxjwFpAHpwh.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/CDxjwFpAHpwh.png"></a></li>
-<li>打jar包运行<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">java -jar spring-boot<span class="number">-02</span>-config<span class="number">-0.0</span><span class="number">.1</span>-SNAPSHOT.jar --spring.profiles.active=dev</span><br></pre></td></tr></table></figure></li>
-<li>虚拟机参数指定<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">-Dspring.profiles.active</span>=dev</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="配置文件加载位置"><a href="#配置文件加载位置" class="headerlink" title="配置文件加载位置"></a>配置文件加载位置</h3><ul>
-<li><p>SpringBoot启动时，会扫描以下位置的<code>application.properties</code>和<code>application.yml</code>文件作为Spring Boot的默认配置文件：</p>
-<table>
-<thead>
-<tr>
-<th align="center">配置文件位置</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>file:./config</code></td>
-<td align="center">当前项目的config目录下（最高级别）</td>
-</tr>
-<tr>
-<td align="center"><code>file:./</code></td>
-<td align="center">当前项目的根目录下</td>
-</tr>
-<tr>
-<td align="center"><code>classpath:/config</code></td>
-<td align="center">类路径的config目录下</td>
-</tr>
-<tr>
-<td align="center"><code>classpath:/</code></td>
-<td align="center">类路径的跟目录下（最低级别）</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>以上按照优先级从低到高的顺序，将所有位置的配置文件全部加载，高优先级的配置内容会覆盖低优先级的配置内容</p>
-</li>
-<li><p>注意：如果使用IDEA创建的项目是Module（如果是Project则忽略），当项目的根目录不是你这个项目所有目录（是Project所在目录），这样使用file：存放配置文件时会找不到配置<br>解决方式：更改工作路径直接为Module所有目录<code>$MODULE_DIR$</code><br>通过System.getProperty(“user.dir”)获取的时module的路径<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/dCrEfe66d91e.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/dCrEfe66d91e.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/dCrEfe66d91e.png"></a></p>
-</li>
-<li><p>配置文件能写什么？怎么写？<br>  <a href="https://docs.spring.io/spring-boot/docs/2.0.6.RELEASE/reference/htmlsingle/#common-application-properties" target="_blank" rel="noopener" title="百度">配置文件能配置的属性参照</a></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>spring-boot</category>
-      </categories>
-      <tags>
-        <tag>spring boot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于Hexo和Github搭建博客</title>
-    <url>/2020/04/30/%E8%AE%B0%E5%BD%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  每个人心中都有一个属于自己的博客，因为疫情在家无聊就想着来做一个自己的博客，于是在网上遍寻教程，经过n次失败，终于搭建成功！<br>  我用来搭建的工具是Hexo，是一个基于node.js的静态博客框架，生产静态网页托管在GitHub上(学生嘛  家境贫寒 )。</p>
-<a id="more"></a>
-
-
-
-<h2 id="windows平台步骤"><a href="#windows平台步骤" class="headerlink" title="windows平台步骤"></a>windows平台步骤</h2><ol>
-<li><strong>你需要一台可以上网的电脑</strong></li>
-<li><strong>安装Git</strong> </li>
-<li><strong>安装Node.Js</strong> </li>
-<li><strong>安装Hexo</strong> </li>
-<li><strong>注册GitHub账号，并创建项目</strong></li>
-<li><strong>生成SSH并添加到GitHub</strong></li>
-<li><strong>上传到GitHub</strong></li>
-</ol>
-<h2 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1.安装Git"></a>1.安装Git</h2><p>到Git官网下载，网站地址：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
-<p>安装步骤：双击下载好的exe文件，一路next就好了<br>如果想知道具体步骤请<a href="https://www.cnblogs.com/xueweisuoyong/p/11914045.html" target="_blank" rel="noopener">移步</a></p>
-<p>安装好后，打开gitbash，查看版本：    命令<kbd>git version</kbd><br>             <img src="https://img-blog.csdnimg.cn/20200429181755676.png#pic_center" alt="在这里插入图片描述"><br>如果返回了版本号，那就说明git安装成功了。</p>
-<h2 id="2-安装Node-Js"><a href="#2-安装Node-Js" class="headerlink" title="2.安装Node.Js"></a>2.安装Node.Js</h2><p>到Node.Js官网下载，网址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a><br>安装步骤与git一致，打开gitbash，查看版本：    命令<kbd>node -v</kbd><br><img src="https://img-blog.csdnimg.cn/20200429183634197.png#pic_center" alt="在这里插入图片描述"><br><strong>与git不同的是安装完后要配置一下</strong><br>NodeJS和NPM安装好了以后并不能直接使用，默认情况下，NPM安装的模块并不会安装到NodeJS的程序目录，比如我们安装的时候设置的D盘，“D:\Program Files\nodejs”，而我们使用npm安装一个cluster模块他会出现在C盘默认的路径下面，所以，如果我们不修改npm的模块安装目录，那么它默认情况下都会安装到这里，随着你测试开发各种不同的项目，安装的模块越来越多，这个文件夹的体积就会越来越大，直到占满你的C盘。所以我们要修改npm的配置。</p>
-<ol>
-<li>在nodejs文件夹下，创建两个为文件夹： <strong>node_global   和 node_cecal</strong></li>
-<li>使用下面命令将npm的全局模块目录和缓存目录配置到我们刚才创建的那两个目录<br><strong>npm config set prefix “node_global文件的路径”<br>npm config set cache “node_cache的文件路径”</strong><br>例如：npm config set prefix “D:\Program Files\nodejs\node_global”</li>
-<li>高级系统设置——环境变量<br>新增系统变量：<br>变量名填：NODE_PATH<br>变量值填：（文件路径）<br><img src="https://img-blog.csdnimg.cn/20200429184305532.png#pic_center" alt="在这里插入图片描述"><br>还需要在Path变量名中修改nodejs文件默认路径<br><img src="https://img-blog.csdnimg.cn/20200429184634355.png#pic_center" alt="在这里插入图片描述"><br>修改完成后测试：<br>输入命令：node 回车——再输入 require(‘cluster’)<br><img src="https://img-blog.csdnimg.cn/20200429184809318.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>出现以上内容说明配置完成<h2 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h2>首先安装国内淘宝镜像源<kbd>npm install -g cnpm --registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></kbd><br>等待安装完成后就可以用<em>cnpm</em>来安装hexo博客了<br>命令：<kbd>cnpm install -g hexo-cli</kbd><br>安装完成后用<kbd>hexo -v</kbd>来验证一下<br><img src="https://img-blog.csdnimg.cn/20200429190627868.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后创建一个你用来存放博客的文件夹，cd到该目录下,初始化命令<kbd>hexo init</kbd>初始化完成后会在该文件夹下看到以下文件：<br><img src="https://img-blog.csdnimg.cn/20200429191123488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>这就安装完成了  输入<kbd>hexo s</kbd>就可以实现本地访问了  <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><h2 id="4-注册GitHub账户-并创建项目"><a href="#4-注册GitHub账户-并创建项目" class="headerlink" title="4.注册GitHub账户 并创建项目"></a>4.注册GitHub账户 并创建项目</h2>创建一个GitHub账号，创建一个repo，名称为<kbd>yourname.github.io</kbd>,其中yourname是你的github名称，如下：<br><img src="https://img-blog.csdnimg.cn/20200429191447405.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200429192035385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
-</ol>
-<h2 id="5-生成SSH并添加到GitHub"><a href="#5-生成SSH并添加到GitHub" class="headerlink" title="5.生成SSH并添加到GitHub"></a>5.生成SSH并添加到GitHub</h2><p>回到gitbash中.在gitbash中输入：<kbd>ssh-keygen -t rsa -C "你注册GitHub的邮箱”</kbd>，生产SSH，然后在C盘用户目录下找到 <strong>.ssh</strong>文件夹 ，用记事本打开<strong>id_rsa.pub</strong>将上面获取的ssh放到github中：<img src="https://img-blog.csdnimg.cn/20200429192947175.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>添加一个 <strong>New SSH key</strong> ，title随便取，key就填刚刚那一段。<br>在gitbash中验证是否添加成功：<kbd>ssh -T <a href="mailto:git@github.com">git@github.com</a></kbd></p>
-<p>用编辑器打开你的blog项目，修改 <strong>_config.yml</strong> 文件的一些配置(冒号之后都是有一个半角空格的)<br><kbd>deploy:<br>  type: git<br>  repo: <a href="mailto:git@github.com">git@github.com</a>:yourname/yourname.github.io.git(这个地方填你新建GitHub项目的ssh地址)<br>  branch: master</kbd><br>回到gitbash中，进入你的blog目录，分别执行以下命令：<br><kbd>hexo clean<br>hexo generate<br>hexo serverr</kbd></p>
-<h2 id="6-上传到GitHub"><a href="#6-上传到GitHub" class="headerlink" title="6.上传到GitHub"></a>6.上传到GitHub</h2><p>先安装一波：<kbd>cnpm install hexo-deployer-git --save</kbd>（这样才能将你写好的文章部署到github服务器上并让别人浏览到）<br>执行命令(建议每次都按照如下步骤部署)：<br><kbd>hexo clean<br>         hexo generate<br>         hexo deploy                 </kbd><br>         注意deploy的过程中要输入你的username及email 。按他给的格式执行后，再次执行上次命令。<br>         在浏览器中输入<kbd><a href="http://yourgithubname.github.io" target="_blank" rel="noopener">http://yourgithubname.github.io</a></kbd>就可以看到你的个人博客了。</p>
-<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p> 以上是我折腾了两天才尝试出来的，如果有错请大佬提醒。主题我还在继续研究，等我弄好了再来发表安装主题的教程。</p>
-]]></content>
-      <categories>
-        <category>博客搭建</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>npm</tag>
-        <tag>github</tag>
       </tags>
   </entry>
 </search>

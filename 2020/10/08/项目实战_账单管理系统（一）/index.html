@@ -22,33 +22,20 @@
     var CONFIG = {"hostname":"https","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言  每个人心中都有一个属于自己的博客，因为疫情在家无聊就想着来做一个自己的博客，于是在网上遍寻教程，经过n次失败，终于搭建成功！  我用来搭建的工具是Hexo，是一个基于node.js的静态博客框架，生产静态网页托管在GitHub上(学生嘛  家境贫寒 )。">
+  <meta name="description" content="初始化项目创建并引入项目资源文件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于Hexo和Github搭建博客">
-<meta property="og:url" content="http://https//qkgit.github.io/2020/04/30/%E8%AE%B0%E5%BD%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="项目实战_账单管理系统(一)">
+<meta property="og:url" content="http://https//qkgit.github.io/2020/10/08/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
 <meta property="og:site_name" content="河北热心市民齐先生">
-<meta property="og:description" content="前言  每个人心中都有一个属于自己的博客，因为疫情在家无聊就想着来做一个自己的博客，于是在网上遍寻教程，经过n次失败，终于搭建成功！  我用来搭建的工具是Hexo，是一个基于node.js的静态博客框架，生产静态网页托管在GitHub上(学生嘛  家境贫寒 )。">
+<meta property="og:description" content="初始化项目创建并引入项目资源文件">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200429181755676.png#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200429183634197.png#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200429184305532.png#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200429184634355.png#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200429184809318.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200429190627868.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200429191123488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200429191447405.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200429192035385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200429192947175.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="article:published_time" content="2020-04-30T04:33:56.085Z">
-<meta property="article:modified_time" content="2020-05-11T05:31:55.572Z">
+<meta property="article:published_time" content="2020-10-08T08:45:16.278Z">
+<meta property="article:modified_time" content="2020-10-08T08:48:20.564Z">
 <meta property="article:author" content="大王叫我来巡山">
-<meta property="article:tag" content="hexo">
-<meta property="article:tag" content="npm">
-<meta property="article:tag" content="github">
+<meta property="article:tag" content="spring boot">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200429181755676.png#pic_center">
 
-<link rel="canonical" href="http://https//qkgit.github.io/2020/04/30/%E8%AE%B0%E5%BD%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
+<link rel="canonical" href="http://https//qkgit.github.io/2020/10/08/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%80%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -61,7 +48,7 @@
   };
 </script>
 
-  <title>基于Hexo和Github搭建博客 | 河北热心市民齐先生</title>
+  <title>项目实战_账单管理系统(一) | 河北热心市民齐先生</title>
   
 
 
@@ -210,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/04/30/%E8%AE%B0%E5%BD%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/10/08/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%80%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/author.png">
@@ -223,7 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          基于Hexo和Github搭建博客
+          项目实战_账单管理系统(一)
         </h1>
 
         <div class="post-meta">
@@ -232,23 +219,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-04-30 12:33:56" itemprop="dateCreated datePublished" datetime="2020-04-30T12:33:56+08:00">2020-04-30</time>
+              <time title="创建时间：2020-10-08 16:45:16 / 修改时间：16:48:20" itemprop="dateCreated datePublished" datetime="2020-10-08T16:45:16+08:00">2020-10-08</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-11 13:31:55" itemprop="dateModified" datetime="2020-05-11T13:31:55+08:00">2020-05-11</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
+                  <a href="/categories/spring-boot/" itemprop="url" rel="index"><span itemprop="name">spring-boot</span></a>
                 </span>
             </span>
 
@@ -268,8 +249,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/04/30/%E8%AE%B0%E5%BD%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/30/%E8%AE%B0%E5%BD%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/10/08/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%80%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/08/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -279,14 +260,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k字</span>
+              <span>16字</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -298,34 +279,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  每个人心中都有一个属于自己的博客，因为疫情在家无聊就想着来做一个自己的博客，于是在网上遍寻教程，经过n次失败，终于搭建成功！<br>  我用来搭建的工具是Hexo，是一个基于node.js的静态博客框架，生产静态网页托管在GitHub上(学生嘛  家境贫寒 )。</p>
-<a id="more"></a>
-
-
-
-<h2 id="windows平台步骤"><a href="#windows平台步骤" class="headerlink" title="windows平台步骤"></a>windows平台步骤</h2><ol>
-<li><strong>你需要一台可以上网的电脑</strong></li>
-<li><strong>安装Git</strong> </li>
-<li><strong>安装Node.Js</strong> </li>
-<li><strong>安装Hexo</strong> </li>
-<li><strong>注册GitHub账号，并创建项目</strong></li>
-<li><strong>生成SSH并添加到GitHub</strong></li>
-<li><strong>上传到GitHub</strong></li>
-</ol>
-<h2 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1.安装Git"></a>1.安装Git</h2><p>到Git官网下载，网站地址：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a></p>
-<p>安装步骤：双击下载好的exe文件，一路next就好了<br>如果想知道具体步骤请<a href="https://www.cnblogs.com/xueweisuoyong/p/11914045.html" target="_blank" rel="noopener">移步</a></p>
-<p>安装好后，打开gitbash，查看版本：    命令<kbd>git version</kbd><br>             <img src="https://img-blog.csdnimg.cn/20200429181755676.png#pic_center" alt="在这里插入图片描述"><br>如果返回了版本号，那就说明git安装成功了。</p>
-<h2 id="2-安装Node-Js"><a href="#2-安装Node-Js" class="headerlink" title="2.安装Node.Js"></a>2.安装Node.Js</h2><p>到Node.Js官网下载，网址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a><br>安装步骤与git一致，打开gitbash，查看版本：    命令<kbd>node -v</kbd><br><img src="https://img-blog.csdnimg.cn/20200429183634197.png#pic_center" alt="在这里插入图片描述"><br><strong>与git不同的是安装完后要配置一下</strong><br>NodeJS和NPM安装好了以后并不能直接使用，默认情况下，NPM安装的模块并不会安装到NodeJS的程序目录，比如我们安装的时候设置的D盘，“D:\Program Files\nodejs”，而我们使用npm安装一个cluster模块他会出现在C盘默认的路径下面，所以，如果我们不修改npm的模块安装目录，那么它默认情况下都会安装到这里，随着你测试开发各种不同的项目，安装的模块越来越多，这个文件夹的体积就会越来越大，直到占满你的C盘。所以我们要修改npm的配置。</p>
-<ol>
-<li>在nodejs文件夹下，创建两个为文件夹： <strong>node_global   和 node_cecal</strong></li>
-<li>使用下面命令将npm的全局模块目录和缓存目录配置到我们刚才创建的那两个目录<br><strong>npm config set prefix “node_global文件的路径”<br>npm config set cache “node_cache的文件路径”</strong><br>例如：npm config set prefix “D:\Program Files\nodejs\node_global”</li>
-<li>高级系统设置——环境变量<br>新增系统变量：<br>变量名填：NODE_PATH<br>变量值填：（文件路径）<br><img src="https://img-blog.csdnimg.cn/20200429184305532.png#pic_center" alt="在这里插入图片描述"><br>还需要在Path变量名中修改nodejs文件默认路径<br><img src="https://img-blog.csdnimg.cn/20200429184634355.png#pic_center" alt="在这里插入图片描述"><br>修改完成后测试：<br>输入命令：node 回车——再输入 require(‘cluster’)<br><img src="https://img-blog.csdnimg.cn/20200429184809318.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>出现以上内容说明配置完成<h2 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h2>首先安装国内淘宝镜像源<kbd>npm install -g cnpm --registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></kbd><br>等待安装完成后就可以用<em>cnpm</em>来安装hexo博客了<br>命令：<kbd>cnpm install -g hexo-cli</kbd><br>安装完成后用<kbd>hexo -v</kbd>来验证一下<br><img src="https://img-blog.csdnimg.cn/20200429190627868.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>然后创建一个你用来存放博客的文件夹，cd到该目录下,初始化命令<kbd>hexo init</kbd>初始化完成后会在该文件夹下看到以下文件：<br><img src="https://img-blog.csdnimg.cn/20200429191123488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>这就安装完成了  输入<kbd>hexo s</kbd>就可以实现本地访问了  <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a><h2 id="4-注册GitHub账户-并创建项目"><a href="#4-注册GitHub账户-并创建项目" class="headerlink" title="4.注册GitHub账户 并创建项目"></a>4.注册GitHub账户 并创建项目</h2>创建一个GitHub账号，创建一个repo，名称为<kbd>yourname.github.io</kbd>,其中yourname是你的github名称，如下：<br><img src="https://img-blog.csdnimg.cn/20200429191447405.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200429192035385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
-</ol>
-<h2 id="5-生成SSH并添加到GitHub"><a href="#5-生成SSH并添加到GitHub" class="headerlink" title="5.生成SSH并添加到GitHub"></a>5.生成SSH并添加到GitHub</h2><p>回到gitbash中.在gitbash中输入：<kbd>ssh-keygen -t rsa -C "你注册GitHub的邮箱”</kbd>，生产SSH，然后在C盘用户目录下找到 <strong>.ssh</strong>文件夹 ，用记事本打开<strong>id_rsa.pub</strong>将上面获取的ssh放到github中：<img src="https://img-blog.csdnimg.cn/20200429192947175.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTM4MjE4ODk=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>添加一个 <strong>New SSH key</strong> ，title随便取，key就填刚刚那一段。<br>在gitbash中验证是否添加成功：<kbd>ssh -T <a href="mailto:git@github.com">git@github.com</a></kbd></p>
-<p>用编辑器打开你的blog项目，修改 <strong>_config.yml</strong> 文件的一些配置(冒号之后都是有一个半角空格的)<br><kbd>deploy:<br>  type: git<br>  repo: <a href="mailto:git@github.com">git@github.com</a>:yourname/yourname.github.io.git(这个地方填你新建GitHub项目的ssh地址)<br>  branch: master</kbd><br>回到gitbash中，进入你的blog目录，分别执行以下命令：<br><kbd>hexo clean<br>hexo generate<br>hexo serverr</kbd></p>
-<h2 id="6-上传到GitHub"><a href="#6-上传到GitHub" class="headerlink" title="6.上传到GitHub"></a>6.上传到GitHub</h2><p>先安装一波：<kbd>cnpm install hexo-deployer-git --save</kbd>（这样才能将你写好的文章部署到github服务器上并让别人浏览到）<br>执行命令(建议每次都按照如下步骤部署)：<br><kbd>hexo clean<br>         hexo generate<br>         hexo deploy                 </kbd><br>         注意deploy的过程中要输入你的username及email 。按他给的格式执行后，再次执行上次命令。<br>         在浏览器中输入<kbd><a href="http://yourgithubname.github.io" target="_blank" rel="noopener">http://yourgithubname.github.io</a></kbd>就可以看到你的个人博客了。</p>
-<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p> 以上是我折腾了两天才尝试出来的，如果有错请大佬提醒。主题我还在继续研究，等我弄好了再来发表安装主题的教程。</p>
-
+        <h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><h4 id="创建并引入项目资源文件"><a href="#创建并引入项目资源文件" class="headerlink" title="创建并引入项目资源文件"></a>创建并引入项目资源文件</h4>
     </div>
 
     
@@ -370,7 +324,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://https//qkgit.github.io/2020/04/30/%E8%AE%B0%E5%BD%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="基于Hexo和Github搭建博客">http://https//qkgit.github.io/2020/04/30/记录第一次搭建博客/</a>
+    <a href="http://https//qkgit.github.io/2020/10/08/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%80%EF%BC%89/" title="项目实战_账单管理系统(一)">http://https//qkgit.github.io/2020/10/08/项目实战_账单管理系统（一）/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>ZERO</a> 许可协议。转载请注明出处！
@@ -382,9 +336,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
-              <a href="/tags/npm/" rel="tag"><i class="fa fa-tag"></i> npm</a>
-              <a href="/tags/github/" rel="tag"><i class="fa fa-tag"></i> github</a>
+              <a href="/tags/spring-boot/" rel="tag"><i class="fa fa-tag"></i> spring boot</a>
           </div>
 
         
@@ -393,13 +345,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/29/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2020/10/02/Spring%20Boot%E7%9A%84Web%E5%BC%80%E5%8F%91(2)/" rel="prev" title="Spring Boot的Web开发(2)">
+      <i class="fa fa-chevron-left"></i> Spring Boot的Web开发(2)
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/05/11/markdown%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C_%E5%9F%BA%E7%A1%80%E7%AF%87/" rel="next" title="markdown使用手册_基础篇">
-      markdown使用手册_基础篇 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -459,7 +408,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#windows平台步骤"><span class="nav-number">1.1.</span> <span class="nav-text">windows平台步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装Git"><span class="nav-number">1.2.</span> <span class="nav-text">1.安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装Node-Js"><span class="nav-number">1.3.</span> <span class="nav-text">2.安装Node.Js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-安装Hexo"><span class="nav-number">1.4.</span> <span class="nav-text">3.安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-注册GitHub账户-并创建项目"><span class="nav-number">1.5.</span> <span class="nav-text">4.注册GitHub账户 并创建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-生成SSH并添加到GitHub"><span class="nav-number">1.6.</span> <span class="nav-text">5.生成SSH并添加到GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-上传到GitHub"><span class="nav-number">1.7.</span> <span class="nav-text">6.上传到GitHub</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结语"><span class="nav-number">2.</span> <span class="nav-text">结语</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化项目"><span class="nav-number">1.</span> <span class="nav-text">初始化项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建并引入项目资源文件"><span class="nav-number">1.1.</span> <span class="nav-text">创建并引入项目资源文件</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
