@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"https","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="我们所开发的项目大多是直接面向用户的，而程序出现异常往往是不可避免的，那该如何减少程序异常对用户体验的影响呢？ 下面来介绍SpringBoot为我们提供的处理方式。 默认的错误处理机制出现错误时页面效果 浏览器发送一个不存在的请求时，会报404   服务器内部发生错误的时候，页面会返回500 12345678910@Controllerpublic class BillController &amp;#1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot 错误处理机制">
+<meta property="og:url" content="http://https//qkgit.github.io/2020/10/13/SpringBoot%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/index.html">
+<meta property="og:site_name" content="河北热心市民齐先生">
+<meta property="og:description" content="我们所开发的项目大多是直接面向用户的，而程序出现异常往往是不可避免的，那该如何减少程序异常对用户体验的影响呢？ 下面来介绍SpringBoot为我们提供的处理方式。 默认的错误处理机制出现错误时页面效果 浏览器发送一个不存在的请求时，会报404   服务器内部发生错误的时候，页面会返回500 12345678910@Controllerpublic class BillController &amp;#1">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Uv4442MOE3zs.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Bn*ErCY37bAy.png">
+<meta property="article:published_time" content="2020-10-13T06:01:11.810Z">
+<meta property="article:modified_time" content="2020-10-13T18:34:46.970Z">
+<meta property="article:author" content="大王叫我来巡山">
+<meta property="article:tag" content="spring boot">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Uv4442MOE3zs.png">
+
+<link rel="canonical" href="http://https//qkgit.github.io/2020/10/13/SpringBoot%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Spring Boot 错误处理机制 | 河北热心市民齐先生</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">河北热心市民齐先生</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">正经人谁写日记啊~</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">15</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/10/13/SpringBoot%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/author.png">
+      <meta itemprop="name" content="大王叫我来巡山">
+      <meta itemprop="description" content="人生当苦无妨，良人当归即好。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="河北热心市民齐先生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring Boot 错误处理机制
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-13 14:01:11" itemprop="dateCreated datePublished" datetime="2020-10-13T14:01:11+08:00">2020-10-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 02:34:46" itemprop="dateModified" datetime="2020-10-14T02:34:46+08:00">2020-10-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spring-boot/" itemprop="url" rel="index"><span itemprop="name">spring-boot</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/13/SpringBoot%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/13/SpringBoot%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.3k字</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>我们所开发的项目大多是直接面向用户的，而程序出现异常往往是不可避免的，那该如何减少程序异常对用户体验的影响呢？</p>
+<p>下面来介绍SpringBoot为我们提供的处理方式。</p>
+<h3 id="默认的错误处理机制"><a href="#默认的错误处理机制" class="headerlink" title="默认的错误处理机制"></a>默认的错误处理机制</h3><h4 id="出现错误时页面效果"><a href="#出现错误时页面效果" class="headerlink" title="出现错误时页面效果"></a>出现错误时页面效果</h4><ul>
+<li><p>浏览器发送一个不存在的请求时，会报404</p>
+<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Uv4442MOE3zs.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Uv4442MOE3zs.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Uv4442MOE3zs.png"></a></p>
+</li>
+<li><p>服务器内部发生错误的时候，页面会返回500</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BillController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/bills"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">list</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//模拟500错误</span></span><br><span class="line">        <span class="keyword">int</span> i=<span class="number">1</span>/<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"bill/list"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Bn*ErCY37bAy.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Bn*ErCY37bAy.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Bn*ErCY37bAy.png"></a></p>
+</li>
+<li><p>无论是发生什么错误，SpringBoot都会返回一个状态码以及一个错误页面，这个错误页面是怎么来的呢？</p>
+</li>
+</ul>
+<h4 id="底层原理分析"><a href="#底层原理分析" class="headerlink" title="底层原理分析"></a>底层原理分析</h4><blockquote>
+<p>底层原理关注<code>ErrorMvcAutoConfiguration</code>错误自动配置类</p>
+</blockquote>
+<p><strong>第一步：</strong></p>
+<p><code>ErrorPageCustomizer</code>错误页面定制器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ErrorPageCustomizer</span> <span class="keyword">implements</span> <span class="title">ErrorPageRegistrar</span>, <span class="title">Ordered</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerErrorPages</span><span class="params">(ErrorPageRegistry errorPageRegistry)</span> </span>&#123;</span><br><span class="line">        ErrorPage errorPage = <span class="keyword">new</span> ErrorPage(</span><br><span class="line">            <span class="keyword">this</span>.dispatcherServletPath.getRelativePath(</span><br><span class="line">      <span class="comment">//出现错误后来到/error请求进行处理（类似web.xml注册的错误页面规则）</span></span><br><span class="line">            <span class="keyword">this</span>.properties.getError().getPath())); <span class="comment">//private String path = "/error";</span></span><br><span class="line">        errorPageRegistry.addErrorPages(<span class="keyword">new</span> ErrorPage[]&#123;errorPage&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当应用出现了4xx或5xx之类的错误，ErrorPageCustomizer就会被激活，它主要用于定制错误 处理的响应规则，就会发送一个/error请求，它会交给BasicErrorController进行处理</p>
+<p><strong>第二步：</strong></p>
+<p><code>BasicErrorController</code>就会接收/error请求处理。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(&#123;<span class="string">"$&#123;server.error.path:$&#123;error.path:/error&#125;&#125;"</span>&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BasicErrorController</span> <span class="keyword">extends</span> <span class="title">AbstractErrorController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//通过请求头判断调用以下哪个访问：text/html</span></span><br><span class="line">    <span class="comment">//响应HTML类型数据 接收浏览器发送的请求</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(produces = &#123;<span class="string">"text/html"</span>&#125;)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">errorHtml</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">                                  HttpServletResponse response)</span> </span>&#123;</span><br><span class="line">        HttpStatus status = <span class="keyword">this</span>.getStatus(request);</span><br><span class="line">        Map&lt;String, Object&gt; model = Collections.unmodifiableMap(<span class="keyword">this</span>.getErrorAttributes(request, <span class="keyword">this</span>.getErrorAttributeOptions(request, MediaType.TEXT_HTML)));</span><br><span class="line">        response.setStatus(status.value());</span><br><span class="line">        <span class="comment">//去哪个页面作为错误页面，包括页面地址与页面内容，里面有一个ErrorViewResolver</span></span><br><span class="line">        ModelAndView modelAndView = <span class="keyword">this</span>.resolveErrorView(request, response, status, model);</span><br><span class="line">        <span class="comment">//没有找到，则找error视图，</span></span><br><span class="line">        <span class="comment">//在ErrorMvcAutoConfiguration的defaultErrorView中</span></span><br><span class="line">        <span class="keyword">return</span> modelAndView != <span class="keyword">null</span> ? modelAndView : <span class="keyword">new</span> ModelAndView(<span class="string">"error"</span>, model);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//通过请求头判断：*/*</span></span><br><span class="line">    <span class="comment">//响应json类型数据 接收其他客户端发送的请求</span></span><br><span class="line">    <span class="meta">@RequestMapping</span></span><br><span class="line">    <span class="keyword">public</span> ResponseEntity&lt;Map&lt;String, Object&gt;&gt; error(HttpServletRequest request) &#123;</span><br><span class="line">        HttpStatus status = <span class="keyword">this</span>.getStatus(request);</span><br><span class="line">        <span class="keyword">if</span> (status == HttpStatus.NO_CONTENT) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ResponseEntity(status);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            Map&lt;String, Object&gt; body = <span class="keyword">this</span>.getErrorAttributes(request, <span class="keyword">this</span>.getErrorAttributeOptions(request, MediaType.ALL));</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ResponseEntity(body, status);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>BasicErrorController</code>会接收一个/error请求，两个方法处理 </p>
+<p>​    第一个errorHtml响应html数据</p>
+<p>​    还有一个error用来响应json数据，</p>
+<p>使用了ErrorViewResolver(DefaultErrorViewResolver)组件进行封装视图</p>
+<p><strong>第三步：</strong></p>
+<p><code>DefaultErrorViewResolver</code>去解析具体响应的错误页面。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DefaultErrorViewResolver</span> <span class="keyword">implements</span> <span class="title">ErrorViewResolver</span>, <span class="title">Ordered</span> </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ModelAndView <span class="title">resolveErrorView</span><span class="params">(HttpServletRequest request, HttpStatus status, Map&lt;String, Object&gt; model)</span> </span>&#123;</span><br><span class="line">        ModelAndView modelAndView = <span class="keyword">this</span>.resolve(String.valueOf(status.value()), model);</span><br><span class="line">        <span class="keyword">if</span> (modelAndView == <span class="keyword">null</span> &amp;&amp; SERIES_VIEWS.containsKey(status.series())) &#123;</span><br><span class="line">            <span class="comment">//找4xx 5xx页面</span></span><br><span class="line">            modelAndView = <span class="keyword">this</span>.resolve((String)SERIES_VIEWS.get(</span><br><span class="line">                status.series()), model);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> modelAndView;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ModelAndView <span class="title">resolve</span><span class="params">(String viewName, Map&lt;String, Object&gt; model)</span> </span>&#123;</span><br><span class="line">   <span class="comment">//SpringBoot默认根据装填码响应状态码页面 如error/404 (templates/errr/404.html)</span></span><br><span class="line">        String errorViewName = <span class="string">"error/"</span> + viewName;</span><br><span class="line">        <span class="comment">//如果模板引擎解析这个页面地址，则使用模板引擎解析</span></span><br><span class="line">        TemplateAvailabilityProvider provider = </span><br><span class="line">            <span class="keyword">this</span>.templateAvailabilityProviders.getProvider(errorViewName, </span><br><span class="line">            <span class="keyword">this</span>.applicationContext);</span><br><span class="line">        <span class="comment">//如果模板引擎可用，返回errorViewName指定的视图</span></span><br><span class="line">        <span class="keyword">return</span> provider != <span class="keyword">null</span> ? <span class="keyword">new</span> ModelAndView(errorViewName, model) </span><br><span class="line">       <span class="comment">//如果模板引擎不可用，则调用以下方法，在静态资源目录下找errorViewName对应的页面</span></span><br><span class="line">            : <span class="keyword">this</span>.resolveResource(errorViewName, model);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ModelAndView <span class="title">resolveResource</span><span class="params">(String viewName, Map&lt;String, Object&gt; model)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//从静态资源目录下找状态码的错误页面，如404.html</span></span><br><span class="line">        String[] var3 = <span class="keyword">this</span>.resourceProperties.getStaticLocations();</span><br><span class="line">        <span class="keyword">int</span> var4 = var3.length;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> var5 = <span class="number">0</span>; var5 &lt; var4; ++var5) &#123;</span><br><span class="line">            String location = var3[var5];</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Resource resource = <span class="keyword">this</span>.applicationContext.getResource(location);</span><br><span class="line">                resource = resource.createRelative(viewName + <span class="string">".html"</span>);</span><br><span class="line">                <span class="keyword">if</span> (resource.exists()) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> ModelAndView(<span class="keyword">new</span> DefaultErrorViewResolver.HtmlResourceView(resource), model);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception var8) &#123;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line"><span class="comment">//还可以定义4xx 5xx的页面信息</span></span><br><span class="line">        <span class="keyword">static</span> &#123;</span><br><span class="line">        Map&lt;Series, String&gt; views = <span class="keyword">new</span> EnumMap(Series<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        views.put(Series.CLIENT_ERROR, <span class="string">"4xx"</span>);</span><br><span class="line">        views.put(Series.SERVER_ERROR, <span class="string">"5xx"</span>);</span><br><span class="line">        SERIES_VIEWS = Collections.unmodifiableMap(views);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>通过以上分析则可以自定义错误页面</strong></p>
+<p><strong>第四步：</strong></p>
+<p><code>DefaultErrorAttributes</code>错误页面可获取的数据信息</p>
+<p>通关BasicErrorController的方法中响应的module可定位到响应哪些数据，从而引出<code>ErrorAttributes</code>的实现类<code>DefaultErrorAttributes</code>,<code>DefaultErrorAttributes</code>中绑定的所有值都可以在页面获取到。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractErrorController</span> <span class="keyword">implements</span> <span class="title">ErrorController</span> </span>&#123;</span><br><span class="line">    <span class="comment">//以下接口实现类 DefaultErrorAttributes 封装了响应的错误数据。</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ErrorAttributes errorAttributes;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DefaultErrorAttributes</span> <span class="keyword">implements</span> <span class="title">ErrorAttributes</span>, <span class="title">HandlerExceptionResolver</span>, <span class="title">Ordered</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">getErrorAttributes</span><span class="params">(WebRequest webRequest, ErrorAttributeOptions options)</span> </span>&#123;</span><br><span class="line">        Map&lt;String, Object&gt; errorAttributes = <span class="keyword">this</span>.getErrorAttributes(webRequest, options.isIncluded(Include.STACK_TRACE));</span><br><span class="line">        <span class="keyword">if</span> (Boolean.TRUE.equals(<span class="keyword">this</span>.includeException)) &#123;</span><br><span class="line">            options = options.including(<span class="keyword">new</span> Include[]&#123;Include.EXCEPTION&#125;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!options.isIncluded(Include.EXCEPTION)) &#123;</span><br><span class="line">            errorAttributes.remove(<span class="string">"exception"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!options.isIncluded(Include.STACK_TRACE)) &#123;</span><br><span class="line">            errorAttributes.remove(<span class="string">"trace"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!options.isIncluded(Include.MESSAGE) &amp;&amp; errorAttributes.get(<span class="string">"message"</span>) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            errorAttributes.put(<span class="string">"message"</span>, <span class="string">""</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!options.isIncluded(Include.BINDING_ERRORS)) &#123;</span><br><span class="line">            errorAttributes.remove(<span class="string">"errors"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> errorAttributes;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">下面省略一大波可获取的数据</span><br><span class="line">timestamp：时间戳</span><br><span class="line">status：状态码</span><br><span class="line">error：错误提示</span><br><span class="line">exception：异常对象</span><br><span class="line">message：异常消息</span><br><span class="line">errors：JSR303数据校验出现的错误</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="自定义错误响应页面"><a href="#自定义错误响应页面" class="headerlink" title="自定义错误响应页面"></a>自定义错误响应页面</h3><ul>
+<li><p>第一种：有模板引擎</p>
+<ul>
+<li><p><code>error/状态码</code> ：精准匹配，将错误页面命名为<code>错误状态码.html</code>放在模板引擎目录<code>templates</code>下的<code>error</code>目录下，发生对应状态码错误时，就会响应对应的模板页面</p>
+</li>
+<li><p><code>error/4xx</code>、<code>error/5xx</code>：模糊匹配，可以将错误页面命名为<code>4xx</code>和<code>5xx</code>，用来匹配对应类型的所有错误</p>
+</li>
+<li><p>采取精准优先</p>
+</li>
+<li><p>错误页面可获取的数据信息</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">timestamp：时间戳</span></span><br><span class="line"><span class="attr">status：状态码</span></span><br><span class="line"><span class="attr">error：错误提示</span></span><br><span class="line"><span class="attr">exception：异常对象</span></span><br><span class="line"><span class="attr">message：异常消息</span></span><br><span class="line"><span class="attr">errors：JSR303数据校验出现的错误</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>第二种：没有模板引擎（模板引擎找不到对应的错误页面）</p>
+<ul>
+<li>在静态资源目录下的error目录中找</li>
+</ul>
+</li>
+<li><p>第三种：模板目录与静态目录下都找不到对应的错误页面，就响应SpringBoot默认的错误页面</p>
+<p>通过<code>BasicErrorController</code>的errorhtml方法最后一行可知，没有找到则找error视图对象，error定义在<code>ErrorMvcAutoConfiguration</code>的<code>defaultErrorView</code>中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Conditional</span>(&#123;ErrorMvcAutoConfiguration.ErrorTemplateMissingCondition<span class="class">.<span class="keyword">class</span>&#125;)</span></span><br><span class="line"><span class="class">    <span class="title">protected</span> <span class="title">static</span> <span class="title">class</span> <span class="title">WhitelabelErrorViewConfiguration</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> ErrorMvcAutoConfiguration.StaticView defaultErrorView = <span class="keyword">new</span> ErrorMvcAutoConfiguration.StaticView();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="title">WhitelabelErrorViewConfiguration</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Bean</span>(</span><br><span class="line">            name = &#123;<span class="string">"error"</span>&#125;</span><br><span class="line">        )</span><br><span class="line">        <span class="meta">@ConditionalOnMissingBean</span>(</span><br><span class="line">            name = &#123;<span class="string">"error"</span>&#125;</span><br><span class="line">        )</span><br><span class="line">        <span class="function"><span class="keyword">public</span> View <span class="title">defaultErrorView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.defaultErrorView;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="自定义数据进行响应"><a href="#自定义数据进行响应" class="headerlink" title="自定义数据进行响应"></a>自定义数据进行响应</h3><ul>
+<li><p>分析：</p>
+<p>出现错误以后，会发送<code>/error</code>请求，会被<code>BasicErrorController</code>处理，而响应的数据是由getErrorAttributes封装的（就是ErrorController的实现类AbstractErrorController.getErrorAttributes的方法），所以我们只需要自定义<code>ErrorAttributes</code>实现类即可</p>
+<ul>
+<li><p>自定义<code>ErrorAttributes</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span><span class="comment">//向容器中添加组件</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyErrorAttributes</span> <span class="keyword">extends</span> <span class="title">DefaultErrorAttributes</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">getErrorAttributes</span><span class="params">(WebRequest webRequest, ErrorAttributeOptions options)</span> </span>&#123;</span><br><span class="line">        Map&lt;String, Object&gt; map = <span class="keyword">super</span>.getErrorAttributes(webRequest, options);</span><br><span class="line">        map.put(<span class="string">"cuowu"</span>,<span class="string">"自定义错误"</span>);</span><br><span class="line">        <span class="keyword">return</span> map;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>错误页面获取</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">4xx错误。。</span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>[[$&#123;cuowu&#125;]]<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+    <div>
+     
+       <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+     
+    </div>
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="大王叫我来巡山 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="大王叫我来巡山 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>大王叫我来巡山
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://https//qkgit.github.io/2020/10/13/SpringBoot%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/" title="Spring Boot 错误处理机制">http://https//qkgit.github.io/2020/10/13/SpringBoot错误处理机制/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>ZERO</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/spring-boot/" rel="tag"><i class="fa fa-tag"></i> spring boot</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/11/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%BA%8C%EF%BC%89/" rel="prev" title="项目实战_账单管理系统(二)">
+      <i class="fa fa-chevron-left"></i> 项目实战_账单管理系统(二)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/10/14/%E5%B5%8C%E5%85%A5%E5%BC%8FServlet%E5%AE%B9%E5%99%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE/" rel="next" title="嵌入式Servlet容器自定义配置">
+      嵌入式Servlet容器自定义配置 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认的错误处理机制"><span class="nav-number">1.</span> <span class="nav-text">默认的错误处理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#出现错误时页面效果"><span class="nav-number">1.1.</span> <span class="nav-text">出现错误时页面效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#底层原理分析"><span class="nav-number">1.2.</span> <span class="nav-text">底层原理分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义错误响应页面"><span class="nav-number">2.</span> <span class="nav-text">自定义错误响应页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义数据进行响应"><span class="nav-number">3.</span> <span class="nav-text">自定义数据进行响应</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="大王叫我来巡山"
+      src="/images/author.png">
+  <p class="site-author-name" itemprop="name">大王叫我来巡山</p>
+  <div class="site-description" itemprop="description">人生当苦无妨，良人当归即好。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qkgit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qkgit" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1584546760@qq.com" title="E-Mail → mailto:1584546760@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/6355308390" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;6355308390" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=1584546760&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;1584546760&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://yoursite.com/" title="http:&#x2F;&#x2F;yoursite.com" rel="noopener" target="_blank">暂无</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大王叫我来巡山</span>
+    
+    <!--  站点总字数：-->
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+     
+    <span title="站点总字数">85k字</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:18</span>
+</div>
+
+<!--
+-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='255,0,0' opacity='1' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'N2cbVqYWHSNSJHt9wnhDAhUM-gzGzoHsz',
+      appKey     : 'LSEYd4SR4l5cVSEyf43cmPYV',
+      placeholder: "留言是种美德，写点什么...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+ 
+<!-- 页面点击特效 -->
+<script type="text/javascript" src="/js/src/cursor.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
+
+
+
+
+
