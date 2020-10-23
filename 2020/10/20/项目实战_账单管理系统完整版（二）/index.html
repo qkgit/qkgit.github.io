@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"https","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="完成供应商管理模块 创建数据访问层 mapper.ProviderMapper">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目实战_账单管理系统完整版(二)">
+<meta property="og:url" content="http://https//qkgit.github.io/2020/10/20/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
+<meta property="og:site_name" content="河北热心市民齐先生">
+<meta property="og:description" content="完成供应商管理模块 创建数据访问层 mapper.ProviderMapper">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-20T01:35:12.931Z">
+<meta property="article:modified_time" content="2020-10-23T17:11:19.248Z">
+<meta property="article:author" content="大王叫我来巡山">
+<meta property="article:tag" content="spring boot">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://https//qkgit.github.io/2020/10/20/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%88%E4%BA%8C%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>项目实战_账单管理系统完整版(二) | 河北热心市民齐先生</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">河北热心市民齐先生</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">正经人谁写日记啊~</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">19</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/10/20/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%88%E4%BA%8C%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/author.png">
+      <meta itemprop="name" content="大王叫我来巡山">
+      <meta itemprop="description" content="人生当苦无妨，良人当归即好。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="河北热心市民齐先生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          项目实战_账单管理系统完整版(二)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-20 09:35:12" itemprop="dateCreated datePublished" datetime="2020-10-20T09:35:12+08:00">2020-10-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-24 01:11:19" itemprop="dateModified" datetime="2020-10-24T01:11:19+08:00">2020-10-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spring-boot/" itemprop="url" rel="index"><span itemprop="name">spring-boot</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/20/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%88%E4%BA%8C%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/20/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%88%E4%BA%8C%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>13k字</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>12 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="完成供应商管理模块"><a href="#完成供应商管理模块" class="headerlink" title="完成供应商管理模块"></a>完成供应商管理模块</h3><ol>
+<li><p>创建数据访问层 mapper.ProviderMapper</p>
+<a id="more"></a>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.bdu.springboot.mapper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.bdu.springboot.entities.Provider;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Repository;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Qi</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@data</span> 2020/10/17 22:44</span></span><br><span class="line"><span class="comment"> * 使用MyBatis配置文件版</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="comment">//@Mapper//指定这是操作数据的mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProviderMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">List&lt;Provider&gt; <span class="title">getProviders</span><span class="params">(Provider provider)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">Provider <span class="title">getProviderByPid</span><span class="params">(Integer pid)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">addProvider</span><span class="params">(Provider provider)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">deleteProviderByPid</span><span class="params">(Integer pid)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updateProvider</span><span class="params">(Provider provider)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>扫描Mapper，在启动类上添加<code>@MapperScan(&quot;com.bdu.springboot.mapper&quot;)</code></p>
+</li>
+<li><p>在mybatis/mapper/ProviderMapper.xml添加SQL语句</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span></span></span><br><span class="line"><span class="meta">        <span class="meta-keyword">PUBLIC</span> <span class="meta-string">"-//mybatis.org//DTD Mapper 3.0//EN"</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.bdu.springboot.mapper.ProviderMapper"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getProviders"</span> <span class="attr">resultType</span>=<span class="string">"com.bdu.springboot.entities.Provider"</span>&gt;</span></span><br><span class="line">        select * from provider where 1=1</span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"providerName != null and providerName != ''"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            and providerName like '%$&#123;providerName&#125;%'</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getProviderByPid"</span> <span class="attr">resultType</span>=<span class="string">"com.bdu.springboot.entities.Provider"</span>&gt;</span></span><br><span class="line">        select * from provider where pid=#&#123;pid&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"addProvider"</span>&gt;</span></span><br><span class="line">        INSERT INTO `provider`(`provider_code`, `providerName`, `people`, `phone`, `address`, `fax`, `describe`, `create_date`)</span><br><span class="line">        VALUES ( #&#123;providerCode&#125;, #&#123;providerName&#125;, #&#123;people&#125;, #&#123;phone&#125;, #&#123;address&#125;, #&#123;fax&#125;, #&#123;describe&#125;,now())</span><br><span class="line">    <span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">"deleteProviderByPid"</span>&gt;</span></span><br><span class="line">        delete from provider where pid=#&#123;pid&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"updateProvider"</span>&gt;</span></span><br><span class="line">        UPDATE `bill`.`provider` SET `provider_code` =  #&#123;providerCode&#125;, `providerName` =#&#123;providerName&#125;,</span><br><span class="line">         `people` = #&#123;people&#125;,`phone` = #&#123;phone&#125;, `address` = #&#123;address&#125;, `fax` = #&#123;fax&#125;,</span><br><span class="line">         `describe` = #&#123;describe&#125;, `create_date` = now() WHERE `pid` = #&#123;pid&#125;</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试mapper</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SpringBoot08BillApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	ProviderMapper providerMapper;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Provider p = <span class="keyword">new</span> Provider();</span><br><span class="line">		p.setProviderName(<span class="string">"A货"</span>);</span><br><span class="line">		List&lt;Provider&gt; providers = providerMapper.getProviders(p);</span><br><span class="line">		System.out.println(providers.get(<span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">		Provider provider = providerMapper.getProviderByPid(<span class="number">2</span>);</span><br><span class="line">		System.out.println(provider);</span><br><span class="line"></span><br><span class="line">		provider.setProviderName(<span class="string">"B货域名供应商....."</span>);</span><br><span class="line">		<span class="keyword">int</span> i = providerMapper.updateProvider(provider);</span><br><span class="line">		System.out.println(i);</span><br><span class="line"></span><br><span class="line">		providerMapper.addProvider(<span class="keyword">new</span> Provider(<span class="keyword">null</span>, <span class="string">"PR-AA"</span>, <span class="string">"梦学谷供应商111"</span>, <span class="string">"小张"</span>, <span class="string">"18888666981"</span>, <span class="string">"深圳软件园"</span>, <span class="string">"0911-0123456"</span>, <span class="string">"品质A"</span>));</span><br><span class="line"></span><br><span class="line">		providerMapper.deleteProviderByPid(<span class="number">8</span>);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改providerController</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProviderController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    ProviderDao providerDao;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    ProviderMapper providerMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/providers"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">list</span><span class="params">(Map&lt;String,Object&gt; map, Provider provider)</span></span>&#123;</span><br><span class="line">        Collection&lt;Provider&gt; providers = providerMapper.getProviders(provider);</span><br><span class="line">        map.put(<span class="string">"providers"</span>,providers);</span><br><span class="line">        map.put(<span class="string">"providerName"</span>,provider.getProviderName());</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"provider/list"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**前往</span></span><br><span class="line"><span class="comment">     *默认type=null详情页面</span></span><br><span class="line"><span class="comment">     *   type=update 修改页面</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/view/&#123;pid&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">view</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            @RequestParam(value = <span class="string">"type"</span>,defaultValue = <span class="string">"view"</span> )</span> String type,</span></span><br><span class="line"><span class="function">            @<span class="title">PathVariable</span><span class="params">(<span class="string">"pid"</span>)</span> Integer pid,</span></span><br><span class="line"><span class="function">            Map&lt;String,Object&gt; map)</span>&#123;</span><br><span class="line">        Provider provider = providerMapper.getProviderByPid(pid);</span><br><span class="line">        map.put(<span class="string">"provider"</span>,provider);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"provider/"</span>+type;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//修改供应商信息</span></span><br><span class="line">    <span class="meta">@PutMapping</span> (<span class="string">"/provider"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">update</span><span class="params">(Provider provider)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"修改供应商.."</span>+provider);</span><br><span class="line">        providerMapper.updateProvider(provider);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"redirect:/providers"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//前往添加供应商页面</span></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/provider"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toAddPage</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"provider/add"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//添加数据</span></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/provider"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addProvider</span><span class="params">(Provider provider)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"增加供应商.."</span>+provider);</span><br><span class="line">        providerMapper.addProvider(provider);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"redirect:/providers"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//删除供应商</span></span><br><span class="line">    <span class="meta">@DeleteMapping</span>(<span class="string">"provider/&#123;pid&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span>  String <span class="title">delete</span><span class="params">(@PathVariable(<span class="string">"pid"</span>)</span> Integer pid)</span>&#123;</span><br><span class="line">        providerMapper.deleteProviderByPid(pid);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"redirect:/providers"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在修改数据时，没有获取providerCode值  需要添加一个隐藏框获取providerCode  否则修改后providerCode值为空</p>
+<p>在update.html中加入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"updateForm"</span> <span class="attr">th:method</span>=<span class="string">"post"</span> <span class="attr">th:action</span>=<span class="string">"@&#123;/provider&#125;"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"_method"</span> <span class="attr">value</span>=<span class="string">"put"</span> <span class="attr">th:if</span>=<span class="string">"$&#123;provider!=null&#125;"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"pid"</span> <span class="attr">th:value</span>=<span class="string">"$&#123;provider.pid&#125;"</span> <span class="attr">th:if</span>=<span class="string">"$&#123;provider!=null&#125;"</span>/&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--获取providerCode值--&gt;</span></span><br><span class="line">    			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"providerCode"</span> <span class="attr">th:value</span>=<span class="string">"$&#123;provider.providerCode&#125;"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ol>
+<h3 id="账单管理模块"><a href="#账单管理模块" class="headerlink" title="账单管理模块"></a>账单管理模块</h3><ol>
+<li><p>改造实体类，因为列表需要 供应商名称</p>
+<p>Bill类中添加<code>private Integer pid</code></p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Integer pid;</span><br><span class="line"><span class="function"><span class="keyword">public</span> Integer <span class="title">getPid</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> pid;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPid</span><span class="params">(Integer pid)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.pid = pid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>新建BillProvider类继承Bill后，包含了Bill的所有属性，只需要新增供应商的信息属性</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BillProvider</span> <span class="keyword">extends</span> <span class="title">Bill</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String providerName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getProviderName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> providerName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setProviderName</span><span class="params">(String providerName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.providerName = providerName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>BillMapper</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BillMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    List&lt;BillProvider&gt;getBills(Bill bill);</span><br><span class="line"></span><br><span class="line">    <span class="function">Bill <span class="title">getBillByBid</span><span class="params">(Integer bid)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">addBill</span><span class="params">(Bill bill)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updateBill</span><span class="params">(Bill bill)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">deleteBillById</span><span class="params">(Integer bid)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>BillMapper.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span></span></span><br><span class="line"><span class="meta">        <span class="meta-keyword">PUBLIC</span> <span class="meta-string">"-//mybatis.org//DTD Mapper 3.0//EN"</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.bdu.springboot.mapper.BillMapper"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getBills"</span> <span class="attr">resultType</span>=<span class="string">"com.bdu.springboot.entities.BillProvider"</span>&gt;</span></span><br><span class="line">        select b.*, p.providerName from bill b left join provider p on b.pid = p.pid</span><br><span class="line">        where 1=1</span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"billName!=null and billName!=''"</span>&gt;</span></span><br><span class="line">            and b.bill_name like '%$&#123;billName&#125;%'</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"pid!=null"</span>&gt;</span></span><br><span class="line">            and b.pid = #&#123;pid&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"pay != null"</span>&gt;</span></span><br><span class="line">            and b.pay = #&#123;pay&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getBillByBid"</span> <span class="attr">resultType</span>=<span class="string">"com.bdu.springboot.entities.Bill"</span>&gt;</span></span><br><span class="line">        select b.*, p.providerName from bill b left join provider p on b.pid = p.pid</span><br><span class="line">        where bid = #&#123;bid&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"addBill"</span>&gt;</span></span><br><span class="line">        INSERT INTO `bill`( `bill_code`, `bill_name`, `bill_com`, `bill_num`, `money`, `pay`, `pid`, `create_date`)</span><br><span class="line">        VALUES (#&#123;billCode&#125;, #&#123;billName&#125;, #&#123;billCom&#125;, #&#123;billNum&#125;, #&#123;money&#125;, #&#123;pay&#125;, #&#123;pid&#125;, now())</span><br><span class="line">    <span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"updateBill"</span>&gt;</span></span><br><span class="line">        UPDATE `bill` SET</span><br><span class="line">        `bill_code` = #&#123;billCode&#125;, `bill_name` = #&#123;billName&#125;, `bill_com` = #&#123;billCom&#125;,`bill_num` = #&#123;billNum&#125;,</span><br><span class="line">         `money` =  #&#123;money&#125;, `pay` = #&#123;pay&#125;, `pid` = #&#123;pid&#125;, `create_date` = now()</span><br><span class="line">        WHERE `bid` = #&#123;bid&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">"deleteBillById"</span>&gt;</span></span><br><span class="line">        delete from bill where bid=#&#123;bid&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在测试类中测试接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SpringBoot08BillApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	ProviderMapper providerMapper;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	BillMapper billMapper;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Bill b = <span class="keyword">new</span> Bill();</span><br><span class="line">		b.setBillName(<span class="string">"com"</span>);</span><br><span class="line">		List&lt;BillProvider&gt; bills = billMapper.getBills(b);</span><br><span class="line">		System.out.println(bills.get(<span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">		Bill bill = billMapper.getBillByBid(<span class="number">2</span>);</span><br><span class="line">		System.out.println(bill);</span><br><span class="line"></span><br><span class="line">		bill.setBillName(<span class="string">"ESC包月云服务..."</span>);</span><br><span class="line">		<span class="keyword">int</span> i = billMapper.updateBill(bill);</span><br><span class="line">		System.out.println(i);</span><br><span class="line"></span><br><span class="line">		billMapper.addBill(<span class="keyword">new</span> Bill(<span class="number">3001</span>, <span class="string">"Bi-AA11"</span>, <span class="string">"粮油aaa"</span>,<span class="string">"斤"</span>, <span class="number">80</span>,<span class="number">480.8</span>, <span class="keyword">new</span> Provider(<span class="keyword">null</span>, <span class="string">"PR-BB"</span>, <span class="string">"梦学谷供应商222"</span>, <span class="string">"小李"</span>, <span class="string">"18888666982"</span>, <span class="string">"深圳软件园"</span>, <span class="string">"0911-0123453"</span>, <span class="string">"品质B"</span>),<span class="number">2</span>,<span class="number">1</span> ));</span><br><span class="line">		billMapper.deleteBillById(<span class="number">6</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="5">
+<li><p>修改public.html中的账单请求路径</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">th:id</span>=<span class="string">"$&#123;activeUri == 'bill' ?'active':''&#125;"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/bills&#125;"</span>&gt;</span>账单管理<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>BillController</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BillController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    ProviderMapper providerMapper;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    BillMapper billMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/bills"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">list</span><span class="params">(Map&lt;String,Object&gt; map, Bill bill)</span></span>&#123;</span><br><span class="line">        List&lt;BillProvider&gt; billProviders = billMapper.getBills(bill);</span><br><span class="line">        List&lt;Provider&gt; providers = providerMapper.getProviders(<span class="keyword">null</span>);</span><br><span class="line">        map.put(<span class="string">"billProviders"</span>,billProviders);</span><br><span class="line">        map.put(<span class="string">"providers"</span>,providers);</span><br><span class="line">        <span class="comment">//用于搜索回显数据</span></span><br><span class="line">        map.put(<span class="string">"billName"</span>,bill.getBillName());</span><br><span class="line">        map.put(<span class="string">"pid"</span>,bill.getPid());</span><br><span class="line">        map.put(<span class="string">"pay"</span>,bill.getPay());</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"bill/list"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**前往</span></span><br><span class="line"><span class="comment">     *默认type=null详情页面</span></span><br><span class="line"><span class="comment">     *   type=update 修改页面</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/bill/&#123;bid&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">view</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            @RequestParam(value = <span class="string">"type"</span>,defaultValue = <span class="string">"view"</span> )</span> String type,</span></span><br><span class="line"><span class="function">            @<span class="title">PathVariable</span><span class="params">(<span class="string">"bid"</span>)</span> Integer bid,</span></span><br><span class="line"><span class="function">            Map&lt;String,Object&gt; map)</span>&#123;</span><br><span class="line">        BillProvider bill = (BillProvider) billMapper.getBillByBid(bid);</span><br><span class="line">       <span class="keyword">if</span> (<span class="string">"update"</span>.equals(type))&#123;</span><br><span class="line">           List&lt;Provider&gt; providers = providerMapper.getProviders(<span class="keyword">null</span>);</span><br><span class="line">           map.put(<span class="string">"providers"</span>,providers);</span><br><span class="line">       &#125;</span><br><span class="line">        map.put(<span class="string">"bill"</span>,bill);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"bill/"</span>+type;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//修改账单信息</span></span><br><span class="line">    <span class="meta">@PutMapping</span>(<span class="string">"/bill"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">update</span><span class="params">(Bill bill)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"修改供应商.."</span>+bill);</span><br><span class="line">        billMapper.updateBill(bill);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"redirect:/bills"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//前往添加账单页面</span></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/bill"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toAddPage</span><span class="params">(Map&lt;String,Object&gt; map)</span></span>&#123;</span><br><span class="line">        List&lt;Provider&gt; providers = providerMapper.getProviders(<span class="keyword">null</span>);</span><br><span class="line">        map.put(<span class="string">"providers"</span>,providers);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"bill/add"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//添加账单数据</span></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/bill"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBill</span><span class="params">(Bill bill)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"增加账单.."</span>+bill);</span><br><span class="line">        billMapper.addBill(bill);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"redirect:/bills"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//删除账单</span></span><br><span class="line">    <span class="meta">@DeleteMapping</span>(<span class="string">"bill/&#123;bid&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span>  String <span class="title">delete</span><span class="params">(@PathVariable(<span class="string">"bid"</span>)</span> Integer bid)</span>&#123;</span><br><span class="line">        billMapper.deleteBillById(bid);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"redirect:/bills"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改各个页面信息</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--下拉框设置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>供应商：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"pid"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>--请选择--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">th:selected</span>=<span class="string">"$&#123;pid == p.pid&#125;"</span> <span class="attr">th:each</span>=<span class="string">"p : $&#123;providers&#125;"</span> <span class="attr">th:value</span>=<span class="string">"$&#123;p.pid&#125;"</span> <span class="attr">th:text</span>=<span class="string">"$&#123;p.providerName&#125;"</span>&gt;</span>--供应商--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ol>
+<h3 id="用户管理模块"><a href="#用户管理模块" class="headerlink" title="用户管理模块"></a>用户管理模块</h3><ol>
+<li><p>UserMapper.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line">    <span class="function">List&lt;User&gt; <span class="title">getUsers</span><span class="params">(User user)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">User <span class="title">getUserById</span><span class="params">(Integer id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">addUser</span><span class="params">(User user)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updateUser</span><span class="params">(User user)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">deleteUserById</span><span class="params">(Integer id)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>UserMapper.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span></span></span><br><span class="line"><span class="meta">        <span class="meta-keyword">PUBLIC</span> <span class="meta-string">"-//mybatis.org//DTD Mapper 3.0//EN"</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.bdu.springboot.mapper.UserMapper"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getUsers"</span> <span class="attr">resultType</span>=<span class="string">"com.bdu.springboot.entities.User"</span>&gt;</span></span><br><span class="line">        select * from `user` where 1=1</span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"username != null and username !=''"</span>&gt;</span></span><br><span class="line">            and username like '%$&#123;username&#125;%'</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getUserById"</span> <span class="attr">resultType</span>=<span class="string">"com.bdu.springboot.entities.User"</span>&gt;</span></span><br><span class="line">        select * from `user` where id = #&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"addUser"</span>&gt;</span></span><br><span class="line">        INSERT INTO `user`(`username`, `real_name`, `password`, `gender`, `birthday`, `user_type`)</span><br><span class="line">        VALUES (#&#123;username&#125;, #&#123;realName&#125;, #&#123;password&#125;, #&#123;gender&#125;, #&#123;birthday&#125;, #&#123;userType&#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"updateUser"</span>&gt;</span></span><br><span class="line">        UPDATE `user` SET</span><br><span class="line">        `username` = #&#123;username&#125;, `real_name` = #&#123;realName&#125;, `password` = #&#123;password&#125;,</span><br><span class="line">         `gender` = #&#123;gender&#125;, `birthday` = #&#123;birthday&#125;, `user_type` = #&#123;userType&#125;</span><br><span class="line">        WHERE `id` = #&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">"deleteUserById"</span>&gt;</span></span><br><span class="line">        delete from `user` where id = #&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SpringBoot08BillApplicationTests</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	UserMapper userMapper;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">contextLoads</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		User u = <span class="keyword">new</span> User();</span><br><span class="line">		u.setUsername(<span class="string">"li"</span>);</span><br><span class="line">		List&lt;User&gt; users = userMapper.getUsers(u);</span><br><span class="line">		System.out.println(users.get(<span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">		User user = userMapper.getUserById(<span class="number">1</span>);</span><br><span class="line">		System.out.println(user);</span><br><span class="line">		user.setUsername(<span class="string">"admin"</span>);</span><br><span class="line">		<span class="keyword">int</span> i = userMapper.updateUser(user);</span><br><span class="line">		System.out.println(i);</span><br><span class="line"></span><br><span class="line">		User user1 = <span class="keyword">new</span> User(<span class="keyword">null</span>, <span class="string">"MXG-AA"</span>, <span class="string">"xiaomeng1"</span>, <span class="string">"123456"</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">		<span class="keyword">int</span> addUser = userMapper.addUser(user1);</span><br><span class="line">		System.out.println(addUser);</span><br><span class="line"></span><br><span class="line">		userMapper.deleteUserById(<span class="number">5</span>);		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>控制层</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    UserMapper userMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/users"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">list</span><span class="params">(Map&lt;String,Object&gt; map, User user)</span></span>&#123;</span><br><span class="line">        List&lt;User&gt; users = userMapper.getUsers(user);</span><br><span class="line">        map.put(<span class="string">"users"</span>,users);</span><br><span class="line">        map.put(<span class="string">"username"</span>,user.getUsername());</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"user/list"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**前往</span></span><br><span class="line"><span class="comment">     * 默认 type=null   详情页面</span></span><br><span class="line"><span class="comment">     *     type=update  修改页面</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/user/&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">view</span><span class="params">(@RequestParam(value = <span class="string">"type"</span>, defaultValue = <span class="string">"view"</span>)</span> String type,</span></span><br><span class="line"><span class="function">                       @PathVariable Integer id,</span></span><br><span class="line"><span class="function">                       Map&lt;String,Object&gt; map)</span>&#123;</span><br><span class="line">        User user = userMapper.getUserById(id);</span><br><span class="line">        map.put(<span class="string">"user"</span>,user);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"user/"</span>+type;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//修改用户信息</span></span><br><span class="line">    <span class="meta">@PutMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">update</span><span class="params">(User user)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"修改用户信息.."</span>+user);</span><br><span class="line">        userMapper.updateUser(user);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"redirect:/users"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//前往添加用户页面</span></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toAddPage</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"user/add"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//添加数据</span></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addUser</span><span class="params">(User user)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"增加用户...."</span>+user);</span><br><span class="line">        userMapper.addUser(user);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"redirect:/users"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//删除用户</span></span><br><span class="line">    <span class="meta">@DeleteMapping</span>(<span class="string">"user/&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">deleteUser</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id)</span>&#123;</span><br><span class="line">        userMapper.deleteUserById(id);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"redirect:/users"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改页面信息</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">th:id</span>=<span class="string">"$&#123;activeUri == 'user' ?'active':''&#125;"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/users&#125;"</span>&gt;</span>用户管理<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+    <div>
+     
+       <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+     
+    </div>
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="大王叫我来巡山 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="大王叫我来巡山 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>大王叫我来巡山
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://https//qkgit.github.io/2020/10/20/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%88%E4%BA%8C%EF%BC%89/" title="项目实战_账单管理系统完整版(二)">http://https//qkgit.github.io/2020/10/20/项目实战_账单管理系统完整版（二）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>ZERO</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/spring-boot/" rel="tag"><i class="fa fa-tag"></i> spring boot</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/19/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title="项目实战_账单管理系统完整版(一)">
+      <i class="fa fa-chevron-left"></i> 项目实战_账单管理系统完整版(一)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#完成供应商管理模块"><span class="nav-number">1.</span> <span class="nav-text">完成供应商管理模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#账单管理模块"><span class="nav-number">2.</span> <span class="nav-text">账单管理模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户管理模块"><span class="nav-number">3.</span> <span class="nav-text">用户管理模块</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="大王叫我来巡山"
+      src="/images/author.png">
+  <p class="site-author-name" itemprop="name">大王叫我来巡山</p>
+  <div class="site-description" itemprop="description">人生当苦无妨，良人当归即好。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qkgit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qkgit" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1584546760@qq.com" title="E-Mail → mailto:1584546760@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/6355308390" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;6355308390" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=1584546760&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;1584546760&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://yoursite.com/" title="http:&#x2F;&#x2F;yoursite.com" rel="noopener" target="_blank">暂无</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大王叫我来巡山</span>
+    
+    <!--  站点总字数：-->
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+     
+    <span title="站点总字数">124k字</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:53</span>
+</div>
+
+<!--
+-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='255,0,0' opacity='1' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'N2cbVqYWHSNSJHt9wnhDAhUM-gzGzoHsz',
+      appKey     : 'LSEYd4SR4l5cVSEyf43cmPYV',
+      placeholder: "留言是种美德，写点什么...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+ 
+<!-- 页面点击特效 -->
+<script type="text/javascript" src="/js/src/cursor.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
+
+
+
+
+
