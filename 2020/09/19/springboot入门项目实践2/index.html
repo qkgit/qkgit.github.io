@@ -22,27 +22,27 @@
     var CONFIG = {"hostname":"https","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Profile多环境支持Profile介绍 Profile是Spring用来针对不同的环境要求，提供不同的配置支持，全局Profile配置使用的文件名可以是application-{profile}.properties&#x2F;application-{profile}.yml">
+  <meta name="description" content="Sprng Boot项目底层原理pom.xml文件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="springboot入门到项目实践5">
-<meta property="og:url" content="http://https//qkgit.github.io/2020/09/26/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B55/index.html">
+<meta property="og:title" content="springboot入门项目实践2">
+<meta property="og:url" content="http://https//qkgit.github.io/2020/09/19/springboot%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B52/index.html">
 <meta property="og:site_name" content="河北热心市民齐先生">
-<meta property="og:description" content="Profile多环境支持Profile介绍 Profile是Spring用来针对不同的环境要求，提供不同的配置支持，全局Profile配置使用的文件名可以是application-{profile}.properties&#x2F;application-{profile}.yml">
+<meta property="og:description" content="Sprng Boot项目底层原理pom.xml文件">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/nDd@T7ffdDKQ.png">
-<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/bqDg2t51CoM1.png">
-<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Zren2xFY08IB.png">
-<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/YD0ih1duI7Jn.png">
-<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/CDxjwFpAHpwh.png">
-<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/dCrEfe66d91e.png">
-<meta property="article:published_time" content="2020-09-26T06:32:09.307Z">
-<meta property="article:modified_time" content="2020-09-27T03:53:58.306Z">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/2tXn1rQ0!r1w.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/AG!vhJr4lkR*.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/ifwDvvi7gYn8.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/DbBbA2DRw*9i.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/7FrynvD3FXSf.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Zj7TyXMvIX%5E6.png">
+<meta property="article:published_time" content="2020-09-19T08:32:28.915Z">
+<meta property="article:modified_time" content="2020-11-01T14:39:11.496Z">
 <meta property="article:author" content="大王叫我来巡山">
 <meta property="article:tag" content="spring boot">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/nDd@T7ffdDKQ.png">
+<meta name="twitter:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/2tXn1rQ0!r1w.png">
 
-<link rel="canonical" href="http://https//qkgit.github.io/2020/09/26/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B55/">
+<link rel="canonical" href="http://https//qkgit.github.io/2020/09/19/springboot%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B52/">
 
 
 <script id="page-configurations">
@@ -55,7 +55,7 @@
   };
 </script>
 
-  <title>springboot入门到项目实践5 | 河北热心市民齐先生</title>
+  <title>springboot入门项目实践2 | 河北热心市民齐先生</title>
   
 
 
@@ -146,7 +146,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">20</span></a>
+    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">23</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/09/26/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B55/">
+    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/09/19/springboot%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B52/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/author.png">
@@ -217,7 +217,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          springboot入门到项目实践5
+          springboot入门项目实践2
         </h1>
 
         <div class="post-meta">
@@ -227,14 +227,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-09-26 14:32:09" itemprop="dateCreated datePublished" datetime="2020-09-26T14:32:09+08:00">2020-09-26</time>
+              <time title="创建时间：2020-09-19 16:32:28" itemprop="dateCreated datePublished" datetime="2020-09-19T16:32:28+08:00">2020-09-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-27 11:53:58" itemprop="dateModified" datetime="2020-09-27T11:53:58+08:00">2020-09-27</time>
+                <time title="修改时间：2020-11-01 22:39:11" itemprop="dateModified" datetime="2020-11-01T22:39:11+08:00">2020-11-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,8 +262,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/26/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B55/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B55/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/19/springboot%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B52/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/19/springboot%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B52/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -273,14 +273,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k字</span>
+              <span>2.9k字</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -292,67 +292,77 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Profile多环境支持"><a href="#Profile多环境支持" class="headerlink" title="Profile多环境支持"></a>Profile多环境支持</h3><h4 id="Profile介绍"><a href="#Profile介绍" class="headerlink" title="Profile介绍"></a>Profile介绍</h4><ul>
-<li>Profile是Spring用来针对不同的环境要求，提供不同的配置支持，全局Profile配置使用的文件名可以是<code>application-{profile}.properties</code>/<code>application-{profile}.yml</code><a id="more"></a>
+        <h2 id="Sprng-Boot项目底层原理"><a href="#Sprng-Boot项目底层原理" class="headerlink" title="Sprng Boot项目底层原理"></a>Sprng Boot项目底层原理</h2><h3 id="pom-xml文件"><a href="#pom-xml文件" class="headerlink" title="pom.xml文件"></a>pom.xml文件</h3><a id="more"></a>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--当前hello项目的 父级依赖--&gt;</span><br><span class="line">&lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.06.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/parent&gt;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>如：application-dev.properties/application.properties</li>
-</ul>
+<li><code>spring-boot-starter-parent</code>是当前项目的父级依赖<ol>
+<li><code>spring-boot-starter</code>:Spring Boot场景启动器，Spring Boot将所有的功能场景抽取出来，做成一个个starter（启动器），只需项目里引入相关场景的starter，就会将它所有依赖导入进来。要用什么功能就导入什么场景的启动器。（各种启动器可参见官方文档starter）</li>
+<li><code>spring-boot-starter-parent</code>:它父依赖<code>spring-boot-dependencies</code>,参见下面：<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!--spring-boot-starter-parent 的 父级依赖--&gt;</span><br><span class="line"> &lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.6.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;relativePath&gt;../../spring-boot-dependencies&lt;/relativePath&gt;</span><br><span class="line">&lt;/parent&gt;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><code>spring-boot-dependencies</code>是管理了Spring Boot项目中的所有依赖版本<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/2tXn1rQ0!r1w.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/2tXn1rQ0!r1w.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/2tXn1rQ0!r1w.png"></a></li>
+<li>以后我们导入依赖默认不需要写版本号，也就是可以省去<code>version</code>标签。（当前没有在dependencies中管理的依赖自然需要声明版本号）</li>
+</ol>
 </li>
-<li>演示案例：我们的项目环境分为开发（dev）和生产（prod）环境，开发环境下端口为8082，生产环境下端口号为8888.<h4 id="properties文件演示案例"><a href="#properties文件演示案例" class="headerlink" title="properties文件演示案例"></a>properties文件演示案例</h4></li>
-<li>创建两个文件<code>application-dev.properties</code>与<code>application-prod.properties</code><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/nDd@T7ffdDKQ.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/nDd@T7ffdDKQ.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/nDd@T7ffdDKQ.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/bqDg2t51CoM1.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/bqDg2t51CoM1.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/bqDg2t51CoM1.png"></a></li>
-<li>激活指定profile<ul>
-<li>在主配置文件<code>application.properties</code>中指定<code>spring.profiles.active=dev</code><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zren2xFY08IB.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Zren2xFY08IB.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zren2xFY08IB.png"></a></li>
-<li>未指定哪个profile文件时，默认使用<code>application.properties</code>中的配置<h4 id="yml文件演示案例"><a href="#yml文件演示案例" class="headerlink" title="yml文件演示案例"></a>yml文件演示案例</h4></li>
-</ul>
+</ol>
 </li>
-<li>在<code>application.yml</code>中配置<ul>
-<li>yml支持多文档块方式<code>---</code><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">8081</span> <span class="comment"># 默认端口号</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span></span><br><span class="line"><span class="attr">active:</span> <span class="string">prod</span> <span class="comment">#激活哪个profile , 当前激活的是 dev 开发环境</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">8082</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span> <span class="string">dev</span> <span class="comment">#指定属于哪个环境, dev 环境时使用</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">8888</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span> <span class="string">prod</span> <span class="comment">#指定属于哪个环境, prod 环境时使用</span></span><br></pre></td></tr></table></figure>
-<h4 id="多种方式激活指定profile"><a href="#多种方式激活指定profile" class="headerlink" title="多种方式激活指定profile"></a>多种方式激活指定profile</h4></li>
-</ul>
-</li>
-<li>方式1：在主配置文件中指定<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#application.properties</span></span><br><span class="line"><span class="string">spring.profiles.active=dev</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#application.yml</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span></span><br><span class="line"><span class="attr">active:</span> <span class="string">prod</span></span><br></pre></td></tr></table></figure></li>
-<li>方式2：命令行参数指定<ul>
-<li>可以直接在测试的时候，配置传入命令行参数<code>--spring.profiles.active=dev</code><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/YD0ih1duI7Jn.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/YD0ih1duI7Jn.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/YD0ih1duI7Jn.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/CDxjwFpAHpwh.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/CDxjwFpAHpwh.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/CDxjwFpAHpwh.png"></a></li>
-<li>打jar包运行<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar spring-boot<span class="number">-02</span>-config<span class="number">-0.0</span><span class="number">.1</span>-SNAPSHOT.jar --spring.profiles.active=dev</span><br></pre></td></tr></table></figure></li>
-<li>虚拟机参数指定<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">-Dspring.profiles.active</span>=dev</span><br></pre></td></tr></table></figure>
-
-
+<li>spring-boot-starter-web  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>依赖导入了Web项目运行所需要的组件；如Tomcat/SpringMVC等</li>
+</ol>
 </li>
 </ul>
+<h3 id="引导类"><a href="#引导类" class="headerlink" title="引导类"></a>引导类</h3> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mengxuegu;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">  *  @SpringBootApplication 用于标识一个引导类,说明当前是Spring Boot项目</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloMailAppliation</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">         SpringApplication.run(HelloMailAppliation<span class="class">.<span class="keyword">class</span>,<span class="title">args</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>通常有一个名为*Application的入口类，里面定义一个main方法，使用<code>SpringApplication.run(HelloMailAppliation.class, args);</code>来启动SpringBoot应用项目</p>
+</li>
+<li><p>@SpringBootApplication注解说明：</p>
+<ul>
+<li>标注在某个类上，说明这个类是spring boot的引导类，spring boot就应该运行这个类的main方法来启动SpringBoot应用；</li>
+<li>@SpringBootApplication是以下三个注解的总和：<ol>
+<li><code>@SpringBootConfiguration</code>:用于定义一个Spring Boot的配置类（配置类等同配置文件）<ul>
+<li>引用了@Configuration注解，是Spring底层的一个注解，用于定义Spring的配置类。</li>
+<li>配置类也是容器中的一个组件 @Component</li>
+</ul>
+</li>
+<li><code>EnableAutoConfiguration</code>:<ul>
+<li>告诉Spring Boot开启自动配置功能，这样Spring Boot会自动根据你导入的依赖jar包来自动配置项目。</li>
+<li>@AutoConfigurationPackage–》@Import({Registrar.class})<ul>
+<li>会将引导类(@SpringBootApplication标注的类)所在的包及下面所有子包里面的所有组件扫描到Spring容器;</li>
+</ul>
+</li>
+<li>@Import({AutoConfigurationImportSelector,class})<ul>
+<li>将所有需要导入的组件以全类名的方式返回;这些组件就会被添加到容器中</li>
+<li>会给容器导入非常多的自动配置类(xxxxAutoConfiguration),就是导入并配置好当前项目中所需的组件，省去我们手动编写配置去注入组件。</li>
+</ul>
+</li>
+<li>Spring Boot在启动的时候从(spring-boot-autoconfigure-2.0.6.RELEASE.jar)类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值，将这些值作为自动配置类导入到容器中，自动配置类就生效，帮我们进行自动配置工作； 以前我们需要自己配置的文件，自动配置类都帮我们完成了；</li>
+</ul>
+</li>
+<li><code>@ComponentScan</code>:该注解标识的类会被Spring自动扫描并且装入bean容器。</li>
+</ol>
 </li>
 </ul>
-<h3 id="配置文件加载位置"><a href="#配置文件加载位置" class="headerlink" title="配置文件加载位置"></a>配置文件加载位置</h3><ul>
-<li><p>SpringBoot启动时，会扫描以下位置的<code>application.properties</code>和<code>application.yml</code>文件作为Spring Boot的默认配置文件：</p>
-<table>
-<thead>
-<tr>
-<th align="center">配置文件位置</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>file:./config</code></td>
-<td align="center">当前项目的config目录下（最高级别）</td>
-</tr>
-<tr>
-<td align="center"><code>file:./</code></td>
-<td align="center">当前项目的根目录下</td>
-</tr>
-<tr>
-<td align="center"><code>classpath:/config</code></td>
-<td align="center">类路径的config目录下</td>
-</tr>
-<tr>
-<td align="center"><code>classpath:/</code></td>
-<td align="center">类路径的跟目录下（最低级别）</td>
-</tr>
-</tbody></table>
 </li>
-<li><p>以上按照优先级从低到高的顺序，将所有位置的配置文件全部加载，高优先级的配置内容会覆盖低优先级的配置内容</p>
+</ul>
+<h2 id="使用Spring初始化器创建Spring-Boot项目"><a href="#使用Spring初始化器创建Spring-Boot项目" class="headerlink" title="使用Spring初始化器创建Spring Boot项目"></a>使用Spring初始化器创建Spring Boot项目</h2><ul>
+<li><p>注：初始化向导需要联网创建Spring Boot项目<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/AG!vhJr4lkR*.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/AG!vhJr4lkR*.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/AG!vhJr4lkR*.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/ifwDvvi7gYn8.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/ifwDvvi7gYn8.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/ifwDvvi7gYn8.png"></a></p>
 </li>
-<li><p>注意：如果使用IDEA创建的项目是Module（如果是Project则忽略），当项目的根目录不是你这个项目所有目录（是Project所在目录），这样使用file：存放配置文件时会找不到配置<br>解决方式：更改工作路径直接为Module所有目录<code>$MODULE_DIR$</code><br>通过System.getProperty(“user.dir”)获取的时module的路径<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/dCrEfe66d91e.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/dCrEfe66d91e.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/dCrEfe66d91e.png"></a></p>
+<li><p>引入功能模块<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/DbBbA2DRw*9i.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/DbBbA2DRw*9i.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/DbBbA2DRw*9i.png"></a></p>
 </li>
-<li><p>配置文件能写什么？怎么写？<br>  <a href="https://docs.spring.io/spring-boot/docs/2.0.6.RELEASE/reference/htmlsingle/#common-application-properties" target="_blank" rel="noopener" title="百度">配置文件能配置的属性参照</a></p>
+<li><p>默认生成的Spring Boot项目：<br>  <a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/7FrynvD3FXSf.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/7FrynvD3FXSf.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/7FrynvD3FXSf.png"></a></p>
+<ul>
+<li>删除不需要的文件与目录，<code>spring-boot-starter-test</code>是Spring Boot单元测试模块</li>
+</ul>
+</li>
+<li><p>引导类已经生成了，我们只需要实现业务即可<br>  <a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zj7TyXMvIX^6.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Zj7TyXMvIX%5E6.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zj7TyXMvIX^6.png"></a></p>
+</li>
+<li><p><code>resources</code>文件夹中目录结构</p>
+<ul>
+<li><code>static</code>:保存所有静态资源文件，js css images</li>
+<li><code>templates</code>:保存所有的模板页面（Spring Boot默认jar包使用嵌入式的Tomcat，默认不支持JSP页面），可以使用模块引擎（freemarker、thymeleaf）</li>
+<li><code>application.properties</code>:Spring Boot应用的配置文件，可以修改一些默认配置如修改默认端口<code>server.prot=8081</code></li>
+</ul>
 </li>
 </ul>
 
@@ -400,7 +410,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://https//qkgit.github.io/2020/09/26/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B55/" title="springboot入门到项目实践5">http://https//qkgit.github.io/2020/09/26/springboot入门到项目实践5/</a>
+    <a href="http://https//qkgit.github.io/2020/09/19/springboot%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B52/" title="springboot入门项目实践2">http://https//qkgit.github.io/2020/09/19/springboot入门项目实践2/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>ZERO</a> 许可协议。转载请注明出处！
@@ -421,12 +431,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/09/24/springboot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B54/" rel="prev" title="springboot入门到项目实践4">
-      <i class="fa fa-chevron-left"></i> springboot入门到项目实践4
+    <a href="/2020/09/16/springboot%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B51/" rel="prev" title="springboot入门项目实践1">
+      <i class="fa fa-chevron-left"></i> springboot入门项目实践1
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/09/27/SpringBoot%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/" rel="next" title="SpringBoot日志配置">
-      SpringBoot日志配置 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/09/20/springboot%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B53/" rel="next" title="springboot入门项目实践3">
+      springboot入门项目实践3 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -487,7 +497,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Profile多环境支持"><span class="nav-number">1.</span> <span class="nav-text">Profile多环境支持</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Profile介绍"><span class="nav-number">1.1.</span> <span class="nav-text">Profile介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#properties文件演示案例"><span class="nav-number">1.2.</span> <span class="nav-text">properties文件演示案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#yml文件演示案例"><span class="nav-number">1.3.</span> <span class="nav-text">yml文件演示案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多种方式激活指定profile"><span class="nav-number">1.4.</span> <span class="nav-text">多种方式激活指定profile</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件加载位置"><span class="nav-number">2.</span> <span class="nav-text">配置文件加载位置</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sprng-Boot项目底层原理"><span class="nav-number">1.</span> <span class="nav-text">Sprng Boot项目底层原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pom-xml文件"><span class="nav-number">1.1.</span> <span class="nav-text">pom.xml文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引导类"><span class="nav-number">1.2.</span> <span class="nav-text">引导类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Spring初始化器创建Spring-Boot项目"><span class="nav-number">2.</span> <span class="nav-text">使用Spring初始化器创建Spring Boot项目</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -503,7 +513,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -580,13 +590,13 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
      
-    <span title="站点总字数">127k字</span>
+    <span title="站点总字数">134k字</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:56</span>
+    <span title="站点阅读时长">2:02</span>
 </div>
 
 <!--

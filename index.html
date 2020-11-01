@@ -136,7 +136,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">20</span></a>
+    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">23</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -193,6 +193,341 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/11/01/Spring%20Boot%20%E6%95%B4%E5%90%88%E7%BC%93%E5%AD%98%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/author.png">
+      <meta itemprop="name" content="大王叫我来巡山">
+      <meta itemprop="description" content="人生当苦无妨，良人当归即好。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="河北热心市民齐先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/01/Spring%20Boot%20%E6%95%B4%E5%90%88%E7%BC%93%E5%AD%98%E5%AE%9E%E6%88%98/" class="post-title-link" itemprop="url">Spring Boot 整合缓存实战</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-01 22:36:26" itemprop="dateCreated datePublished" datetime="2020-11-01T22:36:26+08:00">2020-11-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-02 00:05:05" itemprop="dateModified" datetime="2020-11-02T00:05:05+08:00">2020-11-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spring-boot/" itemprop="url" rel="index"><span itemprop="name">spring-boot</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/01/Spring%20Boot%20%E6%95%B4%E5%90%88%E7%BC%93%E5%AD%98%E5%AE%9E%E6%88%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/01/Spring%20Boot%20%E6%95%B4%E5%90%88%E7%BC%93%E5%AD%98%E5%AE%9E%E6%88%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.5k字</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="缓存-简介"><a href="#缓存-简介" class="headerlink" title="缓存 简介"></a>缓存 简介</h3><ul>
+<li>缓存是每一个系统都应该考虑的功能，它用于加速系统的访问，以及提速系统的性能。比如：<ul>
+<li>经常访问的高频热点数据：<ul>
+<li>电商网站的商品信息：每次查询数据库耗时，可以引入缓存。</li>
+<li>微博阅读量、点赞数、热点话题等</li>
+</ul>
+</li>
+<li>临时性的数据：发送手机验证码，1分钟有效，过期则删除，存数据库负担有点大，这些临时性的数据也可以放到缓存中，直接从缓存中存取数据。</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/01/Spring%20Boot%20%E6%95%B4%E5%90%88%E7%BC%93%E5%AD%98%E5%AE%9E%E6%88%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    <div>
+     
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/11/01/Spring%20Boot%20%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/author.png">
+      <meta itemprop="name" content="大王叫我来巡山">
+      <meta itemprop="description" content="人生当苦无妨，良人当归即好。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="河北热心市民齐先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/01/Spring%20Boot%20%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E5%AE%9E%E6%88%98/" class="post-title-link" itemprop="url">Spring Boot 邮件发送实战</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-01 21:07:00 / 修改时间：22:37:19" itemprop="dateCreated datePublished" datetime="2020-11-01T21:07:00+08:00">2020-11-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spring-boot/" itemprop="url" rel="index"><span itemprop="name">spring-boot</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/01/Spring%20Boot%20%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E5%AE%9E%E6%88%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/01/Spring%20Boot%20%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E5%AE%9E%E6%88%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k字</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="邮件发送环境准备"><a href="#邮件发送环境准备" class="headerlink" title="邮件发送环境准备"></a>邮件发送环境准备</h3><p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/ijjx1MyGdcjV.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/ijjx1MyGdcjV.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/ijjx1MyGdcjV.png"></a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/01/Spring%20Boot%20%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81%E5%AE%9E%E6%88%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    <div>
+     
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/11/01/SpringBoot%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/author.png">
+      <meta itemprop="name" content="大王叫我来巡山">
+      <meta itemprop="description" content="人生当苦无妨，良人当归即好。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="河北热心市民齐先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/01/SpringBoot%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%AE%9E%E6%88%98/" class="post-title-link" itemprop="url">SpringBoot异步任务与定时任务实战</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-01 17:24:12 / 修改时间：21:08:47" itemprop="dateCreated datePublished" datetime="2020-11-01T17:24:12+08:00">2020-11-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spring-boot/" itemprop="url" rel="index"><span itemprop="name">spring-boot</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/01/SpringBoot%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%AE%9E%E6%88%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/01/SpringBoot%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%AE%9E%E6%88%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k字</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Spring-Boot-异步任务实战"><a href="#Spring-Boot-异步任务实战" class="headerlink" title="Spring Boot 异步任务实战"></a>Spring Boot 异步任务实战</h3><ul>
+<li><p>在项目开发中，绝大多数情况下是通过同步方式处理业务逻辑的，但是比如批量处理数据，批量发送邮件，批量发送短信等操作，容易造成堵塞的情况，之前大部分都是使用多线程来完成此类任务。而在Spring 3+之后，就已经内置了<code>@Async</code>注解来完美解决这个问题，从而提高效率。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/01/SpringBoot%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%AE%9E%E6%88%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    <div>
+     
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/11/01/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%88%E4%B8%89%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -218,7 +553,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-11-01 02:12:18 / 修改时间：17:00:08" itemprop="dateCreated datePublished" datetime="2020-11-01T02:12:18+08:00">2020-11-01</time>
+              <time title="创建时间：2020-11-01 02:12:18 / 修改时间：21:08:16" itemprop="dateCreated datePublished" datetime="2020-11-01T02:12:18+08:00">2020-11-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -272,52 +607,14 @@
           <h3 id="重构登录功能"><a href="#重构登录功能" class="headerlink" title="重构登录功能"></a>重构登录功能</h3><ol>
 <li><p>UserMapper.java增加一个方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">User <span class="title">getUserByUsername</span><span class="params">(String username)</span></span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>UserMapper.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getUserByUsername"</span> <span class="attr">resultType</span>=<span class="string">"com.bdu.springboot.entities.User"</span>&gt;</span></span><br><span class="line">        select * from `user` where upper (username) = upper (#&#123;username&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="3">
-<li><p>LoginController.login(….)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    UserMapper userMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/login"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">            HttpSession session,</span></span></span><br><span class="line"><span class="function"><span class="params">            String username,</span></span></span><br><span class="line"><span class="function"><span class="params">            String password,</span></span></span><br><span class="line"><span class="function"><span class="params">            Map&lt;String,Object&gt; map</span></span></span><br><span class="line"><span class="function"><span class="params">    )</span></span>&#123;</span><br><span class="line">        <span class="comment">//判断用户名 密码是否为空</span></span><br><span class="line">        <span class="keyword">if</span> (!StringUtils.isEmpty(username)</span><br><span class="line">                &amp;&amp; !StringUtils.isEmpty(password))&#123;</span><br><span class="line">            User user = userMapper.getUserByUsername(username);</span><br><span class="line">            <span class="keyword">if</span> (user != <span class="keyword">null</span> &amp;&amp; user.getPassword().equals(password))&#123;</span><br><span class="line">                <span class="comment">//登录成功</span></span><br><span class="line">                <span class="comment">//将username存入session</span></span><br><span class="line">                session.setAttribute(<span class="string">"loginUser"</span>,user);</span><br><span class="line">                <span class="comment">//重定向 redirect:可以重定向到任意一个请求中（包括其他项目），地址栏改变</span></span><br><span class="line">                <span class="keyword">return</span> <span class="string">"redirect:/main"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        map.put(<span class="string">"msg"</span>,<span class="string">"用户名或密码错误"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"main/login"</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-</li>
-</ol>
-<h3 id="密码修改模块"><a href="#密码修改模块" class="headerlink" title="密码修改模块"></a>密码修改模块</h3><blockquote>
-<p>需求：先使用Ajax异步校验输入的原密码是否正确，正确则JS校验新密码输入是否一致，一致则提交修改然后注销重新回到登录页面。</p>
-</blockquote>
-<ol>
-<li><p>Session存入User对象并重构 主页 用户名 显示</p>
-</li>
-<li><p>main/password.html抽取公共代码片段</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span> <span class="attr">th:replace</span>=<span class="string">"main/public :: #public_left(activeUri='pwd')"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="3">
-<li><p>JS，注意js中引入thymeleaf行内表达式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> th:inline=<span class="string">"javascript"</span>&gt;</span><br><span class="line">    <span class="comment">//要使用thymeleaf行内表达式则上面要使用：th:inline="javascript" 标识</span></span><br><span class="line">    $(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> isCheck = <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">//原密码失去焦点</span></span><br><span class="line">        $(<span class="string">'#oldPassword'</span>).blur(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> oldPassword = $(<span class="keyword">this</span>).val().trim();</span><br><span class="line">            <span class="keyword">if</span> (!oldPassword)&#123;</span><br><span class="line">                $(<span class="string">'#pwdText'</span>).css(<span class="string">'color'</span>,<span class="string">'red'</span>);</span><br><span class="line">                isCheck = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">return</span> ;</span><br><span class="line">            &#125;</span><br><span class="line">                      <span class="comment">//themeleaf行内表达式</span></span><br><span class="line">            <span class="keyword">var</span> url = [[@&#123;/user/pwd/&#125;]]+oldPassword;</span><br><span class="line">            <span class="comment">//异步判断密码是否正确</span></span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                url:url,</span><br><span class="line">                dataType:<span class="string">'json'</span>,</span><br><span class="line">                method:<span class="string">'GET'</span>,</span><br><span class="line">                success:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>)</span>&#123;</span><br><span class="line">                    isCheck = data;</span><br><span class="line">                    data?$(<span class="string">"#pwdText"</span>).replaceWith(<span class="string">"&lt;span id='pwdText'&gt;*原密码正确&lt;/span&gt;"</span>)</span><br><span class="line">                        :$(<span class="string">"#pwdText"</span>).replaceWith(<span class="string">"&lt;span id='pwdText'&gt;*原密码错误&lt;/span&gt;"</span>);</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;,</span><br><span class="line">                error:<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">                    $(<span class="string">'#pwdText'</span>).html(<span class="string">"校验密码异常"</span>);</span><br><span class="line">                    isCheck=<span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">//判断两次密码是否一致</span></span><br><span class="line">        $(<span class="string">"#save"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(isCheck) &#123;</span><br><span class="line">                <span class="keyword">if</span>($(<span class="string">"#newPassword"</span>).val() &amp;&amp; $(<span class="string">"#reNewPassword"</span>).val()</span><br><span class="line">                    &amp;&amp; $(<span class="string">"#newPassword"</span>).val() == $(<span class="string">"#reNewPassword"</span>).val()) &#123;</span><br><span class="line">                    $(<span class="string">"#pwdForm"</span>).submit();</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    $(<span class="string">"#reNewPwdText"</span>).replaceWith(<span class="string">"&lt;span id='reNewPwdText' style='color: red'&gt;*保证和新密码一致&lt;/span&gt;"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="4">
-<li><p>控制层</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//前往密码修改页面</span></span><br><span class="line">  <span class="meta">@GetMapping</span>(<span class="string">"/user/pwd"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toPwdUpdatePage</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"main/password"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//校验密码是否正确</span></span><br><span class="line">  <span class="meta">@ResponseBody</span></span><br><span class="line">  <span class="meta">@GetMapping</span>(<span class="string">"user/pwd/&#123;oldPwd&#125;"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Boolean <span class="title">checkPwd</span><span class="params">(@PathVariable(<span class="string">"oldPwd"</span>)</span> String oldPwd,</span></span><br><span class="line"><span class="function">                          HttpSession session)</span>&#123;</span><br><span class="line">      System.out.println(<span class="string">"输入的旧密码为："</span>+oldPwd);</span><br><span class="line">      User user = (User) session.getAttribute(<span class="string">"loginUser"</span>);</span><br><span class="line">      <span class="keyword">if</span> (user.getPassword().equals(oldPwd))&#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">   </span><br><span class="line">  <span class="meta">@PostMapping</span>(<span class="string">"/user/pwd"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">updatePwd</span><span class="params">(HttpSession session,String password)</span></span>&#123;</span><br><span class="line">      <span class="comment">//获取session中的登录信息</span></span><br><span class="line">      User user = (User) session.getAttribute(<span class="string">"loginUser"</span>);</span><br><span class="line">      <span class="comment">//更新密码</span></span><br><span class="line">      user.setPassword(password);</span><br><span class="line">      userMapper.updateUser(user);</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"redirect:/logout"</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/01/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98_%E8%B4%A6%E5%8D%95%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%88%E4%B8%89%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1248,361 +1545,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/10/02/Spring%20Boot%E7%9A%84Web%E5%BC%80%E5%8F%91(2)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/author.png">
-      <meta itemprop="name" content="大王叫我来巡山">
-      <meta itemprop="description" content="人生当苦无妨，良人当归即好。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="河北热心市民齐先生">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/02/Spring%20Boot%E7%9A%84Web%E5%BC%80%E5%8F%91(2)/" class="post-title-link" itemprop="url">Spring Boot的Web开发(2)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-10-02 16:41:33" itemprop="dateCreated datePublished" datetime="2020-10-02T16:41:33+08:00">2020-10-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-08 17:01:08" itemprop="dateModified" datetime="2020-10-08T17:01:08+08:00">2020-10-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/spring-boot/" itemprop="url" rel="index"><span itemprop="name">spring-boot</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/10/02/Spring%20Boot%E7%9A%84Web%E5%BC%80%E5%8F%91(2)/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/02/Spring%20Boot%E7%9A%84Web%E5%BC%80%E5%8F%91(2)/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>18k字</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>17 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Thymeleaf模板引擎"><a href="#Thymeleaf模板引擎" class="headerlink" title="Thymeleaf模板引擎"></a>Thymeleaf模板引擎</h3><blockquote>
-<p>Spring Boot官方不推荐使用JSP,因为内嵌的Tomcat、Jetty容器不支持以jar形式运行JSP。Spring Boot中提供了大量模板引擎，包含Freemarker、Mastache、Thymeleaf等。而Spring Boot官方推荐使用Thymeleaf作为模板引擎，因为Thymeleaf提供了完美的SpringMVC的支持。</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/02/Spring%20Boot%E7%9A%84Web%E5%BC%80%E5%8F%91(2)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    <div>
-     
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/09/29/SpringBoot%E7%9A%84Web%E5%BC%80%E5%8F%91(1)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/author.png">
-      <meta itemprop="name" content="大王叫我来巡山">
-      <meta itemprop="description" content="人生当苦无妨，良人当归即好。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="河北热心市民齐先生">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/SpringBoot%E7%9A%84Web%E5%BC%80%E5%8F%91(1)/" class="post-title-link" itemprop="url">Spring Boot的Web开发(1)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-29 09:50:32" itemprop="dateCreated datePublished" datetime="2020-09-29T09:50:32+08:00">2020-09-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-15 21:41:51" itemprop="dateModified" datetime="2020-10-15T21:41:51+08:00">2020-10-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/spring-boot/" itemprop="url" rel="index"><span itemprop="name">spring-boot</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/SpringBoot%E7%9A%84Web%E5%BC%80%E5%8F%91(1)/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/SpringBoot%E7%9A%84Web%E5%BC%80%E5%8F%91(1)/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.5k字</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li><p>Web开发是项目实战中至关重要的一部分，Web开发的核心内容主要包括嵌入的Servlet容器和SpringMVC</p>
-</li>
-<li><p>Web开发官方文档：        <a href="https://docs.spring.io/spring-boot/docs/2.0.6.RELEASE/reference/htmlsingle/#boot-features-spring-mvc" target="_blank" rel="noopener">官方文档</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/SpringBoot%E7%9A%84Web%E5%BC%80%E5%8F%91(1)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    <div>
-     
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/09/27/SpringBoot%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/author.png">
-      <meta itemprop="name" content="大王叫我来巡山">
-      <meta itemprop="description" content="人生当苦无妨，良人当归即好。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="河北热心市民齐先生">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/27/SpringBoot%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">SpringBoot日志配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-09-27 11:57:08" itemprop="dateCreated datePublished" datetime="2020-09-27T11:57:08+08:00">2020-09-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-29 09:47:09" itemprop="dateModified" datetime="2020-09-29T09:47:09+08:00">2020-09-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/spring-boot/" itemprop="url" rel="index"><span itemprop="name">spring-boot</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/27/SpringBoot%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/27/SpringBoot%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>12k字</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>11 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Spring-Boot日志配置"><a href="#Spring-Boot日志配置" class="headerlink" title="Spring Boot日志配置"></a>Spring Boot日志配置</h2><ul>
-<li>在市场上存在非常多的日志框架：</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">日志抽象层</th>
-<th align="center">日志实现</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">jboss-logging(不适合企业项目开发使用)<br />JCL（jakarta Commoms Logging）（2014年后不再维护）<br />SLF4j（Simple Logging Facade for java）（与log4j Logback同一个人开发）</td>
-<td align="center">JUL(java.util.logging)（担心被抢市场，推出的）<br />Log4j（存在性能问题）<br />Logback（Log4j同一个人开发的新框架，做了重大升级）<br />Log4j2（apache开发的很强大，借了log4j的名，但当前很多框架未适配上）</td>
-</tr>
-</tbody></table>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/27/SpringBoot%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    <div>
-     
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1674,7 +1616,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1751,13 +1693,13 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
      
-    <span title="站点总字数">127k字</span>
+    <span title="站点总字数">134k字</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:56</span>
+    <span title="站点阅读时长">2:02</span>
 </div>
 
 <!--
