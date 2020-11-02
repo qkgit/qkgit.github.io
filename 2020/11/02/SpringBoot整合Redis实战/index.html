@@ -22,27 +22,20 @@
     var CONFIG = {"hostname":"https","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Profile多环境支持Profile介绍 Profile是Spring用来针对不同的环境要求，提供不同的配置支持，全局Profile配置使用的文件名可以是application-{profile}.properties&#x2F;application-{profile}.yml">
+  <meta name="description" content="在实际开发中，一般使用缓存中间件：redis、ehcache、memcache；导入了对应的组件依赖，就可以使用对应的缓存。 使用Spring Boot整合Redis作为缓存  安装Redis服务与客户端 Redis中文官网：http:&#x2F;&#x2F;www.redis.cn&#x2F; Redis下载： Windows（微软开发维护的）：https:&#x2F;&#x2F;github.com&#x2F;MicrosoftArchive&#x2F;red">
 <meta property="og:type" content="article">
-<meta property="og:title" content="springboot入门项目实践5">
-<meta property="og:url" content="http://https//qkgit.github.io/2020/09/26/springboot%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B55/index.html">
+<meta property="og:title" content="Spring Boot 整合Redis实战">
+<meta property="og:url" content="http://https//qkgit.github.io/2020/11/02/SpringBoot%E6%95%B4%E5%90%88Redis%E5%AE%9E%E6%88%98/index.html">
 <meta property="og:site_name" content="河北热心市民齐先生">
-<meta property="og:description" content="Profile多环境支持Profile介绍 Profile是Spring用来针对不同的环境要求，提供不同的配置支持，全局Profile配置使用的文件名可以是application-{profile}.properties&#x2F;application-{profile}.yml">
+<meta property="og:description" content="在实际开发中，一般使用缓存中间件：redis、ehcache、memcache；导入了对应的组件依赖，就可以使用对应的缓存。 使用Spring Boot整合Redis作为缓存  安装Redis服务与客户端 Redis中文官网：http:&#x2F;&#x2F;www.redis.cn&#x2F; Redis下载： Windows（微软开发维护的）：https:&#x2F;&#x2F;github.com&#x2F;MicrosoftArchive&#x2F;red">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/nDd@T7ffdDKQ.png">
-<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/bqDg2t51CoM1.png">
-<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Zren2xFY08IB.png">
-<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/YD0ih1duI7Jn.png">
-<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/CDxjwFpAHpwh.png">
-<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/dCrEfe66d91e.png">
-<meta property="article:published_time" content="2020-09-26T06:32:09.307Z">
-<meta property="article:modified_time" content="2020-11-01T14:39:57.819Z">
+<meta property="article:published_time" content="2020-11-02T02:26:42.374Z">
+<meta property="article:modified_time" content="2020-11-02T02:32:53.757Z">
 <meta property="article:author" content="大王叫我来巡山">
 <meta property="article:tag" content="spring boot">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/nDd@T7ffdDKQ.png">
 
-<link rel="canonical" href="http://https//qkgit.github.io/2020/09/26/springboot%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B55/">
+<link rel="canonical" href="http://https//qkgit.github.io/2020/11/02/SpringBoot%E6%95%B4%E5%90%88Redis%E5%AE%9E%E6%88%98/">
 
 
 <script id="page-configurations">
@@ -55,7 +48,7 @@
   };
 </script>
 
-  <title>springboot入门项目实践5 | 河北热心市民齐先生</title>
+  <title>Spring Boot 整合Redis实战 | 河北热心市民齐先生</title>
   
 
 
@@ -204,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/09/26/springboot%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B55/">
+    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/11/02/SpringBoot%E6%95%B4%E5%90%88Redis%E5%AE%9E%E6%88%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/author.png">
@@ -217,7 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          springboot入门项目实践5
+          Spring Boot 整合Redis实战
         </h1>
 
         <div class="post-meta">
@@ -226,16 +219,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-09-26 14:32:09" itemprop="dateCreated datePublished" datetime="2020-09-26T14:32:09+08:00">2020-09-26</time>
+              <time title="创建时间：2020-11-02 10:26:42 / 修改时间：10:32:53" itemprop="dateCreated datePublished" datetime="2020-11-02T10:26:42+08:00">2020-11-02</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-01 22:39:57" itemprop="dateModified" datetime="2020-11-01T22:39:57+08:00">2020-11-01</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -262,8 +249,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/26/springboot%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B55/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/springboot%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B55/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/11/02/SpringBoot%E6%95%B4%E5%90%88Redis%E5%AE%9E%E6%88%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/02/SpringBoot%E6%95%B4%E5%90%88Redis%E5%AE%9E%E6%88%98/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -273,7 +260,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k字</span>
+              <span>309字</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -292,68 +279,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Profile多环境支持"><a href="#Profile多环境支持" class="headerlink" title="Profile多环境支持"></a>Profile多环境支持</h3><h4 id="Profile介绍"><a href="#Profile介绍" class="headerlink" title="Profile介绍"></a>Profile介绍</h4><ul>
-<li>Profile是Spring用来针对不同的环境要求，提供不同的配置支持，全局Profile配置使用的文件名可以是<code>application-{profile}.properties</code>/<code>application-{profile}.yml</code><a id="more"></a>
+        <ul>
+<li>在实际开发中，一般使用缓存中间件：redis、ehcache、memcache；导入了对应的组件依赖，就可以使用对应的缓存。</li>
+<li>使用Spring Boot整合Redis作为缓存</li>
+</ul>
+<h3 id="安装Redis服务与客户端"><a href="#安装Redis服务与客户端" class="headerlink" title="安装Redis服务与客户端"></a>安装Redis服务与客户端</h3><ul>
+<li>Redis中文官网：<a href="http://www.redis.cn/" target="_blank" rel="noopener">http://www.redis.cn/</a></li>
+<li>Redis下载：<ul>
+<li>Windows（微软开发维护的）：<a href="https://github.com/MicrosoftArchive/redis/releases" target="_blank" rel="noopener">https://github.com/MicrosoftArchive/redis/releases</a></li>
+<li>Linux版本：<a href="http://download.redis.io/releases/" target="_blank" rel="noopener">http://download.redis.io/releases/</a></li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+
 <ul>
-<li>如：application-dev.properties/application.properties</li>
-</ul>
-</li>
-<li>演示案例：我们的项目环境分为开发（dev）和生产（prod）环境，开发环境下端口为8082，生产环境下端口号为8888.<h4 id="properties文件演示案例"><a href="#properties文件演示案例" class="headerlink" title="properties文件演示案例"></a>properties文件演示案例</h4></li>
-<li>创建两个文件<code>application-dev.properties</code>与<code>application-prod.properties</code><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/nDd@T7ffdDKQ.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/nDd@T7ffdDKQ.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/nDd@T7ffdDKQ.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/bqDg2t51CoM1.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/bqDg2t51CoM1.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/bqDg2t51CoM1.png"></a></li>
-<li>激活指定profile<ul>
-<li>在主配置文件<code>application.properties</code>中指定<code>spring.profiles.active=dev</code><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zren2xFY08IB.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Zren2xFY08IB.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Zren2xFY08IB.png"></a></li>
-<li>未指定哪个profile文件时，默认使用<code>application.properties</code>中的配置<h4 id="yml文件演示案例"><a href="#yml文件演示案例" class="headerlink" title="yml文件演示案例"></a>yml文件演示案例</h4></li>
-</ul>
-</li>
-<li>在<code>application.yml</code>中配置<ul>
-<li>yml支持多文档块方式<code>---</code><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">8081</span> <span class="comment"># 默认端口号</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span></span><br><span class="line"><span class="attr">active:</span> <span class="string">prod</span> <span class="comment">#激活哪个profile , 当前激活的是 dev 开发环境</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">8082</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span> <span class="string">dev</span> <span class="comment">#指定属于哪个环境, dev 环境时使用</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">port:</span> <span class="number">8888</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span> <span class="string">prod</span> <span class="comment">#指定属于哪个环境, prod 环境时使用</span></span><br></pre></td></tr></table></figure>
-<h4 id="多种方式激活指定profile"><a href="#多种方式激活指定profile" class="headerlink" title="多种方式激活指定profile"></a>多种方式激活指定profile</h4></li>
-</ul>
-</li>
-<li>方式1：在主配置文件中指定<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#application.properties</span></span><br><span class="line"><span class="string">spring.profiles.active=dev</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#application.yml</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">profiles:</span></span><br><span class="line"><span class="attr">active:</span> <span class="string">prod</span></span><br></pre></td></tr></table></figure></li>
-<li>方式2：命令行参数指定<ul>
-<li>可以直接在测试的时候，配置传入命令行参数<code>--spring.profiles.active=dev</code><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/YD0ih1duI7Jn.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/YD0ih1duI7Jn.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/YD0ih1duI7Jn.png"></a><br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/CDxjwFpAHpwh.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/CDxjwFpAHpwh.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/CDxjwFpAHpwh.png"></a></li>
-<li>打jar包运行<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar spring-boot<span class="number">-02</span>-config<span class="number">-0.0</span><span class="number">.1</span>-SNAPSHOT.jar --spring.profiles.active=dev</span><br></pre></td></tr></table></figure></li>
-<li>虚拟机参数指定<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">-Dspring.profiles.active</span>=dev</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="配置文件加载位置"><a href="#配置文件加载位置" class="headerlink" title="配置文件加载位置"></a>配置文件加载位置</h3><ul>
-<li><p>SpringBoot启动时，会扫描以下位置的<code>application.properties</code>和<code>application.yml</code>文件作为Spring Boot的默认配置文件：</p>
-<table>
-<thead>
-<tr>
-<th align="center">配置文件位置</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>file:./config</code></td>
-<td align="center">当前项目的config目录下（最高级别）</td>
-</tr>
-<tr>
-<td align="center"><code>file:./</code></td>
-<td align="center">当前项目的根目录下</td>
-</tr>
-<tr>
-<td align="center"><code>classpath:/config</code></td>
-<td align="center">类路径的config目录下</td>
-</tr>
-<tr>
-<td align="center"><code>classpath:/</code></td>
-<td align="center">类路径的跟目录下（最低级别）</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>以上按照优先级从低到高的顺序，将所有位置的配置文件全部加载，高优先级的配置内容会覆盖低优先级的配置内容</p>
-</li>
-<li><p>注意：如果使用IDEA创建的项目是Module（如果是Project则忽略），当项目的根目录不是你这个项目所有目录（是Project所在目录），这样使用file：存放配置文件时会找不到配置<br>解决方式：更改工作路径直接为Module所有目录<code>$MODULE_DIR$</code><br>通过System.getProperty(“user.dir”)获取的时module的路径<br><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/dCrEfe66d91e.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/dCrEfe66d91e.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/dCrEfe66d91e.png"></a></p>
-</li>
-<li><p>配置文件能写什么？怎么写？<br>  <a href="https://docs.spring.io/spring-boot/docs/2.0.6.RELEASE/reference/htmlsingle/#common-application-properties" target="_blank" rel="noopener" title="百度">配置文件能配置的属性参照</a></p>
-</li>
+<li>Redis直接解压 Redis-x64-3.2.100.zip 即可，点击以下 redis-server.exe, 默认端口号：6379</li>
 </ul>
 
     </div>
@@ -400,7 +341,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://https//qkgit.github.io/2020/09/26/springboot%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B55/" title="springboot入门项目实践5">http://https//qkgit.github.io/2020/09/26/springboot入门项目实践5/</a>
+    <a href="http://https//qkgit.github.io/2020/11/02/SpringBoot%E6%95%B4%E5%90%88Redis%E5%AE%9E%E6%88%98/" title="Spring Boot 整合Redis实战">http://https//qkgit.github.io/2020/11/02/SpringBoot整合Redis实战/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>ZERO</a> 许可协议。转载请注明出处！
@@ -421,13 +362,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/09/24/springboot%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B54/" rel="prev" title="springboot入门项目实践4">
-      <i class="fa fa-chevron-left"></i> springboot入门项目实践4
+    <a href="/2020/11/01/Spring%20Boot%20%E6%95%B4%E5%90%88%E7%BC%93%E5%AD%98%E5%AE%9E%E6%88%98/" rel="prev" title="Spring Boot 整合缓存实战">
+      <i class="fa fa-chevron-left"></i> Spring Boot 整合缓存实战
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/09/27/SpringBoot%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE/" rel="next" title="SpringBoot日志配置">
-      SpringBoot日志配置 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -487,7 +425,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Profile多环境支持"><span class="nav-number">1.</span> <span class="nav-text">Profile多环境支持</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Profile介绍"><span class="nav-number">1.1.</span> <span class="nav-text">Profile介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#properties文件演示案例"><span class="nav-number">1.2.</span> <span class="nav-text">properties文件演示案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#yml文件演示案例"><span class="nav-number">1.3.</span> <span class="nav-text">yml文件演示案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多种方式激活指定profile"><span class="nav-number">1.4.</span> <span class="nav-text">多种方式激活指定profile</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件加载位置"><span class="nav-number">2.</span> <span class="nav-text">配置文件加载位置</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Redis服务与客户端"><span class="nav-number">1.</span> <span class="nav-text">安装Redis服务与客户端</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
