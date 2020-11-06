@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"https","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Vue.js概要介绍 Vue.js介绍 Vue是什么 主流的渐进式JavaScript框架   什么是渐进式 可以和传统的网站开发架构融合在一起，例如可以简单的把他当作一个类似JQuery库来使用。 也可以使用Vue全家桶架构来开发大型的单页面应用程序。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue入门开发（1）">
+<meta property="og:url" content="http://https//qkgit.github.io/2020/11/07/Vue%E5%85%A5%E9%97%A8%E5%BC%80%E5%8F%91%EF%BC%881%EF%BC%89/index.html">
+<meta property="og:site_name" content="河北热心市民齐先生">
+<meta property="og:description" content="Vue.js概要介绍 Vue.js介绍 Vue是什么 主流的渐进式JavaScript框架   什么是渐进式 可以和传统的网站开发架构融合在一起，例如可以简单的把他当作一个类似JQuery库来使用。 也可以使用Vue全家桶架构来开发大型的单页面应用程序。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cn.vuejs.org/images/logo.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/48KM14Udu98P.png">
+<meta property="article:published_time" content="2020-11-06T18:11:39.539Z">
+<meta property="article:modified_time" content="2020-11-06T18:11:34.210Z">
+<meta property="article:author" content="大王叫我来巡山">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cn.vuejs.org/images/logo.png">
+
+<link rel="canonical" href="http://https//qkgit.github.io/2020/11/07/Vue%E5%85%A5%E9%97%A8%E5%BC%80%E5%8F%91%EF%BC%881%EF%BC%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Vue入门开发（1） | 河北热心市民齐先生</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">河北热心市民齐先生</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">正经人谁写日记啊~</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">25</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/11/07/Vue%E5%85%A5%E9%97%A8%E5%BC%80%E5%8F%91%EF%BC%881%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/author.png">
+      <meta itemprop="name" content="大王叫我来巡山">
+      <meta itemprop="description" content="人生当苦无妨，良人当归即好。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="河北热心市民齐先生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vue入门开发（1）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-07 02:11:39 / 修改时间：02:11:34" itemprop="dateCreated datePublished" datetime="2020-11-07T02:11:39+08:00">2020-11-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/07/Vue%E5%85%A5%E9%97%A8%E5%BC%80%E5%8F%91%EF%BC%881%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/07/Vue%E5%85%A5%E9%97%A8%E5%BC%80%E5%8F%91%EF%BC%881%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>10k字</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Vue-js概要介绍"><a href="#Vue-js概要介绍" class="headerlink" title="Vue.js概要介绍"></a>Vue.js概要介绍</h1><p><img src="https://cn.vuejs.org/images/logo.png" alt="https://cn.vuejs.org/images/logo.png"></p>
+<h2 id="Vue-js介绍"><a href="#Vue-js介绍" class="headerlink" title="Vue.js介绍"></a>Vue.js介绍</h2><ul>
+<li>Vue是什么<ul>
+<li>主流的渐进式JavaScript框架</li>
+</ul>
+</li>
+<li>什么是渐进式<ul>
+<li>可以和传统的网站开发架构融合在一起，例如可以简单的把他当作一个类似JQuery库来使用。</li>
+<li>也可以使用Vue全家桶架构来开发大型的单页面应用程序。</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+
+<ul>
+<li>使用它的原因<ul>
+<li>vue.js体积小，编码简洁优雅，运行效率高，用户体验好</li>
+<li>无Dom操作，它能提高网站应用程序的开发效率</li>
+</ul>
+</li>
+<li>什么场景下使用它<ul>
+<li>一般是需要开发单页面应用程序（Single Page Application,简称SPA）的时候与用</li>
+<li>单页面应用程序，如：网易云音乐 <a href="https://music.163.com/" target="_blank" rel="noopener">https://music.163.com/</a></li>
+<li>因为Vue是渐进式的，Vue其实可以融入到不同的项目中，即插即用</li>
+</ul>
+</li>
+</ul>
+<h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><p>英文官网：<a href="https://vuejs.org/" target="_blank" rel="noopener">https://vuejs.org/</a></p>
+<p>中文官网：<a href="https://cn.vuejs.org/" target="_blank" rel="noopener">https://cn.vuejs.org/</a>  （中文文档很友好）</p>
+<p>官方教程：<a href="https://cn.vuejs.org/v2/guide/" target="_blank" rel="noopener">https://cn.vuejs.org/v2/guide/</a></p>
+<p>GitHub：<a href="https://github.com/yyx990803" target="_blank" rel="noopener">https://github.com/yyx990803</a> </p>
+<p>API文档：<a href="https://cn.vuejs.org/v2/api/" target="_blank" rel="noopener">https://cn.vuejs.org/v2/api/</a></p>
+<p><strong>不建议买书</strong> ，官方文档很详细，多查官方文档，因为很多书基本上都是直接抄官方文档的</p>
+<h2 id="对比其他前端JS框架"><a href="#对比其他前端JS框架" class="headerlink" title="对比其他前端JS框架"></a>对比其他前端JS框架</h2><ul>
+<li><code>Angular</code><ul>
+<li>2009 年诞生的，起源于个人开发，后来被 Google 收购了.</li>
+<li>核心技术： 模板 和 数据绑定 技术，体验越来越差，走下坡路了。</li>
+</ul>
+</li>
+<li><code>React</code><ul>
+<li>2013年5月开源的，起源于 Facebook 的内部项目，对市场上所有 JS 框架都不满意，于是自已写了一套。</li>
+<li>核心技术： <code>组件化</code>和 <code>虚拟DOM</code> 技术。</li>
+</ul>
+</li>
+<li><code>Vue.js</code><ul>
+<li>吸收了上面两个框架的技术优点。</li>
+</ul>
+</li>
+</ul>
+<p>使用情况：</p>
+<ul>
+<li>BAT 级别的企业：React 最多 &gt; Angular &gt; Vue.js</li>
+<li>中小型公司：Vue.js 更多一些，有中文文档学习成本低。</li>
+</ul>
+<p>Vue 不支持 IE8 及以下版本，因为 Vue 使用了 IE8 无法模拟 ECMAScript 5 特性。</p>
+<p>推荐使用最新谷歌浏览器。</p>
+<h1 id="Vue核心技术"><a href="#Vue核心技术" class="headerlink" title="Vue核心技术"></a>Vue核心技术</h1><h2 id="Vue入门开发"><a href="#Vue入门开发" class="headerlink" title="Vue入门开发"></a>Vue入门开发</h2><h3 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h3><ul>
+<li><p>在本地创建工作区文件夹<code>D:\StudentProject\WebStudy</code></p>
+</li>
+<li><p>打开VS Code,在vscode中打开该文件夹，在该文件夹下创建目录和文件：vue-01-core/01-helloworld.html</p>
+</li>
+<li><p>安装vue模块</p>
+<ol>
+<li><p>可以直接在HTML文件中引用</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本地安装引用vue</p>
+<p>在 vue-01-core 目录下的命令行窗口，安装 vue 模块</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>编写HTML页面</p>
+<ol>
+<li>采用<code>script</code>标签引入<code>vue.js</code>库</li>
+<li>定义一个<code>div</code></li>
+<li><code>new Vue()</code>实例化Vue应用程序<br> <code>el</code>选项：元素element的缩写，指定被 Vue 管理的 Dom 节点入口（值为选择器  )，必须是一个普通的 HTML 标签节点，一般是 div。<br> <code>data</code>选项：指定初始化数据，在 Vue 所管理的 Dom 节点下，可通过模板语法来进行使用</li>
+<li>标签体显示数据：<code></code></li>
+<li>表单元素双向数据绑定：<code>v-model</code></li>
+<li>注意：<code>el</code>的值不能为html或body</li>
+</ol>
+</li>
+<li><p>源码实现：</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello, &#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"msg"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./node_modules/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">      el: <span class="string">'#app'</span>, <span class="comment">// el选项的值不能指定html或 body</span></span></span><br><span class="line">      data: &#123;</span><br><span class="line"><span class="actionscript">        msg: <span class="string">'Vue.js'</span></span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h2 id="分析MVVM模型"><a href="#分析MVVM模型" class="headerlink" title="分析MVVM模型"></a>分析MVVM模型</h2><p>常见面试题：什么是MVVM模型？</p>
+<ul>
+<li>MVVM 是 Model-View-ViewModel 的缩写，它是一种软件架构风格<ul>
+<li>Model：模型， 数据对象（data选项当中的）</li>
+<li>View：视图，模板页面（用于渲染数据）</li>
+<li>ViewModel：视图模型，其实本质上就是 Vue 实例</li>
+</ul>
+</li>
+<li>它的哲学思想是：<ul>
+<li>通过数据驱动视图</li>
+</ul>
+</li>
+<li>把需要改变视图的数据初始化到 Vue中，然后再通过修改 Vue 中的数据，从而实现对视图的更新。</li>
+<li>声明式编程<ul>
+<li>按照 Vue 的特定语法进行声明开发，就可以实现对应功能，不需要我们直接操作Dom元素 命令式编程：Jquery它就是，需要手动去操作Dom才能实现对应功能。</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/48KM14Udu98P.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/48KM14Udu98P.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/48KM14Udu98P.png"></a></p>
+<h2 id="Vue-Devtools-插件安装"><a href="#Vue-Devtools-插件安装" class="headerlink" title="Vue Devtools 插件安装"></a>Vue Devtools 插件安装</h2><p>在使用 Vue 时，推荐在你的浏览器上安装 <a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">Vue Devtools</a>。它允许你在一个更友好的界面中审查和调试 Vue 应用。</p>
+<h2 id="模板数据绑定渲染"><a href="#模板数据绑定渲染" class="headerlink" title="模板数据绑定渲染"></a>模板数据绑定渲染</h2><p>可生成动态的HTML页面，页面中使用嵌入式Vue.js语法可动态生成</p>
+<ol>
+<li><code></code>：双大括号文本绑定</li>
+<li><code>v-xxxx</code>：以v-开头用于标签属性绑定，称为指令</li>
+</ol>
+<blockquote>
+<p>在vue-01-core目录下新建一个页面：02-模板数据绑定渲染.html</p>
+</blockquote>
+<h3 id="双大括号语法"><a href="#双大括号语法" class="headerlink" title="双大括号语法"></a>双大括号语法</h3><ul>
+<li><p>格式：<code></code></p>
+</li>
+<li><p>作用：</p>
+<ul>
+<li>使用在标签体中，用于获取数据</li>
+<li>可以使用JavaScript表达式</li>
+</ul>
+</li>
+<li><p>案例源码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h3</span>&gt;</span>1.双大括号输出文本内容<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>普通文本：&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>js表达式：&#123;&#123; number+1 &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span>            </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./node_modules/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm =<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">'#app'</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line"><span class="actionscript">                message:<span class="string">'haha'</span>,</span></span><br><span class="line">                number:1</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="一次性插值-v-once"><a href="#一次性插值-v-once" class="headerlink" title="一次性插值 v-once"></a>一次性插值 v-once</h3><ul>
+<li><p>通过使用<code>v-once</code>指令，你也能执行一次性地插值，当数据改变时，插值处的内容不会更新。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>2.一次性插值v-once<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-once</span>&gt;</span>这个将不会改变：&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="输出HTML指令-v-html"><a href="#输出HTML指令-v-html" class="headerlink" title="输出HTML指令 v-html"></a>输出HTML指令 v-html</h3><ul>
+<li><p>格式：<code>v-html=&#39;xxxx&#39;</code></p>
+</li>
+<li><p>作用：</p>
+<ul>
+<li>如果是HTML格式数据，双大括号会将数据解释为普通文本，为了输出真正的 HTML，你需要使用 v-html 指令。</li>
+<li>Vue 为了防止 XSS 攻击，在此指令上做了安全处理，当发现输出内容有 script 标签时，则不渲染<ul>
+<li>XSS 攻击主要利用 JS 脚本注入到网页中，读取 Cookie 值（Cookie一般存储了登录身份信息），读 取到了发送到黑客服务器，从而黑客可以使用你的帐户做非法操作。</li>
+<li>XSS 攻击还可以在你进入到支付时，跳转到钓鱼网站。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>案例源码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h3</span>&gt;</span>3.v-html指令输出真正的HTML内容<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>双大括号：&#123;&#123;contentHtml&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>v-html指令：<span class="tag">&lt;<span class="name">span</span> <span class="attr">v-html</span>=<span class="string">"contentHtml"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 指令的值不需要使用双大括号获取，直接写获取的属性名 --&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- &lt;p&gt;v-html指令：&lt;span v-html="&#123;&#123;contentHtml&#125;&#125;"&gt;&lt;/span&gt;&lt;/p&gt;--&gt;</span></span><br><span class="line">            </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./node_modules/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm =<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">'#app'</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line"><span class="actionscript">                message:<span class="string">'haha'</span>,</span></span><br><span class="line">                number:1,</span><br><span class="line"><span class="handlebars"><span class="xml">                // contentHtml:'<span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"color:red"</span>&gt;</span>红色字体内容<span class="tag">&lt;/<span class="name">span</span>&gt;</span>'</span></span></span><br><span class="line"><span class="handlebars"><span class="xml">                contentHtml:'<span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"color:red"</span>&gt;</span>红色字体内容<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript">alert(<span class="string">"hello vue"</span>)&lt;<span class="regexp">/sceript&gt;&lt;/</span>span&gt;<span class="string">'</span></span></span></span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="元素绑定指令v-bind"><a href="#元素绑定指令v-bind" class="headerlink" title="元素绑定指令v-bind"></a>元素绑定指令v-bind</h3><ul>
+<li><p>完整格式：<code>v-bind:元素属性名=&#39;xxxx&#39;</code></p>
+</li>
+<li><p>缩写格式：<code>:元素属性名=&#39;xxxx&#39;</code></p>
+</li>
+<li><p>作用：将数据动态绑定到指定的元素上</p>
+</li>
+<li><p>案例源码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h3</span>&gt;</span>4.v-bind属性绑定指令<span class="tag">&lt;/<span class="name">h3</span>&gt;</span>            </span><br><span class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">v-bind:src</span>=<span class="string">"imgUrl"</span> <span class="attr">alt</span>=<span class="string">"VueLogo"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 缩写--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"imgUrl"</span> <span class="attr">alt</span>=<span class="string">"VueLogo"</span>&gt;</span></span><br><span class="line">            </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./node_modules/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm =<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">'#app'</span>,</span></span><br><span class="line">            data:&#123;                              </span><br><span class="line"><span class="actionscript">                imgUrl:<span class="string">'https://cn.vuejs.org/images/logo.png'</span></span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="事件绑定指令v-on"><a href="#事件绑定指令v-on" class="headerlink" title="事件绑定指令v-on"></a>事件绑定指令v-on</h3><ul>
+<li><p>完整格式：<code>v-on:事件名=&quot;事件处理函数名&quot;</code></p>
+</li>
+<li><p>缩写格式：<code>@事件名称=&quot;事件处理函数名&quot;</code>  <mark>注意：@后面没有冒号</mark></p>
+</li>
+<li><p>作用：用于监听DOM事件</p>
+</li>
+<li><p>案例源码：每点击一次，数据就+1</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h3</span>&gt;</span>5.v-on 事件绑定指令<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"num"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-on:click</span>=<span class="string">"add"</span>&gt;</span>点击+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./node_modules/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm =<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">'#app'</span>,</span></span><br><span class="line">            data:&#123;                </span><br><span class="line">                num: 2</span><br><span class="line">            &#125;,</span><br><span class="line"><span class="actionscript">            methods: &#123;<span class="comment">//指定事件处理方法，在模板页面中通过v-on：事件名来调用</span></span></span><br><span class="line"><span class="actionscript">                add:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;<span class="comment">//key为方法名</span></span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.log(<span class="string">'add被调用'</span>)</span></span><br><span class="line"><span class="actionscript">                    <span class="comment">//this表示当前vm实例</span></span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">this</span>.num++ <span class="comment">//每点击一次   num+1</span></span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h2 id="计算属性和监听器"><a href="#计算属性和监听器" class="headerlink" title="计算属性和监听器"></a>计算属性和监听器</h2><blockquote>
+<p>在vue-01-core 目录下新建<code>03-计算属性和监听器.html</code></p>
+</blockquote>
+<h3 id="计算属性computed"><a href="#计算属性computed" class="headerlink" title="计算属性computed"></a>计算属性computed</h3><ul>
+<li><p><code>computed</code>选项定义计算属性</p>
+</li>
+<li><p>计算属性类似于<code>methods</code>选项中定义的函数</p>
+<ul>
+<li>计算属性 会进行缓存，只在相关响应式依赖发生改变时它们才会重新求值。</li>
+<li>函数 每次都会执行函数体进行计算。</li>
+</ul>
+</li>
+<li><p>需求：输入语文 数学与英语的分数，采用<code>methods</code>与<code>computed</code>分别计算出总得分</p>
+</li>
+<li><p>案例源码;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        语文：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"chineseScore"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        数学：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"mathScore"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        英语：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"englishScore"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        总分（方法-单向）：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"sumScore()"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        总分（计算属性-单向）：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"sumScore1"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span>       </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./node_modules/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">'#app'</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line">                chineseScore:88,</span><br><span class="line">                mathScore:90,</span><br><span class="line">                englishScore:82,</span><br><span class="line">            &#125;,</span><br><span class="line"><span class="actionscript">            methods: &#123;<span class="comment">//不要少了s</span></span></span><br><span class="line"><span class="actionscript">                sumScore:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="comment">//在控制台输入vm.sumScore()每次都会被调用</span></span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.info(<span class="string">'sumScore被调用'</span>)</span></span><br><span class="line"><span class="actionscript">                    <span class="comment">//‘this’指向当前vm实例，减0是为了字符串转为数字运算</span></span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">return</span>(<span class="keyword">this</span>.mathScore<span class="number">-0</span>)+(<span class="keyword">this</span>.englishScore<span class="number">-0</span>)+(<span class="keyword">this</span>.chineseScore<span class="number">-0</span>)</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line"><span class="actionscript">            computed: &#123;<span class="comment">//计算属性</span></span></span><br><span class="line"><span class="actionscript">                sumScore1:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="comment">//在控制台输入vm.sumScore1 不会被重新调用，说明计算属性有缓存</span></span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.info(<span class="string">'sumScore1被调用'</span>)</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">return</span>(<span class="keyword">this</span>.mathScore<span class="number">-0</span>)+(<span class="keyword">this</span>.englishScore<span class="number">-0</span>)+(<span class="keyword">this</span>.chineseScore<span class="number">-0</span>)</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;     </span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>conputed</code>选项内的计算属性默认是getter函数，，所以上面只支持单向绑定，当修改数学和英语的数据才会 更新总分，而修改总分不会更新数据和英语</p>
+</li>
+</ul>
+<h3 id="计算属性（双向绑定）"><a href="#计算属性（双向绑定）" class="headerlink" title="计算属性（双向绑定）"></a>计算属性（双向绑定）</h3><ul>
+<li><p>计算属性默认只要getter，不过过在需要时你也可以提供一个 setter</p>
+</li>
+<li><p>案例源码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        语文：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"chineseScore"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        数学：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"mathScore"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        英语：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"englishScore"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        总分（方法-单向）：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"sumScore()"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        总分（计算属性-单向）：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"sumScore1"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        总分（计算属性-双向）：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"sumScore2"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./node_modules/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">'#app'</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line">                chineseScore:100,</span><br><span class="line">                mathScore:100,</span><br><span class="line">                englishScore:100,</span><br><span class="line">            &#125;,</span><br><span class="line"><span class="actionscript">            methods: &#123;<span class="comment">//不要少了s</span></span></span><br><span class="line"><span class="actionscript">                sumScore:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="comment">//在控制台输入vm.sumScore()每次都会被调用</span></span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.info(<span class="string">'sumScore被调用'</span>)</span></span><br><span class="line"><span class="actionscript">                    <span class="comment">//‘this’指向当前vm实例，减0是为了字符串转为数字运算</span></span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">return</span>(<span class="keyword">this</span>.mathScore<span class="number">-0</span>)+(<span class="keyword">this</span>.englishScore<span class="number">-0</span>)+(<span class="keyword">this</span>.chineseScore<span class="number">-0</span>)</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line"><span class="actionscript">            computed: &#123;<span class="comment">//计算属性</span></span></span><br><span class="line"><span class="actionscript">                sumScore1:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="comment">//在控制台输入vm.sumScore1 不会被重新调用，说明计算属性有缓存</span></span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.info(<span class="string">'sumScore1被调用'</span>)</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">return</span>(<span class="keyword">this</span>.mathScore<span class="number">-0</span>)+(<span class="keyword">this</span>.englishScore<span class="number">-0</span>)+(<span class="keyword">this</span>.chineseScore<span class="number">-0</span>)</span></span><br><span class="line">                &#125;,</span><br><span class="line"><span class="actionscript">                <span class="comment">//指定getter/setter双向绑定 </span></span></span><br><span class="line">                sumScore2:&#123;</span><br><span class="line"><span class="actionscript">                    <span class="keyword">get</span>:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">                        <span class="built_in">console</span>.info(<span class="string">'sumScore2被调用'</span>)</span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">return</span>(<span class="keyword">this</span>.chineseScore<span class="number">-0</span>)+(<span class="keyword">this</span>.mathScore<span class="number">-0</span>)+(<span class="keyword">this</span>.englishScore<span class="number">-0</span>)</span></span><br><span class="line">                    &#125;,</span><br><span class="line"><span class="actionscript">                    <span class="keyword">set</span>:<span class="function"><span class="keyword">function</span><span class="params">(newValue)</span></span>&#123;<span class="comment">//value为更新后的值</span></span></span><br><span class="line"><span class="actionscript">                        <span class="comment">//被调用则更新了sumScore2,然后将各科成绩更新为平均分</span></span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">var</span> avgScore=newValue/<span class="number">3</span></span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">this</span>.chineseScore=avgScore</span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">this</span>.mathScore=avgScore</span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">this</span>.englishScore=avgScore</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="监听器watch"><a href="#监听器watch" class="headerlink" title="监听器watch"></a>监听器watch</h3><ul>
+<li><p>当属性数据发生变化时,对应属性的回调函数会自动调用, 在函数内部进行计算</p>
+</li>
+<li><p>通过<code>watch</code>选项 或者vm实例的<code>$watch()</code>来监听指定的属性</p>
+</li>
+<li><p>需求：</p>
+<ol>
+<li>通过 watch 选项 监听数学分数， 当数学更新后回调函数中重新计算总分sumScore3</li>
+<li>通过 vm.$watch() 选项 监听英语分数， 当英语更新后回调函数中重新计算总分sumScore3</li>
+</ol>
+</li>
+<li><p>源码实现：</p>
+<p><mark>注意在data选择中添加一个sumScore3属性</mark></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        语文：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"chineseScore"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        数学：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"mathScore"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        英语：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"englishScore"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        总分（方法-单向）：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"sumScore()"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        总分（计算属性-单向）：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"sumScore1"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        总分（计算属性-双向）：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"sumScore2"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        总分（监听器）：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"sumScore3"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./node_modules/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el:<span class="string">'#app'</span>,</span></span><br><span class="line">            data:&#123;</span><br><span class="line">                chineseScore:100,</span><br><span class="line">                mathScore:100,</span><br><span class="line">                englishScore:100,</span><br><span class="line">                sumScore3:300,</span><br><span class="line">            &#125;,</span><br><span class="line"><span class="actionscript">            methods: &#123;<span class="comment">//不要少了s</span></span></span><br><span class="line"><span class="actionscript">                sumScore:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="comment">//在控制台输入vm.sumScore()每次都会被调用</span></span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.log(<span class="string">'sumScore被调用'</span>)</span></span><br><span class="line"><span class="actionscript">                    <span class="comment">//‘this’指向当前vm实例，减0是为了字符串转为数字运算</span></span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">return</span>(<span class="keyword">this</span>.mathScore<span class="number">-0</span>)+(<span class="keyword">this</span>.englishScore<span class="number">-0</span>)+(<span class="keyword">this</span>.chineseScore<span class="number">-0</span>)</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line"><span class="actionscript">            computed: &#123;<span class="comment">//计算属性</span></span></span><br><span class="line"><span class="actionscript">                sumScore1:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="comment">//在控制台输入vm.sumScore1 不会被重新调用，说明计算属性有缓存</span></span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.log(<span class="string">'sumScore1被调用'</span>)</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">return</span>(<span class="keyword">this</span>.mathScore<span class="number">-0</span>)+(<span class="keyword">this</span>.englishScore<span class="number">-0</span>)+(<span class="keyword">this</span>.chineseScore<span class="number">-0</span>)</span></span><br><span class="line">                &#125;,</span><br><span class="line"><span class="actionscript">                <span class="comment">//指定getter/setter双向绑定 </span></span></span><br><span class="line">                sumScore2:&#123;</span><br><span class="line"><span class="actionscript">                    <span class="keyword">get</span>:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">                        <span class="built_in">console</span>.log(<span class="string">'sumScore2被调用'</span>)</span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">return</span>(<span class="keyword">this</span>.chineseScore<span class="number">-0</span>)+(<span class="keyword">this</span>.mathScore<span class="number">-0</span>)+(<span class="keyword">this</span>.englishScore<span class="number">-0</span>)</span></span><br><span class="line">                    &#125;,</span><br><span class="line"><span class="actionscript">                    <span class="keyword">set</span>:<span class="function"><span class="keyword">function</span><span class="params">(newValue)</span></span>&#123;<span class="comment">//value为更新后的值</span></span></span><br><span class="line"><span class="actionscript">                        <span class="comment">//被调用则更新了sumScore2,然后将各科成绩更新为平均分</span></span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">var</span> avgScore=newValue/<span class="number">3</span></span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">                        <span class="keyword">this</span>.chineseScore=avgScore</span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">this</span>.mathScore=avgScore</span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">this</span>.englishScore=avgScore</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line"><span class="actionscript">            <span class="comment">//监听器方式1：watch选项</span></span></span><br><span class="line">            watch: &#123;</span><br><span class="line"><span class="actionscript">                <span class="comment">//当数学修改后，更新总分sumScore3</span></span></span><br><span class="line"><span class="actionscript">                mathScore:<span class="function"><span class="keyword">function</span><span class="params">(newValue,oldValue)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="comment">//newValue就是新输入的数学得分</span></span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">this</span>.sumScore3=(newValue<span class="number">-0</span>)+(<span class="keyword">this</span>.englishScore<span class="number">-0</span>)+(<span class="keyword">this</span>.chineseScore<span class="number">-0</span>)</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;)</span><br><span class="line"><span class="actionscript">        <span class="comment">//监听器方式2：通过vm对象调用</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//第一个参数为监听的属性名，第二个回调函数</span></span></span><br><span class="line"><span class="actionscript">        vm.$watch(<span class="string">'englishScore'</span>,<span class="function"><span class="keyword">function</span><span class="params">(newValue)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">            <span class="comment">//newValue就是新输入的英语得分</span></span></span><br><span class="line"><span class="actionscript">            <span class="keyword">this</span>.sumScore3=(newValue<span class="number">-0</span>)+(<span class="keyword">this</span>.mathScore<span class="number">-0</span>)+(<span class="keyword">this</span>.chineseScore<span class="number">-0</span>)</span></span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+    <div>
+     
+       <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+     
+    </div>
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="大王叫我来巡山 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="大王叫我来巡山 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>大王叫我来巡山
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://https//qkgit.github.io/2020/11/07/Vue%E5%85%A5%E9%97%A8%E5%BC%80%E5%8F%91%EF%BC%881%EF%BC%89/" title="Vue入门开发（1）">http://https//qkgit.github.io/2020/11/07/Vue入门开发（1）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>ZERO</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/02/SpringBoot%E6%95%B4%E5%90%88Redis%E5%AE%9E%E6%88%98/" rel="prev" title="Spring Boot 整合Redis实战">
+      <i class="fa fa-chevron-left"></i> Spring Boot 整合Redis实战
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue-js概要介绍"><span class="nav-number">1.</span> <span class="nav-text">Vue.js概要介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-js介绍"><span class="nav-number">1.1.</span> <span class="nav-text">Vue.js介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习资源"><span class="nav-number">1.2.</span> <span class="nav-text">学习资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对比其他前端JS框架"><span class="nav-number">1.3.</span> <span class="nav-text">对比其他前端JS框架</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue核心技术"><span class="nav-number">2.</span> <span class="nav-text">Vue核心技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue入门开发"><span class="nav-number">2.1.</span> <span class="nav-text">Vue入门开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建工程"><span class="nav-number">2.1.1.</span> <span class="nav-text">创建工程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析MVVM模型"><span class="nav-number">2.2.</span> <span class="nav-text">分析MVVM模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-Devtools-插件安装"><span class="nav-number">2.3.</span> <span class="nav-text">Vue Devtools 插件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板数据绑定渲染"><span class="nav-number">2.4.</span> <span class="nav-text">模板数据绑定渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#双大括号语法"><span class="nav-number">2.4.1.</span> <span class="nav-text">双大括号语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一次性插值-v-once"><span class="nav-number">2.4.2.</span> <span class="nav-text">一次性插值 v-once</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出HTML指令-v-html"><span class="nav-number">2.4.3.</span> <span class="nav-text">输出HTML指令 v-html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素绑定指令v-bind"><span class="nav-number">2.4.4.</span> <span class="nav-text">元素绑定指令v-bind</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件绑定指令v-on"><span class="nav-number">2.4.5.</span> <span class="nav-text">事件绑定指令v-on</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算属性和监听器"><span class="nav-number">2.5.</span> <span class="nav-text">计算属性和监听器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算属性computed"><span class="nav-number">2.5.1.</span> <span class="nav-text">计算属性computed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算属性（双向绑定）"><span class="nav-number">2.5.2.</span> <span class="nav-text">计算属性（双向绑定）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监听器watch"><span class="nav-number">2.5.3.</span> <span class="nav-text">监听器watch</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="大王叫我来巡山"
+      src="/images/author.png">
+  <p class="site-author-name" itemprop="name">大王叫我来巡山</p>
+  <div class="site-description" itemprop="description">人生当苦无妨，良人当归即好。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qkgit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qkgit" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1584546760@qq.com" title="E-Mail → mailto:1584546760@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/6355308390" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;6355308390" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=1584546760&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;1584546760&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://yoursite.com/" title="http:&#x2F;&#x2F;yoursite.com" rel="noopener" target="_blank">暂无</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大王叫我来巡山</span>
+    
+    <!--  站点总字数：-->
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+     
+    <span title="站点总字数">160k字</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">2:25</span>
+</div>
+
+<!--
+-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='255,0,0' opacity='1' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'N2cbVqYWHSNSJHt9wnhDAhUM-gzGzoHsz',
+      appKey     : 'LSEYd4SR4l5cVSEyf43cmPYV',
+      placeholder: "留言是种美德，写点什么...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+ 
+<!-- 页面点击特效 -->
+<script type="text/javascript" src="/js/src/cursor.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
+
+
+
+
+
