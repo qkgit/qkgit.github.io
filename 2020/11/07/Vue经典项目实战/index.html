@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"https","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Vue经典实战项目-TodoMVC">
+<meta property="og:url" content="http://https//qkgit.github.io/2020/11/07/Vue%E7%BB%8F%E5%85%B8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/index.html">
+<meta property="og:site_name" content="河北热心市民齐先生">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/c@mKKuM4iHZl.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/X3g83f1wr5mU.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/qeZE!mmdI*oQ.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Brh9fxg0aaZD.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/txI9ALFygPdG.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/ycn9tdsy!ChW.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/wBEloQxiRnFg.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/CF1XG34R1*JT.png">
+<meta property="article:published_time" content="2020-11-07T15:01:31.756Z">
+<meta property="article:modified_time" content="2020-11-07T17:49:04.855Z">
+<meta property="article:author" content="大王叫我来巡山">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/c@mKKuM4iHZl.png">
+
+<link rel="canonical" href="http://https//qkgit.github.io/2020/11/07/Vue%E7%BB%8F%E5%85%B8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Vue经典实战项目-TodoMVC | 河北热心市民齐先生</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">河北热心市民齐先生</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">正经人谁写日记啊~</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">29</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/11/07/Vue%E7%BB%8F%E5%85%B8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/author.png">
+      <meta itemprop="name" content="大王叫我来巡山">
+      <meta itemprop="description" content="人生当苦无妨，良人当归即好。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="河北热心市民齐先生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vue经典实战项目-TodoMVC
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-07 23:01:31" itemprop="dateCreated datePublished" datetime="2020-11-07T23:01:31+08:00">2020-11-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-08 01:49:04" itemprop="dateModified" datetime="2020-11-08T01:49:04+08:00">2020-11-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/07/Vue%E7%BB%8F%E5%85%B8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/07/Vue%E7%BB%8F%E5%85%B8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.2k字</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/c@mKKuM4iHZl.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/c@mKKuM4iHZl.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/c@mKKuM4iHZl.png"></a></p>
+<a id="more"></a>
+
+<h2 id="项目介绍与演示"><a href="#项目介绍与演示" class="headerlink" title="项目介绍与演示"></a>项目介绍与演示</h2><ul>
+<li><p>ToDoMVC是一个非常经典的案例，功能非常丰富，并且针对多种不同技术分别都开发了此项目，比如：React、AugularJS、JQuery等等。</p>
+</li>
+<li><p>ToDoMVC案例官网：<a href="http://todomvc.com/" target="_blank" rel="noopener">http://todomvc.com/</a></p>
+</li>
+<li><p>在官网首页右下角，有案例的模板下载和开发规格（需求文档），如下图</p>
+<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/X3g83f1wr5mU.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/X3g83f1wr5mU.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/X3g83f1wr5mU.png"></a></p>
+</li>
+</ul>
+<h2 id="下载与导入模板"><a href="#下载与导入模板" class="headerlink" title="下载与导入模板"></a>下载与导入模板</h2><h3 id="ToDoMVC-模板-下载方式"><a href="#ToDoMVC-模板-下载方式" class="headerlink" title="ToDoMVC 模板 下载方式"></a>ToDoMVC 模板 下载方式</h3><ol>
+<li><p>使用git克隆项目</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tastejs/todomvc-app-template.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>直接下载zip压缩包</p>
+<p>在GitHub下载ToDoMVC 模板在：<a href="https://github.com/tastejs/todomvc-app-template" target="_blank" rel="noopener">https://github.com/tastejs/todomvc-app-template</a></p>
+<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/qeZE!mmdI*oQ.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/qeZE!mmdI*oQ.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/qeZE!mmdI*oQ.png"></a></p>
+</li>
+</ol>
+<h3 id="npm-安装依赖"><a href="#npm-安装依赖" class="headerlink" title="npm 安装依赖"></a>npm 安装依赖</h3><p>因为下载的模板没有样式，所以要通过npm安装相关依赖，依赖配置在<code>package.json</code>文件中</p>
+<ul>
+<li><p>通过 cmd 进入ToDoMVC项目所在目录，执行命令：<code>npm install</code></p>
+<p><mark>注意：要使用 npm 命令，需要安装 node.js 环境才能用。</mark></p>
+</li>
+<li><p>依赖安装完成后，生成的node_modules目录效果如下：</p>
+<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Brh9fxg0aaZD.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/Brh9fxg0aaZD.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/Brh9fxg0aaZD.png"></a></p>
+</li>
+</ul>
+<h3 id="导入到VS-Code"><a href="#导入到VS-Code" class="headerlink" title="导入到VS Code"></a>导入到VS Code</h3><ol>
+<li><p>将 todomvc-app-template 目录重命名为： vue-03-todomvc</p>
+</li>
+<li><p>拷贝 vue-03-todomvc 拷贝到 D:\StudentProject\WebStudy 目录下</p>
+</li>
+<li><p>在 VS Code 左侧资源管理窗口刷新一下就可以看到 vue-03-todomvc ，直接访问 index.html，效果如下：</p>
+<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/txI9ALFygPdG.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/txI9ALFygPdG.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/txI9ALFygPdG.png"></a></p>
+</li>
+</ol>
+<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><h3 id="下载Vue依赖"><a href="#下载Vue依赖" class="headerlink" title="下载Vue依赖"></a>下载Vue依赖</h3><ul>
+<li><p>下载vue.js后后，会在 node_modules 目录下出现 vue</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="引入vue-js"><a href="#引入vue-js" class="headerlink" title="引入vue.js"></a>引入vue.js</h3><ul>
+<li><p>引入 vue.js 到 index.html 中</p>
+<p><mark>注意：vue.js 的引入要在使用 Vue 操作的前面，我们在 app.js 中编写Vue代码，所以要在 app.js 前面引入</mark></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 在 app.js 前面引入--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./node_modules/vue/dist/vue.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/app.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="找到被Vue管理的元素"><a href="#找到被Vue管理的元素" class="headerlink" title="找到被Vue管理的元素"></a>找到被Vue管理的元素</h3><ul>
+<li><p>找到需要被 Vue 管理的元素 <code>&lt;section&gt;</code>取一个id属性值为 <code>todoapp</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"todoapp"</span> <span class="attr">id</span>=<span class="string">"todoapp"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 app.js 中添加如下 Vue 入口</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123; <span class="comment">//表示依赖了全局的 Vue</span></span><br><span class="line">	<span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">		el: <span class="string">'#todoapp'</span></span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)(Vue);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h2 id="数据列表渲染"><a href="#数据列表渲染" class="headerlink" title="数据列表渲染"></a>数据列表渲染</h2><h3 id="功能分析"><a href="#功能分析" class="headerlink" title="功能分析"></a>功能分析</h3><ul>
+<li><p>有数据</p>
+<ul>
+<li><p>列表中的记录有三种状态且<code>&lt;li&gt;</code>样式不一样“</p>
+<p>未完成（没有样式)、已完成（<code>.completed</code>）、编辑中（<code>.edliting</code>）</p>
+</li>
+<li><p>任务字段：<code>id</code>（主键）、<code>content</code>（内容）、<code>completed</code>（状态；true 已完成，false 未完成）</p>
+</li>
+</ul>
+</li>
+<li><p>无数据</p>
+<ul>
+<li><p><code>.main</code>和<code>.footer</code>标识的标签应该被隐藏（<code>v-show</code>）</p>
+<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/ycn9tdsy!ChW.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/ycn9tdsy!ChW.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/ycn9tdsy!ChW.png"></a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="有数据列表功能实现"><a href="#有数据列表功能实现" class="headerlink" title="有数据列表功能实现"></a>有数据列表功能实现</h3><ol>
+<li><p>在 app.js 声明一个存储任务数据的数组 items，并初始化一些数据。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;<span class="comment">//表示依赖了全局的Vue，其实不加也可以，只是更加明确点</span></span><br><span class="line">	<span class="comment">//初始化任务</span></span><br><span class="line">	<span class="keyword">const</span> items = [</span><br><span class="line">		 &#123;</span><br><span class="line">		 	id: <span class="number">1</span>,</span><br><span class="line">		 	content: <span class="string">'java'</span>,</span><br><span class="line">		 	completed: <span class="literal">true</span></span><br><span class="line">		 &#125;,</span><br><span class="line">		 &#123;</span><br><span class="line">		 	id: <span class="number">2</span>,</span><br><span class="line">		 	content: <span class="string">'vue'</span>,</span><br><span class="line">		 	completed: <span class="literal">false</span></span><br><span class="line">		 &#125;</span><br><span class="line">			</span><br><span class="line">	]</span><br><span class="line">	<span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">		el: <span class="string">'#todoapp'</span>,</span><br><span class="line">		data: &#123;</span><br><span class="line">			items <span class="comment">// ES6中对象属性简写，等价于items: items</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)(Vue);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改 list 列表  <code>&lt;li class=&quot;completed&quot;&gt;</code></p>
+<p><mark>如果修改 app.js 或 html 后，刷新浏览器发现没有变，关闭当前浏览器窗口，重新打开访问。</mark></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"todo-list"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">三种状态：未完成（没有样式）、已完成（.completed ）、编辑中( .editing )</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--修改:1、v-for迭代; 2、:class=&#123;key为class样式名,value为获取的数据true或false&#125;--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span> <span class="attr">:class</span>=<span class="string">"&#123;completed: item.completed&#125;"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"view"</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 修改：1、v-model 绑定状态值是否选中 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"toggle"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">v-model</span>=<span class="string">"item.completed"</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 修改：1、&#123;&#123; content &#125;&#125; 显示内容 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">label</span>&gt;</span>&#123;&#123; item.content &#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!--修改: 1、:value 绑定id删除 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"destroy"</span> <span class="attr">:value</span>=<span class="string">"item.id"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"edit"</span> <span class="attr">value</span>=<span class="string">"Create a TodoMVC template"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>效果图</p>
+<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/wBEloQxiRnFg.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/wBEloQxiRnFg.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/wBEloQxiRnFg.png"></a></p>
+</li>
+</ol>
+<h3 id="无数据隐藏功能-实现"><a href="#无数据隐藏功能-实现" class="headerlink" title="无数据隐藏功能 实现"></a>无数据隐藏功能 实现</h3><p>只要判断items 数组 length 等于0，则表示没有数据，结合<code>v-show</code>即可</p>
+<ul>
+<li><p>修改index.html中<code>&lt;section class=&quot;main&quot;&gt;</code>和<code>&lt;footer class=&quot;footer&quot;&gt;</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">方式1(todomvc官网方法)：在两个标签上处理，要添加2次麻烦</span><br><span class="line"><span class="comment">&lt;!-- items.length 值为 0 就是 false --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"main"</span> <span class="attr">v-show</span>=<span class="string">"items.length"</span>&gt;</span></span><br><span class="line">	....</span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">"footer"</span> <span class="attr">v-show</span>=<span class="string">"items.length"</span>&gt;</span></span><br><span class="line">	....</span><br><span class="line"><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"></span><br><span class="line">方式2：使用 div 元素将下面包住，但是页面渲染后多出 div 元素</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-show</span>=<span class="string">"items.length"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">		....</span><br><span class="line">	<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span></span><br><span class="line">    	....</span><br><span class="line">	<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">方式3：可使用 Vue 提供的 template 元素，页面渲染后不会有 template 元素，</span><br><span class="line">但是不能使用 v-show, 因为template渲染后就消失了， 而v-show是 display:none控制显示隐藏的。</span><br><span class="line">需要使用 v-if 才可以</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-if</span>=<span class="string">"items.length"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">		....</span><br><span class="line">	<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span></span><br><span class="line">		....</span><br><span class="line">	<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在app.js中注释tems 数组中的元素后，重新访问即可演示效果</p>
+</li>
+</ul>
+<p><a href="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/CF1XG34R1*JT.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/CF1XG34R1*JT.png" alt="https://gitee.com/qkget233/images/raw/master/全套SpringBoot入门到项目实战课程/CF1XG34R1*JT.png"></a></p>
+<h2 id="添加任务"><a href="#添加任务" class="headerlink" title="添加任务"></a>添加任务</h2><h3 id="功能分析-1"><a href="#功能分析-1" class="headerlink" title="功能分析"></a>功能分析</h3><ol>
+<li><p>在最上面的文本框中添加新的任务</p>
+</li>
+<li><p>不允许添加非空数据。              </p>
+<p>分析：在添加到列表前，使用 <code>.trim()</code> 去除空格，如果去除后是空的就不添加。</p>
+</li>
+<li><p>按 <code>Enter</code> 键添加任务列表中，并清空文本框。</p>
+<p>分析：在页面添加 <code>Enter</code> 按键监听事件，最后向文本框赋空值<code>&#39;&#39;</code></p>
+</li>
+</ol>
+<h3 id="添加任务功能实现"><a href="#添加任务功能实现" class="headerlink" title="添加任务功能实现"></a>添加任务功能实现</h3><ol>
+<li><p>在文本输入框，添加 Enter 按键监听事件 <code>@keyup.enter=&quot;addItem&quot;</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">header</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>ToDo.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--添加任务--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.enter</span>=<span class="string">"addItem"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">"new-todo"</span> <span class="attr">placeholder</span>=<span class="string">"想要做什么?"</span> <span class="attr">autofocus</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 app.js 中添加 addItem 函数，步骤如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el: <span class="string">'#todoapp'</span>,</span><br><span class="line">	data: &#123;</span><br><span class="line">		items <span class="comment">// ES6中对象属性简写，等价于items: items</span></span><br><span class="line">	&#125;，</span><br><span class="line">    methods: &#123;			</span><br><span class="line">		<span class="comment">//增加任务项</span></span><br><span class="line">		addItem(event)&#123;<span class="comment">//对象属性性函数简写 等价于addItem:function()&#123;</span></span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">'addItem'</span>,event.target.value)</span><br><span class="line">			<span class="comment">//1.获取文本框输入的数据</span></span><br><span class="line">			<span class="keyword">const</span> content = event.target.value.trim()</span><br><span class="line">			<span class="comment">//2.判断数据如果为空，则什么都不做</span></span><br><span class="line">			<span class="keyword">if</span>(!content.length)&#123;</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//3.如果不为空，则添加到数组中</span></span><br><span class="line">			<span class="comment">//生成id值</span></span><br><span class="line">			<span class="keyword">const</span> id = <span class="keyword">this</span>.items.length + <span class="number">1</span></span><br><span class="line">			<span class="comment">//添加到数组中</span></span><br><span class="line">			<span class="keyword">this</span>.items.push(&#123;</span><br><span class="line">				id,<span class="comment">//等价于id:id</span></span><br><span class="line">				content,</span><br><span class="line">				completed: <span class="literal">false</span></span><br><span class="line">			&#125;)</span><br><span class="line">			<span class="comment">//4.清空文本框内容</span></span><br><span class="line">			event.target.value=<span class="string">''</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+    <div>
+     
+       <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+     
+    </div>
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="大王叫我来巡山 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="大王叫我来巡山 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>大王叫我来巡山
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://https//qkgit.github.io/2020/11/07/Vue%E7%BB%8F%E5%85%B8%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" title="Vue经典实战项目-TodoMVC">http://https//qkgit.github.io/2020/11/07/Vue经典项目实战/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>ZERO</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/07/Vue%E6%8C%87%E4%BB%A4/" rel="prev" title="Vue指令">
+      <i class="fa fa-chevron-left"></i> Vue指令
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目介绍与演示"><span class="nav-number">1.</span> <span class="nav-text">项目介绍与演示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载与导入模板"><span class="nav-number">2.</span> <span class="nav-text">下载与导入模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ToDoMVC-模板-下载方式"><span class="nav-number">2.1.</span> <span class="nav-text">ToDoMVC 模板 下载方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm-安装依赖"><span class="nav-number">2.2.</span> <span class="nav-text">npm 安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入到VS-Code"><span class="nav-number">2.3.</span> <span class="nav-text">导入到VS Code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化项目"><span class="nav-number">3.</span> <span class="nav-text">初始化项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载Vue依赖"><span class="nav-number">3.1.</span> <span class="nav-text">下载Vue依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入vue-js"><span class="nav-number">3.2.</span> <span class="nav-text">引入vue.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#找到被Vue管理的元素"><span class="nav-number">3.3.</span> <span class="nav-text">找到被Vue管理的元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据列表渲染"><span class="nav-number">4.</span> <span class="nav-text">数据列表渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分析"><span class="nav-number">4.1.</span> <span class="nav-text">功能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有数据列表功能实现"><span class="nav-number">4.2.</span> <span class="nav-text">有数据列表功能实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无数据隐藏功能-实现"><span class="nav-number">4.3.</span> <span class="nav-text">无数据隐藏功能 实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加任务"><span class="nav-number">5.</span> <span class="nav-text">添加任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分析-1"><span class="nav-number">5.1.</span> <span class="nav-text">功能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加任务功能实现"><span class="nav-number">5.2.</span> <span class="nav-text">添加任务功能实现</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="大王叫我来巡山"
+      src="/images/author.png">
+  <p class="site-author-name" itemprop="name">大王叫我来巡山</p>
+  <div class="site-description" itemprop="description">人生当苦无妨，良人当归即好。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qkgit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qkgit" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1584546760@qq.com" title="E-Mail → mailto:1584546760@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/6355308390" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;6355308390" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=1584546760&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;1584546760&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://yoursite.com/" title="http:&#x2F;&#x2F;yoursite.com" rel="noopener" target="_blank">暂无</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大王叫我来巡山</span>
+    
+    <!--  站点总字数：-->
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+     
+    <span title="站点总字数">180k字</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">2:44</span>
+</div>
+
+<!--
+-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='255,0,0' opacity='1' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'N2cbVqYWHSNSJHt9wnhDAhUM-gzGzoHsz',
+      appKey     : 'LSEYd4SR4l5cVSEyf43cmPYV',
+      placeholder: "留言是种美德，写点什么...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+ 
+<!-- 页面点击特效 -->
+<script type="text/javascript" src="/js/src/cursor.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
+
+
+
+
+
