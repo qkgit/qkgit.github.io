@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/wBEloQxiRnFg.png">
 <meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/CF1XG34R1*JT.png">
 <meta property="article:published_time" content="2020-11-07T15:01:31.756Z">
-<meta property="article:modified_time" content="2020-11-07T17:49:04.855Z">
+<meta property="article:modified_time" content="2020-11-08T17:45:03.132Z">
 <meta property="article:author" content="大王叫我来巡山">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -234,7 +234,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-08 01:49:04" itemprop="dateModified" datetime="2020-11-08T01:49:04+08:00">2020-11-08</time>
+                <time title="修改时间：2020-11-09 01:45:03" itemprop="dateModified" datetime="2020-11-09T01:45:03+08:00">2020-11-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -273,14 +273,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.2k字</span>
+              <span>12k字</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>11 分钟</span>
             </span>
 
         </div>
@@ -377,7 +377,7 @@
 <li><p>在 app.js 声明一个存储任务数据的数组 items，并初始化一些数据。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;<span class="comment">//表示依赖了全局的Vue，其实不加也可以，只是更加明确点</span></span><br><span class="line">	<span class="comment">//初始化任务</span></span><br><span class="line">	<span class="keyword">const</span> items = [</span><br><span class="line">		 &#123;</span><br><span class="line">		 	id: <span class="number">1</span>,</span><br><span class="line">		 	content: <span class="string">'java'</span>,</span><br><span class="line">		 	completed: <span class="literal">true</span></span><br><span class="line">		 &#125;,</span><br><span class="line">		 &#123;</span><br><span class="line">		 	id: <span class="number">2</span>,</span><br><span class="line">		 	content: <span class="string">'vue'</span>,</span><br><span class="line">		 	completed: <span class="literal">false</span></span><br><span class="line">		 &#125;</span><br><span class="line">			</span><br><span class="line">	]</span><br><span class="line">	<span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">		el: <span class="string">'#todoapp'</span>,</span><br><span class="line">		data: &#123;</span><br><span class="line">			items <span class="comment">// ES6中对象属性简写，等价于items: items</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)(Vue);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>修改 list 列表  <code>&lt;li class=&quot;completed&quot;&gt;</code></p>
+<li><p>修改列表  <code>&lt;li class=&quot;completed&quot;&gt;</code></p>
 <p><mark>如果修改 app.js 或 html 后，刷新浏览器发现没有变，关闭当前浏览器窗口，重新打开访问。</mark></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"todo-list"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">三种状态：未完成（没有样式）、已完成（.completed ）、编辑中( .editing )</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--修改:1、v-for迭代; 2、:class=&#123;key为class样式名,value为获取的数据true或false&#125;--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in items"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span> <span class="attr">:class</span>=<span class="string">"&#123;completed: item.completed&#125;"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"view"</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 修改：1、v-model 绑定状态值是否选中 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"toggle"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">v-model</span>=<span class="string">"item.completed"</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!-- 修改：1、&#123;&#123; content &#125;&#125; 显示内容 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">label</span>&gt;</span>&#123;&#123; item.content &#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">			<span class="comment">&lt;!--修改: 1、:value 绑定id删除 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"destroy"</span> <span class="attr">:value</span>=<span class="string">"item.id"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"edit"</span> <span class="attr">value</span>=<span class="string">"Create a TodoMVC template"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -414,56 +414,191 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</li>
+</ol>
+<h2 id="显示所有未完成任务"><a href="#显示所有未完成任务" class="headerlink" title="显示所有未完成任务"></a>显示所有未完成任务</h2><h3 id="功能分析-2"><a href="#功能分析-2" class="headerlink" title="功能分析"></a>功能分析</h3><ol>
+<li>左下角要显示未完成的任务数量。数字是由<code>&lt;strong&gt;</code>标签包装的。<ul>
+<li>当 items 数组中的元素有改变，则重新计算未完成任务数量，可通过<mark>计算属性</mark>来获取<strong>未完成</strong>的任务数量。</li>
+<li>通过数组函数 <code>filter</code> 过滤未完成任务，然后进行汇总</li>
+</ul>
+</li>
+<li>还要将 item 单词多元化( 1 没有 s , 其他数字均有 s )： 0 items , 1 item , 2 items</li>
+</ol>
+<h3 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h3><ol>
+<li><p>添加剩余任务数<mark>计算属性</mark>    显示的 item 单词多元化( 1 没有 s ,其他数字均有 s )</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"todo-count"</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>&#123;&#123;remaining&#125;&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line"> item&#123;&#123; remaining == 1 ? '' : 's' &#125;&#125; left</span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 app.js 的Vue实例中添加一个<code>computed</code>选项，其中定义一个计算属性 <code>remaining</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;	  <span class="comment">//定义计算属性       </span></span><br><span class="line">	remaining()&#123;  <span class="comment">// 过滤出所有未完成的任务项</span></span><br><span class="line">    <span class="comment">/* return this.items.filter(function (item) &#123;</span></span><br><span class="line"><span class="comment">	 *	  return !item.completed</span></span><br><span class="line"><span class="comment">	 * &#125;).length</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">     <span class="comment">//ES6箭头函数</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.items.filter(<span class="function"><span class="params">item</span> =&gt;</span>!item.completed).length</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
 
 
 </li>
 </ol>
+<h2 id="切换-所有任务状态"><a href="#切换-所有任务状态" class="headerlink" title="切换 所有任务状态"></a>切换 所有任务状态</h2><h3 id="功能分析-3"><a href="#功能分析-3" class="headerlink" title="功能分析"></a>功能分析</h3><ol>
+<li><p>点击复选框<code>V</code>后，将所有任务状态标记为与复选框相同的状态。</p>
+<ul>
+<li><p>复选框状态发生变化后，就迭代出每一个任务项, 再将复选框状态值赋给每个任务项即可 。</p>
+</li>
+<li><p>为复选框绑定一个 <mark>计算属性</mark> ，</p>
+<p> 通过这个计算属性的 <code>set</code> 方法监听<strong>复选框更新</strong>后就更新任务项状态。</p>
+</li>
+</ul>
+</li>
+<li><p>当<code>选中/取消</code>某个任务后，复选框也应更新状态</p>
+<ul>
+<li>当所有未完成任务数<code>(remaining)</code>为0时，表示所有任务都完成了，就可以选中复选框。</li>
+<li>在复选框绑定的 计算属性 的<code>get</code> 方法中判断所有 <code>remaining</code> 是否为 0 ，从而绑定了<code>remaining</code>，当 <code>remaining</code> 发生变化后, 会自动更新复选框状态（为 0 复选框会自动选中，反之不选中）。</li>
+</ul>
+</li>
+</ol>
+<p><mark>综合上述：计算属性默认情况只有 getter 方法，而当前要用到 setter 方法，所以采用 计算属性 双向绑定。</mark></p>
+<h3 id="切换所有任务状态-功能实现"><a href="#切换所有任务状态-功能实现" class="headerlink" title="切换所有任务状态 功能实现"></a>切换所有任务状态 功能实现</h3><ol>
+<li><p>为复选框添加计算属性<code>toggleAll</code>双向绑定</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"toggleAll"</span> <span class="attr">id</span>=<span class="string">"toggle-all"</span> <span class="attr">class</span>=<span class="string">"toggle-all"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 app.js 中的<code>computed</code>选项中，添加计算属性<code>toggleAll</code>进行双向绑定（getter/setter）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">	<span class="comment">// 复选框计算属性（双向绑定）</span></span><br><span class="line">	toggleAll:&#123;<span class="comment">//等价于get:functon()&#123;...&#125;</span></span><br><span class="line">		<span class="keyword">get</span>()&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="keyword">this</span>.remaining)</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.remaining ===<span class="number">0</span></span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="keyword">set</span>(newStatus)&#123;</span><br><span class="line">			<span class="keyword">this</span>.items.forEach(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</span><br><span class="line">			   item.completed = newStatus</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">//过滤出所有未完成的任务项</span></span><br><span class="line">	remaining()&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.items.filter(<span class="function"><span class="params">item</span> =&gt;</span>!item.completed).length</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
+
+
+</li>
+</ol>
+<h2 id="移除任务项"><a href="#移除任务项" class="headerlink" title="移除任务项"></a>移除任务项</h2><h3 id="功能分析-4"><a href="#功能分析-4" class="headerlink" title="功能分析"></a>功能分析</h3><ol>
+<li>悬停在某个任务项上显示<code>X</code>移除按钮，可点击移除当前任务项。<ul>
+<li><code>X</code>移除按钮处事件      通过数组函数<code>splice</code>移除任务项</li>
+</ul>
+</li>
+</ol>
+<h3 id="移除任务项-功能实现"><a href="#移除任务项-功能实现" class="headerlink" title="移除任务项 功能实现"></a>移除任务项 功能实现</h3><ul>
+<li><p>添加点击事件：<code>@click=&quot;removeItem(index)</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"destroy"</span> <span class="attr">:value</span>=<span class="string">"item.id"</span> @<span class="attr">click</span>=<span class="string">"removeItem(index)"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在app.js添加函数<code>removeItem</code>，通过<code>this.items.splice(index,1)</code>移除</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    <span class="comment">//移除任务项</span></span><br><span class="line">	removeItem(index)&#123;</span><br><span class="line">		<span class="comment">//移除索引为index的第一条记录</span></span><br><span class="line">		<span class="keyword">this</span>.items.splice(index,<span class="number">1</span>)</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h2 id="清除所有已完成任务"><a href="#清除所有已完成任务" class="headerlink" title="清除所有已完成任务"></a>清除所有已完成任务</h2><h3 id="功能分析-5"><a href="#功能分析-5" class="headerlink" title="功能分析"></a>功能分析</h3><ol>
+<li><p>单击右下角<code>Clear completed</code> 按钮时，移除所有已完成任务</p>
+<ul>
+<li><p>页面添加点击事件：<code>@click=&quot;removeCompleted&quot;</code></p>
+</li>
+<li><p>在 Vue 中添加 <code>removeCompleted</code>函数：</p>
+<p>  通过数组的<code>filter</code>函数过滤出所有<strong>未完成</strong>的任务项，将过滤出来的未完成数据赋值给<code>items</code>数组，已完成的任务就被删除。</p>
+</li>
+</ul>
+</li>
+<li><p>当列表中没有已完成任务时，应该隐藏按钮</p>
+<ul>
+<li>在<code>Clear completed</code>按钮上使用<code>v-show</code>，当总任务数（items.length）&gt; 未完成数（remaining），说明列表中还有已完成数据，则显示按钮，反之不显示。</li>
+<li>实现：<code>v-show=&quot;items.length &gt; remaining&quot;</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="清除所有已完成任务-功能实现"><a href="#清除所有已完成任务-功能实现" class="headerlink" title="清除所有已完成任务 功能实现"></a>清除所有已完成任务 功能实现</h3><ol>
+<li><p>添加点击事件 并使用<code>v-show=&quot;items.length &gt; remaining&quot;</code>进行切换 显示/隐藏 按钮</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"removeCompleted"</span> <span class="attr">v-show</span>=<span class="string">"items.length &gt; remaining"</span> <span class="attr">class</span>=<span class="string">"clear-completed"</span>&gt;</span>Clear completed<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>app.js 添加函数 <code>removeCompleted</code> , 通过数组的<code>filter</code> 函数过滤出所有未完成的任务项，将过滤出来的未完成数据 赋值给 <code>items</code> 数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    <span class="comment">//移除所有未完成任务项</span></span><br><span class="line">	removeCompleted()&#123;</span><br><span class="line">		<span class="comment">//过滤出所有未完成的任务，重新赋值数组即可</span></span><br><span class="line">		<span class="keyword">this</span>.items = <span class="keyword">this</span>.items.filter(<span class="function"><span class="params">item</span> =&gt;</span>!item.completed)</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h2 id="编辑任务项"><a href="#编辑任务项" class="headerlink" title="编辑任务项"></a>编辑任务项</h2><h3 id="功能分析-6"><a href="#功能分析-6" class="headerlink" title="功能分析"></a>功能分析</h3><ol>
+<li><p>双击<code>&lt;label&gt;</code>（某个任务项）进入编辑状态（在<code>&lt;li&gt;</code>上通过<code>.editing</code>进行切换状态）。</p>
+<ul>
+<li>为<code>&lt;label&gt;</code>绑定双击事件<code>@dblclick=toEdit(item)</code></li>
+<li>当 <code>item</code>（任务项） === <code>currentItem</code>（当前点击的任务项，data中新定义的属性） 时，在 <code>&lt;li&gt;</code> 上就显 示<code>.edliting</code>样式，格式<code>:class={editing: item === currentItem}</code></li>
+</ul>
+</li>
+<li><p>进入编辑状态后输入框显示原内容，并会自动获取编辑焦点</p>
+<ul>
+<li>在<code>&lt;input&gt;</code>单向绑定输入框的值即可<code>:value=&quot;item.content&quot;</code></li>
+<li>通过自定义指令获取编辑焦点</li>
+</ul>
+</li>
+<li><p>输入状态按<code>Esc</code>取消编辑，<code>edliting</code>样式应该被移除。</p>
+<p>  为 <code>&lt;input&gt;</code> 绑定 <code>Esc</code> 按键事件 <code>@keyup.esc=cancelEdit</code>，将 <code>currentItem</code> 值变为 null</p>
+</li>
+<li><p>按<code>Enter</code>键 或 失去焦点时 保存改变数据，移除<code>edliting</code>样式</p>
+<ul>
+<li>添加事件<code>@keyup.enter=&quot;finishEdit(item,index,$event)&quot;</code> 与 <code>@blur=&quot;finishEdit(item,index,$event)&quot;</code></li>
+<li>通过<code>$event</code>变量获取当前输入框的值，使用<code>.trim()</code>去空格后进行判断是否为空，如果为空则清除这项任务，否则修改任务项。</li>
+<li>添加数据保存任务项中</li>
+<li>移除编辑状态：将<code>currentItem</code> 值变为 null</li>
+</ul>
+</li>
+</ol>
+<h3 id="进入编辑状态"><a href="#进入编辑状态" class="headerlink" title="进入编辑状态"></a>进入编辑状态</h3><ol>
+<li><p>修改index.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item,index) in items"</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">:class</span>=<span class="string">"&#123;completed:item.completed,editing:item === currentItem&#125;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"view"</span>&gt;</span></span><br><span class="line">    	<span class="comment">&lt;!--修改：v-model绑定状态值是否选中--&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"toggle"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">v-model</span>=<span class="string">"item.completed"</span>&gt;</span></span><br><span class="line">    	<span class="comment">&lt;!--修改：&#123;&#123;content&#125;&#125;显示内容--&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">label</span> @<span class="attr">dblclick</span>=<span class="string">"toEdit(item)"</span>&gt;</span>&#123;&#123;item.content&#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    	<span class="comment">&lt;!--修改：:value绑定id删除--&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"destroy"</span> <span class="attr">:value</span>=<span class="string">"item.id"</span> @<span class="attr">click</span>=<span class="string">"removeItem(index)"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"edit"</span> <span class="attr">:value</span>=<span class="string">"item.content"</span> @<span class="attr">keyup.esc</span>=<span class="string">"cancelEdit"</span></span></span><br><span class="line"><span class="tag">       @<span class="attr">keyup.enter</span>=<span class="string">"finishEdit(item,index,$event)"</span></span></span><br><span class="line"><span class="tag">       @<span class="attr">blur</span>=<span class="string">"finishEdit(item,index,$event)"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>修改app.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el: <span class="string">'#todoapp'</span>,</span><br><span class="line">	data: &#123;</span><br><span class="line">		items, <span class="comment">// ES6中对象属性简写，等价于items: items</span></span><br><span class="line">        currentItem: <span class="literal">null</span>  <span class="comment">//接收当前点击的任务项</span></span><br><span class="line">	&#125;，</span><br><span class="line">    methods: &#123;			</span><br><span class="line">		<span class="comment">//进入编辑状态，当前点击的任务项item赋值currentItem，用于页面判断显示.editing</span></span><br><span class="line">		toEdit(item)&#123;</span><br><span class="line">			<span class="keyword">this</span>.currentItem = item</span><br><span class="line">		&#125;,</span><br><span class="line">        <span class="comment">//取消编辑</span></span><br><span class="line">		cancelEdit()&#123;</span><br><span class="line">			<span class="comment">//移除样式</span></span><br><span class="line">			<span class="keyword">this</span>.currentItem =<span class="literal">null</span></span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="comment">//编辑完成</span></span><br><span class="line">		finishEdit(item,index,$event)&#123;</span><br><span class="line">			<span class="keyword">const</span> content = event.target.value.trim();</span><br><span class="line">			<span class="comment">//1.如果为空，则进行删除任务</span></span><br><span class="line">			<span class="keyword">if</span>(!event.target.value.trim())&#123;</span><br><span class="line">				<span class="comment">//重用removeItem函数进行删除</span></span><br><span class="line">				<span class="keyword">this</span>.removeItem(index)</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//2.添加数据到任务项中</span></span><br><span class="line">			item.content = content</span><br><span class="line">			<span class="comment">//3.移除.editing样式</span></span><br><span class="line">			<span class="keyword">this</span>.currentItem = <span class="literal">null</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="获取焦点（自定义指令）"><a href="#获取焦点（自定义指令）" class="headerlink" title="获取焦点（自定义指令）"></a>获取焦点（自定义指令）</h3><ul>
+<li>刷新页面后，通过自定义<strong>全局指令</strong> <code>v-app-focus</code>，内容输入框自动获取焦点</li>
+<li>当进入编辑状态后，通过自定义<strong>局部指令</strong> <code>v-todo-focus</code>，编辑窗口自动获取焦点</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;<span class="comment">//表示依赖了全局的Vue</span></span><br><span class="line">    <span class="comment">//初始化任务</span></span><br><span class="line">	<span class="keyword">const</span> items = []</span><br><span class="line">    </span><br><span class="line">	<span class="comment">//自定义全局指令，用于增加输入框</span></span><br><span class="line">	<span class="comment">//定义时不要再=在前面加v- ，引用指令时要加上v-</span></span><br><span class="line">	Vue.directive(<span class="string">'app-focus'</span>,&#123;</span><br><span class="line">		<span class="comment">//聚集元素</span></span><br><span class="line">		inserted(el,binding)&#123;</span><br><span class="line">			el.focus()</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> app =<span class="keyword">new</span> Vue(&#123;</span><br><span class="line">		el:<span class="string">'#todoapp'</span>,</span><br><span class="line">		data:&#123;</span><br><span class="line">			<span class="comment">// items,//对象属性简写，等价于items：items</span></span><br><span class="line">			items:itemStorage.fetch(),<span class="comment">//获取本地数据进行初始化</span></span><br><span class="line">			currentItem:<span class="literal">null</span>, <span class="comment">//代表的是点击的哪个任务项</span></span><br><span class="line">			filterStatus:<span class="string">'all'</span><span class="comment">//接收变化的状态值</span></span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="comment">//自定义局部指令，用于编辑输入框</span></span><br><span class="line">		directives:&#123;</span><br><span class="line">			<span class="comment">//定义时不加v-</span></span><br><span class="line">			<span class="string">'todo-focus'</span>:&#123;</span><br><span class="line">				update(el,binding)&#123;<span class="comment">//每当指令的值更新后，会调用此函数</span></span><br><span class="line">					<span class="keyword">if</span>(binding.value)&#123;</span><br><span class="line">						el.focus()</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">        </span><br><span class="line">        .....省略</span><br><span class="line">        </span><br><span class="line">&#125;)(Vue);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>在index.html中引入指令</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--添加任务--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.enter</span>=<span class="string">"addItem"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">class</span>=<span class="string">"new-todo"</span> <span class="attr">placeholder</span>=<span class="string">"想要做什么?"</span> <span class="attr">v-app-focus</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"edit"</span> <span class="attr">:value</span>=<span class="string">"item.content"</span> @<span class="attr">keyup.esc</span>=<span class="string">"cancelEdit"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">keyup.enter</span>=<span class="string">"finishEdit(item,index,$event)"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">blur</span>=<span class="string">"finishEdit(item,index,$event)"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">v-todo-focus</span>=<span class="string">"item === currentItem"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h2 id="路由状态切换（过滤不同状态数据）"><a href="#路由状态切换（过滤不同状态数据）" class="headerlink" title="路由状态切换（过滤不同状态数据）"></a>路由状态切换（过滤不同状态数据）</h2><h3 id="功能分析-7"><a href="#功能分析-7" class="headerlink" title="功能分析"></a>功能分析</h3><ul>
+<li>根据点击的不同状态（ All / Active / Completed ），进行过滤出对应的任务，并进行样式的切换。<ul>
+<li>在data中定义变量<code>filterStatus</code>,用于接收变化的状态值</li>
+<li>通过<code>window.onhashchange</code>获取点击的路由 <code>hash</code> （# 开头的），来获取对应的那个状态值，并将状态值赋值给<code>filterStatus</code></li>
+<li>定义一个计算属性 <code>filterItems</code> 用于过滤出目标数据, 用于感知 <code>filterStatus</code>的状态值变化,当变化后，通过 <code>switch-case</code> + <code>filter</code>过滤出目标数据。</li>
+<li>在 html 页面中，将<code>v-for</code> 中之前的 <code>items</code> 数组替换为 <code>filterItems</code>迭代出目标数据。</li>
+<li>将被点击状态的<code>&lt;/a&gt;</code>样式切换为 <code>.select</code> ，通过判断状态值实现，如： <code>filterStatus === &#39;all&#39;</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="功能实现-1"><a href="#功能实现-1" class="headerlink" title="功能实现"></a>功能实现</h3><ol>
+<li><p>在 app.js 中 Vue 实例的 data 中定义变量<code>filterStatus</code> , 用于接收变化的状态值</p>
+<p><mark>声明一个变量 app 接收 Vue 实例对象，页面要使用到这个 app 变量</mark></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app =<span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el:<span class="string">'#todoapp'</span>,</span><br><span class="line">	data:&#123;</span><br><span class="line">		items,<span class="comment">//对象属性简写，等价于items：items</span></span><br><span class="line">		currentItem:<span class="literal">null</span>, <span class="comment">//代表的是点击的哪个任务项</span></span><br><span class="line">		filterStatus:<span class="string">'all'</span><span class="comment">//接收变化的状态值</span></span><br><span class="line">	&#125;,</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 app.js 通过 <code>window.onhashchange</code>获取点击的路由<code>hash</code>（# 开头的），来获取对应的那个状态值</p>
+<p><mark>注意：不是在 Vue 实例中定义，是在它同级结构下添加以下代码：</mark></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当路由hash值改变后会自动调用此函数</span></span><br><span class="line"><span class="built_in">window</span>.onhashchange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'hash改变了'</span>,<span class="built_in">window</span>.location.hash)</span><br><span class="line">	<span class="comment">//1.获取点击的路由hash，当截取的hash不为空时返回截取的，为空时返回"all"</span></span><br><span class="line">	<span class="keyword">const</span> hash = <span class="built_in">window</span>.location.hash.substr(<span class="number">2</span>)||<span class="string">'all'</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'hash'</span>,hash)</span><br><span class="line">	<span class="comment">//2.状态一旦改变，将hash赋值给filterStatus</span></span><br><span class="line">	<span class="comment">// 当计算属性filterItems感知到filterStatus变化后，就会重新过滤</span></span><br><span class="line">	<span class="comment">// 当filterItems重新过滤出目标数据后，则自动同步更新到视图中</span></span><br><span class="line">	app.filterStatus=hash</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//第一次访问页面时，调用一次让状态生效</span></span><br><span class="line"><span class="built_in">window</span>.onhashchange()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义一个计算属性 <code>filterItems</code> 用于过滤出目标数据, 用于感知<code>filterStatus</code>的状态值变化，当变化后，通过<code>switch-case</code> + <code>ilter</code>过滤出目标数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">	<span class="comment">//过滤出不同的状态数据</span></span><br><span class="line">	filterItems()&#123;</span><br><span class="line">		<span class="comment">//this.filterStatus作为条件，变化后过滤不同数据</span></span><br><span class="line">		<span class="keyword">switch</span>(<span class="keyword">this</span>.filterStatus)&#123;</span><br><span class="line">			<span class="keyword">case</span><span class="string">"active"</span>:<span class="comment">//过滤出未完成的数据</span></span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">this</span>.items.filter(<span class="function"><span class="params">item</span> =&gt;</span>!item.completed)</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			<span class="keyword">case</span><span class="string">"completed"</span>:<span class="comment">//过滤出已完成的数据</span></span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">this</span>.items.filter(<span class="function"><span class="params">item</span> =&gt;</span>item.completed)</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			<span class="keyword">default</span>:<span class="comment">//其他，返回所有数据</span></span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">this</span>.items</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在index.html页面中，将 <code>v-for</code>中之前的 <code>items</code> 数组替换为 <code>filterItems</code>迭代出目标数据。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in filterItems"</span> <span class="attr">:key</span>=<span class="string">"item.id"</span> </span></span><br><span class="line"><span class="tag">	<span class="attr">:class</span>=<span class="string">"&#123;completed: item.completed,editing:item === currentItem&#125;"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在index.html 中, 将被点击状态的 <code>&lt;/a&gt;</code>样式切换为<code>.select</code> ，通过判断状态值实现</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"filters"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">:class</span>=<span class="string">"&#123;selected:filterStatus ==='all'&#125;"</span> <span class="attr">href</span>=<span class="string">"#/"</span>&gt;</span>全部<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">:class</span>=<span class="string">"&#123;selected:filterStatus ==='active'&#125;"</span> <span class="attr">href</span>=<span class="string">"#/active"</span>&gt;</span>未完成<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">a</span> <span class="attr">:class</span>=<span class="string">"&#123;selected:filterStatus ==='completed'&#125;"</span> <span class="attr">href</span>=<span class="string">"#/completed"</span>&gt;</span>已完成<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h2 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h2><h3 id="功能分析-8"><a href="#功能分析-8" class="headerlink" title="功能分析"></a>功能分析</h3><ul>
+<li>将所有任务项数据持久化到 <code>localStorage</code> 中，它主要是用于本地存储数据。localStorage中一般浏览器支持的 是5M大小，这个在不同的浏览器中 localStorage 会有所不同。</li>
+<li>分析 ：可以使用 Vue 中的<code>watch</code>监听器，监听任务数组 items 一旦有改变，则使用 <code>window.localStorage</code> 将 它就重新保存到<code>localStorage</code></li>
+</ul>
+<h3 id="功能实现-2"><a href="#功能实现-2" class="headerlink" title="功能实现"></a>功能实现</h3>
     </div>
 
     
@@ -592,7 +727,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目介绍与演示"><span class="nav-number">1.</span> <span class="nav-text">项目介绍与演示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载与导入模板"><span class="nav-number">2.</span> <span class="nav-text">下载与导入模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ToDoMVC-模板-下载方式"><span class="nav-number">2.1.</span> <span class="nav-text">ToDoMVC 模板 下载方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm-安装依赖"><span class="nav-number">2.2.</span> <span class="nav-text">npm 安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入到VS-Code"><span class="nav-number">2.3.</span> <span class="nav-text">导入到VS Code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化项目"><span class="nav-number">3.</span> <span class="nav-text">初始化项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载Vue依赖"><span class="nav-number">3.1.</span> <span class="nav-text">下载Vue依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入vue-js"><span class="nav-number">3.2.</span> <span class="nav-text">引入vue.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#找到被Vue管理的元素"><span class="nav-number">3.3.</span> <span class="nav-text">找到被Vue管理的元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据列表渲染"><span class="nav-number">4.</span> <span class="nav-text">数据列表渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分析"><span class="nav-number">4.1.</span> <span class="nav-text">功能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有数据列表功能实现"><span class="nav-number">4.2.</span> <span class="nav-text">有数据列表功能实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无数据隐藏功能-实现"><span class="nav-number">4.3.</span> <span class="nav-text">无数据隐藏功能 实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加任务"><span class="nav-number">5.</span> <span class="nav-text">添加任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分析-1"><span class="nav-number">5.1.</span> <span class="nav-text">功能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加任务功能实现"><span class="nav-number">5.2.</span> <span class="nav-text">添加任务功能实现</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目介绍与演示"><span class="nav-number">1.</span> <span class="nav-text">项目介绍与演示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载与导入模板"><span class="nav-number">2.</span> <span class="nav-text">下载与导入模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ToDoMVC-模板-下载方式"><span class="nav-number">2.1.</span> <span class="nav-text">ToDoMVC 模板 下载方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm-安装依赖"><span class="nav-number">2.2.</span> <span class="nav-text">npm 安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入到VS-Code"><span class="nav-number">2.3.</span> <span class="nav-text">导入到VS Code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化项目"><span class="nav-number">3.</span> <span class="nav-text">初始化项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载Vue依赖"><span class="nav-number">3.1.</span> <span class="nav-text">下载Vue依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入vue-js"><span class="nav-number">3.2.</span> <span class="nav-text">引入vue.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#找到被Vue管理的元素"><span class="nav-number">3.3.</span> <span class="nav-text">找到被Vue管理的元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据列表渲染"><span class="nav-number">4.</span> <span class="nav-text">数据列表渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分析"><span class="nav-number">4.1.</span> <span class="nav-text">功能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有数据列表功能实现"><span class="nav-number">4.2.</span> <span class="nav-text">有数据列表功能实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#无数据隐藏功能-实现"><span class="nav-number">4.3.</span> <span class="nav-text">无数据隐藏功能 实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加任务"><span class="nav-number">5.</span> <span class="nav-text">添加任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分析-1"><span class="nav-number">5.1.</span> <span class="nav-text">功能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加任务功能实现"><span class="nav-number">5.2.</span> <span class="nav-text">添加任务功能实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示所有未完成任务"><span class="nav-number">6.</span> <span class="nav-text">显示所有未完成任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分析-2"><span class="nav-number">6.1.</span> <span class="nav-text">功能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能实现"><span class="nav-number">6.2.</span> <span class="nav-text">功能实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切换-所有任务状态"><span class="nav-number">7.</span> <span class="nav-text">切换 所有任务状态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分析-3"><span class="nav-number">7.1.</span> <span class="nav-text">功能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换所有任务状态-功能实现"><span class="nav-number">7.2.</span> <span class="nav-text">切换所有任务状态 功能实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除任务项"><span class="nav-number">8.</span> <span class="nav-text">移除任务项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分析-4"><span class="nav-number">8.1.</span> <span class="nav-text">功能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移除任务项-功能实现"><span class="nav-number">8.2.</span> <span class="nav-text">移除任务项 功能实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清除所有已完成任务"><span class="nav-number">9.</span> <span class="nav-text">清除所有已完成任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分析-5"><span class="nav-number">9.1.</span> <span class="nav-text">功能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除所有已完成任务-功能实现"><span class="nav-number">9.2.</span> <span class="nav-text">清除所有已完成任务 功能实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑任务项"><span class="nav-number">10.</span> <span class="nav-text">编辑任务项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分析-6"><span class="nav-number">10.1.</span> <span class="nav-text">功能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入编辑状态"><span class="nav-number">10.2.</span> <span class="nav-text">进入编辑状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取焦点（自定义指令）"><span class="nav-number">10.3.</span> <span class="nav-text">获取焦点（自定义指令）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由状态切换（过滤不同状态数据）"><span class="nav-number">11.</span> <span class="nav-text">路由状态切换（过滤不同状态数据）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分析-7"><span class="nav-number">11.1.</span> <span class="nav-text">功能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能实现-1"><span class="nav-number">11.2.</span> <span class="nav-text">功能实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据持久化"><span class="nav-number">12.</span> <span class="nav-text">数据持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能分析-8"><span class="nav-number">12.1.</span> <span class="nav-text">功能分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能实现-2"><span class="nav-number">12.2.</span> <span class="nav-text">功能实现</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -685,13 +820,13 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
      
-    <span title="站点总字数">180k字</span>
+    <span title="站点总字数">188k字</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:44</span>
+    <span title="站点阅读时长">2:51</span>
 </div>
 
 <!--
