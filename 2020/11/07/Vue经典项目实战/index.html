@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/wBEloQxiRnFg.png">
 <meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/%E5%85%A8%E5%A5%97SpringBoot%E5%85%A5%E9%97%A8%E5%88%B0%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%AF%BE%E7%A8%8B/CF1XG34R1*JT.png">
 <meta property="article:published_time" content="2020-11-07T15:01:31.756Z">
-<meta property="article:modified_time" content="2020-11-08T17:45:03.132Z">
+<meta property="article:modified_time" content="2020-11-10T16:36:21.694Z">
 <meta property="article:author" content="大王叫我来巡山">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">29</span></a>
+    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">31</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -234,7 +234,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-09 01:45:03" itemprop="dateModified" datetime="2020-11-09T01:45:03+08:00">2020-11-09</time>
+                <time title="修改时间：2020-11-11 00:36:21" itemprop="dateModified" datetime="2020-11-11T00:36:21+08:00">2020-11-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -273,14 +273,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>12k字</span>
+              <span>13k字</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>11 分钟</span>
+              <span>12 分钟</span>
             </span>
 
         </div>
@@ -598,7 +598,96 @@
 <li>将所有任务项数据持久化到 <code>localStorage</code> 中，它主要是用于本地存储数据。localStorage中一般浏览器支持的 是5M大小，这个在不同的浏览器中 localStorage 会有所不同。</li>
 <li>分析 ：可以使用 Vue 中的<code>watch</code>监听器，监听任务数组 items 一旦有改变，则使用 <code>window.localStorage</code> 将 它就重新保存到<code>localStorage</code></li>
 </ul>
-<h3 id="功能实现-2"><a href="#功能实现-2" class="headerlink" title="功能实现"></a>功能实现</h3>
+<h3 id="功能实现-2"><a href="#功能实现-2" class="headerlink" title="功能实现"></a>功能实现</h3><p>使用<code>windows.localStorage</code>实例进行保存数据与获取数据</p>
+<ol>
+<li><p>定义 itemStorage 数据存储对象，里面自定义 <code>fetch</code> 获取本地数据 ， <code>save</code> 存数据到本地。</p>
+</li>
+<li><p>修改 Vue 实例中 data 选项的 items 属性，通过 itemStorage.fetch() 方法初始化数据</p>
+</li>
+<li><p>Vue 实例中增加一个 <code>watch</code> 选项，用于监听 items 的变化，一旦变化通过 itemStorage.save() 重新保存数据 到本地</p>
+<p><mark>注意：因为items数组内部是对象，当对象的值发生变化后要被监听到，在选项参数中使用deep: true</mark></p>
+<p>参考：<a href="https://cn.vuejs.org/v2/api/#vm-watch" target="_blank" rel="noopener">https://cn.vuejs.org/v2/api/#vm-watch</a></p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">Vue</span>) </span>&#123;<span class="comment">//表示依赖了全局的Vue，其实不加也可以，只是更加明确点</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">var</span> STORAGE_KEY = <span class="string">'items-vuejs'</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//本地存储数据对象</span></span><br><span class="line">	<span class="keyword">const</span> itemStorage=&#123;</span><br><span class="line">		fetch:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//获取本地数据</span></span><br><span class="line">			<span class="keyword">return</span> <span class="built_in">JSON</span>.parse(localStorage.getItem(STORAGE_KEY)||<span class="string">'[]'</span>);</span><br><span class="line">		&#125;,</span><br><span class="line">		save:<span class="function"><span class="keyword">function</span>(<span class="params">items</span>)</span>&#123;<span class="comment">//保存数据到本地</span></span><br><span class="line">			localStorage.setItem(STORAGE_KEY,<span class="built_in">JSON</span>.stringify(items));</span><br><span class="line">		&#125;</span><br><span class="line">   	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> app =<span class="keyword">new</span> Vue(&#123;</span><br><span class="line">		el:<span class="string">'#todoapp'</span>,</span><br><span class="line">		data:&#123;</span><br><span class="line">			<span class="comment">// items,//对象属性简写，等价于items：items</span></span><br><span class="line">			items:itemStorage.fetch(),<span class="comment">//获取本地数据进行初始化</span></span><br><span class="line">			currentItem:<span class="literal">null</span>, <span class="comment">//代表的是点击的哪个任务项</span></span><br><span class="line">			filterStatus:<span class="string">'all'</span><span class="comment">//接收变化的状态值</span></span><br><span class="line">		&#125;,</span><br><span class="line"></span><br><span class="line">		<span class="comment">//监听器</span></span><br><span class="line">		watch:&#123;</span><br><span class="line">			<span class="comment">//如果items发生改变，这个函数就会运行</span></span><br><span class="line">			items:&#123;</span><br><span class="line">				deep:<span class="literal">true</span>,<span class="comment">//发现对象内部值的变化，要在选项参数中指定deep:true</span></span><br><span class="line">				handler:<span class="function"><span class="keyword">function</span>(<span class="params">newItems,oldItems</span>)</span>&#123;</span><br><span class="line">					<span class="comment">//本地进行存储</span></span><br><span class="line">					itemStorage.save(newItems)</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">        ....</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
     
@@ -667,7 +756,10 @@
     <a href="/2020/11/07/Vue%E6%8C%87%E4%BB%A4/" rel="prev" title="Vue指令">
       <i class="fa fa-chevron-left"></i> Vue指令
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/11/Vue%E8%BF%87%E6%BB%A4%E5%99%A8%E5%92%8C%E6%8F%92%E4%BB%B6/" rel="next" title="Vue过滤器和插件">
+      Vue过滤器和插件 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -743,7 +835,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -820,13 +912,13 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
      
-    <span title="站点总字数">188k字</span>
+    <span title="站点总字数">193k字</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:51</span>
+    <span title="站点阅读时长">2:55</span>
 </div>
 
 <!--
