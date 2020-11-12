@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"https","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Bootstrap 首页组件化将 Bootstrap实例中的Dashboard组件化 分析首页 分析首页可以拆分为多少个组件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue组件化实战">
+<meta property="og:url" content="http://https//qkgit.github.io/2020/11/11/Vue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%AE%9E%E6%88%98/index.html">
+<meta property="og:site_name" content="河北热心市民齐先生">
+<meta property="og:description" content="Bootstrap 首页组件化将 Bootstrap实例中的Dashboard组件化 分析首页 分析首页可以拆分为多少个组件">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/vue/qjr3b5%5ErnB9t.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/vue/7rSNoOc6c5mT.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/vue/U@s3lH3ZM9tN.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/vue/ZY%5EQcZK!L3xw.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/vue/JhL0%5EnNiQCcJ.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/vue/s0RWEbOthqEH.png">
+<meta property="og:image" content="https://gitee.com/qkget233/images/raw/master/vue/e16Ngk">
+<meta property="article:published_time" content="2020-11-11T14:36:28.548Z">
+<meta property="article:modified_time" content="2020-11-12T07:08:08.942Z">
+<meta property="article:author" content="大王叫我来巡山">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/qkget233/images/raw/master/vue/qjr3b5%5ErnB9t.png">
+
+<link rel="canonical" href="http://https//qkgit.github.io/2020/11/11/Vue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%AE%9E%E6%88%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Vue组件化实战 | 河北热心市民齐先生</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">河北热心市民齐先生</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">正经人谁写日记啊~</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">32</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://https//qkgit.github.io/2020/11/11/Vue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/author.png">
+      <meta itemprop="name" content="大王叫我来巡山">
+      <meta itemprop="description" content="人生当苦无妨，良人当归即好。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="河北热心市民齐先生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vue组件化实战
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-11 22:36:28" itemprop="dateCreated datePublished" datetime="2020-11-11T22:36:28+08:00">2020-11-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-12 15:08:08" itemprop="dateModified" datetime="2020-11-12T15:08:08+08:00">2020-11-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/11/Vue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%AE%9E%E6%88%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/11/Vue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%AE%9E%E6%88%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>14k字</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>13 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Bootstrap-首页组件化"><a href="#Bootstrap-首页组件化" class="headerlink" title="Bootstrap 首页组件化"></a>Bootstrap 首页组件化</h2><p>将 Bootstrap实例中的<a href="https://v4.bootcss.com/docs/examples/dashboard/" target="_blank" rel="noopener">Dashboard</a>组件化</p>
+<h3 id="分析首页"><a href="#分析首页" class="headerlink" title="分析首页"></a>分析首页</h3><ul>
+<li>分析首页可以拆分为多少个组件</li>
+</ul>
+<a id="more"></a>
+
+<p>  <a href="https://gitee.com/qkget233/images/raw/master/vue/qjr3b5^rnB9t.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/vue/qjr3b5%5ErnB9t.png" alt="https://gitee.com/qkget233/images/raw/master/vue/qjr3b5^rnB9t.png"></a></p>
+<p>  共拆分为5个组件</p>
+<p>  <a href="https://gitee.com/qkget233/images/raw/master/vue/7rSNoOc6c5mT.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/vue/7rSNoOc6c5mT.png" alt="https://gitee.com/qkget233/images/raw/master/vue/7rSNoOc6c5mT.png"></a></p>
+<h3 id="头部导航组件注册"><a href="#头部导航组件注册" class="headerlink" title="头部导航组件注册"></a>头部导航组件注册</h3><ol>
+<li><p>在 vue-05-组件化 目录下创建<code>03-bootstrap</code>目录</p>
+</li>
+<li><p>将案例模板所有文件复制到<code>03-bootstrap</code>目录下</p>
+</li>
+<li><p>在<code>index.html</code>的<code>&lt;body&gt;</code>标签下添加一个<code>&lt;div id=&#39;app&#39;&gt;</code> Vue管理入口</p>
+</li>
+<li><p>在<code>index.html</code>引入vue.js和创建Vue实例</p>
+</li>
+<li><p>注册和引用头部导航组件<code>AppNavbar</code></p>
+<ul>
+<li>左上角显示<code>Vue组件演示</code>，通过<code>data</code>选项函数指定<code>message</code>属性显示</li>
+<li>输入框中失去焦点后<code>alert(&#39;失去焦点&#39;)</code>，通过<code>methods</code>选项</li>
+<li>在头部导航区域采用组件形式<code>&lt;navbar&gt;&lt;/navbar&gt;</code></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--头部导航区域--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">app-navbar</span>&gt;</span><span class="tag">&lt;/<span class="name">app-navbar</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../node_modules/vue/dist/vue.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="keyword">const</span> AppNavbar = &#123;</span></span><br><span class="line"><span class="handlebars"><span class="xml">      template: `<span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"navbar navbar-inverse navbar-fixed-top"</span>&gt;</span></span></span></span><br><span class="line"><span class="javascript">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"container-fluid"</span>&gt;</span></span><br><span class="line"><span class="javascript">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"navbar-header"</span>&gt;</span></span><br><span class="line"><span class="javascript">          &lt;button type=<span class="string">"button"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"navbar-toggle collapsed"</span> data-toggle=<span class="string">"collapse"</span> data-target=<span class="string">"#navbar"</span></span></span><br><span class="line"><span class="actionscript">            aria-expanded=<span class="string">"false"</span> aria-controls=<span class="string">"navbar"</span>&gt;</span></span><br><span class="line"><span class="javascript">            &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"sr-only"</span>&gt;Toggle navigation&lt;<span class="regexp">/span&gt;</span></span></span><br><span class="line"><span class="javascript">            &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"icon-bar"</span>&gt;&lt;<span class="regexp">/span&gt;</span></span></span><br><span class="line"><span class="javascript">            &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"icon-bar"</span>&gt;&lt;<span class="regexp">/span&gt;</span></span></span><br><span class="line"><span class="javascript">            &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"icon-bar"</span>&gt;&lt;<span class="regexp">/span&gt;</span></span></span><br><span class="line"><span class="handlebars"><span class="xml">          <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"navbar-brand"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span></span><span class="template-variable">&#123;&#123;projectName&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="javascript">        &lt;div id=<span class="string">"navbar"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"navbar-collapse collapse"</span>&gt;</span></span><br><span class="line"><span class="javascript">          &lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"nav navbar-nav navbar-right"</span>&gt;</span></span><br><span class="line"><span class="handlebars"><span class="xml">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Dashboard<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Settings<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Profile<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Help<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">          <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span></span><br><span class="line"><span class="javascript">          &lt;form <span class="class"><span class="keyword">class</span></span>=<span class="string">"navbar-form navbar-right"</span>&gt;</span></span><br><span class="line"><span class="javascript">            &lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> placeholder=<span class="string">"Search..."</span> @blur=<span class="string">"search"</span>&gt;</span></span><br><span class="line"><span class="handlebars"><span class="xml">          <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">    <span class="tag">&lt;/<span class="name">nav</span>&gt;</span>`,</span></span></span><br><span class="line"><span class="actionscript">      data: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="actionscript">          projectName: <span class="string">'vue组件演示'</span></span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      methods: &#123;</span><br><span class="line">        search() &#123;</span><br><span class="line"><span class="actionscript">          alert(<span class="string">'失去焦点'</span>)</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">      el: <span class="string">'#app'</span>,</span></span><br><span class="line">      components: &#123;</span><br><span class="line"><span class="actionscript">        <span class="string">'app-navbar'</span>:AppNavbar</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>浏览器访问index.html</p>
+<ul>
+<li><p>如果控制台报如下错误，则 说明 页面引用组件时组件名写错了</p>
+<p><a href="https://gitee.com/qkget233/images/raw/master/vue/U@s3lH3ZM9tN.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/vue/U@s3lH3ZM9tN.png" alt="https://gitee.com/qkget233/images/raw/master/vue/U@s3lH3ZM9tN.png"></a></p>
+</li>
+</ul>
+</li>
+<li><p><mark>抽取定义的 AppNavbar 对象到 AppNavbar.js中</mark></p>
+<ul>
+<li>把<code>const AppNavbar={....}</code>部分剪切进<code>AppNavbar.js</code>文件中，<mark>AppNavbar对象添加到window域</mark></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">//粘贴到这里</span></span><br><span class="line">	<span class="built_in">window</span>.AppNavbar = &#123;</span><br><span class="line">		<span class="comment">//</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>将template提取出来</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">; (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> template= <span class="string">`&lt;nav class="navbar navbar-inverse navbar-fixed-top"&gt;</span></span><br><span class="line"><span class="string">        &lt;div class="container-fluid"&gt;</span></span><br><span class="line"><span class="string">          &lt;div class="navbar-header"&gt;</span></span><br><span class="line"><span class="string">            &lt;button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"</span></span><br><span class="line"><span class="string">              aria-expanded="false" aria-controls="navbar"&gt;</span></span><br><span class="line"><span class="string">              &lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;</span></span><br><span class="line"><span class="string">              &lt;span class="icon-bar"&gt;&lt;/span&gt;</span></span><br><span class="line"><span class="string">              &lt;span class="icon-bar"&gt;&lt;/span&gt;</span></span><br><span class="line"><span class="string">              &lt;span class="icon-bar"&gt;&lt;/span&gt;</span></span><br><span class="line"><span class="string">            &lt;/button&gt;</span></span><br><span class="line"><span class="string">            &lt;a class="navbar-brand" href="#"&gt;&#123;&#123;projectName&#125;&#125;&lt;/a&gt;</span></span><br><span class="line"><span class="string">          &lt;/div&gt;</span></span><br><span class="line"><span class="string">          &lt;div id="navbar" class="navbar-collapse collapse"&gt;</span></span><br><span class="line"><span class="string">            &lt;ul class="nav navbar-nav navbar-right"&gt;</span></span><br><span class="line"><span class="string">              &lt;li&gt;&lt;a href="#"&gt;Dashboard&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">              &lt;li&gt;&lt;a href="#"&gt;Settings&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">              &lt;li&gt;&lt;a href="#"&gt;Profile&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">              &lt;li&gt;&lt;a href="#"&gt;Help&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;/ul&gt;</span></span><br><span class="line"><span class="string">            &lt;form class="navbar-form navbar-right"&gt;</span></span><br><span class="line"><span class="string">              &lt;input type="text" class="form-control" placeholder="Search..." @blur="search"&gt;</span></span><br><span class="line"><span class="string">            &lt;/form&gt;</span></span><br><span class="line"><span class="string">          &lt;/div&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string">      &lt;/nav&gt;`</span></span><br><span class="line">    <span class="built_in">window</span>.AppNavbar = &#123;</span><br><span class="line">        template,</span><br><span class="line">        data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">                projectName: <span class="string">'vue组件演示'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            search() &#123;</span><br><span class="line">                alert(<span class="string">'失去焦点'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>在index.html中引入<code>AppNavbar.js</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--头部导航区域--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">app-navbar</span>&gt;</span><span class="tag">&lt;/<span class="name">app-navbar</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../node_modules/vue/dist/vue.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/AppNavbar.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> //注意要在 vue.js 下面引入</span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="actionscript">    <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">      el: <span class="string">'#app'</span>,</span></span><br><span class="line">      components: &#123;</span><br><span class="line"><span class="actionscript">        AppNavbar  <span class="comment">// 等价于 AppNavbar: AppNavbar</span></span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>效果</p>
+<p><a href="https://gitee.com/qkget233/images/raw/master/vue/ZY^QcZK!L3xw.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/vue/ZY%5EQcZK!L3xw.png" alt="https://gitee.com/qkget233/images/raw/master/vue/ZY^QcZK!L3xw.png"></a></p>
+</li>
+<li><p>如果报错解决方式</p>
+<ul>
+<li><p>在index.html 中要引入 AppNavbar.js</p>
+</li>
+<li><p>AppNavbar.js 要将AppNavbar放到window域中</p>
+<p><a href="https://gitee.com/qkget233/images/raw/master/vue/JhL0^nNiQCcJ.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/vue/JhL0%5EnNiQCcJ.png" alt="https://gitee.com/qkget233/images/raw/master/vue/JhL0^nNiQCcJ.png"></a></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="左侧导航组件注册"><a href="#左侧导航组件注册" class="headerlink" title="左侧导航组件注册"></a>左侧导航组件注册</h3><ol>
+<li><p>在AppLeaf.js 文件中定义 AppLeaf 组件对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> template=<span class="string">`&lt;div class="col-sm-3 col-md-2 sidebar"&gt;</span></span><br><span class="line"><span class="string">    &lt;ul class="nav nav-sidebar"&gt;</span></span><br><span class="line"><span class="string">      &lt;li class="active"&gt;&lt;a href="#"&gt;&#123;&#123;message&#125;&#125; &lt;span class="sr-only"&gt;(current)&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">      &lt;li&gt;&lt;a href="#"&gt;Reports&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">      &lt;li&gt;&lt;a href="#"&gt;Analytics&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">      &lt;li&gt;&lt;a href="#"&gt;Export&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">    &lt;/ul&gt;</span></span><br><span class="line"><span class="string">    &lt;ul class="nav nav-sidebar"&gt;</span></span><br><span class="line"><span class="string">      &lt;li&gt;&lt;a href=""&gt;Nav item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">      &lt;li&gt;&lt;a href=""&gt;Nav item again&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">      &lt;li&gt;&lt;a href=""&gt;One more nav&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">      &lt;li&gt;&lt;a href=""&gt;Another nav item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">      &lt;li&gt;&lt;a href=""&gt;More navigation&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">    &lt;/ul&gt;</span></span><br><span class="line"><span class="string">    &lt;ul class="nav nav-sidebar"&gt;</span></span><br><span class="line"><span class="string">      &lt;li&gt;&lt;a href=""&gt;Nav item again&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">      &lt;li&gt;&lt;a href=""&gt;One more nav&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">      &lt;li&gt;&lt;a href=""&gt;Another nav item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">    &lt;/ul&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;`</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.AppLeaf=&#123;</span><br><span class="line">        template,</span><br><span class="line">        data:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span>&#123;</span><br><span class="line">                message: <span class="string">'学员管理'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 index.html 中引入 AppLeaf.js , Vue实例中添加 AppLeaf 组件, 主页面通过<code>&lt;app-leaf&gt;</code>  组件渲染</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--头部导航区域--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">app-navbar</span>&gt;</span><span class="tag">&lt;/<span class="name">app-navbar</span>&gt;</span> </span><br><span class="line">      </span><br><span class="line">    <span class="comment">&lt;!--核心区域:分左右两边--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--左边菜单栏区域--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">app-leaf</span>&gt;</span><span class="tag">&lt;/<span class="name">app-leaf</span>&gt;</span></span><br><span class="line">          </span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../node_modules/vue/dist/vue.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/AppNavbar.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> //注意要在 vue.js 下面引入</span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/AppLeaf.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="actionscript">    <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">      el: <span class="string">'#app'</span>,</span></span><br><span class="line">      components: &#123;</span><br><span class="line"><span class="actionscript">        AppNavbar,  <span class="comment">// 等价于 AppNavbar: AppNavbar</span></span></span><br><span class="line">        AppLeaf</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="右侧主页面组件注册"><a href="#右侧主页面组件注册" class="headerlink" title="右侧主页面组件注册"></a>右侧主页面组件注册</h3><h4 id="主页面组件化"><a href="#主页面组件化" class="headerlink" title="主页面组件化"></a>主页面组件化</h4><ol>
+<li><p>在 home\AppHome.js 中定义 AppHome 组件对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> template=<span class="string">` &lt;div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"&gt;</span></span><br><span class="line"><span class="string">    &lt;!--右边上半区域--&gt;</span></span><br><span class="line"><span class="string">    &lt;h1 class="page-header"&gt;Dashboard&lt;/h1&gt;</span></span><br><span class="line"><span class="string">    &lt;div class="row placeholders"&gt;</span></span><br><span class="line"><span class="string">      &lt;div class="col-xs-6 col-sm-3 placeholder"&gt;</span></span><br><span class="line"><span class="string">        &lt;img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200"</span></span><br><span class="line"><span class="string">          height="200" class="img-responsive" alt="Generic placeholder thumbnail"&gt;</span></span><br><span class="line"><span class="string">        &lt;h4&gt;Label&lt;/h4&gt;</span></span><br><span class="line"><span class="string">        &lt;span class="text-muted"&gt;Something else&lt;/span&gt;</span></span><br><span class="line"><span class="string">      &lt;/div&gt;</span></span><br><span class="line"><span class="string">      &lt;div class="col-xs-6 col-sm-3 placeholder"&gt;</span></span><br><span class="line"><span class="string">        &lt;img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200"</span></span><br><span class="line"><span class="string">          height="200" class="img-responsive" alt="Generic placeholder thumbnail"&gt;</span></span><br><span class="line"><span class="string">        &lt;h4&gt;Label&lt;/h4&gt;</span></span><br><span class="line"><span class="string">        &lt;span class="text-muted"&gt;Something else&lt;/span&gt;</span></span><br><span class="line"><span class="string">      &lt;/div&gt;</span></span><br><span class="line"><span class="string">      &lt;div class="col-xs-6 col-sm-3 placeholder"&gt;</span></span><br><span class="line"><span class="string">        &lt;img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200"</span></span><br><span class="line"><span class="string">          height="200" class="img-responsive" alt="Generic placeholder thumbnail"&gt;</span></span><br><span class="line"><span class="string">        &lt;h4&gt;Label&lt;/h4&gt;</span></span><br><span class="line"><span class="string">        &lt;span class="text-muted"&gt;Something else&lt;/span&gt;</span></span><br><span class="line"><span class="string">      &lt;/div&gt;</span></span><br><span class="line"><span class="string">      &lt;div class="col-xs-6 col-sm-3 placeholder"&gt;</span></span><br><span class="line"><span class="string">        &lt;img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200"</span></span><br><span class="line"><span class="string">          height="200" class="img-responsive" alt="Generic placeholder thumbnail"&gt;</span></span><br><span class="line"><span class="string">        &lt;h4&gt;Label&lt;/h4&gt;</span></span><br><span class="line"><span class="string">        &lt;span class="text-muted"&gt;Something else&lt;/span&gt;</span></span><br><span class="line"><span class="string">      &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;!--右边下半区域--&gt;</span></span><br><span class="line"><span class="string">    &lt;h2 class="sub-header"&gt;Section title&lt;/h2&gt;</span></span><br><span class="line"><span class="string">    &lt;div class="table-responsive"&gt;</span></span><br><span class="line"><span class="string">      &lt;table class="table table-striped"&gt;</span></span><br><span class="line"><span class="string">        &lt;thead&gt;</span></span><br><span class="line"><span class="string">          &lt;tr&gt;</span></span><br><span class="line"><span class="string">            &lt;th&gt;#&lt;/th&gt;</span></span><br><span class="line"><span class="string">            &lt;th&gt;Header&lt;/th&gt;</span></span><br><span class="line"><span class="string">            &lt;th&gt;Header&lt;/th&gt;</span></span><br><span class="line"><span class="string">            &lt;th&gt;Header&lt;/th&gt;</span></span><br><span class="line"><span class="string">            &lt;th&gt;Header&lt;/th&gt;</span></span><br><span class="line"><span class="string">          &lt;/tr&gt;</span></span><br><span class="line"><span class="string">        &lt;/thead&gt;</span></span><br><span class="line"><span class="string">        &lt;tbody&gt;</span></span><br><span class="line"><span class="string">          &lt;tr&gt;</span></span><br><span class="line"><span class="string">            &lt;td&gt;1,001&lt;/td&gt;</span></span><br><span class="line"><span class="string">            &lt;td&gt;&#123;&#123;name&#125;&#125;&lt;/td&gt;</span></span><br><span class="line"><span class="string">            &lt;td&gt;ipsum&lt;/td&gt;</span></span><br><span class="line"><span class="string">            &lt;td&gt;dolor&lt;/td&gt;</span></span><br><span class="line"><span class="string">            &lt;td&gt;sit&lt;/td&gt;</span></span><br><span class="line"><span class="string">          &lt;/tr&gt; </span></span><br><span class="line"><span class="string">        &lt;/tbody&gt;</span></span><br><span class="line"><span class="string">      &lt;/table&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;`</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.AppHome=&#123;</span><br><span class="line">        template</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在index.html中引入<code>components/home/AppHome.js</code>，Vue实例添加<code>AppHome</code>组件，主页面通过<code>&lt;app-home&gt;</code>组件渲染</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--头部导航区域--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">app-navbar</span>&gt;</span><span class="tag">&lt;/<span class="name">app-navbar</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--核心区域:分左右两边--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!--左边菜单栏区域--&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">app-leaf</span>&gt;</span><span class="tag">&lt;/<span class="name">app-leaf</span>&gt;</span></span><br><span class="line">				<span class="comment">&lt;!--右边主页面区域: 分上下两个区域--&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">app-home</span>&gt;</span><span class="tag">&lt;/<span class="name">app-home</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../node_modules/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 注意要在 vue.js 下面引入 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/AppNavbar.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/AppLeaf.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/home/AppHome.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el: <span class="string">'#app'</span>,</span></span><br><span class="line">            components: &#123;</span><br><span class="line"><span class="actionscript">                AppNavbar, <span class="comment">// 等价于 AppNavbar: AppNavbar</span></span></span><br><span class="line">                AppLeaf,</span><br><span class="line">                AppHome</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h4 id="Dashboard-子组件化"><a href="#Dashboard-子组件化" class="headerlink" title="Dashboard 子组件化"></a>Dashboard 子组件化</h4><ol>
+<li>将<code>AppHome.js</code>中的右边上半区域中的<code>&lt;div&gt;</code>部分剪切到<code>home/Dashboard.js</code>组件中</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> template=<span class="string">` &lt;!--右边上半区域--&gt;    </span></span><br><span class="line"><span class="string">    &lt;div class="row placeholders"&gt;</span></span><br><span class="line"><span class="string">      &lt;div class="col-xs-6 col-sm-3 placeholder"&gt;</span></span><br><span class="line"><span class="string">        &lt;img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200"</span></span><br><span class="line"><span class="string">          height="200" class="img-responsive" alt="Generic placeholder thumbnail"&gt;</span></span><br><span class="line"><span class="string">        &lt;h4&gt;Label&lt;/h4&gt;</span></span><br><span class="line"><span class="string">        &lt;span class="text-muted"&gt;Something else&lt;/span&gt;</span></span><br><span class="line"><span class="string">      &lt;/div&gt;</span></span><br><span class="line"><span class="string">      &lt;div class="col-xs-6 col-sm-3 placeholder"&gt;</span></span><br><span class="line"><span class="string">        &lt;img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200"</span></span><br><span class="line"><span class="string">          height="200" class="img-responsive" alt="Generic placeholder thumbnail"&gt;</span></span><br><span class="line"><span class="string">        &lt;h4&gt;Label&lt;/h4&gt;</span></span><br><span class="line"><span class="string">        &lt;span class="text-muted"&gt;Something else&lt;/span&gt;</span></span><br><span class="line"><span class="string">      &lt;/div&gt;</span></span><br><span class="line"><span class="string">      &lt;div class="col-xs-6 col-sm-3 placeholder"&gt;</span></span><br><span class="line"><span class="string">        &lt;img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200"</span></span><br><span class="line"><span class="string">          height="200" class="img-responsive" alt="Generic placeholder thumbnail"&gt;</span></span><br><span class="line"><span class="string">        &lt;h4&gt;Label&lt;/h4&gt;</span></span><br><span class="line"><span class="string">        &lt;span class="text-muted"&gt;Something else&lt;/span&gt;</span></span><br><span class="line"><span class="string">      &lt;/div&gt;</span></span><br><span class="line"><span class="string">      &lt;div class="col-xs-6 col-sm-3 placeholder"&gt;</span></span><br><span class="line"><span class="string">        &lt;img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200"</span></span><br><span class="line"><span class="string">          height="200" class="img-responsive" alt="Generic placeholder thumbnail"&gt;</span></span><br><span class="line"><span class="string">        &lt;h4&gt;Label&lt;/h4&gt;</span></span><br><span class="line"><span class="string">        &lt;span class="text-muted"&gt;Something else&lt;/span&gt;</span></span><br><span class="line"><span class="string">      &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;`</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.Dashboard=&#123;</span><br><span class="line">        template</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在 AppHome.js 中引入 <code>Dashboard</code>组件作为 <code>AppHome</code> 的子组件<ul>
+<li>在 AppHome 对象的 components 选项中注册 Dashboard 组件</li>
+<li>在 AppHome 对象的 template 模板中引入组件 <code>&lt;dashboard&gt;</code></li>
+</ul>
+</li>
+<li>在index.html 中引入<code>Dashboard.js</code> <mark>注意：Dashboard.js要在 AppHome.js前面引入</mark></li>
+</ol>
+<h4 id="查询列表-子组件化"><a href="#查询列表-子组件化" class="headerlink" title="查询列表 子组件化"></a>查询列表 子组件化</h4><p>与上一部分做法相同将右边下半区域中的<code>&lt;div&gt;</code>部分剪切到<code>HomeList.js</code>中，并在<code>AppHome.js</code>和<code>index.html</code>中引入</p>
+<h3 id="极致组件化"><a href="#极致组件化" class="headerlink" title="极致组件化"></a>极致组件化</h3><p><a href="https://gitee.com/qkget233/images/raw/master/vue/s0RWEbOthqEH.png" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/vue/s0RWEbOthqEH.png" alt="https://gitee.com/qkget233/images/raw/master/vue/s0RWEbOthqEH.png"></a></p>
+<h4 id="根组件提取-App-js"><a href="#根组件提取-App-js" class="headerlink" title="根组件提取 App.js"></a>根组件提取 App.js</h4><ul>
+<li>将<code>index.html</code>中<code>&lt;div id=&quot;app&quot;&gt;</code>标签体中的代码提取出来，变成一个根组件存入<code>App.js</code>中，</li>
+</ul>
+<p>提取的内容如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--头部导航区域--&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">app-navbar</span>&gt;</span><span class="tag">&lt;/<span class="name">app-navbar</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--核心区域:分左右两边--&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!--左边菜单栏区域--&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">app-leaf</span>&gt;</span><span class="tag">&lt;/<span class="name">app-leaf</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!--右边主页面区域: 分上下两个区域--&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">app-home</span>&gt;</span><span class="tag">&lt;/<span class="name">app-home</span>&gt;</span></span><br><span class="line">       </span><br><span class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>在 03-bootstrap 目录下创建<code>App.js</code>文件</p>
+</li>
+<li><p>将<code>&lt;div id=&quot;app&quot;&gt;</code>标签体中的代码剪切到<code>App.js</code>文件中作为模板页面</p>
+<p><mark>注意：templa模板中必须要的根元素，所以要在提取的内容外层加上<code>&lt;div&gt;&lt;/div&gt;</code>，一定不要少了，不然报以下错误：</mark></p>
+<p><a href="https://gitee.com/qkget233/images/raw/master/vue/e16Ngk" target="_blank" rel="noopener"><img src="https://gitee.com/qkget233/images/raw/master/vue/e16Ngk" alt="https://gitee.com/qkget233/images/raw/master/vue/e16Ngk"></a></p>
+</li>
+</ul>
+<h4 id="剪切组件对象"><a href="#剪切组件对象" class="headerlink" title="剪切组件对象"></a>剪切组件对象</h4><ul>
+<li>当前 App.js 的 template 中引用了 AppNavbar 、 AppLeaf 和 AppHome 组件，所以我们要将 index.html 中的 components 选项中的组件对象剪切到 App 组件对象中。</li>
+</ul>
+<p>App.js 代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">; (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> template = <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div&gt;</span></span><br><span class="line"><span class="string">       &lt;!--头部导航区域--&gt;</span></span><br><span class="line"><span class="string">       &lt;app-navbar&gt;&lt;/app-navbar&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">       &lt;!--核心区域:分左右两边--&gt;</span></span><br><span class="line"><span class="string">       &lt;div class="container-fluid"&gt;</span></span><br><span class="line"><span class="string">           &lt;div class="row"&gt;</span></span><br><span class="line"><span class="string">               &lt;!--左边菜单栏区域--&gt;</span></span><br><span class="line"><span class="string">               &lt;app-leaf&gt;&lt;/app-leaf&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">               &lt;!--右边主页面区域: 分上下两个区域--&gt;</span></span><br><span class="line"><span class="string">               &lt;app-home&gt;&lt;/app-home&gt;</span></span><br><span class="line"><span class="string">            &lt;/div&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;`</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">window</span>.App = &#123;</span><br><span class="line">        template,</span><br><span class="line">        components:&#123;</span><br><span class="line">            AppNavbar,</span><br><span class="line">            AppLeaf,</span><br><span class="line">            AppHome</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<h4 id="index-html引入App-js"><a href="#index-html引入App-js" class="headerlink" title="index.html引入App.js"></a>index.html引入App.js</h4><ol>
+<li><p>在<code>index.html</code>中引入<code>App.js</code>文件，并在Vue实例中<code>components</code>选项中引入<code>App</code>组件，然后再<code>&lt;div id=&quot;app&quot;&gt;</code>下引用<code>&lt;app&gt;</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span>   </span><br><span class="line">    <span class="tag">&lt;<span class="name">app</span>&gt;</span><span class="tag">&lt;/<span class="name">app</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../node_modules/vue/dist/vue.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/AppNavbar.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/AppLeaf.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 注意：Dashboard.js 和 HomeList.js 要在 Home.js 前面引入 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/home/Dashboard.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/home/HomeList.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/home/AppHome.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"App.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">      el: <span class="string">'#app'</span>,</span></span><br><span class="line">      components: &#123;</span><br><span class="line">        App        </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>&lt;div id=&quot;app&quot;&gt;</code>下通过<code>&lt;app&gt;</code>引用App组件不是很好，因为页面代码中会多出一个div。</p>
+<p>更好的方式是，在<code>&lt;div id=&quot;app&quot;&gt;</code>下无须使用<code>&lt;app&gt;</code>引用App组件，</p>
+<p>可以通过Vue 根实例的<code>template</code>  选项引用组件<code>&lt;app&gt;&lt;/app&gt;</code>后，然后会把<code>template</code>中的渲染结果替换掉<code>#app</code>标签。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../node_modules/vue/dist/vue.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/AppNavbar.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/AppLeaf.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/home/Dashboard.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/home/HomeList.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"components/home/AppHome.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"App.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">      el: <span class="string">'#app'</span>,</span></span><br><span class="line"><span class="actionscript">      template: <span class="string">'&lt;app&gt;&lt;/app&gt;'</span>, <span class="comment">//Vue根实例中有template选项引用了组件后，然后会把template中的渲染结果替换掉 #app 标识的元素。</span></span></span><br><span class="line">      components: &#123;</span><br><span class="line">        App        </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当前<code>index.html</code>文件中还有JS代码，可以将这些JS代码提取出来放到<code>main.js</code>中</p>
+<ul>
+<li>在 03-bootstrap 目录下创建一个<code>main.js</code>文件</li>
+<li>剪切Vue实例化代码到<code>main.js</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    template: <span class="string">'&lt;app&gt;&lt;/app&gt;'</span>, <span class="comment">//Vue根实例中有template选项引用了组件后，然后会把template中的渲染结果替换掉 #app 标识的元素。</span></span><br><span class="line">    components: &#123;</span><br><span class="line">      App        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>引入<code>main.js</code></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"main.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h2 id="组件化注意事项"><a href="#组件化注意事项" class="headerlink" title="组件化注意事项*"></a>组件化注意事项*</h2><ul>
+<li>组件可以理解为特殊的Vue实例，不需要手动实例化，管理自己的<code>template</code>模板</li>
+<li>组件的 template 必须有且只有一个根节点</li>
+<li>组件的 data 选项必须是函数，且函数体返回一个对象</li>
+<li>组件与组件之间是相互独立的，可以配置自己的一些选项资源 data、methods、computed 等等</li>
+<li>思想：组件自己管理自己，不影响别人</li>
+</ul>
+<p>​        </p>
+<p>​        </p>
+<p>​        </p>
+
+    </div>
+
+    
+    
+    
+    <div>
+     
+       <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+     
+    </div>
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="大王叫我来巡山 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="大王叫我来巡山 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>大王叫我来巡山
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://https//qkgit.github.io/2020/11/11/Vue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%AE%9E%E6%88%98/" title="Vue组件化实战">http://https//qkgit.github.io/2020/11/11/Vue组件化实战/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>ZERO</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/11/Vue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/" rel="prev" title="Vue组件化开发">
+      <i class="fa fa-chevron-left"></i> Vue组件化开发
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bootstrap-首页组件化"><span class="nav-number">1.</span> <span class="nav-text">Bootstrap 首页组件化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析首页"><span class="nav-number">1.1.</span> <span class="nav-text">分析首页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头部导航组件注册"><span class="nav-number">1.2.</span> <span class="nav-text">头部导航组件注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#左侧导航组件注册"><span class="nav-number">1.3.</span> <span class="nav-text">左侧导航组件注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#右侧主页面组件注册"><span class="nav-number">1.4.</span> <span class="nav-text">右侧主页面组件注册</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主页面组件化"><span class="nav-number">1.4.1.</span> <span class="nav-text">主页面组件化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dashboard-子组件化"><span class="nav-number">1.4.2.</span> <span class="nav-text">Dashboard 子组件化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询列表-子组件化"><span class="nav-number">1.4.3.</span> <span class="nav-text">查询列表 子组件化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#极致组件化"><span class="nav-number">1.5.</span> <span class="nav-text">极致组件化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#根组件提取-App-js"><span class="nav-number">1.5.1.</span> <span class="nav-text">根组件提取 App.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#剪切组件对象"><span class="nav-number">1.5.2.</span> <span class="nav-text">剪切组件对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#index-html引入App-js"><span class="nav-number">1.5.3.</span> <span class="nav-text">index.html引入App.js</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件化注意事项"><span class="nav-number">2.</span> <span class="nav-text">组件化注意事项*</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="大王叫我来巡山"
+      src="/images/author.png">
+  <p class="site-author-name" itemprop="name">大王叫我来巡山</p>
+  <div class="site-description" itemprop="description">人生当苦无妨，良人当归即好。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qkgit" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qkgit" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1584546760@qq.com" title="E-Mail → mailto:1584546760@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/6355308390" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;6355308390" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=1584546760&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;1584546760&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://yoursite.com/" title="http:&#x2F;&#x2F;yoursite.com" rel="noopener" target="_blank">暂无</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大王叫我来巡山</span>
+    
+    <!--  站点总字数：-->
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+     
+    <span title="站点总字数">210k字</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">3:11</span>
+</div>
+
+<!--
+-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='255,0,0' opacity='1' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'N2cbVqYWHSNSJHt9wnhDAhUM-gzGzoHsz',
+      appKey     : 'LSEYd4SR4l5cVSEyf43cmPYV',
+      placeholder: "留言是种美德，写点什么...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+ 
+<!-- 页面点击特效 -->
+<script type="text/javascript" src="/js/src/cursor.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
+
+
+
+
+
